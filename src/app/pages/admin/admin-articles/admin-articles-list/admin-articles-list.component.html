@@ -1,0 +1,36 @@
+
+<div class="container">
+   
+    <div class="main">
+        <h2>This is Articles</h2>
+        <div class="right">
+          <a class="btn btn-primary" routerLink="add"> Add </a>
+        </div>
+        <table>
+          <tr>
+            <th>Article Title</th>
+            <th>Article Desc</th>
+            <th>Date Created</th>
+            <th> </th>
+          </tr>
+          <tr
+          *ngFor = "let article of articles">
+         <td>
+          {{article.title}}
+         </td>
+         <td>
+          {{article.desc}}
+        </td>
+         <td>
+           {{article.content}}
+         </td>
+         <td>
+          <a class="btn btn-primary" [routerLink]="['edit', article.id]">Edit</a>
+          <button class="btn btn-danger" (click) = "deleteClick(article)">Delete</button>
+         </td>
+          </tr>
+          
+        </table>
+    </div>
+         
+  </div>

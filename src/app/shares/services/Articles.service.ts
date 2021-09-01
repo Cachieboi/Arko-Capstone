@@ -1,0 +1,55 @@
+import { EventEmitter } from "@angular/core";
+import { Article } from "../models/Articles.model"
+import {CookieService} from 'ngx-cookie-service';
+import { HttpClient, HttpHeaders} from '@angular/common/http';
+import { Injectable } from '@angular/core';
+import { BehaviorSubject, Observable } from 'rxjs';
+import { article } from 'src/app/shares/models/articleint.model';
+
+
+@Injectable({
+  providedIn: 'root'
+  })
+
+export class ArticleService{
+  accountlist = new EventEmitter<Article[]>();
+  constructor(private http:HttpClient,
+    private cookieService: CookieService){
+
+    }
+    APIUrl = "http://127.0.0.1:8000/";
+    token = this.cookieService.get('mr-token');
+    headers = new HttpHeaders({
+    'Content-Type': 'application/json',
+    Authorization: "Token" + this.token
+    });
+
+    getAuthHeaders(){
+      const token = this.cookieService.get('mr-token');
+      return new HttpHeaders({
+        'Content-Type': 'application/json',
+        Authorization: `Token ${token}`
+      });
+    }
+
+    GET_articles(): Observable<any[]> {
+      return this.http.get<any[]>(this.APIUrl + 'backend/Articles/', {headers: this.getAuthHeaders()});
+    }
+
+    registerArticle(val: any){
+      return this.http.post(this.APIUrl + 'backend/Articles/',val, {headers: this.getAuthHeaders()});
+    }
+
+    GET_article(id:Number){
+      return this.http.get<article>(this.APIUrl + 'backend/Articles/' + id);
+    }
+
+    EDIT_article(val:any){
+      return this.http.put(this.APIUrl + 'backend/Articles/',val);
+    }
+
+    DELETE_article(val:any){
+      return this.http.delete(this.APIUrl + 'backend/Articles/'+val);
+    }
+
+}

@@ -1,0 +1,48 @@
+
+<div class="container">
+    <div class="main">
+      <h3>Add Merchandise</h3>
+      <form (ngSubmit)="addMerch(f)" #f="ngForm">
+      <div class="form-group">
+      <label>Merch Name</label>
+       <input 
+       type = "text"
+       id="mname"
+       class="form-control"
+       ngModel
+       name="mname"
+       required>
+      </div>
+      <div>
+       <label>Price</label>
+       <input 
+       type = "number"
+       id="price"
+       class="form-control"
+       ngModel
+       name="price"
+       required>
+      </div>
+      <div>
+       <label>Description</label>
+       <input 
+       type = "text"
+       id="desc"
+       class="form-control"
+       ngModel
+       name="desc"
+       required
+       >
+
+      </div>
+      <div>
+        <button type="submit" class = "btn btn-primary">Submit</button>
+      </div>
+    </form>
+
+    </div>
+
+
+    </div>
+         
+  

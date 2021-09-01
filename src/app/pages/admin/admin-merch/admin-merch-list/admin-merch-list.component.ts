@@ -1,0 +1,22 @@
+import { Component, OnInit } from '@angular/core';
+import { Merch } from '../../../../shares/models/Merch.model'
+import { MerchService } from 'src/app/shares/services/Merch.service';
+
+
+@Component({
+  selector: 'app-admin-merch-list',
+  templateUrl: './admin-merch-list.component.html',
+  styleUrls: ['./admin-merch-list.component.css']
+})
+export class AdminMerchListComponent implements OnInit {
+
+  constructor(private Mservice: MerchService) { }
+
+  merchs: Merch[] = [];
+
+  ngOnInit(): void {
+    this.merchs = this.Mservice.getMerch();
+
+  }
+
+}

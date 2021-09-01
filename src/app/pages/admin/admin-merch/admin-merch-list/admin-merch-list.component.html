@@ -1,0 +1,36 @@
+
+<div class="container">
+   
+    <div class="main">
+        <h2>This is Merchandise</h2>
+        <div class="right">
+          <a  routerLink = "add" class="btn btn-primary"> Add </a>
+        </div>
+        <table>
+          <tr>
+            <th>Merch Name</th>
+            <th>Price</th>
+            <th>Link</th>
+            <th> </th>
+          </tr>
+          <tr
+          *ngFor = "let merch of merchs">
+         <td>
+          {{merch.mname}}
+         </td>
+         <td>
+          {{merch.price}}
+        </td>
+         <td>
+           {{merch.link}}
+         </td>
+         <td>
+          <a class="btn btn-primary" routerLink="edit/id:">Edit</a>
+          <button class="btn btn-danger" >Delete</button>
+         </td>
+          </tr>
+          
+        </table>
+    </div>
+         
+  </div>

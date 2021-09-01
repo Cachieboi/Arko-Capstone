@@ -1,0 +1,31 @@
+<form (ngSubmit)="userLoginz(f)" #f="ngForm">
+<div>
+	<label>Email</label>
+	<input 
+	type = "email"
+	id="name"
+	class="form-control"
+	ngModel
+	name="email"
+	required
+	email
+	#email = "ngModel"
+	>
+	<span class ="help-block" *ngIf="!email.valid && email.touched" >Pls Enter a Valid UST Email Address</span>
+</div>
+<div>
+<label>Password</label>
+       <input 
+       type = "password"
+       id="password"
+       class="form-control"
+       ngModel
+       name="password"
+       required>
+    </div><div>
+        <button class="btn btn-primary" 
+		type="submit"
+		[disabled] = "!f.valid">Login</button>
+      </div>
+</form>
+<a href="http://localhost:8000/Accounts/forget-password/">Forgot Password</a>

@@ -1,0 +1,26 @@
+
+<div class="container">
+    <div class="main">
+      <h3>Edit Account</h3>
+        <div>
+          <label>Last Name</label>
+          <input 
+          type = "text"
+          id = "lastname"
+          class="lastname"
+          [(ngModel)] = "lastname">
+        </div>
+        <div>
+          <label>Email</label>
+          <input 
+          type = "text"
+          id = "email"
+          class="email"
+          [(ngModel)] = "email">
+        </div>
+        
+        <button class="submit"(click)="editAccounts()">Submit</button>
+    </div>
+    </div>
+         
+  

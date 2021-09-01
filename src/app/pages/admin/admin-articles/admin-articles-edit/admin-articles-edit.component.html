@@ -1,0 +1,33 @@
+
+<div class="container">
+    <div class="main">
+      <h3>Edit Article</h3>
+        <div>
+          <label>Article Title</label>
+          <input 
+          type = "text"
+          id = "title"
+          class="title"
+          [(ngModel)] = "title">
+        </div>
+        <div>
+          <label>Article Description</label>
+          <input 
+          type = "text"
+          id = "desc"
+          class="desc"
+          [(ngModel)] = "desc">
+        </div>
+        <div>
+            <label>Article Content</label>
+            <input 
+            type = "text"
+            id = "content"
+            class="content"
+            [(ngModel)] = "content">
+          </div>  
+        <button class="submit"(click)="editArticle()">Submit</button>
+    </div>
+    </div>
+         
+  

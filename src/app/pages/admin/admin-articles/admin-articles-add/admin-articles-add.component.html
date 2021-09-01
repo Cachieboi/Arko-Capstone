@@ -1,0 +1,48 @@
+
+<div class="container">
+    <div class="main">
+      <h3>Add Articles</h3>
+      <form (ngSubmit)="addArticle(f)" #f="ngForm">
+      <div class="form-group">
+      <label>Article Title</label>
+       <input 
+       type = "text"
+       id="title"
+       class="form-control"
+       ngModel
+       name="title"
+       required>
+      </div>
+      <div>
+       <label>Article Description</label>
+       <input 
+       type = "text"
+       id="desc"
+       class="form-control"
+       ngModel
+       name="desc"
+       required>
+      </div>
+      <div>
+       <label>Content</label>
+       <input 
+       type = "text"
+       id="content"
+       class="form-control"
+       ngModel
+       name="content"
+       required
+       >
+
+      </div>
+      <div>
+        <button type="submit" class = "btn btn-primary">Submit</button>
+      </div>
+    </form>
+
+    </div>
+
+
+    </div>
+         
+  
