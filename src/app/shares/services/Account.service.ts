@@ -23,7 +23,8 @@ export class AccountService{
     private cookieService: CookieService){
 
 }
-  APIUrl = "http://127.0.0.1:8000/";
+  APIUrl = 'https://arko-ust.herokuapp.com/';
+  readonly PhotoUrl = 'https://arko-ust.herokuapp.com/media/';
   token = this.cookieService.get('mr-token');
   headers = new HttpHeaders({
   'Content-Type': 'application/json',
@@ -63,6 +64,10 @@ export class AccountService{
 
   DELETE_accounts(val:any){
     return this.http.delete(this.APIUrl + 'Accounts/users/'+val);
+  }
+
+  UploadPhoto_Account(val:any){
+    return this.http.post(this.APIUrl+'Accounts/SaveFile', val);
   }
 }
 

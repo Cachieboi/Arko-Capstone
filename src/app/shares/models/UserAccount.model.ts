@@ -1,3 +1,3 @@
 export class Useraccount{
-    constructor(public id: number,public lastname: String, public email: String, public password: String){}
+    constructor(public id: number,public lastname: String, public email: String, public password: String, public PhotoFileName: String){}
 }

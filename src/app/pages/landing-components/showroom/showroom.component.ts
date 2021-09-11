@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ModalDismissReasons, NgbModal } from '@ng-bootstrap/ng-bootstrap';
 
 @Component({
   selector: 'app-showroom',
@@ -7,9 +8,13 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ShowroomComponent implements OnInit {
 
-  constructor() { }
+  constructor(private modal: NgbModal) { }
 
   ngOnInit(): void {
   }
+ 
+
+ 
+
 
 }

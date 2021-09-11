@@ -14,7 +14,9 @@ export class AdminAccountsAddComponent implements OnInit {
 
   constructor(private Aservice: AccountService, private router: Router) { }
 
-  
+  lastname: any;
+  PhotoFilePath: String;
+  PhotoFileName: String;
 
   ngOnInit(): void {
   }
@@ -23,7 +25,8 @@ export class AdminAccountsAddComponent implements OnInit {
     if(confirm("Are you Sure you want to Add this Account?")){
     const value = form.value;
     const pass = value.password = "123"
-    const newAccount = new Useraccount(value.id, value.lastname, value.email, pass);
+    const PhotoFileName = this.PhotoFileName
+    const newAccount = new Useraccount(value.id, value.lastname, value.email, pass, PhotoFileName );
     this.Aservice.registerUser(newAccount).subscribe(
       data => {
         console.log(data);
@@ -37,6 +40,17 @@ export class AdminAccountsAddComponent implements OnInit {
       );
     }
     
+  }
+
+  uploadPhoto(event){
+    var file=event.target.files[0];
+    const formData:FormData=new FormData();
+    formData.append('uploadedFile',file,file.name);
+
+    this.Aservice.UploadPhoto_Account(formData).subscribe((data:any)=>{
+      this.PhotoFileName=data.toString();
+      this.PhotoFilePath=this.Aservice.PhotoUrl+this.PhotoFileName;
+    })
   }
   
 

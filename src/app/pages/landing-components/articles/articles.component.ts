@@ -1,6 +1,10 @@
 import { i18nMetaToJSDoc } from '@angular/compiler/src/render3/view/i18n/meta';
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
+import { article } from '../../../shares/models/articleint.model';
+import { ArticleService } from 'src/app/shares/services/Articles.service';
+
+
 
 @Component({
   selector: 'app-articles',
@@ -9,13 +13,27 @@ import { ActivatedRoute, Router } from '@angular/router';
 })
 export class ArticlesComponent implements OnInit {
 
-  constructor(private router: Router, private route:ActivatedRoute) { }
+  constructor(private router: Router, private route:ActivatedRoute, private Arservice: ArticleService) { }
+
+  articles: article[] = [];
+  PhotoFilePath: String;
+  PhotoFileName: String;
+  imageURL = this.Arservice.PhotoUrl
+
 
   ngOnInit(): void {
+    this.showArticles();
   }
 
   onMoreArticles(){
     this.router.navigate(['more']);
+  }
+
+  showArticles(){
+    this.Arservice.GET_articles().subscribe(data=>{
+      this.articles=data;
+      console.log(data);
+    });
   }
 
 }

@@ -10,20 +10,17 @@
           <tr>
             <th>Article Title</th>
             <th>Article Desc</th>
-            <th>Date Created</th>
-            <th> </th>
+         
           </tr>
           <tr
-          *ngFor = "let article of articles">
+          *ngFor = "let article of articles.reverse()">
          <td>
           {{article.title}}
          </td>
          <td>
           {{article.desc}}
         </td>
-         <td>
-           {{article.content}}
-         </td>
+         
          <td>
           <a class="btn btn-primary" [routerLink]="['edit', article.id]">Edit</a>
           <button class="btn btn-danger" (click) = "deleteClick(article)">Delete</button>

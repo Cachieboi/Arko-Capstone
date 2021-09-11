@@ -12,13 +12,14 @@ import { article } from 'src/app/shares/models/articleint.model';
   })
 
 export class ArticleService{
-  accountlist = new EventEmitter<Article[]>();
   constructor(private http:HttpClient,
     private cookieService: CookieService){
 
     }
-    APIUrl = "http://127.0.0.1:8000/";
+    APIUrl = 'https://arko-ust.herokuapp.com/';
+    readonly PhotoUrl = 'https://arko-ust.herokuapp.com/media/';
     token = this.cookieService.get('mr-token');
+    
     headers = new HttpHeaders({
     'Content-Type': 'application/json',
     Authorization: "Token" + this.token
@@ -50,6 +51,10 @@ export class ArticleService{
 
     DELETE_article(val:any){
       return this.http.delete(this.APIUrl + 'backend/Articles/'+val);
+    }
+
+    UploadPhoto_Article(val:any){
+      return this.http.post(this.APIUrl+'Articles/SaveFile', val);
     }
 
 }

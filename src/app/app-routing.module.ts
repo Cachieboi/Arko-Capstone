@@ -33,6 +33,8 @@ import { AdminShowroomAddComponent } from "./pages/admin/admin-showroom/admin-sh
 import { AdminShowroomEditComponent } from "./pages/admin/admin-showroom/admin-showroom-edit/admin-showroom-edit.component";
 import { RouteGuardGuard } from "./shares/Guards/route-guard.guard";
 import { AdminProfileComponent } from "./pages/admin/admin-profile/admin-profile.component";
+import { ArticleComponent } from "./pages/article/article.component";
+import { MerchappComponent } from "./pages/merchapp/merchapp.component";
 const appRoutes: Routes = [
     { path: '', 
     component: LandingComponentsComponent},
@@ -42,6 +44,7 @@ const appRoutes: Routes = [
   
     { path: 'dashboard', 
     component: AdminComponent, children:[
+      
       {
       path: 'account',
       component: AdminAccountsComponent, 
@@ -112,7 +115,7 @@ const appRoutes: Routes = [
         },
 
         {
-          path: 'edit/id:',
+          path: 'edit/:id',
           component: AdminMerchEditComponent
         }
       ]
@@ -127,7 +130,7 @@ const appRoutes: Routes = [
     },
 
     {
-      path: '',
+      path:'userprofile',
       component: AdminProfileComponent
     }
     
@@ -145,11 +148,19 @@ const appRoutes: Routes = [
     { path: 'Application-Form', 
       component: ApplicationComponent},
 
-    { path: 'More', 
+    { path: 'more', 
       component: ArticlePageComponent},
     
     { path: 'forgot', 
-      component: ForgotpassComponent}
+      component: ForgotpassComponent},
+    {
+      path: 'article/:id/:title',
+      component: ArticleComponent
+    },
+    {
+      path: 'order/:id',
+      component: MerchappComponent
+    }
   ];
 
 @NgModule({

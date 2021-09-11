@@ -21,6 +21,8 @@ export class AdminAccountsEditComponent implements OnInit {
   lastname: String; 
   email: String;
   password: String;
+  PhotoFilePath: String;
+  PhotoFileName: String;
   constructor(private Aservice: AccountService, private router: ActivatedRoute, private route: Router) { }
 
   ngOnInit(): void {
@@ -28,13 +30,20 @@ export class AdminAccountsEditComponent implements OnInit {
     this.Aservice.GET_account(this.id).subscribe((data)=>{
       this.lastname = data.lastname;
       this.email = data.email;
+      this.PhotoFileName = this.Aservice.PhotoUrl+data.PhotoFileName;
+
       console.log(data);
     });
     
   }
   editAccounts(){
+    if(this.PhotoFileName !== null && this.photoUpload == false){
     var val = {
-      id:this.id, lastname: this.lastname, email: this.email};
+      id:this.id, lastname: this.lastname, email: this.email, PhotoFileName: this.PhotoFileName};
+    }else{
+      var val = {
+        id:this.id, lastname: this.lastname, email: this.email, PhotoFileName: this.PhotoFilePath};
+    }
     if(confirm('Are you Sure?')){
       this.Aservice.EDIT_accounts(val).subscribe(res=>{
         alert("The Account has been Successfully Updated!");
@@ -43,5 +52,18 @@ export class AdminAccountsEditComponent implements OnInit {
     }
     
   }
+  photoUpload = true;
 
+  uploadPhoto(event){
+    var file=event.target.files[0];
+    const formData:FormData=new FormData();
+    formData.append('uploadedFile',file,file.name);
+    this.photoUpload = false;
+    this.Aservice.UploadPhoto_Account(formData).subscribe((data:any)=>{
+      this.PhotoFileName=data.toString();
+      this.PhotoFilePath=this.Aservice.PhotoUrl+this.PhotoFileName;
+ 
+    });
+    
+  }
 }

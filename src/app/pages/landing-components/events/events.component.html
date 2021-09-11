@@ -2,16 +2,23 @@
 	<div class="container">
 		<div class="row">
 
-			<div class="wow fadeInUp col-md-6 col-sm-6" data-wow-delay="0.6s">
-				<h3>This will be The Events Page of the Website</h3>
-				<p>Catch up on some of the latest events of the Organization </p>
-				<p>Quisque facilisis scelerisque venenatis. Nam vulputate ultricies luctus. Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet.</p>
+			<div class="wow fadeInUp col-md-6 col-sm-6" data-wow-delay="0.6s"
+			*ngFor="let merch of merchs.reverse()
+            let i = index">
+			<div class="card embed-responsive embed-responsive-16by9
+			" *ngIf = "i < 1">
+			<a [routerLink]="['/order', merch.id]">
+				<img [src]="imageURL+merch.PhotoFileName" alt="Avatar" style="width:100%">
+				<div class="container">
+				  <h4><b>{{merch.mname}}</b></h4>
+				  <p>{{merch.desc}}</p> 
+				</div>
+			</a>
 			</div>
-					
+			</div>
 			<div class="wow fadeInUp col-md-6 col-sm-6" data-wow-delay="0.9s">
-				<img src='../../../../assets/img/overview-img.jpg' class="img-responsive" alt="Overview">
+				<img src='/assets/img/roadmap.png' class="img-responsive" alt="Overview">
 			</div>
-
 		</div>
 	</div>
 </section>

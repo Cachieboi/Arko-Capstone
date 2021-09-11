@@ -6,5 +6,6 @@ export interface user {
     password: String, 
     token: any 
     lastname: String
+    PhotoFileName: String;
       
 }

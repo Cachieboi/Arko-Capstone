@@ -8,7 +8,8 @@
           type = "text"
           id = "lastname"
           class="lastname"
-          [(ngModel)] = "lastname">
+          [(ngModel)] = "lastname"
+          >           
         </div>
         <div>
           <label>Email</label>
@@ -16,10 +17,28 @@
           type = "text"
           id = "email"
           class="email"
-          [(ngModel)] = "email">
+          [(ngModel)] = "email"
+          required
+          email>
         </div>
-        
+        <div>
+          <label>Article Image</label><br>
+          <img 
+          *ngIf = "PhotoFileName !== null && photoUpload == true"
+          [src] = "PhotoFileName"
+          >
+          <img 
+          *ngIf = "PhotoFilePath !== null && photoUpload == false"
+          [src] = "PhotoFilePath"
+          >
+         <input 
+          type = "file"
+          id = "PhotoFileName"
+          class="PhotoFileName"
+          (change)="uploadPhoto($event)">
+        </div>
         <button class="submit"(click)="editAccounts()">Submit</button>
+      
     </div>
     </div>
          

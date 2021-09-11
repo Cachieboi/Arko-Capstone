@@ -1,10 +1,10 @@
 <nav class="main-menu">
   <p *ngIf = "is_superuser == 'true'" >
-      <a routerLink="/dashboard" >Admin
+      <a routerLink="userprofile" >Admin
     </a> 
 </p>
 <p *ngIf = "is_superuser == 'false'" >
-    <a routerLink="/dashboard" >Author
+    <a routerLink="userprofile" >Author
 </a> 
 </p>
   <ul>
@@ -65,12 +65,12 @@
 
   <ul class="logout">
       <li>
-         <a routerLink="/login">
+         <button (click) = "logout()">
                <i class="fa fa-power-off fa-2x"></i>
               <span class="nav-text">
                   Logout
               </span>
-          </a>
-      </li>  
+            </button>
+          </li> 
   </ul>
 </nav>

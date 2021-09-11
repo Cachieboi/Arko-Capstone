@@ -10,11 +10,11 @@
           <tr>
             <th>Merch Name</th>
             <th>Price</th>
-            <th>Link</th>
             <th> </th>
+    
           </tr>
           <tr
-          *ngFor = "let merch of merchs">
+          *ngFor = "let merch of merchs.reverse()">
          <td>
           {{merch.mname}}
          </td>
@@ -22,11 +22,8 @@
           {{merch.price}}
         </td>
          <td>
-           {{merch.link}}
-         </td>
-         <td>
-          <a class="btn btn-primary" routerLink="edit/id:">Edit</a>
-          <button class="btn btn-danger" >Delete</button>
+          <a class="btn btn-primary" [routerLink]="['edit', merch.id]">Edit</a>
+          <button class="btn btn-danger" (click)="deleteClick(merch)">Delete</button>
          </td>
           </tr>
           

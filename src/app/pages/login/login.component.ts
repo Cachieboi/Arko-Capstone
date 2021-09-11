@@ -34,6 +34,7 @@ export class LoginComponent implements OnInit {
   _email: any;
   _is_superuser: any;
   _token: any;
+  _lastname: any;
   
 
   userLoginz(form: NgForm){
@@ -45,19 +46,17 @@ export class LoginComponent implements OnInit {
         this._token = this.cookieService.set('mr-token', result.token);
         this._id = this.cookieService.set('id', result.id);
         this._email = this.cookieService.set('email', result.email);
-        this._is_superuser = this.cookieService.set('is_superuser', result.is_superuser)
+        this._is_superuser = this.cookieService.set('is_superuser', result.is_superuser);
+        this._lastname = this.cookieService.set('lastname',result.lastname);
         
         console.log("******** id " + this._id);
         console.log("******** email " + this._email);
         console.log("******** is_superuser " + this._is_superuser);
         console.log("****token " + this._token); 
+        console.log("******lastname "+this._lastname);
 
-        if(result.is_superuser === true && result.token){
-          this.router.navigate(['dashboard']);
-        }
-        else if(result.is_superuser === false && result.token){
-          this.router.navigate(['dashboard']);
-        }
+        this.router.navigate(['dashboard']); 
+       
   },
   error => {
     alert("Invalid Email/Password Input")

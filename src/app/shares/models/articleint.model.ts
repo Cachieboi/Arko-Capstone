@@ -3,5 +3,6 @@ export interface article {
     id: Number,
     title: String, 
     desc: String, 
-    content: String, 
+    content: String,
+    PhotoFileName: String; 
 }

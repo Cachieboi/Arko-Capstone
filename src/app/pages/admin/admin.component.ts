@@ -1,7 +1,9 @@
 import { Component, OnInit } from '@angular/core';
-import { user } from 'src/app/shares/models/userint.model';
+import { Account } from 'src/app/shares/models/Accounts.model';
 import { CookieService } from 'ngx-cookie-service';
-import { Router } from '@angular/router';
+import { Router, ActivatedRoute } from '@angular/router';
+import { AccountService } from 'src/app/shares/services/Account.service';
+import { ModalDismissReasons, NgbModal } from '@ng-bootstrap/ng-bootstrap';
 
 
 
@@ -13,16 +15,27 @@ import { Router } from '@angular/router';
 })
 export class AdminComponent implements OnInit {
 
-  constructor(private cookieService: CookieService,private router: Router) { }
+  constructor(private cookieService: CookieService,
+    private route: Router,  
+    private Aservice: AccountService,
+    private router: ActivatedRoute,
+    private modal: NgbModal) { }
 
   id : any;
   email : any;
   is_superuser: any;
   token: any;
-  User : user;
+
+  _id: Number;
+  lastname:String;
+ 
+
+
+  imageURL = this.Aservice.PhotoUrl
 
   ngOnInit(): void {
     this.details();
+    
   }
 
   details(){
@@ -48,4 +61,5 @@ export class AdminComponent implements OnInit {
     console.log('mr-token')
   }
 
+  
 }

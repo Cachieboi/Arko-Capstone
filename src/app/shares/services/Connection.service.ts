@@ -8,7 +8,8 @@ export class ConnectionService {
     providedIn: 'root'
   })
 
-    APIUrl = "http://127.0.0.1:8000/";
+    APIUrl = 'https://arko-ust.herokuapp.com/';
+    readonly PhotoUrl = 'https://arko-ust.herokuapp.com/media/';
     token = this.cookieService.get('mr-token');
     headers = new HttpHeaders({
     'Content-Type': 'application/json',

@@ -1,0 +1,16 @@
+
+<!-- Header -->
+<header class="banner">
+    <img [src] = "imageURL+thisArticle.PhotoFileName" class="background">
+    
+    <h1>{{thisArticle.title}}</h1>
+  </header>
+  
+  <!-- Other stuff -->
+  <main>
+    <article>
+      <h1>{{thisArticle.title}}</h1>
+     <p>{{thisArticle.desc}}</p> 
+      <p [innerHTML]="thisArticle.content"></p>
+    </article>
+  </main>

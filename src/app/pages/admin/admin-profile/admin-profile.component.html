@@ -1,5 +1,48 @@
 
 <div class="main">
-    <router-outlet></router-outlet>
-    <p align="center">admin-profile works!</p>
+    <div *ngIf = "editMode == false">
+    <p align = "center">{{lastname}}</p>
+    </div>
+    <div *ngIf = "editMode == true">
+    <input
+    type = "text"
+    id = "lastname"
+    class="centerImage"
+    [(ngModel)] = "lastname">
+    </div>
+    <div *ngIf = "editMode == false">
+    <p align = "center">{{email}}</p>
+    </div>
+    <div *ngIf = "editMode == true">
+        <input
+        type = "text"
+        id = "email"
+        class="centerImage"
+        [(ngModel)] = "email">
+    </div>
+    <div>
+    <img 
+          *ngIf = "PhotoFileName !== null && photoUpload == true"
+          [src] = "PhotoFileName" 
+          class = "centerImage"
+          >
+          <img 
+          *ngIf = "PhotoFilePath !== null && photoUpload == false"
+          [src] = "PhotoFilePath"
+          class = "centerImage"
+          >
+          <input 
+          *ngIf = "editMode == true"
+          type = "file"
+          id = "PhotoFileName"
+          class="centerImage"
+          (change)="uploadPhoto($event)">
+    </div>
+    <div *ngIf = "editMode == false">
+        <button  (click) = "onEdit()" class="centerImage"> Edit Details </button>
+    </div>
+    <div *ngIf = "editMode == true">
+        <button  (click) = "editAccounts()" class="centerImage"> Done Editing Details </button>
+    </div>
+
 </div>

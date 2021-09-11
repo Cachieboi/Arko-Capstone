@@ -3,6 +3,7 @@ import { ArticleService } from 'src/app/shares/services/Articles.service';
 import { Article } from '../../../../shares/models/Articles.model';
 import { Router } from '@angular/router';
 import { NgForm } from '@angular/forms';
+import { EditorModule } from '@tinymce/tinymce-angular';
 
 @Component({
   selector: 'app-admin-articles-add',
@@ -11,15 +12,21 @@ import { NgForm } from '@angular/forms';
 })
 export class AdminArticlesAddComponent implements OnInit {
 
+
+
   constructor(private Arservice: ArticleService, private router: Router) { }
+
+  PhotoFilePath: String;
+  PhotoFileName: String;
 
   ngOnInit(): void {
   }
-
+ 
   addArticle(form: NgForm){
     if(confirm("Are you Sure you want to Add this Article?")){
     const value = form.value;
-    const newArticle = new Article(value.id,value.title, value.desc, value.content);
+    const PhotoFileName = this.PhotoFileName
+      const newArticle = new Article(value.id,value.title, value.desc, value.content, PhotoFileName);
     this.Arservice.registerArticle(newArticle).subscribe(
       data => {
         console.log(data);
@@ -33,5 +40,16 @@ export class AdminArticlesAddComponent implements OnInit {
       );
     }
   }
+
+  uploadPhoto(event){
+    var file=event.target.files[0];
+    const formData:FormData=new FormData();
+    formData.append('uploadedFile',file,file.name);
+    this.Arservice.UploadPhoto_Article(formData).subscribe((data:any)=>{
+      this.PhotoFileName=data.toString();
+      this.PhotoFilePath=this.Arservice.PhotoUrl+this.PhotoFileName;
+    })
+  }
+
  
 }

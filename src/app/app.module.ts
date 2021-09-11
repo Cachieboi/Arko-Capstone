@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { BrowserModule } from '@angular/platform-browser';
-
 import { AppComponent } from './app.component';
 import { AdminComponent } from './pages/admin/admin.component';
 import { AdminAccountsComponent } from './pages/admin/admin-accounts/admin-accounts.component';
@@ -46,6 +46,9 @@ import { ConnectionService } from './shares/services/Connection.service';
 import { CookieService } from 'ngx-cookie-service';
 import { HttpClientModule } from '@angular/common/http';
 import { AdminProfileComponent } from './pages/admin/admin-profile/admin-profile.component';
+import { ArticleComponent } from './pages/article/article.component';
+import { MerchappComponent } from './pages/merchapp/merchapp.component';
+import { EditorModule, TINYMCE_SCRIPT_SRC } from '@tinymce/tinymce-angular';
 
 @NgModule({
   declarations: [
@@ -83,7 +86,9 @@ import { AdminProfileComponent } from './pages/admin/admin-profile/admin-profile
     AdminShowroomAddComponent,
     AdminShowroomEditComponent,
     AdminShowroomListComponent,
-    AdminProfileComponent
+    AdminProfileComponent,
+    ArticleComponent,
+    MerchappComponent
   ],
   imports: [
     BrowserModule,
@@ -91,10 +96,18 @@ import { AdminProfileComponent } from './pages/admin/admin-profile/admin-profile
     FormsModule,
     CarouselModule,
     AppRoutingModule,
-    HttpClientModule 
+    HttpClientModule,
+    EditorModule,
+    NgbModule
+    
 
   ],
-  providers: [AccountService,MerchService, ArticleService], 
-  bootstrap: [AppComponent]
+  providers: [
+    AccountService,
+    MerchService, 
+    ArticleService,
+    ], 
+  bootstrap: [AppComponent
+  ]
 })
 export class AppModule { }

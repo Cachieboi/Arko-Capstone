@@ -14,7 +14,7 @@
             <th> </th>
           </tr>
           <tr
-          *ngFor = "let account of accounts">
+          *ngFor = "let account of accounts.reverse()">
          <td>
            {{account.id}}
          </td>

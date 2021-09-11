@@ -4,14 +4,26 @@
       <h3>Add Merchandise</h3>
       <form (ngSubmit)="addMerch(f)" #f="ngForm">
       <div class="form-group">
+      <label>Merchandise Image</label><br>
+      <img [src]="PhotoFilePath">
+      <input type="file"
+      id = "PhotoFileName"
+      class="form-control"
+      ngModel 
+      name = "PhotoFileName"
+      required
+      (change)="uploadPhoto($event)">
       <label>Merch Name</label>
        <input 
        type = "text"
        id="mname"
        class="form-control"
        ngModel
+       pattern="[a-zA-Z\s]+"
        name="mname"
-       required>
+      
+       required
+      >
       </div>
       <div>
        <label>Price</label>
@@ -21,6 +33,7 @@
        class="form-control"
        ngModel
        name="price"
+       pattern="/^-?(0|[1-9]\d*)?$/"
        required>
       </div>
       <div>

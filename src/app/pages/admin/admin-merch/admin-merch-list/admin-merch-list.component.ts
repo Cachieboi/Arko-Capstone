@@ -12,11 +12,32 @@ export class AdminMerchListComponent implements OnInit {
 
   constructor(private Mservice: MerchService) { }
 
-  merchs: Merch[] = [];
+  merchs: Merch[]
 
   ngOnInit(): void {
-    this.merchs = this.Mservice.getMerch();
+    this.showMerchs();
+  
+  }
 
+  showMerchs(){
+    this.Mservice.GET_merchs().subscribe(data=>{
+      this.merchs=data;
+      console.log(data);
+    });
+  }
+
+  deleteClick(merch){
+    if(confirm('Are you sure??')){
+      this.Mservice.DELETE_merch(merch.id).subscribe(data=>{
+        alert("Successfully Deleted The Merchandise");
+        window.location.reload();
+      },
+      error =>{
+        alert("There was an Error with Deleting the Merchandise")
+      })
+      
+
+    } 
   }
 
 }

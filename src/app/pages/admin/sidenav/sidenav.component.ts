@@ -59,6 +59,7 @@ export class SidenavComponent implements OnInit {
       console.log('email');
       console.log('is_superuser');
       console.log('mr-token');
+      this.router.navigate(['login']);
   }
   
 }
