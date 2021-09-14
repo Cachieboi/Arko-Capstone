@@ -1,49 +1,19 @@
+<button class="btn btn-danger" (click)="triggerModal(modalData)">Open Modal</button>
 
-<div class="container">
-  
-  <div class="main">
-      <h2>This is Registered </h2>
-      <div class="right">
-      
-      </div>
-      <table>
-        <tr>
-          <th>Name</th>
-          <th>Department</th>
-          <th>Birthday</th>
-          
-        </tr>
-        <tr>
-          <td>Terrence Simangan</td>
-          <td>Logistics and Audit</td>
-          <td>05/27</td>
-        </tr>
-        <tr>
-          <td>Centro comercial Moctezuma</td>
-          <td>Francisco Chang</td>
-          <td>Mexico</td>
-          
-        </tr>
-        <tr>
-          <td>Ernst Handel</td>
-          <td>Roland Mendel</td>
-          <td>Austria</td>
-          
-        </tr>
-        <tr>
-          <td>Island Trading</td>
-          <td>Helen Bennett</td>
-          <td>UK</td>
-          
-        </tr>
-        <tr>
-          <td>Laughing Bacchus Winecellars</td>
-          <td>Yoshi Tannamuri</td>
-          <td>Canada</td>
-          
-        </tr>
-        
-      </table>
+<ng-template #modalData let-modal>
+  <div class="modal-header">
+    <h4 class="modal-title" id="modal-basic-title">Angular Bootstrap Modal Popup</h4>
+    <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
+      <span aria-hidden="true">×</span>
+    </button>
   </div>
-
-</div>
+  <div class="modal-body">
+    <p><strong>Are you sure you want to delete <span class="text-primary">"Agatha Harkness"</span> profile?</strong></p>
+    
+    <p>All data related to west view profile will be removed permanently.
+    </p>
+  </div>
+  <div class="modal-footer">
+    <button type="button" class="btn btn-danger" (click)="modal.close('Save click')">Close</button>
+  </div>
+</ng-template>

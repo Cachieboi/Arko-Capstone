@@ -1,5 +1,4 @@
 import { NgModule } from '@angular/core';
-import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { BrowserModule } from '@angular/platform-browser';
 import { AppComponent } from './app.component';
 import { AdminComponent } from './pages/admin/admin.component';
@@ -49,6 +48,10 @@ import { AdminProfileComponent } from './pages/admin/admin-profile/admin-profile
 import { ArticleComponent } from './pages/article/article.component';
 import { MerchappComponent } from './pages/merchapp/merchapp.component';
 import { EditorModule, TINYMCE_SCRIPT_SRC } from '@tinymce/tinymce-angular';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { MatSliderModule } from '@angular/material/slider';
+import {DemoMaterialModule} from 'src/app/shares/Material/materialModule';
+
 
 @NgModule({
   declarations: [
@@ -88,7 +91,10 @@ import { EditorModule, TINYMCE_SCRIPT_SRC } from '@tinymce/tinymce-angular';
     AdminShowroomListComponent,
     AdminProfileComponent,
     ArticleComponent,
-    MerchappComponent
+    MerchappComponent,
+    
+   
+
   ],
   imports: [
     BrowserModule,
@@ -98,7 +104,9 @@ import { EditorModule, TINYMCE_SCRIPT_SRC } from '@tinymce/tinymce-angular';
     AppRoutingModule,
     HttpClientModule,
     EditorModule,
-    NgbModule
+    NgbModule,
+    MatSliderModule,
+    DemoMaterialModule
     
 
   ],
@@ -106,6 +114,7 @@ import { EditorModule, TINYMCE_SCRIPT_SRC } from '@tinymce/tinymce-angular';
     AccountService,
     MerchService, 
     ArticleService,
+    
     ], 
   bootstrap: [AppComponent
   ]

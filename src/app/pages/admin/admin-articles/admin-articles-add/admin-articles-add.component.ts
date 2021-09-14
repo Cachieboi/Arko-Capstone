@@ -26,7 +26,7 @@ export class AdminArticlesAddComponent implements OnInit {
     if(confirm("Are you Sure you want to Add this Article?")){
     const value = form.value;
     const PhotoFileName = this.PhotoFileName
-      const newArticle = new Article(value.id,value.title, value.desc, value.content, PhotoFileName);
+    const newArticle = new Article(value.id,value.title, value.desc, value.content, PhotoFileName);
     this.Arservice.registerArticle(newArticle).subscribe(
       data => {
         console.log(data);

@@ -1,29 +1,53 @@
 <section id="exhibit" class="parallax-section">
-	<div class="container">
-		<div class="row">
-		<p>This will be the Showroom</p>
-			<div class="wow fadeInLeft col-md-4 col-sm-4" data-wow-delay="0.3s">
-				<i class="fa fa-group"></i>
-				<h3>Showroom No. 1</h3>
-				<p>Quisque ut libero sapien. Integer tellus nisl, efficitur sed dolor at, vehicula finibus massa. Sed tincidunt metus sed eleifend suscipit.</p>
-			</div>
 
-			<div class="wow fadeInUp col-md-4 col-sm-4" data-wow-delay="0.6s">
-				<i class="fa fa-clock-o"></i>
-				<h3>Showroom No. 2</h3>
-				<p>Quisque ut libero sapien. Integer tellus nisl, efficitur sed dolor at, vehicula finibus massa. Sed tincidunt metus sed eleifend suscipit.</p>
-			</div>
+  <ng-template #callAPIDialog>
+    <form #userForm="ngForm" (ngSubmit)="onSend(userForm)">
+    <h2 matDialogTitle>3-D Showroom Entrance</h2>
+    <label>Last Name</label><br>
+      <input 
+      type="text"
+      ngModel
+      name="lastname"><br>
+    <label>Ticket No.</label><br>
+      <input 
+      type="Number"
+      ngModel
+      name="ticket"><br>
+    <button mat-raised-button type="submit">Enter the Showroom</button>
+</form>
+  
+<button mat-raised-button (click)="openReg()">Register</button>
+</ng-template>
 
-			<div class="wow fadeInRight col-md-4 col-sm-4" data-wow-delay="0.9s">
-				<i class="fa fa-microphone"></i>
-				<h3>Showroom No. 3</h3>
-				<p>Quisque ut libero sapien. Integer tellus nisl, efficitur sed dolor at, vehicula finibus massa. Sed tincidunt metus sed eleifend suscipit.</p>
-				
-			</div>
-			
+<div>
+<button mat-raised-button (click)="openDialog()">Pick one</button>
+</div>
 
-		</div>
-		
-	</div>
-	
+
+<ng-template #callAPIDialogz>
+  <form #regform="ngForm" (ngSubmit)="onReg(regform)">
+  <h2 matDialogTitle>3-D Showroom Register</h2>
+  <label>First Name</label><br>
+    <input 
+    type="text"
+    ngModel
+    name="firstname"
+    ><br>
+  <label>Last Name</label><br>
+    <input 
+    type="text"
+    ngModel
+    name="lastname"><br>
+  <label>Email</label><br>
+    <input 
+    type="email"
+    ngModel
+    name="email"><br>
+  <button type="submit">Submit</button>
+</form>
+</ng-template>
+
 </section>
+
+
+  
