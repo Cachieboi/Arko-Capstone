@@ -51,6 +51,8 @@ import { EditorModule, TINYMCE_SCRIPT_SRC } from '@tinymce/tinymce-angular';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { MatSliderModule } from '@angular/material/slider';
 import {DemoMaterialModule} from 'src/app/shares/Material/materialModule';
+import { ShowroomPageComponent } from './pages/showroom-page/showroom-page.component';
+
 
 
 @NgModule({
@@ -92,6 +94,7 @@ import {DemoMaterialModule} from 'src/app/shares/Material/materialModule';
     AdminProfileComponent,
     ArticleComponent,
     MerchappComponent,
+    ShowroomPageComponent,
     
    
 
@@ -106,8 +109,8 @@ import {DemoMaterialModule} from 'src/app/shares/Material/materialModule';
     EditorModule,
     NgbModule,
     MatSliderModule,
-    DemoMaterialModule
-    
+    DemoMaterialModule,
+
 
   ],
   providers: [

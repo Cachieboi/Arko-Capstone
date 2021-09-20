@@ -35,6 +35,7 @@ import { RouteGuardGuard } from "./shares/Guards/route-guard.guard";
 import { AdminProfileComponent } from "./pages/admin/admin-profile/admin-profile.component";
 import { ArticleComponent } from "./pages/article/article.component";
 import { MerchappComponent } from "./pages/merchapp/merchapp.component";
+import { ShowroomPageComponent } from "./pages/showroom-page/showroom-page.component";
 const appRoutes: Routes = [
     { path: '', 
     component: LandingComponentsComponent},
@@ -135,6 +136,9 @@ const appRoutes: Routes = [
     }
     
     ]},
+
+    { path: 'showroom-page', 
+    component: ShowroomPageComponent},
   
     { path: 'About-Us', 
     component: AboutUsComponent},
@@ -190,5 +194,6 @@ export const routingComponents = [
   NavbarComponent,
   LandingComponentsComponent,
   ArticlesComponent,
-  AdminMerchComponent
+  AdminMerchComponent,
+  ShowroomPageComponent
 ]

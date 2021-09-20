@@ -6,330 +6,336 @@ http://www.templatemo.com/tm-486-new-event
 
 */
 
-@import '~bootstrap/dist/css/bootstrap.min.css';
-
 body {
-    background: #ffffff;
-font-family: 'Poppins', sans-serif;
-font-style: normal;
-    font-weight: 400;
-}
-
-
-/*---------------------------------------
-Typorgraphy              
------------------------------------------*/
-h1,h2,h3,h4,h5,h6 {
-font-weight: 600;
-}
-
-h3,h5 {
-font-weight: 500;
-}
-
-h1 {
-font-size: 40px;
-letter-spacing: 2px;
-}
-
-h2 {
-font-size: 30px;
-text-transform: uppercase;
-}
-
-h3 {
-line-height: 36px;
-}
-
-h5 {
-letter-spacing: 1px;
-padding-top: 10px;
-}
-
-p {
-color: #707070;
-font-size: 14px;
-line-height: 24px;
-}
-
-a {
-text-decoration: none !important;
-outline: none;
-}
-
-
-/*---------------------------------------
-General               
------------------------------------------*/
-.section-title {
-margin-bottom: 32px;
-
-}
-
-#events,
-#exhibit,
-#about-us {
-padding-top: 14rem;
-padding-bottom: 14rem;
-}
-
- #articles,
-#about-us, 
-
-#sponsors, 
-#contact, footer {
-padding-top: 10rem;
-padding-bottom: 10rem;
-}
-
-#exhibit,
-#about-us, #sponsors,
-footer {
-text-align: center;
-}
-
-#events h3,
-#exhibit h3, #articles h3,
-#register h3,
-#venue h3,
-#contact h3 {
-padding-bottom: 12px;
-}
-
-#intro .btn,
-#contact .btn {
-background: transparent;
-border: 2px solid #ffffff;
-border-radius: 0px;
-color: #ffffff;
-font-weight: 600;
-letter-spacing: 1px;
-font-size: 12px;
-padding: 14px 42px;
-margin-top: 42px;
-margin-right: 12px;
--webkit-transition: all 0.4s ease-in-out;
-transition: all 0.4s ease-in-out;
-}
-
-#intro .btn-danger,
-#contact .btn-danger {
-background: #f2545f;
-border-color: transparent;
-}
-
-#contact .btn {
-border-radius: 100px;
-}
-
-#intro .btn-danger:hover {
-background: transparent;
-border-color: #ffffff;
-color: #ffffff;
-}
-
-#contact .btn-danger:hover {
-background: #222;
-}
-
-#intro .btn-default:hover {
-background: #ffffff;
-color: #333333;
-border-color: transparent;
-}
-
-.parallax-section {
-background-attachment: fixed !important;
-background-size: cover !important;
-}
-
-
-/*---------------------------------------
-Navigation Links section              
------------------------------------------*/
-
-     
-
-/*---------------------------------------
-Intro section              
------------------------------------------*/
-#intro {
-        background: url('assets/img/intro-bg.jpg') 50% 0 repeat-y fixed;
-        -webkit-background-size: cover;
-        background-size: cover;
-        background-position: center center;
-        color: #ffffff;
-        display: -webkit-box;
-        display: -webkit-flex;
-         display: -ms-flexbox;
-        display: flex;
-        -webkit-box-align: center;
-         -webkit-align-items: center;
-          -ms-flex-align: center;
-              align-items: center;
-        height: 100vh;
-        text-align: center;
-      
-    }
-    
-    #intro h3 {
-      letter-spacing: 2px;
-    }
-
-@media (max-width: 760px) {
-
-  #intro {
-    height: 100vh;
-    width: 100vh;
+  margin: 0px;
+  height: 100%;
+  background:white;
+  font-family: 'Poppins', sans-serif;
+  font-style: normal;
+      font-weight: 400;
+      --navbar-scroll: transparent;
+      --navbar-scroll-text: white;
+      --navbar-scroll-shadow: none;
   }
-
-}
-
-
-
-/*---------------------------------------
-Overview  section              
------------------------------------------*/
-#events img {
-position: relative;
-padding-bottom: 32px;
-}
-
-
-
-/*---------------------------------------
-Detail section              
------------------------------------------*/
-#exhibit {
-background: #222;
-color: #ffffff;
-}
-
-#detail .fa {
-color: #f2545f;
-font-size: 48px;
-}
-
-
-
-/*---------------------------------------
-Video section              
------------------------------------------*/
-#articles iframe {
-border: none;
-}
-
-
-
-/*---------------------------------------
-Speakers section              
------------------------------------------*/
-#articles {
-background: #f9f9f9;
-}
-
-#about-us h3 {
-font-size: 18px;
-margin-bottom: 0px;
-}
-
-#about-us h6 {
-color: #666;
-margin-top: 4px;
-}
-
-#about-us img {
-width: 100%;
-max-width: 100%;
-height: auto;
-}
-
-#about-us .col-md-3 {
-display: block;
-width: 100%;
-padding-top: 30px;
-padding-bottom: 20px;
-margin-bottom: 22px;
-}
-
-#about-us .about-us-wrapper {
-background: #ffffff;
-padding-bottom: 22px;
-}
-
-/*---------------------------------------
-   Footer section              
------------------------------------------*/
-footer {
-        background-attachment: fixed;
+  
+  
+  /*---------------------------------------
+  Typorgraphy
+  -----------------------------------------*/
+  h1,h2,h3,h4,h5,h6 {
+  font-weight: 600;
+  }
+  
+  h3,h5 {
+  font-weight: 500;
+  }
+  
+  h1 {
+  font-size: 40px;
+  letter-spacing: 2px;
+  }
+  
+  h2 {
+  font-size: 30px;
+  text-transform: uppercase;
+  }
+  
+  h3 {
+  line-height: 36px;
+  }
+  
+  h5 {
+  letter-spacing: 1px;
+  padding-top: 10px;
+  }
+  
+  p {
+  color: #707070;
+  font-size: 14px;
+  line-height: 24px;
+  }
+  
+  a {
+  text-decoration: none !important;
+  outline: none;
+  }
+  
+  
+  /*---------------------------------------
+  General
+  -----------------------------------------*/
+  .section-title {
+  margin-bottom: 32px;
+  
+  }
+  
+  #events {
+    background:url('assets/img/websitebgs.jpg') 50% 0 repeat-y fixed;
+    padding: 100px;
+  }
+  #exhibit,
+  #about-us {
+    background:url('assets/img/websitebgs.jpg') 50% 0 repeat-y fixed;
+    color: Black;
+    padding: 100px;
+  }
+  
+   #articles,
+  #about-us,
+  
+  #sponsors,
+  #contact, footer {
+  padding-top: 10rem;
+  padding-bottom: 10rem;
+  }
+  
+  #exhibit,
+  #about-us, #sponsors,
+  footer {
+  text-align: center;
+  }
+  
+  #events h3,
+  #exhibit h3, #articles h3,
+  #register h3,
+  #venue h3,
+  #contact h3 {
+  padding-bottom: 12px;
+  }
+  
+  #intro .btn,
+  #contact .btn {
+  background: transparent;
+  border: 2px solid #ffffff;
+  border-radius: 0px;
+  color: #ffffff;
+  font-weight: 600;
+  letter-spacing: 1px;
+  font-size: 12px;
+  padding: 14px 42px;
+  margin-top: 42px;
+  margin-right: 12px;
+  -webkit-transition: all 0.4s ease-in-out;
+  transition: all 0.4s ease-in-out;
+  }
+  
+  #intro .btn-danger,
+  #contact .btn-danger {
+  background: #f2545f;
+  border-color: transparent;
+  }
+  
+  #contact .btn {
+  border-radius: 100px;
+  }
+  
+  #intro .btn-danger:hover {
+  background: transparent;
+  border-color: #ffffff;
+  color: #ffffff;
+  }
+  
+  #contact .btn-danger:hover {
+  background: #222;
+  }
+  
+  #intro .btn-default:hover {
+  background: #ffffff;
+  color: #333333;
+  border-color: transparent;
+  }
+  
+  .parallax-section {
+  background-attachment: fixed !important;
+  background-size: cover !important;
+  }
+  
+  
+  /*---------------------------------------
+  Navigation Links section
+  -----------------------------------------*/
+  
+  
+  
+  /*---------------------------------------
+  Intro section
+  -----------------------------------------*/
+  #intro {
+          background: url('assets/img/HOME_BG.jpg') 50% 0 repeat-y fixed;
+          -webkit-background-size: cover;
+          background-size: cover;
+          background-position: center center;
+          color: #ffffff;
+          display: -webkit-box;
+          display: -webkit-flex;
+           display: -ms-flexbox;
+          display: flex;
+          -webkit-box-align: center;
+           -webkit-align-items: center;
+            -ms-flex-align: center;
+                align-items: center;
+          height: 100vh;
+          text-align: center;
+  
       }
-
-
-
-/*---------------------------------------
-   Social icon             
------------------------------------------*/
-.social-icon {
-        position: relative;
-        padding: 0;
-        margin: 0;
-    }
-    
-    .social-icon li {
-        display: inline-block;
-        list-style: none;
-    }
-    
-    .social-icon li a {
-        color: #666;
-        border-radius: 100px;
-        font-size: 16px;
-        text-decoration: none;
-        transition: all 0.4s ease-in-out;
-        width: 50px;
-        height: 50px;
-        line-height: 50px;
-        text-align: center;
-        vertical-align: middle;
-    }
-    
-    .social-icon li a:hover {
-        background: #f2545f;
-        color: #ffffff;
-    }
-
-   
-/*---------------------------------------
-   Responsive styles            
------------------------------------------*/
-@media (max-width: 980px) {
-
-        p {font-size: 13px;}
-      
-        .custom-navbar .navbar-brand {
-          font-size: 2rem;
-        }
-      
-        .custom-navbar .nav li a {
-          font-size: 11px;
-              line-height: 20px;
-        }
-      
-        #intro { height: 65vh; }
-      
-        #video iframe {
-          margin-top: 42px;
-        }
-      
-        #contact .contact_detail {
-        background: #ffffff;
-        padding: 10rem 3rem 10rem 5rem;
+  
+      #intro h3 {
+        letter-spacing: 2px;
       }
-
-}
-
-hr{
-  border-top: 3px double #8c8b8b;
-}
-html, body { height: 100%; }
-body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+  
+  @media (max-width: 760px) {
+  
+    #intro {
+      height: 100vh;
+      width: 100vh;
+    }
+  
+  }
+  
+  
+  
+  /*---------------------------------------
+  Overview  section
+  -----------------------------------------*/
+  #events img {
+  position: relative;
+  }
+  
+  
+  
+  /*---------------------------------------
+  Detail section
+  -----------------------------------------*/
+  #exhibit {
+  background: #222;
+  color: #ffffff;
+  }
+  
+  #detail .fa {
+  color: #f2545f;
+  font-size: 48px;
+  }
+  
+  
+  
+  /*---------------------------------------
+  Video section
+  -----------------------------------------*/
+  #articles iframe {
+  border: none;
+  }
+  
+  
+  
+  /*---------------------------------------
+  Speakers section
+  -----------------------------------------*/
+  #articles {
+    background:url('assets/img/websitebgs.jpg') 50% 0 repeat-y fixed;
+  }
+  
+  #about-us h3 {
+  font-size: 18px;
+  margin-bottom: 0px;
+  }
+  
+  #about-us h6 {
+  color: #666;
+  margin-top: 4px;
+  }
+  
+  #about-us img {
+  width: 100%;
+  max-width: 100%;
+  height: auto;
+  }
+  
+  #about-us .col-md-3 {
+  display: block;
+  width: 100%;
+  padding-top: 30px;
+  padding-bottom: 20px;
+  margin-bottom: 22px;
+  }
+  
+  #about-us .about-us-wrapper {
+  background: url('assets/img/HOME_BG.jpg') 50% 0 repeat-y fixed;
+  padding-bottom: 22px;
+  }
+  
+  /*---------------------------------------
+     Footer section
+  -----------------------------------------*/
+  footer {
+          background: url('assets/img/HOME_BG.jpg') 50% 0 repeat-y fixed;
+          padding: 20px;
+        }
+  
+  
+  
+  /*---------------------------------------
+     Social icon
+  -----------------------------------------*/
+  .social-icon {
+          position: relative;
+          padding: 0;
+          margin: 0;
+      }
+  
+      .social-icon li {
+          display: inline-block;
+          list-style: none;
+      }
+  
+      .social-icon li a {
+          color: #666;
+          border-radius: 100px;
+          font-size: 16px;
+          text-decoration: none;
+          transition: all 0.4s ease-in-out;
+          width: 50px;
+          height: 50px;
+          line-height: 50px;
+          text-align: center;
+          vertical-align: middle;
+      }
+  
+      .social-icon li a:hover {
+          background: #f2545f;
+          color: #ffffff;
+      }
+  
+  
+  /*---------------------------------------
+     Responsive styles
+  -----------------------------------------*/
+  @media (max-width: 980px) {
+  
+          p {font-size: 13px;}
+  
+          .custom-navbar .navbar-brand {
+            font-size: 2rem;
+          }
+  
+          .custom-navbar .nav li a {
+            font-size: 11px;
+                line-height: 20px;
+          }
+  
+          #intro { height: 65vh; }
+  
+          #video iframe {
+            margin-top: 42px;
+          }
+  
+          #contact .contact_detail {
+          background: #ffffff;
+          padding: 10rem 3rem 10rem 5rem;
+        }
+  
+  }
+  
+  hr{
+    border-top: 3px double #8c8b8b;
+  }
+ 

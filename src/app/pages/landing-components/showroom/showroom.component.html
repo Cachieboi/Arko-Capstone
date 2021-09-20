@@ -7,12 +7,12 @@
       <input 
       type="text"
       ngModel
-      name="lastname"><br>
+      name="email"><br>
     <label>Ticket No.</label><br>
       <input 
-      type="Number"
+      type="text"
       ngModel
-      name="ticket"><br>
+      name="password"><br>
     <button mat-raised-button type="submit">Enter the Showroom</button>
 </form>
   
@@ -27,17 +27,11 @@
 <ng-template #callAPIDialogz>
   <form #regform="ngForm" (ngSubmit)="onReg(regform)">
   <h2 matDialogTitle>3-D Showroom Register</h2>
-  <label>First Name</label><br>
-    <input 
-    type="text"
-    ngModel
-    name="firstname"
-    ><br>
   <label>Last Name</label><br>
     <input 
-    type="text"
+    type="email"
     ngModel
-    name="lastname"><br>
+    name="email"><br>
   <label>Email</label><br>
     <input 
     type="email"

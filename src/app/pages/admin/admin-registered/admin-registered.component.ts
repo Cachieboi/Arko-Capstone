@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {ModalDismissReasons, NgbModal} from '@ng-bootstrap/ng-bootstrap';
+import { ShowroomService } from 'src/app/shares/services/Showroom.service';
 
 
 @Component({
@@ -9,30 +10,18 @@ import {ModalDismissReasons, NgbModal} from '@ng-bootstrap/ng-bootstrap';
 })
 export class AdminRegisteredComponent implements OnInit {
 
-  constructor(private modalService: NgbModal) {}
-    
+  constructor(private shService: ShowroomService) {}
+  registrants: any[] = []; 
 
   ngOnInit(): void {
+    this.showRegistrants();
   }
-  closeModal: string;
-  
-  
-  triggerModal(content) {
-    this.modalService.open(content, {ariaLabelledBy: 'modal-basic-title'}).result.then((res) => {
-      this.closeModal = `Closed with: ${res}`;
-    }, (res) => {
-      this.closeModal = `Dismissed ${this.getDismissReason(res)}`;
+
+  showRegistrants(){
+    this.shService.GET_registrants().subscribe(data=>{
+      this.registrants=data;
+      console.log(data);
     });
   }
   
-  private getDismissReason(reason: any): string {
-    if (reason === ModalDismissReasons.ESC) {
-      return 'by pressing ESC';
-    } else if (reason === ModalDismissReasons.BACKDROP_CLICK) {
-      return 'by clicking on a backdrop';
-    } else {
-      return  `with: ${reason}`;
-    }
-  }
-
 }
