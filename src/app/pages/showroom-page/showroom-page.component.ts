@@ -1,5 +1,5 @@
 import { Component, OnInit, AfterViewInit } from '@angular/core';
-import {  Viewer } from 'photo-sphere-viewer'
+import {  Viewer } from 'photo-sphere-viewer';
 
 
 const container = document.getElementById('viewer');
@@ -17,6 +17,9 @@ export class ShowroomPageComponent implements OnInit {
     
   }
 
+  ngAfterViewInit(){
+    this.main();
+  }
   
 
   
@@ -28,5 +31,6 @@ main(){
   });
 
 }
+
 
 }
