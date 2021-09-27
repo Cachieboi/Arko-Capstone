@@ -1,2 +1,12 @@
-<div id="viewer" >
+<div *ngFor="let showroom of showrooms.reverse()
+let i = index">
+    <div *ngIf = "i < showrooms.length">
+    <a [routerLink]="['/Showroom', showroom.id, showroom.Title]">
+       <img [src]= "imageURL + showroom.PhotoFileName" style="width: 300px">
+       <div>
+           <h4>{{showroom.Title}}</h4>
+           <h2>{{showroom.AuthorName}}</h2>
+       </div>
+    </a>
+    </div>
 </div>

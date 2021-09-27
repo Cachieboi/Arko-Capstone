@@ -1,6 +1,5 @@
 import { Component, Inject, OnInit, TemplateRef, ViewChild } from '@angular/core';
-import { ModalDismissReasons, NgbModal } from '@ng-bootstrap/ng-bootstrap';
-import {MatDialog, MatDialogRef, MAT_DIALOG_DATA} from '@angular/material/dialog';
+import {MatDialog} from '@angular/material/dialog';
 import { RegisterUser } from '../../../shares/models/RegisterUser.model'
 import { Form, NgForm} from '@angular/forms';
 import { regis } from 'src/app/shares/models/regis.model';
@@ -36,7 +35,7 @@ export class ShowroomComponent implements OnInit {
 
   openDialog() {
     let dialogRef = this.dialog.open(this.callAPIDialog,{
-      width: '620px'
+      width: '400px'
     });
     dialogRef.afterClosed().subscribe(result => {
         if (result !== undefined) {
@@ -51,7 +50,11 @@ export class ShowroomComponent implements OnInit {
 }
 
 openReg(){
-  let dialogRef = this.dialog.open(this.callAPIDialogz);
+  let dialogRef = this.dialog.open(this.callAPIDialogz,{
+    width: '300px',
+    height: '300px',
+
+  });
     dialogRef.afterClosed().subscribe(result => {
         if (result !== undefined) {
             if (result !== 'no') {
@@ -63,6 +66,7 @@ openReg(){
         }
     })
 }
+
 ticket:String ="";
 getRandomString(length) {
   var randomChars = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
@@ -77,7 +81,7 @@ onSend(form: NgForm){
   const val = form.value;
   const regisAccount = new regis(val.email, val.password);
   this.Shservice.regLogin(regisAccount).subscribe((results: any)=>{
-    this.router.navigate(['showroom-page']);
+    this.router.navigate(['Showroom-page']);
     console.log(results);
   },
   error => {
@@ -91,14 +95,15 @@ onReg(form: NgForm){
   
   if(confirm("Are you Sure you with your Input?")){
     const value = form.value;
-    const newRegistrant = new RegisterUser(value.id, value.email, value.lastname,this.getRandomString(10));
+    const newRegistrant = new RegisterUser(value.id, value.firstname, value.lastname,value.email,this.getRandomString(10));
     this.Shservice.registerShowroom(newRegistrant).subscribe(
       data => {
         console.log(value.id);
         console.log(value.firstname);
         console.log(value.lastname);
         console.log(this.getRandomString(10));
-        alert("Successfully Added")
+        alert("Successfully Registered")
+        alert("An Email will be sent to you containing your ticket")
         console.log(data);
       },
       error => {

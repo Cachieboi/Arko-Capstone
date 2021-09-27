@@ -36,6 +36,10 @@ import { AdminProfileComponent } from "./pages/admin/admin-profile/admin-profile
 import { ArticleComponent } from "./pages/article/article.component";
 import { MerchappComponent } from "./pages/merchapp/merchapp.component";
 import { ShowroomPageComponent } from "./pages/showroom-page/showroom-page.component";
+import { ShowroomRoomComponent } from "./pages/showroom-room/showroom-room.component";
+import { AdminEventsListComponent } from "./pages/admin/admin-events/admin-events-list/admin-events-list.component";
+import { AdminEventsAddComponent } from "./pages/admin/admin-events/admin-events-add/admin-events-add.component";
+import { AdminEventsEditComponent } from "./pages/admin/admin-events/admin-events-edit/admin-events-edit.component";
 const appRoutes: Routes = [
     { path: '', 
     component: LandingComponentsComponent},
@@ -97,7 +101,7 @@ const appRoutes: Routes = [
           component: AdminShowroomAddComponent
         },
         {
-          path:'edit/id:',
+          path:'edit/:id',
           component: AdminShowroomEditComponent
         }
       ]
@@ -123,7 +127,22 @@ const appRoutes: Routes = [
      },
 
      {path: 'events',
-     component: AdminEventsComponent
+     component: AdminEventsComponent, children: [
+      {
+        path: '',
+        component: AdminEventsListComponent
+      },
+
+      {
+        path: 'add',
+        component: AdminEventsAddComponent
+      },
+
+      {
+        path: 'edit/:id',
+        component: AdminEventsEditComponent
+      }
+     ]
     },
 
     {path: 'registered',
@@ -137,7 +156,7 @@ const appRoutes: Routes = [
     
     ]},
 
-    { path: 'showroom-page', 
+    { path: 'Showroom-page', 
     component: ShowroomPageComponent},
   
     { path: 'About-Us', 
@@ -164,6 +183,10 @@ const appRoutes: Routes = [
     {
       path: 'order/:id',
       component: MerchappComponent
+    },
+    {
+      path: 'Showroom/:id/:title',
+      component: ShowroomRoomComponent
     }
   ];
 

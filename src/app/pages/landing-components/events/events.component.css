@@ -13,3 +13,124 @@
 .container {
   padding: 2px 16px;
 }
+
+.box:hover > .pin-text {
+  display: block;
+}
+.box2:hover > .pin-text {
+  display: block;
+}
+
+.box3:hover > .pin-text {
+  display: block;
+}
+.imgz{
+  width: 300%;
+  height: 300%;
+}
+
+.box4:hover > .pin-text {
+  display: block;
+}
+.box5:hover > .pin-text {
+  display: block;
+}
+.box6:hover > .pin-text {
+  display: block;
+}
+.box7:hover > .pin-text {
+  display: block;
+}
+
+.box {
+  top : 260px ;
+  left : 210px;
+  width:8%;
+  height:8%;
+  background-image:   url('http://www.clker.com/cliparts/W/0/g/a/W/E/map-pin-red.svg');
+  background-position: top;
+  background-repeat: no-repeat;
+  background-size: contain;
+  position: absolute; 
+}
+
+.box2 {
+  top : 20px ;
+  left : 210px;
+  width:8%;
+  height:8%;
+  background-image:   url('http://www.clker.com/cliparts/W/0/g/a/W/E/map-pin-red.svg');
+  background-position: top;
+  background-repeat: no-repeat;
+  background-size: contain;
+  position: absolute; 
+}
+
+.box3 {
+  top : 100px ;
+  left : 20px;
+  width:8%;
+  height:8%;
+  background-image:   url('http://www.clker.com/cliparts/W/0/g/a/W/E/map-pin-red.svg');
+  background-position: top;
+  background-repeat: no-repeat;
+  background-size: contain;
+  position: absolute; 
+}
+
+.box4 {
+  top : 100px ;
+  left : 30px;
+  width:8%;
+  height:8%;
+  background-image:   url('http://www.clker.com/cliparts/W/0/g/a/W/E/map-pin-red.svg');
+  background-position: top;
+  background-repeat: no-repeat;
+  background-size: contain;
+  position: absolute; 
+}
+
+.box5 {
+  top : 100px ;
+  left : 40px;
+  width:8%;
+  height:8%;
+  background-image:   url('http://www.clker.com/cliparts/W/0/g/a/W/E/map-pin-red.svg');
+  background-position: top;
+  background-repeat: no-repeat;
+  background-size: contain;
+  position: absolute; 
+}
+
+.box6 {
+  top : 100px ;
+  left : 50px;
+  width:8%;
+  height:8%;
+  background-image:   url('http://www.clker.com/cliparts/W/0/g/a/W/E/map-pin-red.svg');
+  background-position: top;
+  background-repeat: no-repeat;
+  background-size: contain;
+  position: absolute; 
+}
+
+.box7 {
+  top : 100px ;
+  left : 70px;
+  width:8%;
+  height:8%;
+  background-image:   url('http://www.clker.com/cliparts/W/0/g/a/W/E/map-pin-red.svg');
+  background-position: top;
+  background-repeat: no-repeat;
+  background-size: contain;
+  position: absolute; 
+}
+
+.pin-text {
+  position: absolute;
+  top:50%;
+  transform:translateY(-50%);
+  left:75%;
+  white-space:nowrap;
+  display: none;
+}

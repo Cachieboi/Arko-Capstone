@@ -28,9 +28,6 @@ export class ArticleComponent implements OnInit {
     this.title = this.route.snapshot.params['title'];
     this.Arservice.GET_article(this.id).subscribe((data)=>{
     this.thisArticle = data;
-    
-
-    
       console.log(data);
   });
 

@@ -4,6 +4,8 @@ import {CookieService} from 'ngx-cookie-service';
 import { HttpClient, HttpHeaders} from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { BehaviorSubject, Observable } from 'rxjs';
+import { showroom } from 'src/app/shares/models/showroomint.model';
+
 
 
 @Injectable({
@@ -50,11 +52,35 @@ getAuthHeaders(){
   }
 
   GET_registrant(id:Number){
-    return this.http.get<regFormint>(this.APIUrl + 'Accounts/registrants/' + id);
+    return this.http.get<regFormint>(this.APIUrl + 'Accounts/showroom-registrants/' + id);
   }
 
   GET_registrants(): Observable<any[]> {
-    return this.http.get<any[]>(this.APIUrl + 'Accounts/registrants/');
+    return this.http.get<any[]>(this.APIUrl + 'Accounts/showroom-registrants/');
+  }
+
+  addShowroom(val: any){
+    return this.http.post(this.APIUrl + 'backend/Showroom/',val, {headers: this.getAuthHeaders()});
+  }
+
+  UploadPhoto_Showroom(val:any){
+    return this.http.post(this.APIUrl+'Showroom/SaveFile', val);
+  }
+
+  GET_showrooms(): Observable<any[]> {
+    return this.http.get<any[]>(this.APIUrl + 'backend/Showroom/');
+  }
+
+  GET_showroom(id:Number){
+    return this.http.get<showroom>(this.APIUrl + 'backend/Showroom/' + id);
+  }
+
+  EDIT_showroom(val:any){
+    return this.http.put(this.APIUrl + 'backend/Showroom/',val);
+  }
+
+  DELETE_showroom(val:any){
+    return this.http.delete(this.APIUrl + 'backend/Showroom/'+ val);
   }
 
 }

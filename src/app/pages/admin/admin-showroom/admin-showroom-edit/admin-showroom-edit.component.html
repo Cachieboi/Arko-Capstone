@@ -1,1 +1,50 @@
-<p>admin-showroom-edit works!</p>
+
+<div class="container">
+    <div class="main">
+      <h3>Edit Showroom</h3>
+        <div>
+          <label>Showroom Title</label>
+          <input 
+          type = "text"
+          id = "Title"
+          class="Title"
+          [(ngModel)] = "Title"
+          pattern="[a-zA-Z]+">
+        </div>
+        <div>
+          <label>Showroom Author Name</label>
+          <input 
+          type = "text"
+          id = "AuthorName"
+          class="AuthorName"
+          [(ngModel)] = "AuthorName">
+        </div>
+        <div>
+          <label>Showroom Description</label>
+            <input 
+            type = "text"
+            id = "Descirption"
+            class="Description"
+            [(ngModel)] = "Description">
+        </div>
+        <div>
+          <label>Showroom Image</label><br>
+          <img 
+          *ngIf = "PhotoFileName !== null && photoUpload == true"
+          [src] = "PhotoFileName"
+          >
+          <img 
+          *ngIf = "PhotoFilePath !== null && photoUpload == false"
+          [src] = "PhotoFilePath"
+          >
+         <input 
+          type = "file"
+          id = "PhotoFileName"
+          class="PhotoFileName"
+          (change)="uploadPhoto($event)">
+        </div>
+        <button class="submit"(click)="editShowroom()">Submit</button>
+    </div>
+    </div>
+         
+  

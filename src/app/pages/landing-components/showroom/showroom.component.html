@@ -3,9 +3,9 @@
   <ng-template #callAPIDialog>
     <form #userForm="ngForm" (ngSubmit)="onSend(userForm)">
     <h2 matDialogTitle>3-D Showroom Entrance</h2>
-    <label>Last Name</label><br>
+    <label>Email</label><br>
       <input 
-      type="text"
+      type="email"
       ngModel
       name="email"><br>
     <label>Ticket No.</label><br>
@@ -27,11 +27,16 @@
 <ng-template #callAPIDialogz>
   <form #regform="ngForm" (ngSubmit)="onReg(regform)">
   <h2 matDialogTitle>3-D Showroom Register</h2>
+  <label>First Name</label><br>
+    <input 
+    type="text"
+    ngModel
+    name="firstname"><br>
   <label>Last Name</label><br>
     <input 
-    type="email"
+    type="text"
     ngModel
-    name="email"><br>
+    name="lastname"><br>
   <label>Email</label><br>
     <input 
     type="email"

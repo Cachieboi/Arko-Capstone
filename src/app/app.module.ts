@@ -52,6 +52,10 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { MatSliderModule } from '@angular/material/slider';
 import {DemoMaterialModule} from 'src/app/shares/Material/materialModule';
 import { ShowroomPageComponent } from './pages/showroom-page/showroom-page.component';
+import { ShowroomRoomComponent } from './pages/showroom-room/showroom-room.component';
+import { AdminEventsAddComponent } from './pages/admin/admin-events/admin-events-add/admin-events-add.component';
+import { AdminEventsEditComponent } from './pages/admin/admin-events/admin-events-edit/admin-events-edit.component';
+import { AdminEventsListComponent } from './pages/admin/admin-events/admin-events-list/admin-events-list.component';
 
 
 
@@ -95,6 +99,10 @@ import { ShowroomPageComponent } from './pages/showroom-page/showroom-page.compo
     ArticleComponent,
     MerchappComponent,
     ShowroomPageComponent,
+    ShowroomRoomComponent,
+    AdminEventsAddComponent,
+    AdminEventsEditComponent,
+    AdminEventsListComponent,
     
    
 
