@@ -19,14 +19,19 @@
 			<div class="wow fadeInUp col-md-6 col-sm-6" data-wow-delay="0.9s">
 				<img src='/assets/img/roadmap.png' class="img-responsive" alt="Overview" usemap="#roadmap">
 				<map name="roadmap">
-					<area shape="poly" coords="200,340,216,234,312,236,323,323,317,346" matTooltip="Info about the Device" >
-					<div id='pin-1' class="box" >
+					<div id='pin-1' class="box">
 					<div class="pin-text">
-						<img src ="../../../../assets/img/event.png" class="imgz">
-					<h1>Some Text</h1>
+						<img [src] ="imageURLz+event1.PhotoFileName"class="imgz">
+					<h1>{{event1.eventName}}</h1>
 					</div>
 				</div>
-				</map>
+				<div id='pin-1' class="box2">
+					<div class="pin-text">
+						<img [src] ="imageURLz+event2.PhotoFileName"class="imgz">
+					<h1>{{event2.eventName}}</h1>
+					</div>
+				</div>
+			</map>
 			</div>
 		</div>
 	</div>

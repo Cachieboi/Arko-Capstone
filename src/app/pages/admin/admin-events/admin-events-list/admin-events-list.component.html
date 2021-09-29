@@ -4,12 +4,19 @@
     <div class="main">
         <h2>This is Events</h2>
         <div class="right">
-          <button class="btn btn-primary" routerLink="add"> Add </button>
+          <div class = "buttonz">
+          <button class="btn btn-primary addz" routerLink="add" 
+          [disabled] = "Events.length >= 7" 
+          > Add 
+         
+        </button>
+      </div>
+      <span class = "message">Max Events have been Set</span>
         </div>
         <table>
           <tr>
-            <th>Article Title</th>
-            <th>Article Desc</th>
+            <th>Event Title</th>
+            <th>Event Link</th>
          
           </tr>
           <tr
@@ -30,3 +37,5 @@
     </div>
          
   </div>
+
+ 

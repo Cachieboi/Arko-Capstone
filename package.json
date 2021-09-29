@@ -25,6 +25,7 @@
     "@tinymce/tinymce-angular": "^4.2.4",
     "angular-material": "^1.2.3",
     "bootstrap": "^3.4.1",
+    "firebase-tools": "^9.18.0",
     "font-awesome": "^4.7.0",
     "hammerjs": "^2.0.8",
     "jquery": "^3.6.0",

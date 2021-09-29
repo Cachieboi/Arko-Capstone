@@ -1,8 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { MerchService } from 'src/app/shares/services/Merch.service';
-import { Merch } from '../../../shares/models/Merch.model'
-import { merch } from '../../../shares/models/merchint.model'
-
+import { eventint } from '../../../shares/models/eventsint.model';
+import { merch } from '../../../shares/models/merchint.model';
+import { EventService } from 'src/app/shares/services/Events.service';
+import { Events } from '@tinymce/tinymce-angular/editor/Events';
+import { THIS_EXPR } from '@angular/compiler/src/output/output_ast';
 
 
 @Component({
@@ -12,7 +14,24 @@ import { merch } from '../../../shares/models/merchint.model'
 })
 export class EventsComponent implements OnInit {
 
+  events: eventint[] = [];
+
+  event1: eventint;
+  event2: eventint;
+  event3: eventint;
+  event4: eventint;
+  event5: eventint;;
+  event6: eventint;
+  event7: eventint;
+
+ 
+
+  eventsz: eventint;
+
   merchs: merch[] = [];
+
+  eventName: String;
+  eventLink: String;
   
   id: Number;
   mname: String;
@@ -21,12 +40,14 @@ export class EventsComponent implements OnInit {
   PhotoFilePath: String;
   PhotoFileName: String;
 
-  constructor(private Mservice: MerchService) { }
-  imageURL = this.Mservice.PhotoUrl
+  constructor(private Mservice: MerchService, private eService: EventService) { }
+  imageURL = this.Mservice.PhotoUrl;
+  imageURLz = this.eService.PhotoUrl;
 
   ngOnInit(): void {
     this.showMerchs();
-    
+    this.showEvents();
+    console.log(this.events[1]);
   }
 
   showMerchs(){
@@ -34,6 +55,16 @@ export class EventsComponent implements OnInit {
       this.merchs=data;
       console.log(data);
     });
+  }
+
+
+  showEvents(){
+    this.eService.GET_events().subscribe(data=>{
+      this.events = data;
+      this.event1 = this.events[0];
+      this.event2 = this.events[1];
+      console.log(this.event1);
+    })
   }
 
 

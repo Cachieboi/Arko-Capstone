@@ -15,6 +15,7 @@ export class AdminEventsListComponent implements OnInit {
 
   ngOnInit(): void {
     this.showEvents();
+    this.eventFull();
   }
 
   showEvents(){
@@ -22,6 +23,14 @@ export class AdminEventsListComponent implements OnInit {
       this.Events=data;
       console.log(data);
     });
+  }
+
+  maxEvents: boolean = false;
+
+  eventFull(){
+    if(this.Events.length <= 7){
+      this.maxEvents = true;
+    }
   }
 
   deleteClick(event){
