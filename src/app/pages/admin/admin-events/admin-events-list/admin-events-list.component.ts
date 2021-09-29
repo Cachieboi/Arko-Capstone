@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { Event } from '../../../../shares/models/Events.model';
+import { EventService } from 'src/app/shares/services/Events.service';
 
 @Component({
   selector: 'app-admin-events-list',
@@ -7,9 +9,33 @@ import { Component, OnInit } from '@angular/core';
 })
 export class AdminEventsListComponent implements OnInit {
 
-  constructor() { }
+  constructor(private eService: EventService) { }
+
+  Events: Event[] = [];
 
   ngOnInit(): void {
+    this.showEvents();
+  }
+
+  showEvents(){
+    this.eService.GET_events().subscribe(data=>{
+      this.Events=data;
+      console.log(data);
+    });
+  }
+
+  deleteClick(event){
+    if(confirm('Are you sure??')){
+      this.eService.DELETE_event(event.id).subscribe(data=>{
+        alert("Successfully Deleted The Event");
+        window.location.reload();
+      },
+      error =>{
+        alert("There was an Error with Deleting the Event")
+      })
+      
+
+    } 
   }
 
 }

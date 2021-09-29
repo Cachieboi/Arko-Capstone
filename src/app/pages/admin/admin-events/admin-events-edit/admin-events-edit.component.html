@@ -1,5 +1,44 @@
-<div>
-    <form>
-        
-    </form>
-</div>
+
+<div class="container">
+    <div class="main">
+      <h3>Edit Event</h3>
+        <div>
+          <label>Event Name</label>
+          <input 
+          type = "text"
+          id = "eventName"
+          class="eventName"
+          [(ngModel)] = "eventName">
+          
+        </div>
+        <div>
+          <label>Event Link</label>
+          <input 
+          type = "text"
+          id = "eventLink"
+          class="eventLink"
+          [(ngModel)] = "eventLink">
+        </div>
+          <div>
+            <label>Event Poster</label><br>
+            <img 
+            *ngIf = "PhotoFileName !== null && photoUpload == true"
+            [src] = "PhotoFileName"
+            >
+            <img 
+            *ngIf = "PhotoFilePath !== null && photoUpload == false"
+            [src] = "PhotoFilePath"
+            >
+           <input 
+            type = "file"
+            id = "PhotoFileName"
+            class="PhotoFileName"
+            
+            (change)="uploadPhoto($event)">
+           
+          </div>
+        <button class="submit"(click)="editEvent()">Submit</button>
+    </div>
+    </div>
+         
+  
