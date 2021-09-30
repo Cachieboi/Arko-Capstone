@@ -16,8 +16,7 @@
 
 .box:hover > .pin-text {
   display: block;
-  margin-left: 10px;
-  margin-right: 700px ; 
+  margin: auto;
 }
 .box2:hover > .pin-text {
   display: block;
@@ -29,11 +28,16 @@
 .imgz{
   width: 500%;
   height: 500%;
-  
+  display: block;
+  position: fixed;
+  margin-top: -200px;    /* Half of the popups height */
+  margin-left: -500px;   /* Half of the popups width */
+  position: relative;
   
 }
 
 .box4:hover > .pin-text {
+  margin: auto;
   display: block;
 }
 .box5:hover > .pin-text {
