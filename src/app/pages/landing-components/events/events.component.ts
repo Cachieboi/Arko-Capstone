@@ -63,6 +63,9 @@ export class EventsComponent implements OnInit {
       this.events = data;
       this.event1 = this.events[0];
       this.event2 = this.events[1];
+      this.event3 = this.events[2];
+      this.event4 = this.events[3];
+      this.event5 = this.events[4];
       console.log(this.event1);
     })
   }

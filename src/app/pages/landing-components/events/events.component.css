@@ -47,10 +47,10 @@
 }
 
 .box {
-  top : 190px ;
-  left : 140px;
-  width:40%;
-  height: 40%;
+  top : 220px ;
+  left : 160px;
+  width:30%;
+  height: 30%;
   background-image:url('../../../../assets/img/building1.png');
   background-position: top;
   background-repeat: no-repeat;
@@ -59,10 +59,10 @@
 }
 
 .box2 {
-  top : 20px ;
-  left : 210px;
-  width:40%;
-  height: 40%;
+  top : 30px ;
+  left : 150px;
+  width:30%;
+  height: 30%;
   background-image:   url('../../../../assets/img/building1.png');
   background-position: top;
   background-repeat: no-repeat;
@@ -71,10 +71,10 @@
 }
 
 .box3 {
-  top : 100px ;
-  left : 20px;
-  width:40%;
-  height: 40%;
+  top : 120px ;
+  left : 100px;
+  width:30%;
+  height: 30%;
   background-image:   url('../../../../assets/img/building1.png');
   background-position: top;
   background-repeat: no-repeat;
@@ -83,10 +83,11 @@
 }
 
 .box4 {
-  top : 100px ;
-  left : 30px;
-  width:40%;
-  height: 40%;
+  top : 130px ;
+  left : 200px;
+  transform: scaleX(-1);
+  width:30%;
+  height: 30%;
   background-image:   url('../../../../assets/img/building1.png');
   background-position: top;
   background-repeat: no-repeat;
@@ -95,10 +96,10 @@
 }
 
 .box5 {
-  top : 100px ;
-  left : 40px;
-  width:40%;
-  height: 40%;
+  top : 200px ;
+  left : 300px;
+  width:30%;
+  height: 30%;
   background-image:   url('../../../../assets/img/building1.png');
   background-position: top;
   background-repeat: no-repeat;
@@ -107,10 +108,11 @@
 }
 
 .box6 {
-  top : 100px ;
-  left : 50px;
-  width:40%;
-  height: 40%;
+  top : 40px ;
+  left : 300px;
+  transform: scaleX(-1);
+  width:30%;
+  height: 30%;
   background-image:   url('../../../../assets/img/building1.png');
   background-position: top;
   background-repeat: no-repeat;
@@ -119,10 +121,11 @@
 }
 
 .box7 {
-  top : 100px ;
-  left : 70px;
-  width:40%;
-  height: 40%;
+  top : 10px ;
+  left : 240px;
+  transform: scaleX(-1);
+  width:30%;
+  height: 30%;
   background-image:   url('../../../../assets/img/building1.png');
   background-position: top;
   background-repeat: no-repeat;
