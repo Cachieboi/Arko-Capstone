@@ -56,7 +56,7 @@ import { ShowroomRoomComponent } from './pages/showroom-room/showroom-room.compo
 import { AdminEventsAddComponent } from './pages/admin/admin-events/admin-events-add/admin-events-add.component';
 import { AdminEventsEditComponent } from './pages/admin/admin-events/admin-events-edit/admin-events-edit.component';
 import { AdminEventsListComponent } from './pages/admin/admin-events/admin-events-list/admin-events-list.component';
-
+import { NgxPaginationModule } from 'ngx-pagination';
 
 
 @NgModule({
@@ -111,6 +111,7 @@ import { AdminEventsListComponent } from './pages/admin/admin-events/admin-event
     BrowserModule,
     BrowserAnimationsModule,
     FormsModule,
+    NgxPaginationModule,
     CarouselModule,
     AppRoutingModule,
     HttpClientModule,
@@ -118,7 +119,7 @@ import { AdminEventsListComponent } from './pages/admin/admin-events/admin-event
     NgbModule,
     MatSliderModule,
     DemoMaterialModule,
-
+   
 
   ],
   providers: [

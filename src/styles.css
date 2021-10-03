@@ -1071,3 +1071,49 @@ body {
 .psv-marker--has-tooltip, .psv-marker--has-content {
   cursor: pointer;
 }
+
+
+@font-face {
+  font-family: 'quarklight';
+  src: url('assets/fonts/quark-light-webfont.woff2') format('woff2'),
+       url('assets/fonts/quark-light-webfont.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+
+}
+
+@font-face {
+  font-family: 'gravitybold';
+  src: url('assets/fonts/gravity-bold-webfont.woff2') format('woff2'),
+       url('assets/fonts/gravity-bold-webfont.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+
+}
+
+@font-face {
+  font-family: 'gravityregular';
+  src: url('assets/fonts/gravity-regular-webfont.woff2') format('woff2'),
+       url('assets/fonts/gravity-regular-webfont.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+
+}
+
+@font-face {
+  font-family: 'quarkbold';
+  src: url('assets/fonts/quark-bold-webfont.woff2') format('woff2'),
+       url('assets/fonts/quark-bold-webfont.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+
+}
+
+@font-face {
+  font-family: 'grossregular';
+  src: url('assets/fonts/gross_regular-webfont.woff2') format('woff2'),
+       url('assets/fonts/gross_regular-webfont.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+
+}

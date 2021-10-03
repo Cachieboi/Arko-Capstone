@@ -1,31 +1,33 @@
 <header>
-  <a [routerLink]="['../']">back</a>
-</header>
-<div
-      class="item mb-5"
-      *ngFor="
-        let article of articles.reverse()
-      "
->
-
-<div class="media-body">
+    <a [routerLink]="['../']">back</a>
+  </header>
+  <div
+        class="item mb-5"
+        *ngFor="
+          let article of articles.reverse()  | paginate: { itemsPerPage: 5, currentPage: p }
+        "
+  >
   
-    <h3 class="title mb-1">
-      <a class="postheading" [routerLink]="['/article', article.id, article.title]">{{
-        article.title
-      }}</a>
-    </h3>
-</div>
-
-<div class="meta mb-1 sub-heading">
-    <span class="date">{{ article.desc }}</span>
+  
+  <div class="media-body">
+    
+      <h3 class="title mb-1">
+        <a class="postheading" [routerLink]="['/article', article.id, article.title]">{{
+          article.title
+        }}</a>
+      </h3>
   </div>
-
-  <a
-    class="more-link"
-    [routerLink]="['/article', article.id, article.title]"
-    >Read more &rarr;</a>
-
-
-
-</div>
+  
+  <div class="meta mb-1 sub-heading">
+      <span class="date">{{ article.desc }}</span>
+    </div>
+  
+    <a
+      class="more-link"
+      [routerLink]="['/article', article.id, article.title]"
+      >Read more &rarr;</a>
+  
+  
+  
+  </div>
+  <pagination-controls (pageChange)="p = $event"></pagination-controls>

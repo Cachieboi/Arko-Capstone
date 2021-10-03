@@ -13,7 +13,7 @@ export class AdminArticlesListComponent implements OnInit {
 
   articles: Article[] = [];
 
-
+  p: number = 1;
   ngOnInit(): void {
     this.showArticles();
   }

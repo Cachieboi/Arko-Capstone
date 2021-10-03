@@ -12,6 +12,7 @@ export class AdminEventsListComponent implements OnInit {
   constructor(private eService: EventService) { }
 
   Events: Event[] = [];
+  p: number = 1;
 
   ngOnInit(): void {
     this.showEvents();

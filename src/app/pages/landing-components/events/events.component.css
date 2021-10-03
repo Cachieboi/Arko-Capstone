@@ -3,6 +3,7 @@
   box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
   transition: 0.3s;
   width: 40%;
+  border-radius: 10px;
   background: white;
 }
 
@@ -28,11 +29,7 @@
 .imgz{
   width: 500%;
   height: 500%;
-  display: block;
-  position: fixed;
-  margin-top: -200px;    /* Half of the popups height */
-  margin-left: -500px;   /* Half of the popups width */
-  position: relative;
+ display:block;
   
 }
 

@@ -20,7 +20,7 @@
          
           </tr>
           <tr
-          *ngFor = "let event of Events.reverse()">
+          *ngFor = "let event of Events.reverse() | paginate: { itemsPerPage: 5, currentPage: p }">
          <td>
           {{event.eventName}}
          </td>
@@ -34,6 +34,7 @@
          </td>
           </tr>
         </table>
+        <pagination-controls (pageChange)="p = $event" ></pagination-controls>
     </div>
          
   </div>

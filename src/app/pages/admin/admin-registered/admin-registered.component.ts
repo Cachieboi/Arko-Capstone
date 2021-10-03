@@ -12,7 +12,7 @@ export class AdminRegisteredComponent implements OnInit {
 
   constructor(private shService: ShowroomService) {}
   registrants: any[] = []; 
-
+  p: number = 1;
   ngOnInit(): void {
     this.showRegistrants();
   }

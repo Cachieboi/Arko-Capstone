@@ -10,21 +10,23 @@ import { article } from '../../shares/models/articleint.model';
 })
 export class ArticlePageComponent implements OnInit {
 
-  articles: article[] = [];
- 
+  
+ p: number = 1;
+  count: Number = 5;
+articles: article[] = []
+    constructor(private Arservice: ArticleService) { }
 
-  constructor(private Arservice: ArticleService) { }
+    ngOnInit() {
+        // an example array of 150 items to be paged
+        this.showArticles();
+    }
 
-  ngOnInit(): void {
-    this.showArticles();
+    showArticles(){
+      this.Arservice.GET_articles().subscribe(data=>{
+        this.articles=data;
+        console.log(data);
+      });
+    }
 
-  }
-
-  showArticles(){
-    this.Arservice.GET_articles().subscribe(data=>{
-      this.articles=data;
-      console.log(data);
-    });
-  }
-
+  
 }

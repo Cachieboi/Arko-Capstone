@@ -12,8 +12,8 @@
             <th>Article Desc</th>
          
           </tr>
-          <tr
-          *ngFor = "let article of articles.reverse()">
+         
+          <tr *ngFor = "let article of articles.reverse() | paginate: { itemsPerPage: 5, currentPage: p }" >
          <td>
           {{article.title}}
          </td>
@@ -25,9 +25,9 @@
           <a class="btn btn-primary" [routerLink]="['edit', article.id]">Edit</a>
           <button class="btn btn-danger" (click) = "deleteClick(article)">Delete</button>
          </td>
-          </tr>
-          
+        </tr>
         </table>
+        <pagination-controls (pageChange)="p = $event" ></pagination-controls>
     </div>
          
   </div>

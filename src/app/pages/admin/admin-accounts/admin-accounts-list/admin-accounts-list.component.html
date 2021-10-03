@@ -1,4 +1,3 @@
-
 <div class="container">
     <div class="main">
         <h2>This is Accounts</h2>
@@ -14,7 +13,8 @@
             <th> </th>
           </tr>
           <tr
-          *ngFor = "let account of accounts.reverse()">
+          *ngFor = "let account of accounts.reverse() | paginate: { itemsPerPage: 5, currentPage: p }" >
+          
          <td>
            {{account.id}}
          </td>
@@ -34,6 +34,7 @@
           </tr>
           
         </table>
+        <pagination-controls (pageChange)="p = $event" ></pagination-controls>
+      </div>
     </div>
    
-  </div>

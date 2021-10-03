@@ -20,6 +20,7 @@ export class AdminAccountsListComponent implements OnInit {
   accounts: any[] = []; 
   id: number;
   lastname: String;
+  p: number = 1;
 
   ngOnInit(): void {
       this.showAccounts();

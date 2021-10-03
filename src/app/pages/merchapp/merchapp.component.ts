@@ -4,6 +4,8 @@ import { merch } from '../../shares/models/merchint.model';
 import { MerchService } from 'src/app/shares/services/Merch.service';
 import { ActivatedRoute } from '@angular/router';
 import { Router } from '@angular/router';
+import { HttpClient } from '@angular/common/http';
+import { TestBed } from '@angular/core/testing';
 
 
 @Component({
@@ -13,16 +15,22 @@ import { Router } from '@angular/router';
 })
 export class MerchappComponent implements OnInit {
 
-  constructor(private Mservice: MerchService, private router: ActivatedRoute, private route: Router) { }
+  constructor(
+    private http: HttpClient,
+    private Mservice: MerchService, 
+    private router: ActivatedRoute, 
+    private route: Router) { }
 
   merchs: merch[] = [];
   id: Number;
   mname: String;
   price: Number;
+  email: String;
   desc: String;
+  quantity: Number;
   PhotoFileName: String;
   imageURL = this.Mservice.PhotoUrl
-
+  scriptURL = 'script.google.com/macros/s/AKfycbwbplsYBDFn8IxacMJzWtAnZhkJhytvyoT2-wT3UzQVZr-SjHNsOdb0JyN9YgMMCTqB/exec';
 
   ngOnInit(): void {
     this.id = this.router.snapshot.params['id'];
@@ -36,8 +44,9 @@ export class MerchappComponent implements OnInit {
   }
 
   onSubmit(form: NgForm){
-    console.log(form)
     
+    console.log(form)
+   
   }
 
 }

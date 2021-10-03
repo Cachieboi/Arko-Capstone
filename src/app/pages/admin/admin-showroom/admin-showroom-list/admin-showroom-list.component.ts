@@ -14,6 +14,7 @@ export class AdminShowroomListComponent implements OnInit {
 
   showrooms: showroom[] = [];
   constructor(private shService: ShowroomService) { }
+  p: number = 1;
 
   ngOnInit(): void {
 

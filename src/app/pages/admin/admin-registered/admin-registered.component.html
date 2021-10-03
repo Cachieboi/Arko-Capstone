@@ -9,7 +9,7 @@
             <th>Email</th>
           </tr>
           <tr
-          *ngFor = "let registrant of registrants.reverse()">
+          *ngFor = "let registrant of registrants.reverse() | paginate: { itemsPerPage: 5, currentPage: p }">
          <td>
            {{registrant.firstname}}
         </td>
@@ -22,6 +22,7 @@
           </tr>
           
         </table>
+        <pagination-controls (pageChange)="p = $event" ></pagination-controls>
     </div>
    
   </div>

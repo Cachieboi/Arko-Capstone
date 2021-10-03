@@ -11,7 +11,7 @@ import { MerchService } from 'src/app/shares/services/Merch.service';
 export class AdminMerchListComponent implements OnInit {
 
   constructor(private Mservice: MerchService) { }
-
+  p: number = 1;
   merchs: Merch[]
 
   ngOnInit(): void {
