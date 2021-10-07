@@ -1,4 +1,4 @@
 export const environment = {
   production: true,
-  apiUrl: 'https://arko-ust.herokuapp.com/'
+  apiUrl: 'https://128.199.211.18/'
 };

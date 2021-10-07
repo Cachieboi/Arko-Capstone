@@ -44,7 +44,7 @@ export class AdminEventsAddComponent implements OnInit {
           this.router.navigate(['dashboard/events']);
         },
         error => {
-          alert("There was an Error with Adding an Events")
+          alert("There was an Error with Adding an Event")
         }
          
         );

@@ -49,6 +49,10 @@ const appRoutes: Routes = [
   
     { path: 'dashboard', 
     component: AdminComponent, children:[
+      {
+        path: '',
+        component: AdminProfileComponent
+      },
       
       {
       path: 'account',
@@ -147,11 +151,6 @@ const appRoutes: Routes = [
 
     {path: 'registered',
      component: AdminRegisteredComponent
-    },
-
-    {
-      path:'userprofile',
-      component: AdminProfileComponent
     }
     
     ]},

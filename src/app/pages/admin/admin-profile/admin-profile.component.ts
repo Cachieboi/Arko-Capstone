@@ -70,7 +70,7 @@ imageURL = this.Aservice.PhotoUrl
     if(confirm('Are you Sure?')){
       this.Aservice.EDIT_accounts(val).subscribe(res=>{
         alert("The Account has been Successfully Updated!");
-        this.route.navigate(['dashboard/account']);
+        this.editMode = false;
       });
     }
     

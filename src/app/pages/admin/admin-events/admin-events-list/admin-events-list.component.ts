@@ -16,7 +16,7 @@ export class AdminEventsListComponent implements OnInit {
 
   ngOnInit(): void {
     this.showEvents();
-    this.eventFull();
+    
   }
 
   showEvents(){
@@ -28,11 +28,7 @@ export class AdminEventsListComponent implements OnInit {
 
   maxEvents: boolean = false;
 
-  eventFull(){
-    if(this.Events.length <= 7){
-      this.maxEvents = true;
-    }
-  }
+  
 
   deleteClick(event){
     if(confirm('Are you sure??')){

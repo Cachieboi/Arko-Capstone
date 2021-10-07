@@ -1,6 +1,6 @@
-<div *ngFor="let showroom of showrooms.reverse()
-let i = index">
-    <div *ngIf = "i < showrooms.length">
+<div *ngFor="let showroom of showrooms.reverse() | paginate: { itemsPerPage: 3, currentPage: p }
+let i = index " >
+   
     <a [routerLink]="['/Showroom', showroom.id, showroom.Title]">
        <img [src]= "imageURL + showroom.PhotoFileName" style="width: 300px">
        <div>
@@ -9,4 +9,5 @@ let i = index">
        </div>
     </a>
     </div>
-</div>
+
+<pagination-controls (pageChange)="p = $event"></pagination-controls>

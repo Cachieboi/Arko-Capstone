@@ -1117,3 +1117,11 @@ body {
   font-style: normal;
 
 }
+
+.owl-theme .owl-nav{
+  margin-right:370px;
+}
+
+.owl-carousel{
+  width: 600px;
+}

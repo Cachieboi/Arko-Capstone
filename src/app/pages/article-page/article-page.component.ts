@@ -10,7 +10,7 @@ import { article } from '../../shares/models/articleint.model';
 })
 export class ArticlePageComponent implements OnInit {
 
-  
+  imageURL = this.Arservice.PhotoUrl
  p: number = 1;
   count: Number = 5;
 articles: article[] = []

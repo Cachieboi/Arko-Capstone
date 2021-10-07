@@ -19,6 +19,8 @@ export class ShowroomPageComponent implements OnInit {
   ngOnInit(): void {
     this.showShowrooms();
   }
+  p: number = 1;
+  count: Number = 5;
 
 showrooms: showroom[] = [];
 PhotoFilePath: String;

@@ -1,18 +1,17 @@
 
 .card {
-  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+ margin-right: 150px;
   transition: 0.3s;
   width: 40%;
   border-radius: 10px;
   background: white;
+  
 }
 
-.card:hover {
-  box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
-}
 
 .container {
   padding: 2px 16px;
+  
 }
 
 .box:hover > .pin-text {
@@ -28,8 +27,7 @@
 }
 .imgz{
   width: 500%;
-  height: 500%;
- display:block;
+ position: absolute;
   
 }
 
@@ -47,12 +45,53 @@
   display: block;
 }
 
+.boxz:hover > .pin-text {
+  display: block;
+}
+
+.box2z:hover > .pin-text {
+  display: block;
+}
+
+.box3z:hover > .pin-text {
+  display: block;
+}
+
+.box4z:hover > .pin-text {
+  display: block;
+}
+
+.box5z:hover > .pin-text {
+  display: block;
+}
+
+.box6z:hover > .pin-text {
+  display: block;
+}
+
+.box7z:hover > .pin-text {
+  display: block;
+}
+
+
 .box {
   top : 220px ;
   left : 160px;
   width:30%;
   height: 30%;
   background-image:url('../../../../assets/img/building1.png');
+  background-position: top;
+  background-repeat: no-repeat;
+  background-size: contain;
+  position: absolute; 
+}
+
+.boxz {
+  top : 220px ;
+  left : 180px;
+  width:30%;
+  height: 30%;
+  background-image:url('../../../../assets/img/construct.png');
   background-position: top;
   background-repeat: no-repeat;
   background-size: contain;
@@ -71,12 +110,35 @@
   position: absolute; 
 }
 
+.box2z {
+  top : 30px ;
+  left : 150px;
+  width:30%;
+  height: 30%;
+  background-image:   url('../../../../assets/img/construct.png');
+  background-position: top;
+  background-repeat: no-repeat;
+  background-size: contain;
+  position: absolute; 
+}
+
 .box3 {
   top : 120px ;
   left : 100px;
   width:30%;
   height: 30%;
   background-image:   url('../../../../assets/img/building1.png');
+  background-position: top;
+  background-repeat: no-repeat;
+  background-size: contain;
+  position: absolute; 
+}
+.box3z {
+  top : 120px ;
+  left : 100px;
+  width:30%;
+  height: 30%;
+  background-image:   url('../../../../assets/img/construct.png');
   background-position: top;
   background-repeat: no-repeat;
   background-size: contain;
@@ -95,6 +157,18 @@
   background-size: contain;
   position: absolute; 
 }
+.box4z {
+  top : 130px ;
+  left : 200px;
+  transform: scaleX(-1);
+  width:30%;
+  height: 30%;
+  background-image:   url('../../../../assets/img/construct.png');
+  background-position: top;
+  background-repeat: no-repeat;
+  background-size: contain;
+  position: absolute; 
+}
 
 .box5 {
   top : 200px ;
@@ -102,6 +176,17 @@
   width:30%;
   height: 30%;
   background-image:   url('../../../../assets/img/building1.png');
+  background-position: top;
+  background-repeat: no-repeat;
+  background-size: contain;
+  position: absolute; 
+}
+.box5z {
+  top : 200px ;
+  left : 300px;
+  width:30%;
+  height: 30%;
+  background-image:   url('../../../../assets/img/construct.png');
   background-position: top;
   background-repeat: no-repeat;
   background-size: contain;
@@ -115,6 +200,18 @@
   width:30%;
   height: 30%;
   background-image:   url('../../../../assets/img/building1.png');
+  background-position: top;
+  background-repeat: no-repeat;
+  background-size: contain;
+  position: absolute; 
+}
+.box6z {
+  top : 40px ;
+  left : 300px;
+  transform: scaleX(-1);
+  width:30%;
+  height: 30%;
+  background-image:   url('../../../../assets/img/construct.png');
   background-position: top;
   background-repeat: no-repeat;
   background-size: contain;
@@ -134,6 +231,19 @@
   position: absolute; 
 }
 
+.box7z {
+  top : 10px ;
+  left : 240px;
+  transform: scaleX(-1);
+  width:30%;
+  height: 30%;
+  background-image:   url('../../../../assets/img/construct.png');
+  background-position: top;
+  background-repeat: no-repeat;
+  background-size: contain;
+  position: absolute; 
+}
+
 .pin-text {
   position: absolute;
   top:50%;
@@ -142,3 +252,6 @@
   white-space:nowrap;
   display: none;
 }
+
+  
+

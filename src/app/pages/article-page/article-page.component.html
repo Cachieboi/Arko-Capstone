@@ -1,33 +1,28 @@
-<header>
+<body>
+  <header>
     <a [routerLink]="['../']">back</a>
   </header>
-  <div
-        class="item mb-5"
-        *ngFor="
-          let article of articles.reverse()  | paginate: { itemsPerPage: 5, currentPage: p }
-        "
-  >
   
+  <div class="container item mb-5" *ngFor="let article of articles.reverse()  | paginate: { itemsPerPage: 3, currentPage: p }">
   
-  <div class="media-body">
+  <a class="postheading" [routerLink]="['/article', article.id, article.title]">
+    <img [src]="imageURL+article.PhotoFileName" alt="Avatar"></a>
+  
+    <div class="wow fadeInUp col-md-6 col-sm-10" data-wow-delay="1.3s">
+  
+    <h1>
+      {{article.title}}
+    </h1>
+  
+    <h3>
+      <span>{{ article.desc }}</span>
+    </h3>
+  
+    </div>
     
-      <h3 class="title mb-1">
-        <a class="postheading" [routerLink]="['/article', article.id, article.title]">{{
-          article.title
-        }}</a>
-      </h3>
-  </div>
-  
-  <div class="meta mb-1 sub-heading">
-      <span class="date">{{ article.desc }}</span>
     </div>
   
-    <a
-      class="more-link"
-      [routerLink]="['/article', article.id, article.title]"
-      >Read more &rarr;</a>
-  
-  
-  
+    <div class="pagination">
+    <pagination-controls (pageChange)="p = $event"></pagination-controls>
   </div>
-  <pagination-controls (pageChange)="p = $event"></pagination-controls>
+  </body>

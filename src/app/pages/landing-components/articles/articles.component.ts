@@ -23,6 +23,7 @@ export class ArticlesComponent implements OnInit {
 
   ngOnInit(): void {
     this.showArticles();
+    console.log(this.showArticles());
   }
 
   onMoreArticles(){

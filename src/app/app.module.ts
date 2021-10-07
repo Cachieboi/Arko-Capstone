@@ -24,7 +24,6 @@ import { FormsModule } from '@angular/forms';
 import { AppRoutingModule, routingComponents } from './app-routing.module';
 import { IntroComponent } from './pages/landing-components/intro/intro.component';
 import { FooterComponent } from './pages/landing-components/footer/footer.component';
-import { CarouselModule } from 'ngx-owl-carousel-o';
 import { AdminMerchComponent } from './pages/admin/admin-merch/admin-merch.component';
 import { AdminAccountsAddComponent } from './pages/admin/admin-accounts/admin-accounts-add/admin-accounts-add.component';
 import { AdminAccountsEditComponent } from './pages/admin/admin-accounts/admin-accounts-edit/admin-accounts-edit.component';
@@ -57,6 +56,7 @@ import { AdminEventsAddComponent } from './pages/admin/admin-events/admin-events
 import { AdminEventsEditComponent } from './pages/admin/admin-events/admin-events-edit/admin-events-edit.component';
 import { AdminEventsListComponent } from './pages/admin/admin-events/admin-events-list/admin-events-list.component';
 import { NgxPaginationModule } from 'ngx-pagination';
+import { CarouselModule } from 'ngx-owl-carousel-o';
 
 
 @NgModule({
@@ -119,7 +119,8 @@ import { NgxPaginationModule } from 'ngx-pagination';
     NgbModule,
     MatSliderModule,
     DemoMaterialModule,
-   
+    CarouselModule,
+    
 
   ],
   providers: [
