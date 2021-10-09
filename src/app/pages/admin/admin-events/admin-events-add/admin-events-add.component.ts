@@ -34,7 +34,8 @@ export class AdminEventsAddComponent implements OnInit {
 
   addEvent(form: NgForm){
     if(confirm("Are you Sure you want to Add this Event?")){
-      const value = form.value;
+      console.log(form);
+      /**const value = form.value;
       const PhotoFileName = this.PhotoFileName
       const newEvent = new Event(value.id,value.eventName,value.eventLink,PhotoFileName);
       this.eService.registerEvent(newEvent).subscribe(
@@ -47,7 +48,7 @@ export class AdminEventsAddComponent implements OnInit {
           alert("There was an Error with Adding an Event")
         }
          
-        );
+        );*/
       }
   }
 

@@ -49,7 +49,7 @@ width: fit-content;
 
 
 body {
-background:url('src/assets/img/websitebgs.jpg');
+background:url('../../../assets/img/websitebgs.jpg');
 height: 100%;
 }
 

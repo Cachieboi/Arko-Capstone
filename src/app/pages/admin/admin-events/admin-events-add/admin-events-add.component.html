@@ -20,7 +20,6 @@
        ngModel
        name="eventName"
        required
-       
        pattern="[a-z A-Z]+">
       </div>
       <div>
@@ -33,6 +32,23 @@
        name="eventLink"
        required>
       </div>
+      <div>
+        <mat-form-field appearance="fill">
+          <mat-label>Enter a date range</mat-label>
+          <mat-date-range-input [rangePicker]="picker">
+            <input matStartDate placeholder="Start date"
+            ngModel
+            name="startdate"
+            required>
+            <input matEndDate placeholder="End date" 
+            ngModel
+            name="enddate"
+            required>
+          </mat-date-range-input>
+          <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+          <mat-date-range-picker #picker></mat-date-range-picker>
+        </mat-form-field>
+       </div>
       <div>
         <button type="submit" class = "btn btn-primary">Submit</button>
       </div>

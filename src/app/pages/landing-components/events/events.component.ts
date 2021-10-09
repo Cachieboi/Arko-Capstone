@@ -131,6 +131,11 @@ export class EventsComponent implements OnInit {
     })
   }
 
+  public trackByfunction(index, merch){
+   
+    return merch.id;
+  }
+
  
  
 }

@@ -16,5 +16,5 @@ export class AboutUsComponent implements OnInit {
   appForm(){
     this.router.navigate(['Application-Form']);
   }
-
+  panelOpenState = false;
 }
