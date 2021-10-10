@@ -3,7 +3,7 @@
     <a [routerLink]="['../']">back</a>
   </header>
   
-  <div class="container item mb-5" *ngFor="let article of articles.reverse()  | paginate: { itemsPerPage: 3, currentPage: p }">
+  <div class="container item mb-5" *ngFor="let article of articles  | paginate: { itemsPerPage: 3, currentPage: p }">
   
   <a class="postheading" [routerLink]="['/article', article.id, article.title]">
     <img [src]="imageURL+article.PhotoFileName" alt="Avatar"></a>

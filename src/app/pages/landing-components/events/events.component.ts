@@ -71,7 +71,7 @@ export class EventsComponent implements OnInit {
   showMerchs(){
     this.Mservice.GET_merchs().subscribe(data=>{
       this.merchs=data;
-      console.log(data);
+  
     });
 
   }
@@ -131,9 +131,11 @@ export class EventsComponent implements OnInit {
     })
   }
 
-  public trackByfunction(index, merch){
+  public 
+  (index: number, merch: merch){
    
     return merch.id;
+    console.log(merch.id);
   }
 
  

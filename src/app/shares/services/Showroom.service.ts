@@ -21,10 +21,10 @@ export class ShowroomService{
     private cookieService: CookieService){
 
 }
-//APIUrl = 'https://arko-ust.herokuapp.com/';
-//readonly PhotoUrl = 'https://arko-ust.herokuapp.com/media/';
-APIUrl = "http://127.0.0.1:8000/";
-readonly PhotoUrl = "http://127.0.0.1:8000/media/";
+APIUrl = 'https://arko-ust.herokuapp.com/';
+readonly PhotoUrl = 'https://arko-ust.herokuapp.com/media/';
+//APIUrl = "http://127.0.0.1:8000/";
+//readonly PhotoUrl = "http://127.0.0.1:8000/media/";
   token = this.cookieService.get('mr-token');
   headers = new HttpHeaders({
   'Content-Type': 'application/json',
