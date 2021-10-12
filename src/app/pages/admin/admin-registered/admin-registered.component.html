@@ -9,7 +9,7 @@
             <th>Email</th>
           </tr>
           <tr
-          *ngFor = "let registrant of registrants.reverse() | paginate: { itemsPerPage: 5, currentPage: p }">
+          *ngFor = "let registrant of registrants | paginate: { itemsPerPage: 5, currentPage: p }">
          <td>
            {{registrant.firstname}}
         </td>

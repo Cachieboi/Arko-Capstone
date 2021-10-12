@@ -5,4 +5,6 @@ export interface article {
     desc: String, 
     content: String,
     PhotoFileName: String; 
+    authorName: String;
+    dateCreated: Date; 
 }

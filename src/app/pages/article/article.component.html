@@ -9,6 +9,8 @@
   <!-- Other stuff -->
   <main>
     <article>
+      <h1>{{thisArticle.authorName}}</h1>
+      <h1>{{thisArticle.dateCreated | date: 'MMMM/dd/yyyy'}}</h1>
       <h1>{{thisArticle.title}}</h1>
      <p>{{thisArticle.desc}}</p> 
       <p [innerHTML]="thisArticle.content"></p>

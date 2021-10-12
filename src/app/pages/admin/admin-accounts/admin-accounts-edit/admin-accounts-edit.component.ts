@@ -21,6 +21,7 @@ export class AdminAccountsEditComponent implements OnInit {
   lastname: String; 
   email: String;
   password: String;
+  firstname: String;
   PhotoFilePath: String;
   PhotoFileName: String;
   constructor(private Aservice: AccountService, private router: ActivatedRoute, private route: Router) { }
@@ -30,8 +31,8 @@ export class AdminAccountsEditComponent implements OnInit {
     this.Aservice.GET_account(this.id).subscribe((data)=>{
       this.lastname = data.lastname;
       this.email = data.email;
+      this.firstname = data.firstname;
       this.PhotoFileName = this.Aservice.PhotoUrl+data.PhotoFileName;
-
       console.log(data);
     });
     
@@ -39,10 +40,10 @@ export class AdminAccountsEditComponent implements OnInit {
   editAccounts(){
     if(this.PhotoFileName !== null && this.photoUpload == false){
     var val = {
-      id:this.id, lastname: this.lastname, email: this.email, PhotoFileName: this.PhotoFileName};
+      id:this.id, firstname: this.firstname,lastname: this.lastname, email: this.email, PhotoFileName: this.PhotoFileName};
     }else{
       var val = {
-        id:this.id, lastname: this.lastname, email: this.email, PhotoFileName: this.PhotoFilePath};
+        id:this.id,firstname: this.firstname, lastname: this.lastname, email: this.email, PhotoFileName: this.PhotoFilePath};
     }
     if(confirm('Are you Sure?')){
       this.Aservice.EDIT_accounts(val).subscribe(res=>{

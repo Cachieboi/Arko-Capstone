@@ -35,6 +35,7 @@ export class LoginComponent implements OnInit {
   _is_superuser: any;
   _token: any;
   _lastname: any;
+  _firstname: any;
   
 
   userLoginz(form: NgForm){
@@ -48,12 +49,14 @@ export class LoginComponent implements OnInit {
         this._email = this.cookieService.set('email', result.email);
         this._is_superuser = this.cookieService.set('is_superuser', result.is_superuser);
         this._lastname = this.cookieService.set('lastname',result.lastname);
+        this._firstname=this.cookieService.set('firstname',result.firstname);
         
         console.log("******** id " + this._id);
         console.log("******** email " + this._email);
         console.log("******** is_superuser " + this._is_superuser);
         console.log("****token " + this._token); 
         console.log("******lastname "+this._lastname);
+        console.log("******lastname "+this._firstname)
 
         this.router.navigate(['dashboard']); 
        

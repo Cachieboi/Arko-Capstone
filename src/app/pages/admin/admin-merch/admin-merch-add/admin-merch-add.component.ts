@@ -37,6 +37,7 @@ export class AdminMerchAddComponent implements OnInit {
           console.log(data);
           alert("Successfully Added")
           this.router.navigate(['dashboard/merchandise']);
+          console.log(new Date())
         },
         error => {
           alert("There was an Error with Adding an Merchandise")

@@ -10,17 +10,24 @@
           <tr>
             <th>Article Title</th>
             <th>Article Desc</th>
-         
+            <th>Author</th>
+            <th>Test </th>
+            <th>Date</th>
           </tr>
          
-          <tr *ngFor = "let article of articles.reverse() | paginate: { itemsPerPage: 5, currentPage: p }" >
+          <tr *ngFor = "let article of articles | paginate: { itemsPerPage: 5, currentPage: p }" >
          <td>
           {{article.title}}
          </td>
          <td>
           {{article.desc}}
         </td>
-         
+        <td>
+         {{article.authorName}}
+        </td>
+        <td>
+          {{article.dateCreated | date:"MM/dd/yy"}}
+        </td>
          <td>
           <a class="btn btn-primary" [routerLink]="['edit', article.id]">Edit</a>
           <button class="btn btn-danger" (click) = "deleteClick(article)">Delete</button>

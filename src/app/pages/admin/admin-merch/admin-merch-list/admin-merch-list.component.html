@@ -17,7 +17,7 @@
         </thead>
         <tbody>
           <tr
-          *ngFor = "let merch of merchs.reverse() | paginate: { itemsPerPage: 5, currentPage: p }"  >
+          *ngFor = "let merch of merchs | paginate: { itemsPerPage: 5, currentPage: p }"  >
          <td>
           {{merch.mname}}
          </td>

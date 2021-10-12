@@ -3,6 +3,7 @@ import { AccountService } from 'src/app/shares/services/Account.service';
 import { Useraccount } from 'src/app/shares/models/UserAccount.model';
 import { Account } from '../../../../shares/models/Accounts.model'
 import { Router } from '@angular/router';
+import { CookieService } from 'ngx-cookie-service';
 
 @Component({
   selector: 'app-admin-accounts-list',
@@ -15,13 +16,16 @@ export class AdminAccountsListComponent implements OnInit {
  
 
   constructor(private Aservice: AccountService,
-              private router : Router) { }
+              private router : Router, private cookieService: CookieService) { }
+
+             
 
   accounts: any[] = []; 
-  id: number;
+
   lastname: String;
   p: number = 1;
-
+  
+ id: number;
   ngOnInit(): void {
       this.showAccounts();
       }
@@ -29,6 +33,7 @@ export class AdminAccountsListComponent implements OnInit {
    showAccounts(){
      this.Aservice.GET_accounts().subscribe(data=>{
        this.accounts=data;
+       this.accounts.reverse();
        console.log(data);
      });
    }

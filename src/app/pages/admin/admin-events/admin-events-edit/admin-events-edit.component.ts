@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { Router } from '@angular/router';
+import { toJSDate } from '@ng-bootstrap/ng-bootstrap/datepicker/ngb-calendar';
 import { EventService } from 'src/app/shares/services/Events.service';
 
 @Component({
@@ -17,6 +18,8 @@ export class AdminEventsEditComponent implements OnInit {
   eventLink: String;
   PhotoFilePath: String;
   PhotoFileName: String;
+  StartDate: Date;
+  EndDate: Date;
 
   ngOnInit(): void {
     this.id = this.router.snapshot.params['id'];
@@ -24,6 +27,8 @@ export class AdminEventsEditComponent implements OnInit {
       this.eventName = data.eventName;
       this.eventLink = data.eventLink;
      this.PhotoFileName = this.eService.PhotoUrl+data.PhotoFileName;
+     this.StartDate = data.StartDate;
+     this.EndDate = data.EndDate;
       console.log(data);
   })
 }
@@ -47,11 +52,13 @@ export class AdminEventsEditComponent implements OnInit {
   editEvent(){
     if(this.PhotoFileName !== null && this.photoUpload == false){
     var val = {
-      id:this.id, eventName: this.eventName, eventLink: this.eventLink,PhotoFileName: this.PhotoFileName};
+      id:this.id, eventName: this.eventName, eventLink: this.eventLink,
+      PhotoFileName: this.PhotoFileName, StartDate: this.StartDate, EndDate: this.EndDate};
     }
     else{
       var val = {
-        id:this.id, eventName: this.eventName, eventLink: this.eventLink, PhotoFileName: this.PhotoFilePath};
+        id:this.id, eventName: this.eventName, eventLink: this.eventLink, 
+        PhotoFileName: this.PhotoFilePath, StartDate: this.StartDate, EndDate: this.EndDate};
       }
     if(confirm('Are you Sure?')){
       this.eService.EDIT_event(val).subscribe(res=>{

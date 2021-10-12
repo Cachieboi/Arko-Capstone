@@ -4,8 +4,9 @@ export interface user {
     email: String, 
     is_superuser: boolean, 
     password: String, 
-    token: any 
-    lastname: String
+    token: any, 
+    lastname: String,
+    firstname: String,
     PhotoFileName: String;
       
 }

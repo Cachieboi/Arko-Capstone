@@ -18,10 +18,10 @@ export class MerchService{
     private cookieService: CookieService){
 
     }
-    APIUrl = 'https://arko-ust.herokuapp.com/';
-readonly PhotoUrl = 'https://arko-ust.herokuapp.com/media/';
-//APIUrl = "http://127.0.0.1:8000/";
-//readonly PhotoUrl = "http://127.0.0.1:8000/media/";
+   //APIUrl = 'https://arko-ust.herokuapp.com/';
+//readonly PhotoUrl = 'https://arko-ust.herokuapp.com/media/';
+APIUrl = "http://127.0.0.1:8000/";
+readonly PhotoUrl = "http://127.0.0.1:8000/media/";
     token = this.cookieService.get('mr-token');
     headers = new HttpHeaders({
     'Content-Type': 'application/json',
@@ -50,14 +50,23 @@ readonly PhotoUrl = 'https://arko-ust.herokuapp.com/media/';
 
 
     GET_merch(id:Number){
-      return this.http.get<merch>(this.APIUrl + 'backend/Merchandise/' + id);
+      return this.http.get<merch>(this.APIUrl + 'backend/Merchandise/' + id, {headers: this.getAuthHeaders()});
     }
 
     EDIT_merch(val:any){
-      return this.http.put(this.APIUrl + 'backend/Merchandise/',val);
+      return this.http.put(this.APIUrl + 'backend/Merchandise/',val, {headers: this.getAuthHeaders()});
     }
 
     DELETE_merch(val:any){
-      return this.http.delete(this.APIUrl + 'backend/Merchandise/'+val);
+      return this.http.delete(this.APIUrl + 'backend/Merchandise/'+val, {headers: this.getAuthHeaders()});
+    }
+
+    GET_merchsReadOnly(): Observable<any[]> {
+      return this.http.get<any[]>(this.APIUrl + 'backend/Merchandise_readOnly/', {headers: this.getAuthHeaders()});
+    }
+
+    
+    GET_merchReadOnly(id:Number){
+      return this.http.get<merch>(this.APIUrl + 'backend/Merchandise_readOnly/' + id,{headers: this.getAuthHeaders()});
     }
 }

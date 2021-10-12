@@ -18,6 +18,8 @@ export class EventsComponent implements OnInit {
     mouseDrag: true,
     touchDrag: true,
     pullDrag: false,
+    autoplay:true,
+    autoplayTimeout:4500,
     dots: false,
     navSpeed: 700,
     navText: ["<i class='fa fa-arrow-left' aria-hidden='true'></i>","<i class='fa fa-arrow-right' aria-hidden='true'></i>"],
@@ -67,10 +69,13 @@ export class EventsComponent implements OnInit {
     console.log(this.imageURLz+this.event1.PhotoFileName);
     
   }
-
+  startDate: Date;
+  
   showMerchs(){
-    this.Mservice.GET_merchs().subscribe(data=>{
+    this.Mservice.GET_merchsReadOnly().subscribe(data=>{
       this.merchs=data;
+      this.merchs.reverse();
+      
   
     });
 
@@ -84,7 +89,7 @@ export class EventsComponent implements OnInit {
   checkImage6: boolean  = true;
   checkImage7: boolean  = true;
   showEvents(){
-    this.eService.GET_events().subscribe(data=>{
+    this.eService.GET_eventsReadOnly().subscribe(data=>{
     this.events = data;
     this.event1 = this.events[0];
     this.event2 = this.events[1];

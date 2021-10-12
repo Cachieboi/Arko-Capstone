@@ -18,10 +18,10 @@ export class EventService{
     private cookieService: CookieService){
 
     }
-    APIUrl = 'https://arko-ust.herokuapp.com/';
-    readonly PhotoUrl = 'https://arko-ust.herokuapp.com/media/';
-    //APIUrl = "http://127.0.0.1:8000/";
-    //readonly PhotoUrl = "http://127.0.0.1:8000/media/";
+  //APIUrl = 'https://arko-ust.herokuapp.com/';
+//readonly PhotoUrl = 'https://arko-ust.herokuapp.com/media/';
+APIUrl = "http://127.0.0.1:8000/";
+readonly PhotoUrl = "http://127.0.0.1:8000/media/";
     token = this.cookieService.get('mr-token');
     headers = new HttpHeaders({
     'Content-Type': 'application/json',
@@ -50,14 +50,22 @@ export class EventService{
 
 
     GET_event(id:Number){
-      return this.http.get<eventint>(this.APIUrl + 'backend/Event/' + id);
+      return this.http.get<eventint>(this.APIUrl + 'backend/Event/' + id, {headers: this.getAuthHeaders()});
     }
 
     EDIT_event(val:any){
-      return this.http.put(this.APIUrl + 'backend/Event/',val);
+      return this.http.put(this.APIUrl + 'backend/Event/',val, {headers: this.getAuthHeaders()});
     }
 
     DELETE_event(val:any){
-      return this.http.delete(this.APIUrl + 'backend/Event/'+val);
+      return this.http.delete(this.APIUrl + 'backend/Event/'+val, {headers: this.getAuthHeaders()});
+    }
+    GET_eventsReadOnly(): Observable<any[]> {
+      return this.http.get<any[]>(this.APIUrl + 'backend/Event_readOnly/', {headers: this.getAuthHeaders()});
+    }
+
+    
+    GET_eventReadOnly(id:Number){
+      return this.http.get<eventint>(this.APIUrl + 'backend/Event_readOnly/' + id,{headers: this.getAuthHeaders()});
     }
 }

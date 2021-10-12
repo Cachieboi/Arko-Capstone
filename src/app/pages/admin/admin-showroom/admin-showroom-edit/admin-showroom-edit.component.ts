@@ -19,6 +19,8 @@ export class AdminShowroomEditComponent implements OnInit {
   PhotoFilePath: String;
   PhotoFileName: String;
   photoUpload = true;
+  StartDate: Date;
+  EndDate: Date;
 
   ngOnInit(): void {
     this.id = this.route.snapshot.params['id'];
@@ -27,6 +29,8 @@ export class AdminShowroomEditComponent implements OnInit {
       this.Description = data.Description;
       this.AuthorName = data.AuthorName;
       this.PhotoFileName = this.shService.PhotoUrl+data.PhotoFileName;
+      this.StartDate = data.StartDate;
+      this.EndDate = data.EndDate;
       console.log(data);
     });
   }
@@ -36,11 +40,11 @@ export class AdminShowroomEditComponent implements OnInit {
     if(this.PhotoFileName !== null && this.photoUpload == false){
       var val = {
         id:this.id, Title: this.Title, Description: this.Description, AuthorName: this.AuthorName,  
-        PhotoFileName: this.PhotoFileName};
+        PhotoFileName: this.PhotoFileName, StartDate: this.StartDate, EndDate: this.EndDate};
       }else{
         var val = {
           id:this.id, Title: this.Title, Description: this.Description, AuthorName: this.AuthorName,  
-        PhotoFileName: this.PhotoFilePath};
+        PhotoFileName: this.PhotoFilePath, StartDate: this.StartDate, EndDate: this.EndDate};
       }
       if(confirm('Are you Sure?')){
         this.shService.EDIT_showroom(val).subscribe(res=>{

@@ -21,10 +21,10 @@ export class ShowroomService{
     private cookieService: CookieService){
 
 }
-APIUrl = 'https://arko-ust.herokuapp.com/';
-readonly PhotoUrl = 'https://arko-ust.herokuapp.com/media/';
-//APIUrl = "http://127.0.0.1:8000/";
-//readonly PhotoUrl = "http://127.0.0.1:8000/media/";
+//APIUrl = 'https://arko-ust.herokuapp.com/';
+//readonly PhotoUrl = 'https://arko-ust.herokuapp.com/media/';
+APIUrl = "http://127.0.0.1:8000/";
+readonly PhotoUrl = "http://127.0.0.1:8000/media/";
   token = this.cookieService.get('mr-token');
   headers = new HttpHeaders({
   'Content-Type': 'application/json',
@@ -68,19 +68,27 @@ getAuthHeaders(){
   }
 
   GET_showrooms(): Observable<any[]> {
-    return this.http.get<any[]>(this.APIUrl + 'backend/Showroom/');
+    return this.http.get<any[]>(this.APIUrl + 'backend/Showroom/', {headers: this.getAuthHeaders()});
   }
 
   GET_showroom(id:Number){
-    return this.http.get<showroom>(this.APIUrl + 'backend/Showroom/' + id);
+    return this.http.get<showroom>(this.APIUrl + 'backend/Showroom/' + id, {headers: this.getAuthHeaders()});
   }
 
   EDIT_showroom(val:any){
-    return this.http.put(this.APIUrl + 'backend/Showroom/',val);
+    return this.http.put(this.APIUrl + 'backend/Showroom/',val, {headers: this.getAuthHeaders()});
   }
 
   DELETE_showroom(val:any){
-    return this.http.delete(this.APIUrl + 'backend/Showroom/'+ val);
+    return this.http.delete(this.APIUrl + 'backend/Showroom/'+ val, {headers: this.getAuthHeaders()});
+  }
+  GET_showroomsReadOnly(): Observable<any[]> {
+    return this.http.get<any[]>(this.APIUrl + 'backend/Showroom_readOnly/', {headers: this.getAuthHeaders()});
+  }
+
+  
+  GET_showroomReadOnly(id:Number){
+    return this.http.get<showroom>(this.APIUrl + 'backend/Showroom_readOnly/' + id,{headers: this.getAuthHeaders()});
   }
 
 }

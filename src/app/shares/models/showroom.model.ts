@@ -4,6 +4,8 @@ export class showroom{
         public PhotoFileName: String,
         public Title: String,  
         public Description: String,
-        public AuthorName: String
+        public AuthorName: String,
+        public StartDate: Date,
+        public EndDate: Date
         ){}
 }

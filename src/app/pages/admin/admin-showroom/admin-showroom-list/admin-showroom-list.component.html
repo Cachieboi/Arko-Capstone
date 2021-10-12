@@ -10,15 +10,19 @@
         <tr>
           <th>Showroom Title</th>
           <th>Showroom Author</th>
+          <th>Dates</th>
           <th></th>
         </tr>
         <tr
-        *ngFor = "let showroom of showrooms.reverse() | paginate: { itemsPerPage: 5, currentPage: p }">
+        *ngFor = "let showroom of showrooms | paginate: { itemsPerPage: 5, currentPage: p }">
        <td>
         {{showroom.Title}}
        </td>
        <td>
         {{showroom.AuthorName}}
+      </td>
+      <td>
+        {{showroom.StartDate| date:"MM/dd/yy"}} {{showroom.EndDate| date:"MM/dd/yy"}}
       </td>
        <td>
         <a class="btn btn-primary" [routerLink]="['edit', showroom.id]">Edit</a>

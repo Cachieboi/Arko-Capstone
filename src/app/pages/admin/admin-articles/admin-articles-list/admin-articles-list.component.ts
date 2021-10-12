@@ -21,6 +21,7 @@ export class AdminArticlesListComponent implements OnInit {
   showArticles(){
     this.Arservice.GET_articles().subscribe(data=>{
       this.articles=data;
+      this.articles.reverse();
       console.log(data);
     });
   }

@@ -4,4 +4,6 @@ export interface eventint {
     eventName: String, 
     eventLink: String, 
     PhotoFileName: String,
+    StartDate: Date,
+    EndDate: Date
 }

@@ -5,5 +5,7 @@ export interface showroom {
     AuthorName: String, 
     Description: String, 
     PhotoFileName: String;
+    StartDate: Date;
+    EndDate: Date;
       
 }

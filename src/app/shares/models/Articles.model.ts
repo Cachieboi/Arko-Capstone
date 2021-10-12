@@ -1,3 +1,9 @@
 export class Article{
-    constructor(public id: Number,public title: String, public desc: String, public content: String, public PhotoFileName: String){}
+    constructor(public id: Number,
+        public title: String, 
+        public desc: String, 
+        public content: String, 
+        public PhotoFileName: String, 
+        public authorName: String, 
+        public dateCreated: Date){}
 }

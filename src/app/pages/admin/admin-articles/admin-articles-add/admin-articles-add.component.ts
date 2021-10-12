@@ -4,7 +4,7 @@ import { Article } from '../../../../shares/models/Articles.model';
 import { Router } from '@angular/router';
 import { NgForm } from '@angular/forms';
 import { EditorModule } from '@tinymce/tinymce-angular';
-
+import { CookieService } from 'ngx-cookie-service';
 @Component({
   selector: 'app-admin-articles-add',
   templateUrl: './admin-articles-add.component.html',
@@ -14,10 +14,14 @@ export class AdminArticlesAddComponent implements OnInit {
 
 
 
-  constructor(private Arservice: ArticleService, private router: Router) { }
-
+  constructor(private Arservice: ArticleService, private router: Router,private cookieService: CookieService,) { }
+  id: any;
+  lastname: String = this.cookieService.get('lastname');
+  firstname: String = this.cookieService.get('firstname');
+  AuthorName: String = this.lastname + " " + this.firstname;
   PhotoFilePath: String;
   PhotoFileName: String;
+  dateCreated: Date = new Date();
 
   ngOnInit(): void {
   }
@@ -26,10 +30,14 @@ export class AdminArticlesAddComponent implements OnInit {
     if(confirm("Are you Sure you want to Add this Article?")){
     const value = form.value;
     const PhotoFileName = this.PhotoFileName
-    const newArticle = new Article(value.id,value.title, value.desc, value.content, PhotoFileName);
+    const AuthorName = this.AuthorName;
+    const dateCreated = this.dateCreated;
+    const newArticle = new Article(value.id,value.title, value.desc, value.content, PhotoFileName,AuthorName,dateCreated);
     this.Arservice.registerArticle(newArticle).subscribe(
       data => {
         console.log(data);
+        console.log(this.AuthorName);
+        console.log(this.dateCreated);
         alert("Successfully Added")
         this.router.navigate(['dashboard/articles']);
       },

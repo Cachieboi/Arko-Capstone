@@ -26,7 +26,7 @@ export class AdminAccountsAddComponent implements OnInit {
     const value = form.value;
     const pass = value.password = "123"
     const PhotoFileName = this.PhotoFileName
-    const newAccount = new Useraccount(value.id, value.lastname, value.email, pass, PhotoFileName );
+    const newAccount = new Useraccount(value.id, value.lastname,value.firstname, value.email, pass, PhotoFileName );
     this.Aservice.registerUser(newAccount).subscribe(
       data => {
         console.log(data);

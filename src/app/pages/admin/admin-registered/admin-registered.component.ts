@@ -20,6 +20,7 @@ export class AdminRegisteredComponent implements OnInit {
   showRegistrants(){
     this.shService.GET_registrants().subscribe(data=>{
       this.registrants=data;
+      this.registrants.reverse();
       console.log(data);
     });
   }

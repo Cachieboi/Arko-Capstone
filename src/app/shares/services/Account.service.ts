@@ -23,10 +23,10 @@ export class AccountService{
     private cookieService: CookieService){
 
 }
-APIUrl = 'https://arko-ust.herokuapp.com/';
-readonly PhotoUrl = 'https://arko-ust.herokuapp.com/media/';
-//APIUrl = "http://127.0.0.1:8000/";
-//readonly PhotoUrl = "http://127.0.0.1:8000/media/";
+//APIUrl = 'https://arko-ust.herokuapp.com/';
+//readonly PhotoUrl = 'https://arko-ust.herokuapp.com/media/';
+APIUrl = "http://127.0.0.1:8000/";
+readonly PhotoUrl = "http://127.0.0.1:8000/media/";
   token = this.cookieService.get('mr-token');
   headers = new HttpHeaders({
   'Content-Type': 'application/json',
@@ -40,7 +40,7 @@ readonly PhotoUrl = 'https://arko-ust.herokuapp.com/media/';
 
   registerUser(authData: any){
     const body = JSON.stringify(authData);
-    return this.http.post(this.APIUrl + 'Accounts/users/', body, {headers: this.headers});
+    return this.http.post(this.APIUrl + 'Accounts/users/', body, {headers: this.getAuthHeaders()});
   }
 
   getAuthHeaders(){
@@ -53,19 +53,20 @@ readonly PhotoUrl = 'https://arko-ust.herokuapp.com/media/';
   }
 
   GET_account(id:Number){
-    return this.http.get<user>(this.APIUrl + 'Accounts/users/' + id);
+    return this.http.get<user>(this.APIUrl + 'Accounts/users/' + id, {headers: this.getAuthHeaders()});
+    
   }
 
   GET_accounts(): Observable<any[]> {
-    return this.http.get<any[]>(this.APIUrl + 'Accounts/users/');
+    return this.http.get<any[]>(this.APIUrl + 'Accounts/users/', {headers: this.getAuthHeaders()});
   }
 
   EDIT_accounts(val:any){
-    return this.http.put(this.APIUrl + 'Accounts/users/',val);
+    return this.http.put(this.APIUrl + 'Accounts/users/',val,{headers: this.getAuthHeaders()});
   }
 
   DELETE_accounts(val:any){
-    return this.http.delete(this.APIUrl + 'Accounts/users/'+val);
+    return this.http.delete(this.APIUrl + 'Accounts/users/'+val,{headers: this.getAuthHeaders()});
   }
 
   UploadPhoto_Account(val:any){

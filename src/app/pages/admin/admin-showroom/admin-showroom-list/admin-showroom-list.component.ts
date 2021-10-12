@@ -23,6 +23,7 @@ export class AdminShowroomListComponent implements OnInit {
   showShowrooms(){
     this.shService.GET_showrooms().subscribe(data=>{
       this.showrooms=data;
+      this.showrooms.reverse();
       console.log(data);
     });
   }

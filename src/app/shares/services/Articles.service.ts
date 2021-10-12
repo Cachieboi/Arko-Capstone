@@ -16,10 +16,10 @@ export class ArticleService{
     private cookieService: CookieService){
 
     }
-    APIUrl = 'https://arko-ust.herokuapp.com/';
-    readonly PhotoUrl = 'https://arko-ust.herokuapp.com/media/';
-    //APIUrl = "http://127.0.0.1:8000/";
-    //readonly PhotoUrl = "http://127.0.0.1:8000/media/";
+   //APIUrl = 'https://arko-ust.herokuapp.com/';
+//readonly PhotoUrl = 'https://arko-ust.herokuapp.com/media/';
+APIUrl = "http://127.0.0.1:8000/";
+readonly PhotoUrl = "http://127.0.0.1:8000/media/";
     token = this.cookieService.get('mr-token');
     
     headers = new HttpHeaders({
@@ -44,19 +44,28 @@ export class ArticleService{
     }
 
     GET_article(id:Number){
-      return this.http.get<article>(this.APIUrl + 'backend/Articles/' + id);
+      return this.http.get<article>(this.APIUrl + 'backend/Articles/' + id,{headers: this.getAuthHeaders()});
     }
 
     EDIT_article(val:any){
-      return this.http.put(this.APIUrl + 'backend/Articles/',val);
+      return this.http.put(this.APIUrl + 'backend/Articles/',val, {headers: this.getAuthHeaders()});
     }
 
     DELETE_article(val:any){
-      return this.http.delete(this.APIUrl + 'backend/Articles/'+val);
+      return this.http.delete(this.APIUrl + 'backend/Articles/'+val, {headers: this.getAuthHeaders()});
     }
 
     UploadPhoto_Article(val:any){
       return this.http.post(this.APIUrl+'Articles/SaveFile', val);
+    }
+
+    GET_articlesReadOnly(): Observable<any[]> {
+      return this.http.get<any[]>(this.APIUrl + 'backend/Articles_readOnly/', {headers: this.getAuthHeaders()});
+    }
+
+    
+    GET_articleReadOnly(id:Number){
+      return this.http.get<article>(this.APIUrl + 'backend/Articles_readOnly/' + id,{headers: this.getAuthHeaders()});
     }
 
 }

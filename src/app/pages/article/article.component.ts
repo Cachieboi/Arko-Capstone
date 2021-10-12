@@ -26,7 +26,7 @@ export class ArticleComponent implements OnInit {
   ngOnInit(): void {
     this.id = this.route.snapshot.params['id'];
     this.title = this.route.snapshot.params['title'];
-    this.Arservice.GET_article(this.id).subscribe((data)=>{
+    this.Arservice.GET_articleReadOnly(this.id).subscribe((data)=>{
     this.thisArticle = data;
       console.log(data);
   });

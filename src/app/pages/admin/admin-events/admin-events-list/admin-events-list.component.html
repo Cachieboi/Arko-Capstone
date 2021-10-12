@@ -17,17 +17,19 @@
           <tr>
             <th>Event Title</th>
             <th>Event Link</th>
-         
+            <th>Dates</th>
           </tr>
           <tr
-          *ngFor = "let event of Events.reverse() | paginate: { itemsPerPage: 5, currentPage: p }">
+          *ngFor = "let event of Events | paginate: { itemsPerPage: 5, currentPage: p }">
          <td>
           {{event.eventName}}
          </td>
          <td>
           {{event.eventLink}}
         </td>
-         
+         <td>
+           {{event.StartDate | date:"MM/dd/yy"}} - {{event.EndDate | date:"MM/dd/yy"}}
+         </td>
          <td>
           <a class="btn btn-primary" [routerLink]="['edit', event.id]">Edit</a>
           <button class="btn btn-danger" (click) = "deleteClick(event)">Delete</button>

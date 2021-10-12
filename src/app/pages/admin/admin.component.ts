@@ -25,9 +25,10 @@ export class AdminComponent implements OnInit {
   email : any;
   is_superuser: any;
   token: any;
-
+  lastname: any;
+  firstname:any;
   _id: Number;
-  lastname:String;
+ 
  
 
 
@@ -43,10 +44,14 @@ export class AdminComponent implements OnInit {
     this.email = this.cookieService.get('email');
     this.is_superuser = this.cookieService.get('is_superuser');
     this.token = this.cookieService.get('mr-token');
+    this.firstname = this.cookieService.get('firstname');
+    this.lastname = this.cookieService.get('lastname');
     console.log(this.id);
     console.log(this.email);
     console.log(this.token);
-    console.log(this.is_superuser);
+    console.log(this.is_superuser)
+    console.log(this.firstname);
+    console.log(this.lastname);
     
   }
 
@@ -55,6 +60,8 @@ export class AdminComponent implements OnInit {
     this.cookieService.delete('email');
     this.cookieService.delete('is_superuser');
     this.cookieService.delete('mr-token');
+    this.cookieService.delete('lastname');
+    this.cookieService.delete('firstname');
     console.log('id');
     console.log('email');
     console.log('is_superuser');
