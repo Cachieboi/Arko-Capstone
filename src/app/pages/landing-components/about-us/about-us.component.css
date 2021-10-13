@@ -1,3 +1,6 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Asap:wght@600&family=Roboto:wght@700&display=swap');
+
 #speakers {
     background: #f9f9f9;
 }
@@ -114,7 +117,7 @@
       transition: 0.5s;
   }
   .button-two span:after {
-      content: '»';
+      content: 'Â»';
       position: absolute;
       opacity: 0;
       top: 0;
@@ -127,4 +130,12 @@
   .button-two:hover span:after {
       opacity: 1;
       right: 0;
+  }
+
+  h2{
+      font-family: 'Asap', sans-serif;  
+  }
+
+  .mat-ink-bar {
+      background: #ee9b00;
   }

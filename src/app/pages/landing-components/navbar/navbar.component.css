@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Asap:wght@600&family=Roboto:wght@700&display=swap');
+
 .custom-navbar {
     margin-bottom: 0;
     color: white;
@@ -102,7 +104,8 @@
   }
   
   .container {
+    font-family: 'Asap', sans-serif;
+    font-weight: bold;
     padding: 0 75px;
     width: 100%;
   }
-  

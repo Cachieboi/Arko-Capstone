@@ -1,18 +1,20 @@
-
-<!-- Header -->
-<header class="banner">
-    <img [src] = "imageURL+thisArticle.PhotoFileName" class="background">
-    
-    <h1>{{thisArticle.title}}</h1>
-  </header>
-  
-  <!-- Other stuff -->
+<body>
   <main>
-    <article>
-      <h1>{{thisArticle.authorName}}</h1>
-      <h1>{{thisArticle.dateCreated | date: 'MMMM/dd/yyyy'}}</h1>
-      <h1>{{thisArticle.title}}</h1>
-     <p>{{thisArticle.desc}}</p> 
-      <p [innerHTML]="thisArticle.content"></p>
-    </article>
+      <section class="lp">
+        <section class="lpheader">
+        <h1>UAPSA UST</h1>
+        <p>{{thisArticle.desc}}</p>
+        </section>
+  
+    <section class="lpgrid">
+      <img [src] = "imageURL+thisArticle.PhotoFileName" class="lpgridItemimage">
+        <div class="lpgridItem lpgridItemtext">
+          <p class="lpgridItemText-sm">UAPSA UST</p>
+          <h2 class="lpgridItemText-lg">{{thisArticle.title}}</h2>
+          <p class="lpgridItemText-md" [innerHTML]="thisArticle.content"></p>
+          <p class="lpgridItemText-sm lpgridItemText-sm-bw"><strong>Floor van der Holst</strong> on May 02, 2019</p>
+       </div>
+        </section>
+      </section>
   </main>
+  </body>

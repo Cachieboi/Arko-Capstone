@@ -31,7 +31,7 @@ export class ArticlesComponent implements OnInit {
   }
 
   showArticles(){
-    this.Arservice.GET_articles().subscribe(data=>{
+    this.Arservice.GET_articlesReadOnly().subscribe(data=>{
       this.articles=data;
       this.articles.reverse();
       console.log(data);

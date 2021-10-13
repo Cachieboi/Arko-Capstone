@@ -1,3 +1,6 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Asap:wght@600&family=Roboto:wght@700&display=swap');
+
 .button-two {
   width: auto;
   padding: 10px 15px;
@@ -35,6 +38,7 @@
 }
 
 .col-md-6 {
+  font-family: 'Roboto', sans-serif;
   padding: 0 50px;
 }
 
@@ -62,6 +66,7 @@ header {
   margin: 50px 0;
 }
 header h2 {
+  font-family: 'Asap', sans-serif;
   font-size: 14px;
   font-weight: 400;
   color: #333;
@@ -145,7 +150,7 @@ main {
   transition: all 0.3s cubic-bezier(0.37, 0.75, 0.61, 1.05) 0s;
 }
 .module:hover .content {
-  height: 278px;
+  height: 175px;
 }
 
 .content .category {
@@ -187,4 +192,9 @@ main {
 
 .padders{
   padding-right: 150px;
+}
+
+
+h2 {
+  font-family: 'Asap', sans-serif;
 }
