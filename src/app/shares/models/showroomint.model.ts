@@ -5,6 +5,7 @@ export interface showroom {
     AuthorName: String, 
     Description: String, 
     PhotoFileName: String;
+    viewCount: number;
     StartDate: Date;
     EndDate: Date;
       

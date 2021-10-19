@@ -22,7 +22,7 @@ export class AdminArticlesAddComponent implements OnInit {
   PhotoFilePath: String;
   PhotoFileName: String;
   dateCreated: Date = new Date();
-  viewCount:number
+  viewCount:number;
 
   ngOnInit(): void {
   }

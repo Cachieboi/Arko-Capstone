@@ -18,13 +18,14 @@ export class AdminShowroomAddComponent implements OnInit {
 
   PhotoFilePath: String;
   PhotoFileName: String;
-
+  viewCount:number;
 
   addShowroom(form: NgForm){
     if(confirm("Are you Sure you want to Add this Article?")){
       const value = form.value;
+      this.viewCount = 0;
       const PhotoFileName = this.PhotoFileName
-      const newShowroom = new showroom(value.id,PhotoFileName,value.Title,value.Description,value.AuthorName,value.StartDate,value.EndDate);
+      const newShowroom = new showroom(value.id,PhotoFileName,value.Title,value.Description,value.AuthorName,this.viewCount,value.StartDate,value.EndDate);
       this.shService.addShowroom(newShowroom).subscribe(
         data => {
           console.log(data);

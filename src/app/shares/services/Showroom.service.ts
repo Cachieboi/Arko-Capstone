@@ -99,6 +99,10 @@ getAuthHeaders(){
     return this.http.get<showroom>(this.APIUrl + 'backend/Showroom_readOnly/' + id,{headers: this.getAuthHeaders()});
   }
 
+  EDIT_showroom_readOnly(val:any){
+    return this.http.put(this.APIUrl + 'backend/Showroom_readOnly/',val, {headers: this.getAuthHeaders()});
+  }
+
 }
 
   

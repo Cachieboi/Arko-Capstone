@@ -5,6 +5,7 @@ export class showroom{
         public Title: String,  
         public Description: String,
         public AuthorName: String,
+        public viewCount: number,
         public StartDate: Date,
         public EndDate: Date
         ){}

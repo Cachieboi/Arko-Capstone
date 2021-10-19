@@ -22,7 +22,7 @@ export class ShowroomRoomComponent implements OnInit {
   AuthorName : String;
   thisShowroom : showroom;
   PhotoFileName: String;
-
+viewCount: number = 0;
   imageURL = this.shService.PhotoUrl
   
  img: String;
@@ -33,7 +33,13 @@ export class ShowroomRoomComponent implements OnInit {
     this.Title = this.route.snapshot.params['title'];
     this.shService.GET_showroom(this.id).subscribe((data)=>{
     this.thisShowroom = data;
-    console.log(data);
+    this.thisShowroom.viewCount++
+    var val = {
+      id: this.id,viewCount: this.thisShowroom.viewCount
+    }
+      this.shService.EDIT_showroom(val).subscribe((data)=>{
+        console.log(data);
+      });
   });
   this.main();
   }

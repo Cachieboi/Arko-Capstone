@@ -6,7 +6,7 @@
 <input type="radio" name="filter" id="tech"><label for="tech">Tech</label>
 
 <div class="container">
-    <div *ngFor="let showroom of showrooms.reverse() | paginate: { itemsPerPage: 3, currentPage: p } let i = index " >
+    <div *ngFor="let showroom of showrooms | paginate: { itemsPerPage: 3, currentPage: p } let i = index " >
         <a [routerLink]="['/Showroom', showroom.id, showroom.Title]">
 
         <div class="card">

@@ -34,6 +34,11 @@ export class AdminAccountsListComponent implements OnInit {
      this.Aservice.GET_accounts().subscribe(data=>{
        this.accounts=data;
        this.accounts.reverse();
+       for(var i = 0; i <= this.accounts.length; i++){
+        if(this.accounts[i].is_superuser == false && this.accounts[i].is_author == false){
+          this.accounts.splice(i,1);
+        }
+      }
        console.log(data);
      });
    }
