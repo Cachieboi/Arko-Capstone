@@ -2,14 +2,14 @@
 <div class="container">
     <div class="main">
         <h2>This is Registrants</h2>
-        <table>
+        <table #userTable>
           <tr>
             <th>First Name</th>
             <th>Last Name</th>
             <th>Email</th>
           </tr>
           <tr
-          *ngFor = "let registrant of registrants | paginate: { itemsPerPage: 5, currentPage: p }">
+          *ngFor = "let registrant of registrant | paginate: { itemsPerPage: 5, currentPage: p }">
          <td>
            {{registrant.firstname}}
         </td>
@@ -23,6 +23,7 @@
           
         </table>
         <pagination-controls (pageChange)="p = $event" ></pagination-controls>
+        <button (click)="exportElmToExcel(registrant)">Sample</button>
     </div>
    
   </div>

@@ -5,10 +5,7 @@ import { Form, NgForm} from '@angular/forms';
 import { regis } from 'src/app/shares/models/regis.model';
 import { ShowroomService } from 'src/app/shares/services/Showroom.service';
 import { Router } from '@angular/router';
-
-
-
-
+import {CookieService} from 'ngx-cookie-service';
 
 
 @Component({
@@ -31,7 +28,8 @@ export class ShowroomComponent implements OnInit {
   //name = 'Angular';
   constructor(public dialog: MatDialog, 
     private Shservice: ShowroomService,
-    private router: Router) { }
+    private router: Router,
+    private cookieService: CookieService) { }
 
   openDialog() {
     let dialogRef = this.dialog.open(this.callAPIDialog,{
@@ -76,13 +74,17 @@ getRandomString(length) {
   }
   return this.ticket;
 }
-
+_token: any;
 onSend(form: NgForm){
+  
   const val = form.value;
   const regisAccount = new regis(val.email, val.password);
   this.Shservice.regLogin(regisAccount).subscribe((results: any)=>{
-    this.router.navigate(['Showroom-page']);
+    this._token = this.cookieService.set('mr-token', results.token);
     console.log(results);
+    console.log('*********'+this._token);
+    this.router.navigate(['Showroom-page']);
+    
   },
   error => {
     alert("Invalid Input")

@@ -57,7 +57,7 @@ import { AdminEventsEditComponent } from './pages/admin/admin-events/admin-event
 import { AdminEventsListComponent } from './pages/admin/admin-events/admin-events-list/admin-events-list.component';
 import { NgxPaginationModule } from 'ngx-pagination';
 import { CarouselModule } from 'ngx-owl-carousel-o';
-
+import { DatePipe } from '@angular/common'
 
 @NgModule({
   declarations: [
@@ -127,7 +127,7 @@ import { CarouselModule } from 'ngx-owl-carousel-o';
     AccountService,
     MerchService, 
     ArticleService,
-    
+    DatePipe
     ], 
   bootstrap: [AppComponent
   ]

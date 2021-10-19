@@ -1,6 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { Article } from '../../../../shares/models/Articles.model';
 import { ArticleService } from 'src/app/shares/services/Articles.service';
+import { CookieService } from 'ngx-cookie-service';
+import {FormBuilder, FormGroup} from '@angular/forms';
+import { MatCheckboxChange } from '@angular/material/checkbox/checkbox';
 
 @Component({
   selector: 'app-admin-articles-list',
@@ -9,13 +12,25 @@ import { ArticleService } from 'src/app/shares/services/Articles.service';
 })
 export class AdminArticlesListComponent implements OnInit {
 
-  constructor(private Arservice: ArticleService) { }
+  constructor(private Arservice: ArticleService,
+    private cookieService: CookieService,
+   ) { 
+     
+    }
 
+
+  statusApproved: String = "Approved";
+  statusRejected: String = "Ongoing";
   articles: Article[] = [];
-
+  is_superuser = this.cookieService.get('is_superuser')
+  is_author = this.cookieService.get('is_author')
+  dateToday: Date = new Date();
   p: number = 1;
+  is_approved: boolean
+  
   ngOnInit(): void {
     this.showArticles();
+   
   }
 
   showArticles(){
@@ -40,4 +55,44 @@ export class AdminArticlesListComponent implements OnInit {
     } 
   }
 
+  onChange(ob: MatCheckboxChange, id: number){
+    if(ob.checked){
+      this.Arservice.GET_article(id).subscribe((data=>{
+        console.log('This is checked',id);
+        this.is_approved = true
+        var val = {
+          id:id, is_approved: this.is_approved
+        }
+        this.Arservice.EDIT_article(val).subscribe((data=>{
+          console.log(data)
+          if(this.is_approved=true){
+            
+          }
+        }))
+      }))
+      
+    }else{
+      this.Arservice.GET_article(id).subscribe((data=>{
+        console.log('This is unchecked',id);
+        this.is_approved = false
+        var val = {
+          id:id, is_approved: this.is_approved
+        }
+        this.Arservice.EDIT_article(val).subscribe((data=>{
+          console.log(data)
+          if(this.is_approved=false){
+            
+          }
+        }))
+      })) 
+      console.log('Not Checked')
+    }
+  }
+
+
+  articleStatus(){
+    
+  }
+
+  
 }

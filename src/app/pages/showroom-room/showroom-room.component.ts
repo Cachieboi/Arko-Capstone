@@ -3,7 +3,8 @@ import {  Viewer, MarkersPlugin, markers } from 'photo-sphere-viewer';
 import { ShowroomService } from 'src/app/shares/services/Showroom.service';
 import { Router, ActivatedRoute } from '@angular/router';
 import { showroom } from '../../shares/models/showroomint.model';
-
+import {CookieService} from 'ngx-cookie-service';
+import { HttpClient, HttpHeaders} from '@angular/common/http';
 @Component({
   selector: 'app-showroom-room',
   templateUrl: './showroom-room.component.html',
@@ -11,7 +12,9 @@ import { showroom } from '../../shares/models/showroomint.model';
 })
 export class ShowroomRoomComponent implements OnInit {
 
-  constructor(private shService: ShowroomService, private router: Router,private route: ActivatedRoute) { }
+  constructor(private shService: ShowroomService, private router: Router,
+    private route: ActivatedRoute,
+    private cookieService: CookieService) { }
 
   id: Number;
   Title: String;
@@ -39,7 +42,14 @@ export class ShowroomRoomComponent implements OnInit {
 
   }
 
-  
+  getAuthHeaders(){
+    const token = this.cookieService.get('mr-token');
+    return new HttpHeaders({
+      'Content-Type': 'application/json',
+      Authorization: `Token ${token}`
+    });
+
+  }
 
   main(){
    
@@ -47,7 +57,7 @@ export class ShowroomRoomComponent implements OnInit {
       this.thisShowroom = data
   
     const view = new Viewer({
-      panorama: this.shService.PhotoUrl+this.thisShowroom.PhotoFileName,
+      panorama: (this.shService.PhotoUrl+this.thisShowroom.PhotoFileName),
       container: 'viewer',
       caption: this.Title,
       loadingImg: 'https://photo-sphere-viewer.js.org/assets/photosphere-logo.gif',
@@ -56,6 +66,7 @@ export class ShowroomRoomComponent implements OnInit {
       mousewheelCtrlKey: true,
   
     });
+    
   });
   
   } 

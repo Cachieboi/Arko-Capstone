@@ -3,7 +3,7 @@ import { Router } from '@angular/router';
 import { ArticleService } from 'src/app/shares/services/Articles.service';
 import { Article } from '../../../../shares/models/Articles.model';
 import { ActivatedRoute } from '@angular/router';
-
+import { CookieService } from 'ngx-cookie-service';
 @Component({
   selector: 'app-admin-articles-edit',
   templateUrl: './admin-articles-edit.component.html',
@@ -17,8 +17,15 @@ export class AdminArticlesEditComponent implements OnInit {
   title: String;
   PhotoFilePath: String;
   PhotoFileName: String;
-
-  constructor(private Arservice: ArticleService,  private router: Router, private route: ActivatedRoute) { }
+  editedBy: String;
+  lastname: String = this.cookieService.get('lastname');
+  firstname: String = this.cookieService.get('firstname');
+  AuthorName: String = this.lastname + " " + this.firstname;
+  dateToday: Date;
+  constructor(private Arservice: ArticleService,  
+    private router: Router, 
+    private route: ActivatedRoute,
+    private cookieService: CookieService) { }
 
  
 
@@ -34,14 +41,16 @@ export class AdminArticlesEditComponent implements OnInit {
   }
 
   editArticle(){
+    this.dateToday = new Date()
+    this.editedBy = this.AuthorName
     if(this.PhotoFileName !== null && this.photoUpload == false){
     var val = {
       id:this.id, title: this.title, desc: this.desc, content: this.content,  
-      PhotoFileName: this.PhotoFileName};
+      PhotoFileName: this.PhotoFileName, editedBy: this.editedBy};
     }else{
       var val = {
         id:this.id, title: this.title, desc: this.desc, content: this.content,  
-        PhotoFileName: this.PhotoFilePath};
+        PhotoFileName: this.PhotoFilePath,editedBy: this.editedBy};
     }
     if(confirm('Are you Sure?')){
       this.Arservice.EDIT_article(val).subscribe(res=>{

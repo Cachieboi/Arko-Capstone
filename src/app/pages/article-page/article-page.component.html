@@ -1,48 +1,91 @@
-<header>
-  <div class="header">
-  <div class="left">
-    <a [routerLink]="['../']">Back</a>
-  </div>
-    <div class="inner-header flex">
-      <img src="assets/img/160X160 UAPSA LOGO.png" class="logo">
-    <h1>UAPSA UST Articles</h1>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+ 
+ <header>
+    <div class="header">
+    <div class="lefty">
+      <a [routerLink]="['../']">Back</a>
     </div>
-    <div>
-    <svg class="waves" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
-    viewBox="0 24 150 28" preserveAspectRatio="none" shape-rendering="auto">
-    <defs>
-    <path id="gentle-wave" d="M-160 44c30 0 58-18 88-18s 58 18 88 18 58-18 88-18 58 18 88 18 v44h-352z" />
-    </defs>
-    <g class="parallax">
-    <use xlink:href="#gentle-wave" x="48" y="0" fill="rgba(238, 155, 0.7)" />
-    <use xlink:href="#gentle-wave" x="48" y="3" fill="rgba(238, 155, 0.5)" />
-    <use xlink:href="#gentle-wave" x="48" y="5" fill="rgba(238, 155, 0.3)" />
-    <use xlink:href="#gentle-wave" x="48" y="7" fill="#fff" />
-    </g>
-    </svg>
+      <div class="inner-header flex">
+        <img src="assets/img/160X160 UAPSA LOGO.png" class="logo">
+      <h1>UAPSA UST Articles</h1>
+      </div>
+      <div>
+      <svg class="waves" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+      viewBox="0 24 150 28" preserveAspectRatio="none" shape-rendering="auto">
+      <defs>
+      <path id="gentle-wave" d="M-160 44c30 0 58-18 88-18s 58 18 88 18 58-18 88-18 58 18 88 18 v44h-352z" />
+      </defs>
+      <g class="parallax">
+      <use xlink:href="#gentle-wave" x="48" y="0" fill="rgba(238, 155, 0.7)" />
+      <use xlink:href="#gentle-wave" x="48" y="3" fill="rgba(238, 155, 0.5)" />
+      <use xlink:href="#gentle-wave" x="48" y="5" fill="rgba(238, 155, 0.3)" />
+      <use xlink:href="#gentle-wave" x="48" y="7" fill="#fff" />
+      </g>
+      </svg>
+      </div>
+      </div>
+  </header>
+  
+
+
+<!--
+  <div class="container item mb-5" *ngFor="let article of articles  | paginate: { itemsPerPage: 3, currentPage: p }">
+  
+  <a class="postheading" [routerLink]="['/article', article.id, article.title]">
+    
+    <img [src]="imageURL+article.PhotoFileName" alt="Avatar"></a>
+    <div class="wow fadeInUp col-md-6 col-sm-10" data-wow-delay="1.3s">
+  
+    <h1>
+      {{article.title}}
+    </h1>
+  
+    <h3>
+      <span>{{ article.desc }}</span>
+    </h3>
+
     </div>
     </div>
-</header>
-
-<div class="container item mb-5" *ngFor="let article of articles  | paginate: { itemsPerPage: 3, currentPage: p }">
-
-<a class="postheading" [routerLink]="['/article', article.id, article.title]">
-  <img [src]="imageURL+article.PhotoFileName" alt="Avatar"></a>
-
-  <div class="wow fadeInUp col-md-6 col-sm-10" data-wow-delay="1.3s">
-
-  <h1>
-    {{article.title}}
-  </h1>
-
-  <h3>
-    <span>{{ article.desc }}</span>
-  </h3>
-
+  
+    <div class="pagination">
+    <pagination-controls (pageChange)="p = $event"></pagination-controls>
   </div>
 
-  </div>
+-->
 
-  <div class="pagination">
+
+
+
+
+
+
+<div class=" item mb-5" *ngFor="let article of articles  | paginate: { itemsPerPage: 3, currentPage: p }">
+
+  <a class="postheading" [routerLink]="['/article', article.id, article.title]">
+
+  <div class="card">
+  
+    <div class="thumbnail"><img class="left" [src]="imageURL+article.PhotoFileName"/></div>
+    
+    <div class="right">
+      <h1>{{article.title}}</h1>
+      <div class="author">
+        <h2>Igor MARTY</h2>
+      </div>
+      <div class="separator"></div>
+      <p>{{ article.desc }}</p>
+    </div>
+
+    <h5>{{article.dateCreated | date: 'dd'}}</h5>
+    <h6>{{article.dateCreated | date: 'MMMM'}}</h6>
+   
+   
+
+
+  </div>
+  </a>
+</div>
+
+<div class="pagination">
   <pagination-controls (pageChange)="p = $event"></pagination-controls>
 </div>

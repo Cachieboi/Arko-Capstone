@@ -21,15 +21,31 @@ export class ArticleComponent implements OnInit {
   desc: String;
   content : String;
   thisArticle : article;
- 
-
+  viewCount: number = 0;
+  PhotoFileName: String;
+  viewcounter: number;
   ngOnInit(): void {
     this.id = this.route.snapshot.params['id'];
     this.title = this.route.snapshot.params['title'];
     this.Arservice.GET_articleReadOnly(this.id).subscribe((data)=>{
-    this.thisArticle = data;
-      console.log(data);
+    this.thisArticle = data
+    console.log(data);
+    this.thisArticle.viewCount++
+  var val = {
+    id: this.id,viewCount: this.thisArticle.viewCount
+  }
+    this.Arservice.EDIT_article_readOnly(val).subscribe((data)=>{
+
+    });
+  
+   
   });
 
+  
+  }
+
+
+  viewCountIncrement(){
+    
   }
 }

@@ -22,6 +22,7 @@ export class AdminArticlesAddComponent implements OnInit {
   PhotoFilePath: String;
   PhotoFileName: String;
   dateCreated: Date = new Date();
+  viewCount:number
 
   ngOnInit(): void {
   }
@@ -29,10 +30,12 @@ export class AdminArticlesAddComponent implements OnInit {
   addArticle(form: NgForm){
     if(confirm("Are you Sure you want to Add this Article?")){
     const value = form.value;
-    const PhotoFileName = this.PhotoFileName
+    this.viewCount = 0;
+    const is_approved = false;
+    const PhotoFileName = this.PhotoFileName;
     const AuthorName = this.AuthorName;
     const dateCreated = this.dateCreated;
-    const newArticle = new Article(value.id,value.title, value.desc, value.content, PhotoFileName,AuthorName,dateCreated);
+    const newArticle = new Article(value.id,value.title, value.desc, value.content, PhotoFileName,AuthorName,dateCreated, this.viewCount,AuthorName,is_approved);
     this.Arservice.registerArticle(newArticle).subscribe(
       data => {
         console.log(data);

@@ -16,8 +16,8 @@ export class ArticleService{
     private cookieService: CookieService){
 
     }
-   //APIUrl = 'https://arko-ust.herokuapp.com/';
-//readonly PhotoUrl = 'https://arko-ust.herokuapp.com/media/';
+   //APIUrl = "http://arkoust-uapsa.xyz/api/";
+//readonly PhotoUrl = "http://arkoust-uapsa.xyz/media/";
 APIUrl = "http://127.0.0.1:8000/";
 readonly PhotoUrl = "http://127.0.0.1:8000/media/";
     token = this.cookieService.get('mr-token');
@@ -49,6 +49,10 @@ readonly PhotoUrl = "http://127.0.0.1:8000/media/";
 
     EDIT_article(val:any){
       return this.http.put(this.APIUrl + 'backend/Articles/',val, {headers: this.getAuthHeaders()});
+    }
+
+    EDIT_article_readOnly(val:any){
+      return this.http.put(this.APIUrl + 'backend/Articles_readOnly/',val, {headers: this.getAuthHeaders()});
     }
 
     DELETE_article(val:any){

@@ -2,20 +2,31 @@
 <div class="container">
    
     <div class="main">
-        <h2>This is Articles</h2>
+        <h2>Articles Management</h2>
         <div class="right">
           <a class="btn btn-primary" routerLink="add"> Add </a>
         </div>
         <table>
           <tr>
+            <th>id</th>
             <th>Article Title</th>
             <th>Article Desc</th>
             <th>Author</th>
-            <th>Test </th>
-            <th>Date</th>
+            <th>View Count </th>
+            <th>Editor Log</th>
+          
+            <th
+            *ngIf ="is_superuser == 'true'">Article Approval</th>
+            <th
+            *ngIf ="is_superuser == 'false'">Article Status</th>
+            <th> </th>
           </tr>
          
-          <tr *ngFor = "let article of articles | paginate: { itemsPerPage: 5, currentPage: p }" >
+          <tr *ngFor = "let article of articles | paginate: { itemsPerPage: 5, currentPage: p }" 
+          let index = i>
+          <td>
+            {{article.id}}
+          </td>
          <td>
           {{article.title}}
          </td>
@@ -26,7 +37,32 @@
          {{article.authorName}}
         </td>
         <td>
-          {{article.dateCreated | date:"MM/dd/yy"}}
+          {{article.viewCount}}
+        </td>
+        <td>
+          Last Edited By:  {{article.editedBy}}  {{dateToday | date: 'MMM/YY/cccc'}}
+        </td>
+        <td 
+        *ngIf ="is_superuser == 'true'">
+        <mat-checkbox 
+        class="example-margin"
+        (change) ="onChange($event, article.id)"
+        [checked] = "article.is_approved == true"
+        >
+
+         Approved!
+
+        </mat-checkbox>
+       
+            
+        </td>
+        <td 
+        *ngIf ="is_superuser == 'false' && article.is_approved == false">  
+        {{statusRejected}}
+        </td>
+        <td 
+        *ngIf ="is_superuser == 'false' && article.is_approved == true">  
+        {{statusApproved}}
         </td>
          <td>
           <a class="btn btn-primary" [routerLink]="['edit', article.id]">Edit</a>

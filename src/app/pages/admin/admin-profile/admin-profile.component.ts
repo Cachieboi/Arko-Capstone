@@ -27,6 +27,7 @@ password: String;
 PhotoFilePath: String;
 PhotoFileName: String;
 thisUser: user;
+firstname: String;
 
 imageURL = this.Aservice.PhotoUrl
 
@@ -34,6 +35,7 @@ imageURL = this.Aservice.PhotoUrl
     this.id = this.cookieService.get('id');
     this.Aservice.GET_account(this.id).subscribe((data)=>{
       this.lastname = data.lastname
+      this.firstname = data.firstname
       this.email = data.email
       this.PhotoFileName = this.Aservice.PhotoUrl+data.PhotoFileName;
      
@@ -62,10 +64,10 @@ imageURL = this.Aservice.PhotoUrl
   editAccounts(){
     if(this.PhotoFileName !== null && this.photoUpload == false){
     var val = {
-      id:this.id, lastname: this.lastname, email: this.email, PhotoFileName: this.PhotoFileName};
+      id:this.id, firstname:this.firstname,lastname: this.lastname, email: this.email, PhotoFileName: this.PhotoFileName};
     }else{
       var val = {
-        id:this.id, lastname: this.lastname, email: this.email, PhotoFileName: this.PhotoFilePath};
+        id:this.id, firstname:this.firstname,lastname: this.lastname, email: this.email, PhotoFileName: this.PhotoFilePath};
     }
     if(confirm('Are you Sure?')){
       this.Aservice.EDIT_accounts(val).subscribe(res=>{

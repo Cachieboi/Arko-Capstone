@@ -1,126 +1,215 @@
 <section id="events" class="parallax-section">
 	<div class="container">
         <div class="row">
-            <div class="wow fadeInUp col-md-6" data-wow-delay="0.6s"
-            >
-            <owl-carousel-o [options]="customOptions">
-
+            <div class="wow col-md-6 fadeInUp " data-wow-delay="0.6s">
+                <owl-carousel-o [options]="customOptions">
                 <ng-container *ngFor="let merch of merchs;">
-                  <ng-template carouselSlide>
-                    <div class="card embed-responsive embed-responsive-16by9">
-                    <a [routerLink]="['/order', merch.id]">
-                    <img [src]="imageURL+merch.PhotoFileName">
-                    <div class="container">
-                        <h4><b>{{merch.mname}}</b></h4>
-                        <p>{{merch.desc}}</p> 
+                <ng-template carouselSlide>
+           
+                    <div class="card">
+                        <img class="card-image" [src]="imageURL+merch.PhotoFileName" alt="">
+                        <h2 class="card-title">{{merch.mname}}</h2>
+                        <p class="card-price">{{merch.desc}}</p>
+                        <a [routerLink]="['/order', merch.id]">
+                        <button class="card-action">Order Now</button>
+                    </a>
                     </div>
-                </a>
-            </div>
-                  </ng-template>
+        
+                </ng-template>
                 </ng-container>
-            </owl-carousel-o>
-        </div>
+                </owl-carousel-o>
+                </div>
             <div class="wow fadeInUp col-md-6 col-sm-6" data-wow-delay="0.9s">
                 <img src='/assets/img/roadmap.png' class="img-responsive" alt="Overview" usemap="#roadmap">
                 <map name="roadmap">
+                    <!--Pin No. 1-->
+                    <div *ngIf = "checkImage == true">
                     <div class='pin-1' class="box" 
-                    *ngIf = "checkImage == true">
+                    *ngIf = "(((todaysDate|date:'MM/dd/yy' )>=( event1.StartDate | date: 'MM/dd/yy' )
+                    && (todaysDate|date:'MM/dd/yy')<=(event1.EndDate | date: 'MM/dd/yy')))">
                         <div class="pin-text">
                             <img [src] ="imageURLz+event1.PhotoFileName" class="imgz">
                             <h1></h1>
                         </div>
                     </div>
                     <div class='pin-1' class="boxz" 
-                    *ngIf = "checkImage == false">
+                    *ngIf = "(((todaysDate|date:'MM/dd/yy' )<( event1.StartDate | date: 'MM/dd/yy' )
+                    && (todaysDate|date:'MM/dd/yy')<(event1.EndDate | date: 'MM/dd/yy'))||
+                    (todaysDate| date: 'MM/dd/yy') > (event1.StartDate | date: 'MM/dd/yy'))">
                         <div class="pin-text">
                             <h1>This is Under Construction</h1>
                         </div>
                     </div>
-
-                    <div class='pin-1' class="box2" 
-                    *ngIf = "checkImage2 == true">
+                </div>
+                <div *ngIf = "checkImage == false">
+                    <div class='pin-1' class="boxz">
                         <div class="pin-text">
-                            <img [src] ="imageURLz+event2.PhotoFileName"class="imgz">
+                            <h1>This is Under Construction</h1>
+                        </div>
+                    </div>
+                </div>
+
+                <!--Pin No. 2-->
+                <div *ngIf = "checkImage2 == true">
+                    <div class='pin-1' class="box2" 
+                    *ngIf = "(((todaysDate|date:'MM/dd/yy' )>=( event2.StartDate | date: 'MM/dd/yy' )
+                    && (todaysDate|date:'MM/dd/yy')<=(event2.EndDate | date: 'MM/dd/yy')))">
+                        <div class="pin-text">
+                            <img [src] ="imageURLz+event2.PhotoFileName" class="imgz">
                             <h1></h1>
                         </div>
                     </div>
                     <div class='pin-1' class="box2z" 
-                    *ngIf = "checkImage2 == false">
+                    *ngIf = "(((todaysDate|date:'MM/dd/yy' )<( event2.StartDate | date: 'MM/dd/yy' )
+                    && (todaysDate|date:'MM/dd/yy')<(event2.EndDate | date: 'MM/dd/yy'))||
+                    (todaysDate| date: 'MM/dd/yy') > (event2.StartDate | date: 'MM/dd/yy'))">
                         <div class="pin-text">
                             <h1>This is Under Construction</h1>
                         </div>
                     </div>
-
-
-                    <div class='pin-1' class="box3" 
-                    *ngIf = "checkImage3 == true">
+                </div>
+                <div *ngIf = "checkImage2 == false">
+                    <div class='pin-1' class="box2z">
                         <div class="pin-text">
-                            <img [src] ="imageURLz+event3.PhotoFileName"class="imgz">
+                            <h1>This is Under Construction</h1>
+                        </div>
+                    </div>
+                </div>
+
+                <!--Pin No. 3-->
+                <div *ngIf = "checkImage3 == true">
+                    <div class='pin-1' class="box3" 
+                    *ngIf = "(((todaysDate|date:'MM/dd/yy' )>=( event3.StartDate | date: 'MM/dd/yy' )
+                    && (todaysDate|date:'MM/dd/yy')<=(event3.EndDate | date: 'MM/dd/yy')))">
+                        <div class="pin-text">
+                            <img [src] ="imageURLz+event3.PhotoFileName" class="imgz">
                             <h1></h1>
                         </div>
                     </div>
                     <div class='pin-1' class="box3z" 
-                    *ngIf = "checkImage3 == false">
+                    *ngIf = "(((todaysDate|date:'MM/dd/yy' )<( event3.StartDate | date: 'MM/dd/yy' )
+                    && (todaysDate|date:'MM/dd/yy')<(event3.EndDate | date: 'MM/dd/yy'))||
+                    (todaysDate| date: 'MM/dd/yy') > (event3.StartDate | date: 'MM/dd/yy'))">
                         <div class="pin-text">
                             <h1>This is Under Construction</h1>
                         </div>
                     </div>
-
-                    <div class='pin-1' class="box4" 
-                    *ngIf = "checkImage4 == true">
+                </div>
+                <div *ngIf = "checkImage3 == false">
+                    <div class='pin-1' class="box3z">
                         <div class="pin-text">
-                            <img [src] ="imageURLz+event4.PhotoFileName"class="imgz">
+                            <h1>This is Under Construction</h1>
+                        </div>
+                    </div>
+                </div>
+                
+                <!--Pin No. 4-->
+                <div *ngIf = "checkImage4 == true">
+                    <div class='pin-1' class="box4" 
+                    *ngIf = "(((todaysDate|date:'MM/dd/yy' )>=( event4.StartDate | date: 'MM/dd/yy' )
+                    && (todaysDate|date:'MM/dd/yy')<=(event4.EndDate | date: 'MM/dd/yy')))">
+                        <div class="pin-text">
+                            <img [src] ="imageURLz+event4.PhotoFileName" class="imgz">
                             <h1></h1>
                         </div>
                     </div>
                     <div class='pin-1' class="box4z" 
-                    *ngIf = "checkImage4 == false">
+                    *ngIf = "(((todaysDate|date:'MM/dd/yy' )<( event4.StartDate | date: 'MM/dd/yy' )
+                    && (todaysDate|date:'MM/dd/yy')<(event4.EndDate | date: 'MM/dd/yy'))||
+                    (todaysDate| date: 'MM/dd/yy') > (event4.StartDate | date: 'MM/dd/yy'))">
                         <div class="pin-text">
                             <h1>This is Under Construction</h1>
                         </div>
                     </div>
-
-                    <div class='pin-1' class="box5" 
-                    *ngIf = "checkImage5 == true">
+                </div>
+                <div *ngIf = "checkImage4 == false">
+                    <div class='pin-1' class="box4z">
                         <div class="pin-text">
-                            <img [src] ="imageURLz+event5.PhotoFileName"class="imgz">
+                            <h1>This is Under Construction</h1>
+                        </div>
+                    </div>
+                </div>
+
+                <!--Pin No. 5-->
+                <div *ngIf = "checkImage5 == true">
+                    <div class='pin-1' class="box5" 
+                    *ngIf = "(((todaysDate|date:'MM/dd/yy' )>=( event5.StartDate | date: 'MM/dd/yy' )
+                    && (todaysDate|date:'MM/dd/yy')<=(event5.EndDate | date: 'MM/dd/yy')))">
+                        <div class="pin-text">
+                            <img [src] ="imageURLz+event5.PhotoFileName" class="imgz">
                             <h1></h1>
                         </div>
                     </div>
                     <div class='pin-1' class="box5z" 
-                    *ngIf = "checkImage5 == false">
+                    *ngIf = "(((todaysDate|date:'MM/dd/yy' )<( event5.StartDate | date: 'MM/dd/yy' )
+                    && (todaysDate|date:'MM/dd/yy')<(event5.EndDate | date: 'MM/dd/yy'))||
+                    (todaysDate| date: 'MM/dd/yy') > (event5.StartDate | date: 'MM/dd/yy'))">
                         <div class="pin-text">
                             <h1>This is Under Construction</h1>
                         </div>
                     </div>
-
-                    <div class='pin-1' class="box6" 
-                    *ngIf = "checkImage6 == true">
+                </div>
+                <div *ngIf = "checkImage5 == false">
+                    <div class='pin-1' class="box5z">
                         <div class="pin-text">
-                            <img [src] ="imageURLz+event6.PhotoFileName"class="imgz">
+                            <h1>This is Under Construction</h1>
+                        </div>
+                    </div>
+                </div>
+
+                <!--Pin No. 6-->
+                <div *ngIf = "checkImage6 == true">
+                    <div class='pin-1' class="box6" 
+                    *ngIf = "(((todaysDate|date:'MM/dd/yy' )>=( event6.StartDate | date: 'MM/dd/yy' )
+                    && (todaysDate|date:'MM/dd/yy')<=(event6.EndDate | date: 'MM/dd/yy')))">
+                        <div class="pin-text">
+                            <img [src] ="imageURLz+event6.PhotoFileName" class="imgz">
                             <h1></h1>
                         </div>
                     </div>
                     <div class='pin-1' class="box6z" 
-                    *ngIf = "checkImage6 == false">
+                    *ngIf = "(((todaysDate|date:'MM/dd/yy' )<( event6.StartDate | date: 'MM/dd/yy' )
+                    && (todaysDate|date:'MM/dd/yy')<(event6.EndDate | date: 'MM/dd/yy'))||
+                    (todaysDate| date: 'MM/dd/yy') > (event6.StartDate | date: 'MM/dd/yy'))">
                         <div class="pin-text">
                             <h1>This is Under Construction</h1>
                         </div>
                     </div>
-
-                    <div class='pin-1' class="box7" 
-                    *ngIf = "checkImage7 == true">
+                </div>
+                <div *ngIf = "checkImage6 == false">
+                    <div class='pin-1' class="box6z">
                         <div class="pin-text">
-                            <img [src] ="imageURLz+event7.PhotoFileName"class="imgz">
+                            <h1>This is Under Construction</h1>
+                        </div>
+                    </div>
+                </div>
+
+                <!--Pin No. 7-->
+                <div *ngIf = "checkImage7 == true">
+                    <div class='pin-1' class="box7" 
+                    *ngIf = "(((todaysDate|date:'MM/dd/yy' )>=( event7.StartDate | date: 'MM/dd/yy' )
+                    && (todaysDate|date:'MM/dd/yy')<=(event7.EndDate | date: 'MM/dd/yy')))">
+                        <div class="pin-text">
+                            <img [src] ="imageURLz+event7.PhotoFileName" class="imgz">
                             <h1></h1>
                         </div>
                     </div>
                     <div class='pin-1' class="box7z" 
-                    *ngIf = "checkImage7 == false">
+                    *ngIf = "(((todaysDate|date:'MM/dd/yy' )<( event7.StartDate | date: 'MM/dd/yy' )
+                    && (todaysDate|date:'MM/dd/yy')<(event7.EndDate | date: 'MM/dd/yy'))||
+                    (todaysDate| date: 'MM/dd/yy') > (event7.StartDate | date: 'MM/dd/yy'))">
                         <div class="pin-text">
                             <h1>This is Under Construction</h1>
                         </div>
                     </div>
+                </div>
+                <div *ngIf = "checkImage7 == false">
+                    <div class='pin-1' class="box7z">
+                        <div class="pin-text">
+                            <h1>This is Under Construction</h1>
+                        </div>
+                    </div>
+                </div>
                 </map>
             </div>
         </div>

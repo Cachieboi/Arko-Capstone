@@ -3,6 +3,7 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { article } from '../../../shares/models/articleint.model';
 import { ArticleService } from 'src/app/shares/services/Articles.service';
+import { NumericLiteral } from 'typescript';
 
 
 
@@ -19,11 +20,11 @@ export class ArticlesComponent implements OnInit {
   PhotoFilePath: String;
   PhotoFileName: String;
   imageURL = this.Arservice.PhotoUrl
-
-
+  viewCount: number;
+   counter : number = 0;
   ngOnInit(): void {
     this.showArticles();
-    console.log(this.showArticles());
+    
   }
 
   onMoreArticles(){
@@ -33,9 +34,15 @@ export class ArticlesComponent implements OnInit {
   showArticles(){
     this.Arservice.GET_articlesReadOnly().subscribe(data=>{
       this.articles=data;
-      this.articles.reverse();
-      console.log(data);
+      this.articles.reverse(); 
+      for(var i = 0; i <= this.articles.length; i++){
+        if(this.articles[i].is_approved === false){
+          this.articles.splice(i,1);
+          console.log(this.articles);
+        }
+      }
     });
   }
+
 
 }

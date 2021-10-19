@@ -1,6 +1,16 @@
 
 <div class="main">
     <div *ngIf = "editMode == false">
+    <p align = "center">{{firstname}}</p>
+    </div>
+    <div *ngIf = "editMode == true">
+    <input
+    type = "text"
+     id = "firstname"
+    class="centerImage"
+    [(ngModel)] = "firstname">
+    </div>
+    <div *ngIf = "editMode == false">
     <p align = "center">{{lastname}}</p>
     </div>
     <div *ngIf = "editMode == true">

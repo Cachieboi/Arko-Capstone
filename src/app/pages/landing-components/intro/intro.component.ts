@@ -1,7 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import {OwlOptions} from 'ngx-owl-carousel-o';
 import { merch } from '../../../shares/models/merchint.model';
-import { MerchService } from 'src/app/shares/services/Merch.service';
+import { EventService } from 'src/app/shares/services/Events.service';
+import { eventint } from 'src/app/shares/models/eventsint.model';
+
 @Component({
   selector: 'app-intro',
   templateUrl: './intro.component.html',
@@ -9,13 +11,13 @@ import { MerchService } from 'src/app/shares/services/Merch.service';
 })
 export class IntroComponent implements OnInit {
 
-  constructor(private Mservice: MerchService) { }
+  constructor(private Eservice: EventService) { }
 
   ngOnInit(): void {
-    this.showMerchs();
+    this.showEvents();
   }
-  imageURL = this.Mservice.PhotoUrl;
-  merchs: merch[] = [];
+  imageURL = this.Eservice.PhotoUrl;
+  events: eventint[] = [];
   customOptions: OwlOptions = {
     loop: true,
     mouseDrag: true,
@@ -25,19 +27,21 @@ export class IntroComponent implements OnInit {
     autoplayTimeout:4500,
     dots: false,
     navSpeed: 700,
-    navText: ["<i class='fa fa-arrow-left' aria-hidden='true'></i>","<i class='fa fa-arrow-right' aria-hidden='true'></i>"],
+    navText: [],
     responsive: {
       0: {
         items: 1
       }
     },
-    nav: true
+    
   }
+  PhotoFilePath: String;
+  PhotoFileName: String;
 
-  showMerchs(){
-    this.Mservice.GET_merchs().subscribe(data=>{
-      this.merchs=data;
-      this.merchs.reverse();
+  showEvents(){
+    this.Eservice.GET_eventsReadOnly().subscribe(data=>{
+      this.events=data;
+      this.events.reverse();
   
     });
 

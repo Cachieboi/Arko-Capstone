@@ -5,7 +5,7 @@ import { HttpClient, HttpHeaders} from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { BehaviorSubject, Observable } from 'rxjs';
 import { showroom } from 'src/app/shares/models/showroomint.model';
-
+import { registrantint } from '../models/registrantint.mode';
 
 
 @Injectable({
@@ -21,8 +21,8 @@ export class ShowroomService{
     private cookieService: CookieService){
 
 }
-//APIUrl = 'https://arko-ust.herokuapp.com/';
-//readonly PhotoUrl = 'https://arko-ust.herokuapp.com/media/';
+//APIUrl = "http://arkoust-uapsa.xyz/api/";
+//readonly PhotoUrl = "http://arkoust-uapsa.xyz/media/";
 APIUrl = "http://127.0.0.1:8000/";
 readonly PhotoUrl = "http://127.0.0.1:8000/media/";
   token = this.cookieService.get('mr-token');
@@ -51,12 +51,20 @@ getAuthHeaders(){
 
   }
 
-  GET_registrant(id:Number){
-    return this.http.get<regFormint>(this.APIUrl + 'Accounts/showroom-registrants/' + id);
+  GET_registrant(id:number){
+    return this.http.get<registrantint>(this.APIUrl + 'Accounts/showroom-registrants/' + id);
   }
 
-  GET_registrants(): Observable<any[]> {
+  GET_registrants(): Observable<registrantint> {
+    return this.http.get<registrantint>(this.APIUrl + 'Accounts/showroom-registrants/');
+  }
+
+  GET_registrantslist(): Observable<any[]> {
     return this.http.get<any[]>(this.APIUrl + 'Accounts/showroom-registrants/');
+  }
+
+  DELETE_registrants(val:any){
+    return this.http.delete(this.APIUrl + 'Accounts/showroom-registrants/'+ val, {headers: this.getAuthHeaders()});
   }
 
   addShowroom(val: any){

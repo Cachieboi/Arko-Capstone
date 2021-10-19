@@ -1,20 +1,22 @@
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
 <body>
-  <main>
-      <section class="lp">
-        <section class="lpheader">
-        <h1>UAPSA UST</h1>
-        <p>{{thisArticle.desc}}</p>
-        </section>
-  
-    <section class="lpgrid">
-      <img [src] = "imageURL+thisArticle.PhotoFileName" class="lpgridItemimage">
-        <div class="lpgridItem lpgridItemtext">
-          <p class="lpgridItemText-sm">UAPSA UST</p>
-          <h2 class="lpgridItemText-lg">{{thisArticle.title}}</h2>
-          <p class="lpgridItemText-md" [innerHTML]="thisArticle.content"></p>
-          <p class="lpgridItemText-sm lpgridItemText-sm-bw"><strong>Floor van der Holst</strong> on May 02, 2019</p>
-       </div>
-        </section>
+<main>
+    <section class="lp">
+      <section class="lpheader">
+      <h1>UAPSA UST</h1>
+      <p>{{thisArticle.desc}}</p>
       </section>
-  </main>
-  </body>
+
+  <section class="lpgrid">
+    <img [src] = "imageURL+thisArticle.PhotoFileName" class="lpgridItemimage" alt="Null">
+      <div class="lpgridItem lpgridItemtext">
+        <p class="lpgridItemText-sm">UAPSA UST</p>
+        <h2 class="lpgridItemText-lg">{{thisArticle.title}}</h2>
+        <p class="lpgridItemText-md" [innerHTML]="thisArticle.content"></p>
+        <p class="lpgridItemText-sm lpgridItemText-sm-bw"><strong>Floor van der Holst</strong> on May 02, 2019</p>
+     </div>
+      </section>
+    </section>
+</main>
+</body>

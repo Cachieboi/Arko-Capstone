@@ -6,7 +6,7 @@ import { EventService } from 'src/app/shares/services/Events.service';
 import { Events } from '@tinymce/tinymce-angular/editor/Events';
 import { THIS_EXPR } from '@angular/compiler/src/output/output_ast';
 import {OwlOptions} from 'ngx-owl-carousel-o';
-
+import { DatePipe } from '@angular/common'
 @Component({
   selector: 'app-events',
   templateUrl: './events.component.html',
@@ -28,7 +28,7 @@ export class EventsComponent implements OnInit {
         items: 1
       }
     },
-    nav: true
+
   }
 
 
@@ -59,7 +59,8 @@ export class EventsComponent implements OnInit {
   PhotoFilePath: String;
   PhotoFileName: String;
 
-  constructor(private Mservice: MerchService, private eService: EventService) { }
+  constructor(private Mservice: MerchService, private eService: EventService,
+    public datepipe: DatePipe) { }
   imageURL = this.Mservice.PhotoUrl;
   imageURLz = this.eService.PhotoUrl;
 
@@ -70,17 +71,18 @@ export class EventsComponent implements OnInit {
     
   }
   startDate: Date;
-  
+  endDate: Date;
   showMerchs(){
     this.Mservice.GET_merchsReadOnly().subscribe(data=>{
       this.merchs=data;
       this.merchs.reverse();
-      
-  
     });
-
   }
-
+  startevent1;
+  endevent1;
+  todayDate;
+  
+  todaysDate: Date = new Date();
   checkImage: boolean  = true;
   checkImage2: boolean  = true;
   checkImage3: boolean  = true;
@@ -89,6 +91,7 @@ export class EventsComponent implements OnInit {
   checkImage6: boolean  = true;
   checkImage7: boolean  = true;
   showEvents(){
+   
     this.eService.GET_eventsReadOnly().subscribe(data=>{
     this.events = data;
     this.event1 = this.events[0];
@@ -98,11 +101,14 @@ export class EventsComponent implements OnInit {
     this.event5 = this.events[4];
     this.event6 = this.events[5];
     this.event7 = this.events[6];
-    if(this.event1 == undefined || this.event1 == null){
+    if
+    (this.event1 == undefined || this.event1 == null){
       this.checkImage  = false;
     }else{
       this.checkImage = true;
     }
+
+    
     if(this.event2 == undefined || this.event2 == null){
       this.checkImage2  = false;
     }else{
