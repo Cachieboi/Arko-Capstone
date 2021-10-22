@@ -8,5 +8,6 @@ export interface showroom {
     viewCount: number;
     StartDate: Date;
     EndDate: Date;
+    category: String;
       
 }

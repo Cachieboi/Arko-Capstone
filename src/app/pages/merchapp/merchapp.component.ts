@@ -6,6 +6,7 @@ import { ActivatedRoute } from '@angular/router';
 import { Router } from '@angular/router';
 import { HttpClient } from '@angular/common/http';
 import { TestBed } from '@angular/core/testing';
+import { FormService } from 'src/app/shares/services/Form.service';
 
 
 @Component({
@@ -19,15 +20,23 @@ export class MerchappComponent implements OnInit {
     private http: HttpClient,
     private Mservice: MerchService, 
     private router: ActivatedRoute, 
-    private route: Router) { }
+    private route: Router,
+    private fService: FormService) { }
 
+    yearLevel = [
+      {level: 'First Year'},
+      {level: 'Second Year'},
+      {level: 'Third Year'},
+      {level: 'Fourth Year'},
+      {level: 'Fifth Year'},
+    ];
   merchs: merch[] = [];
   id: Number;
   mname: String;
-  price: Number;
+  price: number;
   email: String;
   desc: String;
-  quantity: Number;
+  quantity: number;
   PhotoFileName: String;
   imageURL = this.Mservice.PhotoUrl
   scriptURL = 'script.google.com/macros/s/AKfycbwbplsYBDFn8IxacMJzWtAnZhkJhytvyoT2-wT3UzQVZr-SjHNsOdb0JyN9YgMMCTqB/exec';
@@ -42,10 +51,21 @@ export class MerchappComponent implements OnInit {
       console.log(data);
   });
   }
-
+  final: number;
   onSubmit(form: NgForm){
-    
-    console.log(form)
+    const value = form.value
+    if(confirm("Are you Sure you want to Submit??")){
+      var val = {
+        id: this.id,
+        name: value.name, ustEmail: value.ustEmail, year: value.year.level,
+        section: value.section, studentNo: value.studentNo, merchName: this.mname,
+        quantity: value.quantity,  contactNo: value.contactNo, address: value.address,
+        modeOfPayment: value.modeOfPayment, whatMerchNext: value.whatMerchNext, price : this.price * value.quantity
+      }
+      this.fService.registerOrder(val).subscribe((data=>{
+         console.log(data);
+      }))
+    }
    
   }
 

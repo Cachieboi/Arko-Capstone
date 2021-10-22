@@ -64,13 +64,20 @@
         *ngIf ="is_superuser == 'false' && article.is_approved == true">  
         {{statusApproved}}
         </td>
+        <td>
+          <div>
+            <button mat-raised-button (click)="openDialog(article.id)">Pick one</button>  
+            <ng-template #callAPIDialog>
+            {{content}}
+           </ng-template>
+          </div>
+        </td>
          <td>
           <a class="btn btn-primary" [routerLink]="['edit', article.id]">Edit</a>
           <button class="btn btn-danger" (click) = "deleteClick(article)">Delete</button>
          </td>
         </tr>
         </table>
-        <pagination-controls (pageChange)="p = $event" ></pagination-controls>
+        <pagination-controls (pageChange)="p = $event" ></pagination-controls>     
     </div>
-         
   </div>

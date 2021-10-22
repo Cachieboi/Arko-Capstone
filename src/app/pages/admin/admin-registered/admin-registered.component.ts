@@ -30,7 +30,7 @@ export class AdminRegisteredComponent implements OnInit {
   title: String = "Registrants of "
   dateToday = new Date();
   latest: String = this.datepipe.transform(this.dateToday, 'yyyy');
-  finalTitle :String = this.title + " " + this.latest;
+  finalTitle :string = this.title + " " + this.latest;
   i : number;
   registrantLength: number;
   showRegistrants(){
@@ -53,7 +53,7 @@ export class AdminRegisteredComponent implements OnInit {
   exportElmToExcel(registrant): void {
     console.log(this.registrantLength)
     if(confirm('Are you sure??')){
-    this.archService.exportTableElmToExcel(this.userTable, this.finalTitle);
+    this.archService.exportAsExcelFile(this.registrant, this.finalTitle);
     this.archiveRegistrants(registrant);
     
   }

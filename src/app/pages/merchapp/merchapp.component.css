@@ -365,3 +365,8 @@ img {
 .buy--btn:active {
   transform: scale(0.97);
 }
+
+textarea{
+  width: 100%;
+  height: auto;
+}

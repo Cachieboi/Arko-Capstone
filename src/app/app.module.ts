@@ -57,8 +57,10 @@ import { AdminEventsEditComponent } from './pages/admin/admin-events/admin-event
 import { AdminEventsListComponent } from './pages/admin/admin-events/admin-events-list/admin-events-list.component';
 import { NgxPaginationModule } from 'ngx-pagination';
 import { CarouselModule } from 'ngx-owl-carousel-o';
-import { DatePipe } from '@angular/common'
-
+import { DatePipe } from '@angular/common';
+import { AdminMerchorderComponent } from './pages/admin/admin-merchorder/admin-merchorder.component';
+import { AdminApplicantsComponent } from './pages/admin/admin-applicants/admin-applicants.component'
+import {MatDialogModule} from '@angular/material/dialog';
 @NgModule({
   declarations: [
     AppComponent,
@@ -103,6 +105,8 @@ import { DatePipe } from '@angular/common'
     AdminEventsAddComponent,
     AdminEventsEditComponent,
     AdminEventsListComponent,
+    AdminMerchorderComponent,
+    AdminApplicantsComponent,
     
    
 
@@ -120,6 +124,7 @@ import { DatePipe } from '@angular/common'
     MatSliderModule,
     DemoMaterialModule,
     CarouselModule,
+    MatDialogModule
     
 
   ],

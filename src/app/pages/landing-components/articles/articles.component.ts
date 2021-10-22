@@ -35,13 +35,23 @@ export class ArticlesComponent implements OnInit {
     this.Arservice.GET_articlesReadOnly().subscribe(data=>{
       this.articles=data;
       this.articles.reverse(); 
-      for(var i = 0; i <= this.articles.length; i++){
-        if(this.articles[i].is_approved === false){
+      for(var i = 0; i <= this.articles.length; ++i){
+        if(this.articles[i].is_approved == false){
           this.articles.splice(i,1);
-          console.log(this.articles);
+          console.log(this.articles[i])
+          
+        }
+        for(var i = 0; i <= this.articles.length; ++i){
+          if(this.articles[i].is_approved == false){
+            this.articles.splice(i,1);
+            console.log(this.articles[i])
+            
+          }
+          
         }
       }
     });
+    console.log(this.articles.length);
   }
 
 

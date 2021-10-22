@@ -49,7 +49,7 @@ export class AdminComponent implements OnInit {
     console.log(this.id);
     console.log(this.email);
     console.log(this.token);
-    console.log(this.is_superuser)
+    console.log(this.is_superuser);
     console.log(this.firstname);
     console.log(this.lastname);
     

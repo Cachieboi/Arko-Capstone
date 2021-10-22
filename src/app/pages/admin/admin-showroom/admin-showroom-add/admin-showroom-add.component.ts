@@ -16,6 +16,15 @@ export class AdminShowroomAddComponent implements OnInit {
   ngOnInit(): void {
   }
 
+  states = [
+    {name: 'Arizona' },
+    {name: 'California'},
+    {name: 'Colorado'},
+    {name: 'New York'},
+    {name: 'Pennsylvania'},
+  ];
+
+
   PhotoFilePath: String;
   PhotoFileName: String;
   viewCount:number;
@@ -25,7 +34,15 @@ export class AdminShowroomAddComponent implements OnInit {
       const value = form.value;
       this.viewCount = 0;
       const PhotoFileName = this.PhotoFileName
-      const newShowroom = new showroom(value.id,PhotoFileName,value.Title,value.Description,value.AuthorName,this.viewCount,value.StartDate,value.EndDate);
+      const newShowroom = new showroom(
+        value.id,PhotoFileName,
+        value.Title,
+        value.Description,
+        value.AuthorName,
+        this.viewCount,
+        value.StartDate,
+        value.EndDate, 
+        value.states.name);
       this.shService.addShowroom(newShowroom).subscribe(
         data => {
           console.log(data);
@@ -37,6 +54,7 @@ export class AdminShowroomAddComponent implements OnInit {
         }
          
         );
+        console.log(value.states);
       }
     }
 

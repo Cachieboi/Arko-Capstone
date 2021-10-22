@@ -23,7 +23,7 @@ export class ShowroomService{
 }
 //APIUrl = "http://arkoust-uapsa.xyz/api/";
 //readonly PhotoUrl = "http://arkoust-uapsa.xyz/media/";
-APIUrl = "http://127.0.0.1:8000/";
+APIUrl = "http://127.0.0.1:8000/api/";
 readonly PhotoUrl = "http://127.0.0.1:8000/media/";
   token = this.cookieService.get('mr-token');
   headers = new HttpHeaders({
@@ -52,15 +52,15 @@ getAuthHeaders(){
   }
 
   GET_registrant(id:number){
-    return this.http.get<registrantint>(this.APIUrl + 'Accounts/showroom-registrants/' + id);
+    return this.http.get<registrantint>(this.APIUrl + 'Accounts/showroom-registrants/' + id, {headers: this.getAuthHeaders()});
   }
 
   GET_registrants(): Observable<registrantint> {
-    return this.http.get<registrantint>(this.APIUrl + 'Accounts/showroom-registrants/');
+    return this.http.get<registrantint>(this.APIUrl + 'Accounts/showroom-registrants/', {headers: this.getAuthHeaders()});
   }
 
   GET_registrantslist(): Observable<any[]> {
-    return this.http.get<any[]>(this.APIUrl + 'Accounts/showroom-registrants/');
+    return this.http.get<any[]>(this.APIUrl + 'Accounts/showroom-registrants/', {headers: this.getAuthHeaders()});
   }
 
   DELETE_registrants(val:any){

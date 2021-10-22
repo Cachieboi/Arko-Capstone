@@ -14,6 +14,8 @@ export class ArticlePageComponent implements OnInit {
  p: number = 1;
   count: Number = 5;
 articles: article[] = []
+is_approved: Boolean;
+id: number;
 
     constructor(private Arservice: ArticleService) { }
 
@@ -29,12 +31,22 @@ articles: article[] = []
         this.articles=data;
         this.articles.reverse();
         console.log(this.articles)
-        for(var i = 0; i <= this.articles.length; i++){
-          if(this.articles[i].is_approved === false){
+        for(var i = 0; i <= this.articles.length; ++i){
+          if(this.articles[i].is_approved == false){
             this.articles.splice(i,1);
-            console.log(this.articles);
+            console.log(this.articles[i])
+            
+          }
+          for(var i = 0; i <= this.articles.length; ++i){
+            if(this.articles[i].is_approved == false){
+              this.articles.splice(i,1);
+              console.log(this.articles[i])
+              
+            }
+            
           }
         }
+        
       });
   
    

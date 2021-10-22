@@ -7,6 +7,7 @@ export class showroom{
         public AuthorName: String,
         public viewCount: number,
         public StartDate: Date,
-        public EndDate: Date
+        public EndDate: Date,
+        public category: String
         ){}
 }

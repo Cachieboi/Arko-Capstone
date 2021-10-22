@@ -40,6 +40,8 @@ import { ShowroomRoomComponent } from "./pages/showroom-room/showroom-room.compo
 import { AdminEventsListComponent } from "./pages/admin/admin-events/admin-events-list/admin-events-list.component";
 import { AdminEventsAddComponent } from "./pages/admin/admin-events/admin-events-add/admin-events-add.component";
 import { AdminEventsEditComponent } from "./pages/admin/admin-events/admin-events-edit/admin-events-edit.component";
+import { AdminMerchorderComponent } from "./pages/admin/admin-merchorder/admin-merchorder.component";
+import { AdminApplicantsComponent } from "./pages/admin/admin-applicants/admin-applicants.component";
 const appRoutes: Routes = [
     { path: '', 
     component: LandingComponentsComponent},
@@ -52,6 +54,16 @@ const appRoutes: Routes = [
       {
         path: '',
         component: AdminProfileComponent
+      },
+
+      {
+        path: 'merch-order',
+        component: AdminMerchorderComponent
+      },
+
+      {
+        path: 'applicant',
+        component: AdminApplicantsComponent
       },
       
       {

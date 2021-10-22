@@ -2,7 +2,7 @@ export interface merch {
     
     id: Number,
     mname: String, 
-    price: Number, 
+    price: number, 
     desc: String;
     PhotoFileName: String;
       

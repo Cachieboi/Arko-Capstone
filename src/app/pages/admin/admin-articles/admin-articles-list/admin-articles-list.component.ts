@@ -1,9 +1,10 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, TemplateRef, ViewChild } from '@angular/core';
 import { Article } from '../../../../shares/models/Articles.model';
 import { ArticleService } from 'src/app/shares/services/Articles.service';
 import { CookieService } from 'ngx-cookie-service';
 import {FormBuilder, FormGroup} from '@angular/forms';
 import { MatCheckboxChange } from '@angular/material/checkbox/checkbox';
+import {MatDialog} from '@angular/material/dialog';
 
 @Component({
   selector: 'app-admin-articles-list',
@@ -13,7 +14,7 @@ import { MatCheckboxChange } from '@angular/material/checkbox/checkbox';
 export class AdminArticlesListComponent implements OnInit {
 
   constructor(private Arservice: ArticleService,
-    private cookieService: CookieService,
+    private cookieService: CookieService,public dialog: MatDialog,
    ) { 
      
     }
@@ -32,7 +33,7 @@ export class AdminArticlesListComponent implements OnInit {
     this.showArticles();
    
   }
-
+  @ViewChild('callAPIDialog') callAPIDialog: TemplateRef<any>; 
   showArticles(){
     this.Arservice.GET_articles().subscribe(data=>{
       this.articles=data;
@@ -88,11 +89,27 @@ export class AdminArticlesListComponent implements OnInit {
       console.log('Not Checked')
     }
   }
+  content: String;
 
+  openDialog(id: number) {
+    this.Arservice.GET_article(id).subscribe((data=>{
+      this.content = data.content
+    }))
+    let dialogRef = this.dialog.open(this.callAPIDialog,{
+      width: '400px',
 
-  articleStatus(){
-    
-  }
+    });
+    dialogRef.afterClosed().subscribe(result => {
+        if (result !== undefined) {
+            if (result !== 'no') {
+              const enabled = "Y"
+                console.log(result);
+            } else if (result === 'no') {
+               console.log('User clicked no.');
+            }
+        }
+    })
+}
 
   
 }
