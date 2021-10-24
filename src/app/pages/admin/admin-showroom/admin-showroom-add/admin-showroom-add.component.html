@@ -26,7 +26,7 @@
           <span class ="help-block" *ngIf="title.touched && title.errors?.pattern">This is Required</span>
         </div>
         <div>
-          <select name="state" ngModel name="states">
+          <select  ngModel name="states">
             <option value="" disabled>Choose a state</option>
             <option *ngFor="let state of states" [ngValue]="state">
               {{ state.name }}

@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ShowroomService } from 'src/app/shares/services/Showroom.service';
 import { ActivatedRoute } from '@angular/router';
 import { Router } from '@angular/router';
+import { showroom } from '../../../../shares/models/showroomint.model';
 
 @Component({
   selector: 'app-admin-showroom-edit',
@@ -11,6 +12,14 @@ import { Router } from '@angular/router';
 export class AdminShowroomEditComponent implements OnInit {
 
   constructor(private shService: ShowroomService, private route: ActivatedRoute,private router: Router) { }
+  states = [
+  
+    {name: 'Arizona' },
+    {name: 'California'},
+    {name: 'Colorado'},
+    {name: 'New York'},
+    {name: 'Pennsylvania'},
+  ];
 
   id: Number;
   AuthorName: String;
@@ -21,6 +30,7 @@ export class AdminShowroomEditComponent implements OnInit {
   photoUpload = true;
   StartDate: Date;
   EndDate: Date;
+  category: String
 
   ngOnInit(): void {
     this.id = this.route.snapshot.params['id'];
@@ -31,20 +41,23 @@ export class AdminShowroomEditComponent implements OnInit {
       this.PhotoFileName = this.shService.PhotoUrl+data.PhotoFileName;
       this.StartDate = data.StartDate;
       this.EndDate = data.EndDate;
-      console.log(data);
+      this.category = data.category;
+      console.log();
     });
   }
+  
 
 
   editShowroom(){
+    console.log(this.category);
     if(this.PhotoFileName !== null && this.photoUpload == false){
       var val = {
         id:this.id, Title: this.Title, Description: this.Description, AuthorName: this.AuthorName,  
-        PhotoFileName: this.PhotoFileName, StartDate: this.StartDate, EndDate: this.EndDate};
+        PhotoFileName: this.PhotoFileName, StartDate: this.StartDate, EndDate: this.EndDate,category:this.category};
       }else{
         var val = {
           id:this.id, Title: this.Title, Description: this.Description, AuthorName: this.AuthorName,  
-        PhotoFileName: this.PhotoFilePath, StartDate: this.StartDate, EndDate: this.EndDate};
+        PhotoFileName: this.PhotoFilePath, StartDate: this.StartDate, EndDate: this.EndDate,category:this.category};
       }
       if(confirm('Are you Sure?')){
         this.shService.EDIT_showroom(val).subscribe(res=>{
@@ -53,7 +66,7 @@ export class AdminShowroomEditComponent implements OnInit {
         });
       }
   }
-
+ 
   uploadPhoto(event){
     var file=event.target.files[0];
     const formData:FormData=new FormData();

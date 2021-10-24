@@ -94,6 +94,9 @@ getAuthHeaders(){
     return this.http.get<any[]>(this.APIUrl + 'backend/Showroom_readOnly/', {headers: this.getAuthHeaders()});
   }
 
+  GET_showroomlist(): Observable<any[]> {
+    return this.http.get<any[]>(this.APIUrl + 'Accounts/Showroom/', {headers: this.getAuthHeaders()});
+  }
   
   GET_showroomReadOnly(id:Number){
     return this.http.get<showroom>(this.APIUrl + 'backend/Showroom_readOnly/' + id,{headers: this.getAuthHeaders()});

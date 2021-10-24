@@ -28,6 +28,14 @@
             [(ngModel)] = "Description">
         </div>
         <div>
+          <select [(ngModel)]="category">
+            <option value="" disabled>Choose a state</option>
+            <option *ngFor="let category of states" [ngValue]="category">
+              {{ category.name }}
+            </option>
+          </select>
+        </div>
+        <div>
           <label>Showroom Image</label><br>
           <img 
           *ngIf = "PhotoFileName !== null && photoUpload == true"

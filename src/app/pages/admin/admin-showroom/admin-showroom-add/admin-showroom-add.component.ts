@@ -66,8 +66,10 @@ export class AdminShowroomAddComponent implements OnInit {
     this.shService.UploadPhoto_Showroom(formData).subscribe((data:any)=>{
       this.PhotoFileName=data.toString();
       this.PhotoFilePath=this.shService.PhotoUrl+this.PhotoFileName;
+      
     })
   }
+  
   }
 
 

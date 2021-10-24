@@ -33,7 +33,49 @@ showShowrooms(){
     this.showrooms.reverse();
     console.log(data);
   });
+
 }
+ari : String;
+cali: String;
+nyc: String;
+category: String;
+
+allFunc(e){
+  this.shService.GET_showrooms().subscribe(data=>{
+    this.showrooms=data.reverse()
+  });
+}
+
+testFunc(e){
+  this.shService.GET_showrooms().subscribe(data=>{
+    this.showrooms=data.reverse().filter(data =>{
+    return data.category == this.ari;  
+    });
+    console.log(data);
+    console.log(this.ari);
+  });
+}
+
+testFunc2(e){
+  this.shService.GET_showrooms().subscribe(data=>{
+    this.showrooms=data.reverse().filter(data =>{
+    return data.category == this.cali;  
+    });
+    console.log(data);
+    console.log(this.cali);
+  });
+}
+
+testFunc3(e){
+  this.shService.GET_showrooms().subscribe(data=>{
+    this.showrooms=data.reverse().filter(data =>{
+    return data.category == this.nyc;  
+    });
+    console.log(data);
+    console.log(this.nyc);
+  });
+}
+
 
 
 }
