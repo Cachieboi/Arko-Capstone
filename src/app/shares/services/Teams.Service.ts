@@ -71,6 +71,10 @@ getAuthHeaders(){
   }
 
 
+  GET_TeamsReadOnly(): Observable<any[]> {
+    return this.http.get<any[]>(this.APIUrl + 'backend/TeamMembers_readOnly/', {headers: this.getAuthHeaders()});
+  }
+
   UploadPhoto_Event(val:any){
     return this.http.post(this.APIUrl+'Event/SaveFile', val);
   }

@@ -132,3 +132,12 @@
   .card-action:hover {
     background-color: #b57ad3;
   }
+
+  .center{
+    margin-left: 200px;
+  }
+
+  .owl-item{
+    margin: 0px;
+    padding: 0px;
+  }

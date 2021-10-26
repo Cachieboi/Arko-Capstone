@@ -43,7 +43,7 @@ export class MerchappComponent implements OnInit {
 
   ngOnInit(): void {
     this.id = this.router.snapshot.params['id'];
-    this.Mservice.GET_merch(this.id).subscribe((data)=>{
+    this.Mservice.GET_merchReadOnly(this.id).subscribe((data)=>{
       this.mname = data.mname;
       this.price = data.price;
       this.desc = data.desc

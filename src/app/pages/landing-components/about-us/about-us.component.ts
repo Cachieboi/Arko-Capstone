@@ -37,7 +37,7 @@ export class AboutUsComponent implements OnInit {
  
   teams: Teams[] = [];
   showTeams(){
-    this.tService.GET_Teams().subscribe(data=>{
+    this.tService.GET_TeamsReadOnly().subscribe(data=>{
       this.teams=data;
       this.teams.reverse();
     });
@@ -45,7 +45,7 @@ export class AboutUsComponent implements OnInit {
 
   openDialog() {
     let dialogRef = this.dialog.open(this.callAPIDialog,{
-      width: '100vh',
+      width: '700px',
   
     });
     dialogRef.afterClosed().subscribe(result => {
