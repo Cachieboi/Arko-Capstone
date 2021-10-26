@@ -61,6 +61,11 @@ import { DatePipe } from '@angular/common';
 import { AdminMerchorderComponent } from './pages/admin/admin-merchorder/admin-merchorder.component';
 import { AdminApplicantsComponent } from './pages/admin/admin-applicants/admin-applicants.component'
 import {MatDialogModule} from '@angular/material/dialog';
+import { AdminTeamsComponent } from './pages/admin/admin-teams/admin-teams.component';
+import { AdminTeamsEditComponent } from './pages/admin/admin-teams/admin-teams-edit/admin-teams-edit.component';
+import { AdminTeamsAddComponent } from './pages/admin/admin-teams/admin-teams-add/admin-teams-add.component';
+import { AdminTeamsListComponent } from './pages/admin/admin-teams/admin-teams-list/admin-teams-list.component';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -107,6 +112,11 @@ import {MatDialogModule} from '@angular/material/dialog';
     AdminEventsListComponent,
     AdminMerchorderComponent,
     AdminApplicantsComponent,
+    AdminTeamsComponent,
+    AdminTeamsEditComponent,
+    AdminTeamsAddComponent,
+    AdminTeamsListComponent,
+ 
     
    
 

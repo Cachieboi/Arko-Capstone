@@ -108,6 +108,8 @@ background-color: #f5f7f9;
 text-align: center;
 }
 
+
+
 .buttun {
 margin: auto;
 position: relative;
@@ -138,6 +140,13 @@ animation: rotate 0.7s ease-in-out both;
 .buttun:hover span {
 animation: storm 0.7s ease-in-out both;
 animation-delay: 0.06s;
+}
+
+.centershow{
+
+  display: block;
+  margin-left: 260px;
+  margin-right: auto;
 }
 
 @keyframes rotate {
@@ -173,4 +182,25 @@ animation-delay: 0.06s;
 100% {
   transform: translate3d(0, 0, 0) translateZ(0);
 }
+}
+
+#reg{
+  -webkit-appearance: none;
+   -moz-appearance: none;
+        appearance: none;
+margin-left: 50px;
+outline: 0;
+background-color: white;
+border: 0;
+padding: 10px 15px;
+color: #ee9b00;
+border-radius: 3px;
+width: 250px;
+cursor: pointer;
+font-size: 18px;
+transition-duration: 0.25s;
+}
+
+.labelz{
+  margin-left: 100px;
 }

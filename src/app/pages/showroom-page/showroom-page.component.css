@@ -1,8 +1,18 @@
 #viewer {
-  
   width: 100%;
-  height: 400px;
+  height: 100%;
+}
 
+
+
+html {
+  height: 100vh;
+}
+
+body {
+ background: url('src/assets/img/HOME_BG.jpg');
+  background-size: cover;
+  margin: auto;
 }
 
 
@@ -50,6 +60,7 @@ label{
   background:rgba(255, 99, 71, .9);
   border-radius:2px;
 }
+
 .container {
   width: 100%;
   margin: 0 auto;
@@ -58,13 +69,17 @@ label{
   flex-wrap:wrap;
 }
 
+.category{
+  text-align: center;
+}
+
 .card{
   margin : auto;
   width: 350px;
   overflow : hidden;
   border-radius : 20px;
   background : white;
-  margin-top:50px;
+  margin-top:10%;
   
   transition: all .2s;
   box-shadow:5px 5px 15px rgba(0,0,0, .3);
@@ -126,7 +141,7 @@ label{
   transition: all .2s;
 }
 .desc a:hover{
-  background-color: grey;
+  background-color: rgb(255, 131, 131);
 }
 .desc a:hover svg{
   animation : iconjln 1s;
@@ -148,10 +163,8 @@ label{
 }
 
 .down { 
-  height: 40px; 
-  position: absolute; 
+  position: relative; 
   padding: 15px;
-  bottom:0%;
-  width:100%;  
-  opacity: 1;
+  bottom: 0%;
+
 }

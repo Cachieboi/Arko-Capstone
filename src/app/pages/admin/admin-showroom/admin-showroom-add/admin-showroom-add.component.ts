@@ -35,7 +35,8 @@ export class AdminShowroomAddComponent implements OnInit {
       this.viewCount = 0;
       const PhotoFileName = this.PhotoFileName
       const newShowroom = new showroom(
-        value.id,PhotoFileName,
+        value.id,
+        PhotoFileName,
         value.Title,
         value.Description,
         value.AuthorName,

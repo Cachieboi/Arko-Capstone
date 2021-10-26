@@ -40,23 +40,31 @@ width: fit-content;
 }
 
 
+
+html {
+  height: 100vh;
+}
+
 body {
-background:url('../../../assets/img/websitebgs.jpg');
-box-sizing: border-box;
+ background: url('src/assets/img/HOME_BG.jpg');
+  background-size: cover;
+  margin: auto;
 }
 
 
 
 .pagination{
-  height: 40px; 
   position: relative; 
-  bottom:0%;
-  width:100%;  
-  opacity: 1;
+  padding: 15px;
+  bottom: 0%;
 }
 
 @import url(//fonts.googleapis.com/css?family=Lato:300:400);
 
+.fonters {
+  font-family: 'grossregular';
+  font-size: 50px;
+}
 
 h1 {
   font-family: 'Lato', sans-serif;

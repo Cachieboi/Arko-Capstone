@@ -5,6 +5,9 @@ New Event
 http://www.templatemo.com/tm-486-new-event
 
 */
+html, body {
+  overflow-x: hidden;
+}
 
 body {
   margin: 0px;
@@ -1124,6 +1127,7 @@ body {
 
 .owl-carousel{
   width: 600px;
+  height: auto;
   
 }
 .right.carousel-control, .left.carousel-control {

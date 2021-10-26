@@ -19,9 +19,7 @@
        id="mname"
        class="form-control"
        ngModel
-       pattern="[a-zA-Z\s]+"
        name="mname"
-      
        required
       >
       </div>
@@ -33,7 +31,7 @@
        class="form-control"
        ngModel
        name="price"
-       pattern="/^-?(0|[1-9]\d*)?$/"
+       onkeypress="return event.charCode>=48 && event.charCode<=57"
        required>
       </div>
       <div>

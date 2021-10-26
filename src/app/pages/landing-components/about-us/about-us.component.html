@@ -44,7 +44,24 @@
                 <mat-tab label = "Join Us!">
                     <button class="button-two wow fadeInUp" data-wow-delay="1.3s"(click)="appForm()"><span>Application Form</span></button>
                 </mat-tab>
+                <mat-tab label="Get to Know the Team!" > 
+                    <br>
+                    <button mat-raised-button (click)="openDialog()">Applicant Details</button>  
+                </mat-tab>
               </mat-tab-group>
         </div>
     </div>
 </section>
+<ng-template #callAPIDialog>
+<owl-carousel-o [options]="customOptions">
+    <ng-container *ngFor="let team of teams;">
+    <ng-template carouselSlide>
+        <div class="card">
+            <img class="card-image" [src]="imageURL+team.PhotoFileName" alt="">
+            <h2 class="card-title">{{team.name}}</h2>
+            <p class="card-price">{{team.section}}</p>
+        </div>
+    </ng-template>
+    </ng-container>
+</owl-carousel-o>
+</ng-template>

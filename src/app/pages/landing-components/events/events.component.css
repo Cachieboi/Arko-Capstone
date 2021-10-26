@@ -99,7 +99,7 @@ a:active {
 
 .container {
   padding: 2px 16px;
-  
+  margin: auto;
 }
 
 .box:hover > .pin-text {
@@ -341,5 +341,19 @@ a:active {
   display: none;
 }
 
+.test{
+  width: 500px;
+  height: 500px;
+  margin-left: 32px;
+}
+
+.testz{
+  width: 250px;
+  height: 250px;
+ margin-left: 32px;
+}
+.labelz{
+  margin-left: 130px
+}
   
 

@@ -6,7 +6,8 @@ import { regis } from 'src/app/shares/models/regis.model';
 import { ShowroomService } from 'src/app/shares/services/Showroom.service';
 import { Router } from '@angular/router';
 import {CookieService} from 'ngx-cookie-service';
-
+import {OwlOptions} from 'ngx-owl-carousel-o';
+import { showroom } from '../../../shares/models/showroomint.model';
 
 @Component({
   selector: 'app-showroom',
@@ -15,6 +16,7 @@ import {CookieService} from 'ngx-cookie-service';
 })
 export class ShowroomComponent implements OnInit {
   ngOnInit(): void {
+    this.showShowrooms();
   }
   
   firstname: String;
@@ -31,7 +33,37 @@ export class ShowroomComponent implements OnInit {
     private router: Router,
     private cookieService: CookieService) { }
 
+    customOptions: OwlOptions = {
+      loop: true,
+      mouseDrag: true,
+      touchDrag: true,
+      pullDrag: false,
+      autoplay:true,
+      autoplayTimeout:4500,
+      dots: false,
+      navSpeed: 700,
+      navText: ["<i class='fa fa-arrow-left' aria-hidden='true'></i>","<i class='fa fa-arrow-right' aria-hidden='true'></i>"],
+      responsive: {
+        0: {
+          items: 1
+        }
+      },
+  
+    }
+    imageURL = this.Shservice.PhotoUrl
+
+    showrooms: showroom[] = [];
+    showShowrooms(){
+      this.Shservice.GET_showroomsReadOnly().subscribe(data=>{
+        this.showrooms=data;
+        this.showrooms.reverse();
+        console.log(data);
+      });
+    
+    }
+
   openDialog() {
+    const timeout = 10;
     let dialogRef = this.dialog.open(this.callAPIDialog,{
       width: '400px'
     });
@@ -45,6 +77,7 @@ export class ShowroomComponent implements OnInit {
             }
         }
     })
+   
 }
 
 openReg(){
@@ -65,6 +98,10 @@ openReg(){
     })
 }
 
+closeDialog(){
+  
+}
+
 ticket:String ="";
 getRandomString(length) {
   var randomChars = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
@@ -76,15 +113,15 @@ getRandomString(length) {
 }
 _token: any;
 onSend(form: NgForm){
-  
+
   const val = form.value;
   const regisAccount = new regis(val.email, val.password);
   this.Shservice.regLogin(regisAccount).subscribe((results: any)=>{
     this._token = this.cookieService.set('mr-token', results.token);
     console.log(results);
     console.log('*********'+this._token);
+   this.dialog.closeAll();
     this.router.navigate(['Showroom-page']);
-    
   },
   error => {
     alert("Invalid Input")

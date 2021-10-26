@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, TemplateRef, ViewChild } from '@angular/core';
 import { MerchService } from 'src/app/shares/services/Merch.service';
 import { eventint } from '../../../shares/models/eventsint.model';
 import { merch } from '../../../shares/models/merchint.model';
@@ -7,6 +7,8 @@ import { Events } from '@tinymce/tinymce-angular/editor/Events';
 import { THIS_EXPR } from '@angular/compiler/src/output/output_ast';
 import {OwlOptions} from 'ngx-owl-carousel-o';
 import { DatePipe } from '@angular/common'
+import {MatDialog} from '@angular/material/dialog';
+
 @Component({
   selector: 'app-events',
   templateUrl: './events.component.html',
@@ -60,7 +62,8 @@ export class EventsComponent implements OnInit {
   PhotoFileName: String;
 
   constructor(private Mservice: MerchService, private eService: EventService,
-    public datepipe: DatePipe) { }
+    public datepipe: DatePipe,
+    public dialog: MatDialog) { }
   imageURL = this.Mservice.PhotoUrl;
   imageURLz = this.eService.PhotoUrl;
 
@@ -81,7 +84,17 @@ export class EventsComponent implements OnInit {
   startevent1;
   endevent1;
   todayDate;
-  
+
+  @ViewChild('callAPIDialog') callAPIDialog: TemplateRef<any>; 
+  @ViewChild('callAPIDialog2') callAPIDialog2: TemplateRef<any>;
+  @ViewChild('callAPIDialog3') callAPIDialog3: TemplateRef<any>;
+  @ViewChild('callAPIDialog4') callAPIDialog4: TemplateRef<any>;
+  @ViewChild('callAPIDialog5') callAPIDialog5: TemplateRef<any>;
+  @ViewChild('callAPIDialog6') callAPIDialog6: TemplateRef<any>;
+  @ViewChild('callAPIDialog7') callAPIDialog7: TemplateRef<any>;
+  @ViewChild('construct') construct: TemplateRef<any>;
+  @ViewChild('construct2') construct2: TemplateRef<any>;
+
   todaysDate: Date = new Date();
   checkImage: boolean  = true;
   checkImage2: boolean  = true;
@@ -90,6 +103,7 @@ export class EventsComponent implements OnInit {
   checkImage5: boolean  = true;
   checkImage6: boolean  = true;
   checkImage7: boolean  = true;
+  link:String;
   showEvents(){
    
     this.eService.GET_eventsReadOnly().subscribe(data=>{
@@ -101,52 +115,175 @@ export class EventsComponent implements OnInit {
     this.event5 = this.events[4];
     this.event6 = this.events[5];
     this.event7 = this.events[6];
-    if
-    (this.event1 == undefined || this.event1 == null){
-      this.checkImage  = false;
-    }else{
-      this.checkImage = true;
-    }
-
+    this.link = this.event1.eventLink
     
+    if(this.event1 == undefined || this.event1 == null){
+      this.checkImage  = false;
+    }
     if(this.event2 == undefined || this.event2 == null){
       this.checkImage2  = false;
-    }else{
-      this.checkImage2 = true;
-    }
-    if(this.event3 == undefined || this.event3 == null){
-      this.checkImage3  = false;
-    }else{
-      this.checkImage3 = true;
-    }
-    if(this.event4 == undefined || this.event4 == null){
-      this.checkImage4  = false;
-    }else{
-      this.checkImage4 = true;
-    }
-    if(this.event5 == undefined || this.event5 == null){
-      this.checkImage5  = false;
-    }else{
-      this.checkImage5 = true;
-    }
-    if(this.event6 == undefined || this.event6 == null){
-      this.checkImage6  = false;
-    }else{
-      this.checkImage6 = true;
-    }
-    if(this.event7 == undefined || this.event7 == null){
-      this.checkImage7  = false;
-    }else{
-      this.checkImage7 = true;
     }
     })
   }
 
-  public 
-  (index: number, merch: merch){
-   
-    return merch.id;
-    console.log(merch.id);
+  openDialog() {
+    let dialogRef = this.dialog.open(this.callAPIDialog,{
+      width: '600px',
+      height: '600px'
+  
+    });
+    dialogRef.afterClosed().subscribe(result => {
+        if (result !== undefined) {
+            if (result !== 'no') {
+              const enabled = "Y"
+                console.log(result);
+            } else if (result === 'no') {
+               console.log('User clicked no.');
+            }
+        }
+    })
+  }
+
+  openDialog2() {
+    let dialogRef = this.dialog.open(this.callAPIDialog2,{
+      width: '600px',
+      height: '600px'
+  
+    });
+    dialogRef.afterClosed().subscribe(result => {
+        if (result !== undefined) {
+            if (result !== 'no') {
+              const enabled = "Y"
+                console.log(result);
+            } else if (result === 'no') {
+               console.log('User clicked no.');
+            }
+        }
+    })
+  }
+
+  openDialog3() {
+    let dialogRef = this.dialog.open(this.callAPIDialog3,{
+      width: '600px',
+      height: '600px'
+    });
+    dialogRef.afterClosed().subscribe(result => {
+        if (result !== undefined) {
+            if (result !== 'no') {
+              const enabled = "Y"
+                console.log(result);
+            } else if (result === 'no') {
+               console.log('User clicked no.');
+            }
+        }
+    })
+  }
+
+  openDialog4() {
+    let dialogRef = this.dialog.open(this.callAPIDialog4,{
+      width: '600px',
+      height: '600px'
+  
+    });
+    dialogRef.afterClosed().subscribe(result => {
+        if (result !== undefined) {
+            if (result !== 'no') {
+              const enabled = "Y"
+                console.log(result);
+            } else if (result === 'no') {
+               console.log('User clicked no.');
+            }
+        }
+    })
+  }
+
+  openDialog5() {
+    let dialogRef = this.dialog.open(this.callAPIDialog5,{
+      width: '600px',
+      height: '600px'
+  
+    });
+    dialogRef.afterClosed().subscribe(result => {
+        if (result !== undefined) {
+            if (result !== 'no') {
+              const enabled = "Y"
+                console.log(result);
+            } else if (result === 'no') {
+               console.log('User clicked no.');
+            }
+        }
+    })
+  }
+
+  openDialog6() {
+    let dialogRef = this.dialog.open(this.callAPIDialog6,{
+      width: '600px',
+      height: '600px'
+  
+    });
+    dialogRef.afterClosed().subscribe(result => {
+        if (result !== undefined) {
+            if (result !== 'no') {
+              const enabled = "Y"
+                console.log(result);
+            } else if (result === 'no') {
+               console.log('User clicked no.');
+            }
+        }
+    })
+  }
+
+  openDialog7() {
+    let dialogRef = this.dialog.open(this.callAPIDialog7,{
+      width: '600px',
+      height: '600px'
+  
+    });
+    dialogRef.afterClosed().subscribe(result => {
+        if (result !== undefined) {
+            if (result !== 'no') {
+              const enabled = "Y"
+                console.log(result);
+            } else if (result === 'no') {
+               console.log('User clicked no.');
+            }
+        }
+    })
+  }
+  openConstruct() {
+    let dialogRef = this.dialog.open(this.construct,{
+      width: '350px',
+      height: '350px'
+  
+    });
+    dialogRef.afterClosed().subscribe(result => {
+        if (result !== undefined) {
+            if (result !== 'no') {
+              const enabled = "Y"
+                console.log(result);
+            } else if (result === 'no') {
+               console.log('User clicked no.');
+            }
+        }
+    })
+  }
+
+  openConstruct2() {
+    let dialogRef = this.dialog.open(this.construct2,{
+      width: '350px',
+      height: '350px'
+  
+    });
+    dialogRef.afterClosed().subscribe(result => {
+        if (result !== undefined) {
+            if (result !== 'no') {
+              const enabled = "Y"
+                console.log(result);
+            } else if (result === 'no') {
+               console.log('User clicked no.');
+            }
+        }
+    })
   }
 
  

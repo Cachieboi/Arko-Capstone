@@ -13,13 +13,12 @@ export class AdminShowroomEditComponent implements OnInit {
 
   constructor(private shService: ShowroomService, private route: ActivatedRoute,private router: Router) { }
   states = [
-  
-    {name: 'Arizona' },
-    {name: 'California'},
-    {name: 'Colorado'},
-    {name: 'New York'},
-    {name: 'Pennsylvania'},
+    {name: "Arizona" },
+    {name: "California"},
+    {name: "Colorado"},
+    {name: "New York"},
   ];
+
 
   id: Number;
   AuthorName: String;
@@ -30,7 +29,7 @@ export class AdminShowroomEditComponent implements OnInit {
   photoUpload = true;
   StartDate: Date;
   EndDate: Date;
-  category: String
+  category: String;
 
   ngOnInit(): void {
     this.id = this.route.snapshot.params['id'];
@@ -42,14 +41,19 @@ export class AdminShowroomEditComponent implements OnInit {
       this.StartDate = data.StartDate;
       this.EndDate = data.EndDate;
       this.category = data.category;
-      console.log();
+      console.log(this.category);
     });
   }
-  
+  onChange(e){
+    
+    this.category = e;
+    console.log(this.category);
+
+  }
 
 
   editShowroom(){
-    console.log(this.category);
+    
     if(this.PhotoFileName !== null && this.photoUpload == false){
       var val = {
         id:this.id, Title: this.Title, Description: this.Description, AuthorName: this.AuthorName,  
@@ -62,6 +66,7 @@ export class AdminShowroomEditComponent implements OnInit {
       if(confirm('Are you Sure?')){
         this.shService.EDIT_showroom(val).subscribe(res=>{
           alert("The Showroom has been Successfully Updated!");
+         
           this.router.navigate(['dashboard/exhibit']);
         });
       }

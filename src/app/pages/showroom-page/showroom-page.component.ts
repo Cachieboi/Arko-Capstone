@@ -1,5 +1,4 @@
 import { Component, OnInit, AfterViewInit } from '@angular/core';
-import {  Viewer, MarkersPlugin, markers } from 'photo-sphere-viewer';
 import { ActivatedRoute, Router } from '@angular/router';
 import { showroom } from '../../shares/models/showroomint.model';
 import { ShowroomService } from 'src/app/shares/services/Showroom.service';

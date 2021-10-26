@@ -1,12 +1,15 @@
-<body>
-    <div class ="continer">
+<html>
+  <body>
+    <div class="card">
+      <div class="card-description">
+        <div class="wrapper">
             <form (ngSubmit)="onSubmit(f)" #f="ngForm" class = "form">
                 <div id="user-data">
                   <img src="./assets/img/HEADER LOGO.png"
                   style ="width:200px; margin-left: auto;  margin-right: auto; display: block;
                   "class="img-fluid">
                     <div class="form-group">
-                      <h4>Membership Form</h4>
+                      <h2>Membership Form</h2>
                         <label for="name">Full Name</label>
                         <input type="text"
                         id="name"
@@ -17,11 +20,12 @@
                     </div>
                     <div class="form-group">
                           <label for="name">Age</label>
-                          <input type="text"
+                          <input type="number"
                           id="name"
                           class="form-control"
                           ngModel
                           name="age"
+                          onkeypress="return event.charCode>=48 && event.charCode<=57"
                           required>
                       </div>
                     <div class="form-group">
@@ -32,6 +36,7 @@
                         class="form-control"
                         ngModel
                         name="studentNo"
+                        onkeypress="return event.charCode>=48 && event.charCode<=57"
                         required>
                     </div>
                     <div class="form-group">
@@ -46,7 +51,7 @@
                         #email = "ngModel"
                         pattern=".+@ust.edu.ph">
                     <span class ="help-block" *ngIf="!email.valid && email.touched" >Enter a Valid UST Email Address</span>
-                    </div>
+                    </div><br>
                     <div class="form-group">
                         <select name="state" ngModel name="year">
                             <option value="" disabled>Year Level</option>
@@ -54,14 +59,14 @@
                               {{ level.level }}
                             </option>
                           </select>
-                    </div>
+                    </div><br>
                     <div class="form-group">
                         <label for="contact">Sex</label><br>
                         <input type="radio" id="html" name="Sex" value="Male" ngModel>
                         <label for="html">Male</label><br>
                         <input type="radio" id="css" name="Sex" value="Female" ngModel>
                         <label for="css">Female</label><br>
-                     </div>
+                     </div><br>
                     <div class="form-group">
                         <label for="section">Section</label>
                         <input type="text"
@@ -93,6 +98,7 @@
                         class="form-control"
                         ngModel
                         name="contact"
+                        onkeypress="return event.charCode>=48 && event.charCode<=57"
                         required>
                     </div>
                     <div class="form-group">
@@ -141,4 +147,7 @@
                 </div>
             </form>
         </div>
-    </body>
+      </div>
+    </div>
+  </body>
+</html>

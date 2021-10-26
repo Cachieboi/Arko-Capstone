@@ -66,6 +66,8 @@ export class AdminEventsEditComponent implements OnInit {
         this.route.navigate(['dashboard/events']);
       });
     }
+
+    
     
   }
 

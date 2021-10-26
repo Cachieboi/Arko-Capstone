@@ -9,7 +9,7 @@
           id = "Title"
           class="Title"
           [(ngModel)] = "Title"
-          pattern="[a-zA-Z]+">
+          >
         </div>
         <div>
           <label>Showroom Author Name</label>
@@ -27,14 +27,7 @@
             class="Description"
             [(ngModel)] = "Description">
         </div>
-        <div>
-          <select [(ngModel)]="category">
-            <option value="" disabled>Choose a state</option>
-            <option *ngFor="let category of states" [ngValue]="category">
-              {{ category.name }}
-            </option>
-          </select>
-        </div>
+        
         <div>
           <label>Showroom Image</label><br>
           <img 
@@ -66,6 +59,22 @@
             <mat-date-range-picker #picker></mat-date-range-picker>
           </mat-form-field>
          </div>
+         <div>
+            <!--   
+          <input 
+          type = "text"
+          id = "category"
+          class="category"
+          [(ngModel)] = "category">
+           
+                -->
+          <select [(ngModel)]="category" (ngModelChange)="onChange($event)">
+            <option *ngFor="let state of states" [ngValue]="state.name">
+              {{ state.name }}
+            </option>
+          </select>
+    
+        </div>
         <button class="submit"(click)="editShowroom()">Submit</button>
     </div>
     </div>

@@ -1,4 +1,4 @@
-import { NgModule } from "@angular/core";
+import { Component, NgModule } from "@angular/core";
 import { Routes, RouterModule } from "@angular/router"
 import { AppComponent } from './app.component';
 import { AdminComponent } from './pages/admin/admin.component';
@@ -42,6 +42,10 @@ import { AdminEventsAddComponent } from "./pages/admin/admin-events/admin-events
 import { AdminEventsEditComponent } from "./pages/admin/admin-events/admin-events-edit/admin-events-edit.component";
 import { AdminMerchorderComponent } from "./pages/admin/admin-merchorder/admin-merchorder.component";
 import { AdminApplicantsComponent } from "./pages/admin/admin-applicants/admin-applicants.component";
+import { AdminTeamsComponent } from "./pages/admin/admin-teams/admin-teams.component";
+import { AdminTeamsListComponent } from "./pages/admin/admin-teams/admin-teams-list/admin-teams-list.component";
+import { AdminTeamsAddComponent } from "./pages/admin/admin-teams/admin-teams-add/admin-teams-add.component";
+import { AdminTeamsEditComponent } from "./pages/admin/admin-teams/admin-teams-edit/admin-teams-edit.component";
 const appRoutes: Routes = [
     { path: '', 
     component: LandingComponentsComponent},
@@ -55,6 +59,8 @@ const appRoutes: Routes = [
         path: '',
         component: AdminProfileComponent
       },
+
+    
 
       {
         path: 'merch-order',
@@ -86,6 +92,24 @@ const appRoutes: Routes = [
         }
       ]
 
+      },
+
+      {
+        path: 'teams',
+        component: AdminTeamsComponent, children:[
+          {
+          path: '',
+          component: AdminTeamsListComponent
+        },
+        {
+          path: 'add',
+          component: AdminTeamsAddComponent
+        },
+        {
+          path: 'edit/:id',
+          component: AdminTeamsEditComponent
+        },
+        ]
       },
 
      {path: 'articles',

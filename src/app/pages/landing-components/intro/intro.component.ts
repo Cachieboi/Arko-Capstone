@@ -42,7 +42,6 @@ export class IntroComponent implements OnInit {
     this.Eservice.GET_eventsReadOnly().subscribe(data=>{
       this.events=data;
       this.events.reverse();
-  
     });
 
   }
