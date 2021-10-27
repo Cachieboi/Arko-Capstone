@@ -15,6 +15,7 @@ import { FormService } from 'src/app/shares/services/Form.service';
   styleUrls: ['./merchapp.component.css']
 })
 export class MerchappComponent implements OnInit {
+  form: any;
 
   constructor(
     private http: HttpClient,
@@ -65,6 +66,7 @@ export class MerchappComponent implements OnInit {
       this.fService.registerOrder(val).subscribe((data=>{
          console.log(data);
       }))
+     
     }
    
   }

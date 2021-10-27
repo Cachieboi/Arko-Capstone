@@ -1,8 +1,9 @@
 
 <div class="container">
     <div class="main">
-      <h3>Add Account</h3>
+      <h3>Add Showroom</h3>
       <form (ngSubmit)="addShowroom(f)" #f="ngForm">
+        <label>All of These Fields are Required</label>
         <div>
           <label>Showroom Image</label><br>
           <img [src]="PhotoFilePath">
@@ -21,12 +22,11 @@
           name="Title"
           required
           #title = "ngModel"
-          pattern="[a-zA-Z]+"
+          pattern="[a-z A-Z]+"
           >
-          <span class ="help-block" *ngIf="title.touched && title.errors?.pattern">This is Required</span>
         </div>
         <div>
-          <label>Category</label>
+          <label>Category</label><br>
           <select  ngModel name="states">
             <option value="" disabled>Choose a state</option>
             <option *ngFor="let state of states" [ngValue]="state">
@@ -60,7 +60,9 @@
        >
      </div>
      <div>
+      <label>Stard Date - End Date</label><br>
       <mat-form-field appearance="fill">
+        
         <mat-label>Enter a date range</mat-label>
         <mat-date-range-input [rangePicker]="picker">
           <input matStartDate placeholder="Start date"
