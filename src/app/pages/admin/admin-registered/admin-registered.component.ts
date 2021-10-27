@@ -5,6 +5,7 @@ import { ArchivingService } from 'src/app/shares/services/Archiving.service';
 import { DatePipe } from '@angular/common';
 import { analyzeAndValidateNgModules } from '@angular/compiler';
 import { registrantint } from 'src/app/shares/models/registrantint.mode';
+import { textChangeRangeIsUnchanged } from 'typescript';
 
 
 @Component({
@@ -17,6 +18,7 @@ export class AdminRegisteredComponent implements OnInit {
 
   constructor(private shService: ShowroomService, private archService: ArchivingService, public datepipe: DatePipe) {}
   registrant: registrantint[] = []; 
+  arrayTest: registrantint[] = [];
   p: number = 1;
   id: number;
 
@@ -26,32 +28,23 @@ export class AdminRegisteredComponent implements OnInit {
   
     
     }
-  is_superuser : Boolean
+  is_superuser : Boolean;
   title: String = "Registrants of "
   dateToday = new Date();
   latest: String = this.datepipe.transform(this.dateToday, 'yyyy');
   finalTitle :string = this.title + " " + this.latest;
   i : number;
   registrantLength: number;
+  
   showRegistrants(){
-    this.shService.GET_registrantslist().subscribe(data=>{
-      this.registrant=data;
-      this.registrant.reverse();
-      for(var i = 0; i <= this.registrant.length; i++){
-        if(this.registrant[i].is_superuser == true){
-          this.registrant.splice(i,1);
-        }else if(this.registrant[i].is_author == true){
-          this.registrant.splice(i,1);
-        }
+    this.shService.GET_registrants().subscribe(data=>{
+    this.registrant = data.reverse();
+    for(var i = 0; i <= this.registrant.length; i++){
+      if(this.registrant[i].is_author == false && this.registrant[i].is_superuser==false){
+        console.log(this.registrant[i]);
+        this.arrayTest.push(this.registrant[i]);
       }
-      for(var i = 0; i <= this.registrant.length; i++){
-        if(this.registrant[i].is_author == true){
-          this.registrant.splice(i,1);
-        }else if(this.registrant[i].is_superuser == true){
-          this.registrant.splice(i,1);
-        }
-      }
-     
+    }   
     });
   }
   exportElmToExcel(registrant): void {
@@ -63,21 +56,17 @@ export class AdminRegisteredComponent implements OnInit {
   }
 }
 archiveRegistrants(registrant){
-  for(let i = 0 ; i <= this.registrantLength; i++){
-    this.registrant[i];
-     if(this.registrant[i].is_superuser == false && this.registrant[i].is_author == false){
-      this.shService.DELETE_registrants(this.registrant[i].id).subscribe(data=>{ 
-      },
-      error =>{
-        alert("There was an Error with Deleting the Article")
-      })
-      
-       }
-       else{
-     console.log('failed')
-   }
+  this.shService.GET_registrants().subscribe(data=>{
+    this.registrant = data.reverse();
+    for(var i = 0; i <= this.registrant.length; i++){
+      if(this.registrant[i].is_author == false && this.registrant[i].is_superuser==false){
+        this.shService.DELETE_registrants(this.registrant[i].id).subscribe(data=>{
 
+        })
+      }
+    }
+ 
+    });
 }
 
-}
 }

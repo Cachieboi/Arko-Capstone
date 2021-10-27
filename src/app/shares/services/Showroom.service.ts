@@ -55,9 +55,10 @@ getAuthHeaders(){
     return this.http.get<registrantint>(this.APIUrl + 'Accounts/showroom-registrants/' + id, {headers: this.getAuthHeaders()});
   }
 
-  GET_registrants(): Observable<registrantint> {
-    return this.http.get<registrantint>(this.APIUrl + 'Accounts/showroom-registrants/', {headers: this.getAuthHeaders()});
+  GET_registrants(): Observable<any[]> {
+    return this.http.get<any[]>(this.APIUrl + 'Accounts/showroom-registrants/', {headers: this.getAuthHeaders()});
   }
+  
 
   GET_registrantslist(): Observable<any[]> {
     return this.http.get<any[]>(this.APIUrl + 'Accounts/showroom-registrants/', {headers: this.getAuthHeaders()});

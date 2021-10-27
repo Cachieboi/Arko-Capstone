@@ -9,7 +9,7 @@
             <th>Email</th>
           </tr>
           <tr
-          *ngFor = "let registrant of registrant | paginate: { itemsPerPage: 5, currentPage: p }">
+          *ngFor = "let registrant of arrayTest | paginate: { itemsPerPage: 5, currentPage: p }">
          <td>
            {{registrant.firstname}}
         </td>
