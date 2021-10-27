@@ -359,7 +359,10 @@ a:active {
  margin-left: 850px;
  font-size: 13px;
  color: hsla(39, 100%, 50%, 0.8);
- 
+}
+
+.labela{
+  margin-left: 140px;
 }
 
 

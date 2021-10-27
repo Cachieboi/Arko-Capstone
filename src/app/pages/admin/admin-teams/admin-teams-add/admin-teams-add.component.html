@@ -6,6 +6,7 @@
       <form (ngSubmit)="addTeam(f)" #f="ngForm">
       <div class="form-group">
       <label>Team Member Image</label><br>
+      <label>*Image must be 1x1</label><br>
       <img [src] = "PhotoFilePath">
       <input type="file"
       id = "PhotoFileName"

@@ -32,6 +32,7 @@
         </div>
         <div>
           <label>Article Image</label><br>
+          <label>*Image must be 1x1</label><br>
           <img 
           *ngIf = "PhotoFileName !== null && photoUpload == true"
           [src] = "PhotoFileName"

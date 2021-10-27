@@ -16,6 +16,7 @@
           [src]="PhotoFilePath"
           class="centerImage"
         />
+        <label class="centerImage" *ngIf="editMode == true">*Image must be 1x1</label><br>
         <input
           *ngIf="editMode == true"
           type="file"

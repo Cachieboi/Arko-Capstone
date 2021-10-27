@@ -6,6 +6,7 @@
       <form (ngSubmit)="addMerch(f)" #f="ngForm">
       <div class="form-group">
       <label>Merchandise Image</label><br>
+      <label>*Image must be 1920x1920</label><br>
       <img [src]="PhotoFilePath">
       <input type="file"
       id = "PhotoFileName"

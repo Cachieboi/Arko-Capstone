@@ -5,6 +5,7 @@
       <form (ngSubmit)="addAccount(f)" #f="ngForm">
         <div>
           <label>All of These Fields are Required</label><br>
+          <label>*Image must be 1x1</label><br>
           <label>Account Image</label><br>
           <img [src]="PhotoFilePath">
           <input type="file"

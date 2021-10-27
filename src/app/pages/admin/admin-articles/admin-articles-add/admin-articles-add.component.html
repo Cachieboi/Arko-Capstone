@@ -6,7 +6,9 @@
       <label>All of These Fields are Required</label>
       <form (ngSubmit)="addArticle(f)" #f="ngForm">
       <div class="form-group">
+      
       <label>Article Image</label><br>
+      <label>*Image must be 1920x1080</label><br>
       <img [src] = "PhotoFilePath">
       <input type="file"
       id = "PhotoFileName"

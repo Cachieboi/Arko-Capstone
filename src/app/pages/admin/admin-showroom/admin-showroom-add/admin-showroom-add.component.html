@@ -6,6 +6,7 @@
         <label>All of These Fields are Required</label>
         <div>
           <label>Showroom Image</label><br>
+          <label>*Image must be 6000x3000</label><br>
           <img [src]="PhotoFilePath">
           <input type="file"
           id = "PhotoFileName"
@@ -50,14 +51,15 @@
       </div>
       <div>
       <label>Description</label>
-      <input 
-      type = "text"
+      <textarea 
+      
       id="Description"
       class="form-control"
       ngModel
       name="Description"
       required
        >
+       </textarea>
      </div>
      <div>
       <label>Stard Date - End Date</label><br>
