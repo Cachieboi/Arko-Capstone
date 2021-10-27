@@ -44,13 +44,13 @@ export class AdminRegisteredComponent implements OnInit {
         console.log(this.registrant[i]);
         this.arrayTest.push(this.registrant[i]);
       }
-    }   
+    }
     });
   }
   exportElmToExcel(registrant): void {
     console.log(this.registrantLength)
     if(confirm('Are you sure??')){
-    this.archService.exportAsExcelFile(this.registrant, this.finalTitle);
+    this.archService.exportAsExcelFile(this.arrayTest, this.finalTitle);
     this.archiveRegistrants(registrant);
     
   }
@@ -61,7 +61,6 @@ archiveRegistrants(registrant){
     for(var i = 0; i <= this.registrant.length; i++){
       if(this.registrant[i].is_author == false && this.registrant[i].is_superuser==false){
         this.shService.DELETE_registrants(this.registrant[i].id).subscribe(data=>{
-
         })
       }
     }
