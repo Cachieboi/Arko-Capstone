@@ -1,5 +1,8 @@
+
 <section id="events" class="parallax-section">
+    <label class="labelz"><i>Click the Buildings!</i></label>
 	<div class="container">
+        
         <div class="row">
             <div class="wow col-md-6 fadeInUp " data-wow-delay="0.6s">
                 <owl-carousel-o [options]="customOptions">
@@ -18,6 +21,7 @@
                 </owl-carousel-o>
                 </div>
                 <div class="wow fadeInUp col-md-6 col-sm-6" data-wow-delay="0.9s">
+                  
                     <img src='https://arkoust-uapsa.xyz/assets/img/roadmap.png' class="img-responsive" alt="Overview" usemap="#roadmap">
                     <map name="roadmap">    
                     <div *ngIf ="event1 != null || event1 != undefined">
@@ -26,12 +30,15 @@
                         <button (click)="openDialog()" class='pin-1' class="box" 
                         *ngIf = "(((todaysDate|date:'MM/dd/yy' )>=( event1.StartDate | date: 'MM/dd/yy' )
                         && (todaysDate|date:'MM/dd/yy')<=(event1.EndDate | date: 'MM/dd/yy')))">
+                        <label class="pin-text">Click the Buildings!</label>
                         </button>
                         <button class='pin-1' (click)="openConstruct()" class="boxz" 
                         *ngIf = "(((todaysDate|date:'MM/dd/yy' )<( event1.StartDate | date: 'MM/dd/yy' )
                         && (todaysDate|date:'MM/dd/yy')<(event1.EndDate | date: 'MM/dd/yy'))||
                         (todaysDate| date: 'MM/dd/yy') > (event1.StartDate | date: 'MM/dd/yy'))">
+                        <label class="pin-text">Click the Buildings!</label>
                         </button>
+                        
                     </div>
                     </div>
                     <div *ngIf ="event2 != null || event2 != undefined">
@@ -40,11 +47,13 @@
                          <button (click)="openDialog2()" class='pin-1' class="box2" 
                          *ngIf = "(((todaysDate|date:'MM/dd/yy' )>=( event2.StartDate | date: 'MM/dd/yy' )
                          && (todaysDate|date:'MM/dd/yy')<=(event2.EndDate | date: 'MM/dd/yy')))">
+                        
                          </button>
                          <button class='pin-1' (click)="openConstruct()" class="box2z" 
                          *ngIf = "(((todaysDate|date:'MM/dd/yy' )<( event2.StartDate | date: 'MM/dd/yy' )
                          && (todaysDate|date:'MM/dd/yy')<(event2.EndDate | date: 'MM/dd/yy'))||
                          (todaysDate| date: 'MM/dd/yy') > (event2.StartDate | date: 'MM/dd/yy'))">
+                         <label class="pin-text">Click the Buildings!</label>
                          </button>
                      </div>
                      </div>

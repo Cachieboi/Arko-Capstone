@@ -2,14 +2,16 @@ import { convertActionBinding } from '@angular/compiler/src/compiler_util/expres
 import { Component, ElementRef, OnInit } from '@angular/core';
 import { Form, NgForm } from '@angular/forms';
 import { FormService } from 'src/app/shares/services/Form.service';
+import { Router } from '@angular/router';
 @Component({
   selector: 'app-application',
   templateUrl: './application.component.html',
   styleUrls: ['./application.component.css']
 })
 export class ApplicationComponent implements OnInit {
+  form: any;
 
-  constructor(private fService: FormService) { }
+  constructor(private fService: FormService, private router: Router) { }
 
   ngOnInit(): void {
   }
@@ -38,7 +40,10 @@ export class ApplicationComponent implements OnInit {
       }
       this.fService.registerMember(val).subscribe((data=>{
         console.log(data)
+        alert("Successfully Submitted your Application!")
+        this.router.navigate(['']);
       }))
+     
     console.log()
   }
   }

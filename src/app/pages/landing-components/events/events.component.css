@@ -161,6 +161,15 @@ a:active {
   display: block;
 }
 
+.pin-text {
+  position: relative;
+  top : 220px ;
+  transform:translateY(-50%);
+  left : 160px;
+  white-space:nowrap;
+  display: none;
+}
+
 
 .box {
   top : 220px ;
@@ -332,14 +341,7 @@ a:active {
   position: absolute; 
 }
 
-.pin-text {
-  position: absolute;
-  top:50%;
-  transform:translateY(-50%);
-  left:75%;
-  white-space:nowrap;
-  display: none;
-}
+
 
 .test{
   width: 500px;
@@ -352,8 +354,12 @@ a:active {
   height: 250px;
  margin-left: 32px;
 }
+
 .labelz{
-  margin-left: 130px
+ margin-left: 850px;
+ font-size: 13px;
+ color: hsla(39, 100%, 50%, 0.8);
+ 
 }
-  
+
 

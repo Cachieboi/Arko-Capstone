@@ -52,7 +52,7 @@
               </span>
           </a>
       </li>
-      <li>
+      <li  *ngIf = "is_superuser == 'true'">
         <a routerLink="teams">
             <i class="fa fa-users"></i>
             <span class="nav-text">

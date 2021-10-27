@@ -22,7 +22,8 @@ export class MerchappComponent implements OnInit {
     private Mservice: MerchService, 
     private router: ActivatedRoute, 
     private route: Router,
-    private fService: FormService) { }
+    private fService: FormService,
+    ) { }
 
     yearLevel = [
       {level: 'First Year'},
@@ -64,6 +65,8 @@ export class MerchappComponent implements OnInit {
         modeOfPayment: value.modeOfPayment, whatMerchNext: value.whatMerchNext, price : this.price * value.quantity
       }
       this.fService.registerOrder(val).subscribe((data=>{
+        alert("Successfully Submitted your Order!")
+        this.route.navigate(['']);
          console.log(data);
       }))
      
