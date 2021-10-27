@@ -40,14 +40,18 @@ export class AdminRegisteredComponent implements OnInit {
       for(var i = 0; i <= this.registrant.length; i++){
         if(this.registrant[i].is_superuser == true){
           this.registrant.splice(i,1);
+        }else if(this.registrant[i].is_author == true){
+          this.registrant.splice(i,1);
         }
       }
       for(var i = 0; i <= this.registrant.length; i++){
         if(this.registrant[i].is_author == true){
           this.registrant.splice(i,1);
+        }else if(this.registrant[i].is_superuser == true){
+          this.registrant.splice(i,1);
         }
       }
-   
+     
     });
   }
   exportElmToExcel(registrant): void {
