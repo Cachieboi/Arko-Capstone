@@ -16,10 +16,10 @@ export class ArticleService{
     private cookieService: CookieService){
 
     }
-   //APIUrl = "http://arkoust-uapsa.xyz/api/";
-//readonly PhotoUrl = "http://arkoust-uapsa.xyz/media/";
-APIUrl = "http://127.0.0.1:8000/api/";
-readonly PhotoUrl = "http://127.0.0.1:8000/media/";
+    APIUrl = "https://arkoust-uapsa.xyz/api/";
+    readonly PhotoUrl = "https://arkoust-uapsa.xyz/media/";
+    //APIUrl = "http://127.0.0.1:8000/api/";
+    //readonly PhotoUrl = "http://127.0.0.1:8000/media/";
     token = this.cookieService.get('mr-token');
     
     headers = new HttpHeaders({

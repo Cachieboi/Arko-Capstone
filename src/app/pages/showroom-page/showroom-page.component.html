@@ -1,6 +1,6 @@
 <html>
   <body>
-
+    
 <div class="category">
 <input type="radio" name="filter" id="all" checked (change)="allFunc($event)"><label for="all">All</label>
 <input type="radio" [(ngModel)]="ari" name="filter" id="Arizona" value = "Arizona" (change)="testFunc($event)"><label for="Arizona" >Arizona</label>
@@ -9,6 +9,7 @@
 </div>
 
 <div class="container">
+  <a [routerLink]="['../']"><h2>Return</h2></a>
     <div *ngFor="let showroom of showrooms | paginate: { itemsPerPage: 3, currentPage: p } let i = index " >
         <a [routerLink]="['/Showroom', showroom.id, showroom.Title]">
         <div class="card">

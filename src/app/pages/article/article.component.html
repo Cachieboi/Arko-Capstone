@@ -3,7 +3,9 @@
 <body>
 <main>
     <section class="lp">
+  
       <section class="lpheader">
+        <a [routerLink]="['/more']" class="button"><h3>Back to List of Articles</h3></a>
       <h1>UAPSA UST</h1>
       <p>{{thisArticle.desc}}</p>
       </section>
@@ -14,7 +16,7 @@
         <p class="lpgridItemText-sm">UAPSA UST</p>
         <h2 class="lpgridItemText-lg">{{thisArticle.title}}</h2>
         <p class="lpgridItemText-md" [innerHTML]="thisArticle.content"></p>
-        <p class="lpgridItemText-sm lpgridItemText-sm-bw"><strong>Floor van der Holst</strong> on May 02, 2019</p>
+        <p class="lpgridItemText-sm lpgridItemText-sm-bw"><strong>{{thisArticle.authorName}}</strong> Created on {{thisArticle.dateCreated | date: 'dd/MMMM/yyyy'}}</p>
      </div>
       </section>
     </section>

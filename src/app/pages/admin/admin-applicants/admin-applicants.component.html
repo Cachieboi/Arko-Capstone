@@ -2,7 +2,7 @@
 
 <div class="container">
     <div class="main">
-        <h2>This is Registrants</h2>
+        <h2>Applicant List</h2>
         <table #userTable>
           <tr>
             <th>Name</th>
@@ -47,7 +47,7 @@
           
         </table>
         <pagination-controls (pageChange)="p = $event" ></pagination-controls>
-        <button (click)="exportElmToExcel(applicants)">Sample</button>
+        <button (click)="exportElmToExcel(applicants)">Archive Applicants</button>
         
     </div>
    

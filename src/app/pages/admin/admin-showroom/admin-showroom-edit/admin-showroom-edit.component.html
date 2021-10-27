@@ -12,7 +12,7 @@
           >
         </div>
         <div>
-          <label>Showroom Author Name</label>
+          <label>Author Name</label>
           <input 
           type = "text"
           id = "AuthorName"
@@ -20,7 +20,7 @@
           [(ngModel)] = "AuthorName">
         </div>
         <div>
-          <label>Showroom Description</label>
+          <label>Description</label>
             <input 
             type = "text"
             id = "Descirption"
@@ -29,7 +29,7 @@
         </div>
         
         <div>
-          <label>Showroom Image</label><br>
+          <label>Image</label><br>
           <img 
           *ngIf = "PhotoFileName !== null && photoUpload == true"
           [src] = "PhotoFileName"

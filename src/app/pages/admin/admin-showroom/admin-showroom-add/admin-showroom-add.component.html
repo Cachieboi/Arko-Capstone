@@ -26,6 +26,7 @@
           <span class ="help-block" *ngIf="title.touched && title.errors?.pattern">This is Required</span>
         </div>
         <div>
+          <label>Category</label>
           <select  ngModel name="states">
             <option value="" disabled>Choose a state</option>
             <option *ngFor="let state of states" [ngValue]="state">
@@ -48,7 +49,7 @@
         <span class ="help-block" *ngIf="authorname.touched && authorname.errors?.pattern">Letters Only</span>
       </div>
       <div>
-      <label>Descirption</label>
+      <label>Description</label>
       <input 
       type = "text"
       id="Description"

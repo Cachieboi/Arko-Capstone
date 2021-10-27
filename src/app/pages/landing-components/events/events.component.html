@@ -18,7 +18,7 @@
                 </owl-carousel-o>
                 </div>
                 <div class="wow fadeInUp col-md-6 col-sm-6" data-wow-delay="0.9s">
-                    <img src='/assets/img/roadmap.png' class="img-responsive" alt="Overview" usemap="#roadmap">
+                    <img src='https://arkoust-uapsa.xyz/assets/img/roadmap.png' class="img-responsive" alt="Overview" usemap="#roadmap">
                     <map name="roadmap">    
                     <div *ngIf ="event1 != null || event1 != undefined">
                        <!--Pin No. 1-->
@@ -37,7 +37,7 @@
                     <div *ngIf ="event2 != null || event2 != undefined">
                         <!--Pin No. 2-->
                      <div>
-                         <button (click)="openDialog()" class='pin-1' class="box2" 
+                         <button (click)="openDialog2()" class='pin-1' class="box2" 
                          *ngIf = "(((todaysDate|date:'MM/dd/yy' )>=( event2.StartDate | date: 'MM/dd/yy' )
                          && (todaysDate|date:'MM/dd/yy')<=(event2.EndDate | date: 'MM/dd/yy')))">
                          </button>
@@ -51,7 +51,7 @@
                      <div *ngIf ="event3 != null || event3 != undefined">
                         <!--Pin No. 3-->
                      <div>
-                         <button (click)="openDialog()" class='pin-1' class="box3" 
+                         <button (click)="openDialog3()" class='pin-1' class="box3" 
                          *ngIf = "(((todaysDate|date:'MM/dd/yy' )>=( event3.StartDate | date: 'MM/dd/yy' )
                          && (todaysDate|date:'MM/dd/yy')<=(event3.EndDate | date: 'MM/dd/yy')))">
                          </button>
@@ -65,7 +65,7 @@
                      <div *ngIf ="event4 != null || event4 != undefined">
                         <!--Pin No. 4-->
                      <div>
-                         <button (click)="openDialog()" class='pin-1' class="box4" 
+                         <button (click)="openDialog4()" class='pin-1' class="box4" 
                          *ngIf = "(((todaysDate|date:'MM/dd/yy' )>=( event4.StartDate | date: 'MM/dd/yy' )
                          && (todaysDate|date:'MM/dd/yy')<=(event4.EndDate | date: 'MM/dd/yy')))">
                          </button>
@@ -79,7 +79,7 @@
                      <div *ngIf ="event5 != null || event5 != undefined">
                         <!--Pin No. 5-->
                      <div>
-                         <button (click)="openDialog()" class='pin-1' class="box5" 
+                         <button (click)="openDialog5()" class='pin-1' class="box5" 
                          *ngIf = "(((todaysDate|date:'MM/dd/yy' )>=( event5.StartDate | date: 'MM/dd/yy' )
                          && (todaysDate|date:'MM/dd/yy')<=(event5.EndDate | date: 'MM/dd/yy')))">
                          </button>
@@ -93,7 +93,7 @@
                      <div *ngIf ="event6 != null || event6 != undefined">
                         <!--Pin No. 6-->
                      <div>
-                         <button (click)="openDialog()" class='pin-1' class="box6" 
+                         <button (click)="openDialog6()" class='pin-1' class="box6" 
                          *ngIf = "(((todaysDate|date:'MM/dd/yy' )>=( event6.StartDate | date: 'MM/dd/yy' )
                          && (todaysDate|date:'MM/dd/yy')<=(event6.EndDate | date: 'MM/dd/yy')))">
                          </button>
@@ -107,7 +107,7 @@
                      <div *ngIf ="event7 != null || event7 != undefined">
                         <!--Pin No. 7-->
                      <div>
-                         <button (click)="openDialog()" class='pin-1' class="box7" 
+                         <button (click)="openDialog7()" class='pin-1' class="box7" 
                          *ngIf = "(((todaysDate|date:'MM/dd/yy' )>=( event7.StartDate | date: 'MM/dd/yy' )
                          && (todaysDate|date:'MM/dd/yy')<=(event7.EndDate | date: 'MM/dd/yy')))">
                          </button>

@@ -40,13 +40,13 @@ nyc: String;
 category: String;
 
 allFunc(e){
-  this.shService.GET_showrooms().subscribe(data=>{
+  this.shService.GET_showroomsReadOnly().subscribe(data=>{
     this.showrooms=data.reverse()
   });
 }
 
 testFunc(e){
-  this.shService.GET_showrooms().subscribe(data=>{
+  this.shService.GET_showroomsReadOnly().subscribe(data=>{
     this.showrooms=data.reverse().filter(data =>{
     return data.category == this.ari;  
     });
@@ -56,7 +56,7 @@ testFunc(e){
 }
 
 testFunc2(e){
-  this.shService.GET_showrooms().subscribe(data=>{
+  this.shService.GET_showroomsReadOnly().subscribe(data=>{
     this.showrooms=data.reverse().filter(data =>{
     return data.category == this.cali;  
     });
@@ -66,7 +66,7 @@ testFunc2(e){
 }
 
 testFunc3(e){
-  this.shService.GET_showrooms().subscribe(data=>{
+  this.shService.GET_showroomsReadOnly().subscribe(data=>{
     this.showrooms=data.reverse().filter(data =>{
     return data.category == this.nyc;  
     });
