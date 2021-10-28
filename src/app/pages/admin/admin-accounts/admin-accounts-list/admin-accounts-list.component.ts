@@ -24,7 +24,7 @@ export class AdminAccountsListComponent implements OnInit {
 
   lastname: String;
   p: number = 1;
-  
+  accountList: any[]=[];
  id: number;
   ngOnInit(): void {
       this.showAccounts();
@@ -35,8 +35,8 @@ export class AdminAccountsListComponent implements OnInit {
        this.accounts=data.reverse();
        
        for(var i = 0; i <= this.accounts.length; i++){
-        if(this.accounts[i].is_superuser == false && this.accounts[i].is_author == false){
-          this.accounts.splice(i,1);
+        if(this.accounts[i].is_superuser == true || this.accounts[i].is_author == true){
+          this.accountList.push(this.accounts[i]);
         }
       }
        console.log(data);

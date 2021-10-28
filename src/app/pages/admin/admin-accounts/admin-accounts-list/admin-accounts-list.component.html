@@ -13,7 +13,7 @@
             <th> </th>
           </tr>
           <tr
-          *ngFor = "let account of accounts | paginate: { itemsPerPage: 5, currentPage: p }" >
+          *ngFor = "let account of accountList | paginate: { itemsPerPage: 5, currentPage: p }" >
           
          <td>
            {{account.id}}
