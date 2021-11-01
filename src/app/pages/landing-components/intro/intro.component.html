@@ -1,3 +1,5 @@
+
+
 <section id="intro" class="parallax-section">
 
     <div class="container">
@@ -9,15 +11,12 @@
                 <h1 class="wow bounceIn" data-wow-delay="1.6s">
           <span style = "color: rgb(37, 37, 37); font-size: 500%;">UAPSA</span>
           <span style = "font-size: 300%;">Fam</span></h1> 
-        </div>
-
-
-      
-
+        </div>  
+		
     </div>
     
-    <div class="poster">
-        <owl-carousel-o [options]="customOptions">
+	<div class="poster">
+		<owl-carousel-o [options]="customOptions">
             <ng-container *ngFor="let event of events;">
             <ng-template carouselSlide>
        
@@ -28,6 +27,6 @@
             </ng-template>
             </ng-container>
             </owl-carousel-o>
-    </div>
+	</div>
 
 </section>

@@ -62,7 +62,7 @@ export class AdminEventsEditComponent implements OnInit {
       }
     if(confirm('Are you Sure?')){
       this.eService.EDIT_event(val).subscribe(res=>{
-        alert("The Merchandise has been Successfully Updated!");
+        alert("The Event has been Successfully Updated!");
         this.route.navigate(['dashboard/events']);
       });
     }

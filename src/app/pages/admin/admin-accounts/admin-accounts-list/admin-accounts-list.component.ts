@@ -33,7 +33,6 @@ export class AdminAccountsListComponent implements OnInit {
    showAccounts(){
      this.Aservice.GET_accounts().subscribe(data=>{
        this.accounts=data.reverse();
-       
        for(var i = 0; i <= this.accounts.length; i++){
         if(this.accounts[i].is_superuser == true || this.accounts[i].is_author == true){
           this.accountList.push(this.accounts[i]);

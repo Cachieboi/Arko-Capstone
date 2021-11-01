@@ -65,7 +65,8 @@ import { AdminTeamsComponent } from './pages/admin/admin-teams/admin-teams.compo
 import { AdminTeamsEditComponent } from './pages/admin/admin-teams/admin-teams-edit/admin-teams-edit.component';
 import { AdminTeamsAddComponent } from './pages/admin/admin-teams/admin-teams-add/admin-teams-add.component';
 import { AdminTeamsListComponent } from './pages/admin/admin-teams/admin-teams-list/admin-teams-list.component';
-
+import {IvyCarouselModule} from 'angular-responsive-carousel';
+import { SwiperModule } from 'swiper/angular';
 @NgModule({
   declarations: [
     AppComponent,
@@ -134,8 +135,9 @@ import { AdminTeamsListComponent } from './pages/admin/admin-teams/admin-teams-l
     MatSliderModule,
     DemoMaterialModule,
     CarouselModule,
-    MatDialogModule
-    
+    MatDialogModule,
+    IvyCarouselModule,
+    SwiperModule
 
   ],
   providers: [
