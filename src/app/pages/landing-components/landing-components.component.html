@@ -1,36 +1,7 @@
 <!-- =========================
      NAVIGATION LINKS     
 ============================== -->
-<div class="navbar navbar-fixed-top custom-navbar" role="navigation">
-	<div class="container">
-
-		<!-- navbar header -->
-		<div class="navbar-header">
-			<button class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-				<span class="icon icon-bar"></span>
-				<span class="icon icon-bar"></span>
-				<span class="icon icon-bar"></span>
-			</button>
-			<a href="#" class="navbar-brand">New Event</a>
-		</div>
-
-		<div class="collapse navbar-collapse">
-
-			<ul class="nav navbar-nav navbar-right">
-				<li><a href="#intro" class="smoothScroll">Intro</a></li>
-				<li><a href="#overview" class="smoothScroll">Events</a></li>
-				<li><a href="#video" class="smoothScroll">Articles</a></li>
-				<li><a href="#program" class="smoothScroll">Programs</a></li>
-				<li><a href="#register" class="smoothScroll">Register</a></li>
-				<li><a href="#venue" class="smoothScroll">Venue</a></li>
-				<li><a href="#sponsors" class="smoothScroll">Sponsors</a></li>
-				<li><a href="#contact" class="smoothScroll">Contact</a></li>
-			</ul>
-
-		</div>
-
-	</div>
-</div>
+<app-navbar></app-navbar>
 
 
 <!-- =========================
@@ -39,29 +10,45 @@
 <section id="intro" class="parallax-section">
 	<div class="container">
 		<div class="row">
-
-			<div class="container">
-               
-                <div class="demo">
-			<carousel
-			[objectFit]="'cover'"
-			[height]="400"
-			[autoplay]="true"
-			[dots]="true"
-			[loop]="true"
-			[cellsToShow]="1"
-			[cellsToScroll]="1"
-			[arrowsOutside]="true"
-			arrowsTheme="dark">
-            <div class="carousel-cell" *ngFor = "let event of events">
-              <img [src]="imageURL+event.PhotoFileName">
-            </div>
-		</carousel>
-    
-		   </div>
-        </div>
+			
+			<div class="wow fadeInUp col-md-6 testz" data-wow-delay="0.6s">
+                <h1 class="wow bounceIn" data-wow-delay="0.9s">
+					
+					<span class="textSize">What's Up</span></h1>
+					
+					<br>
+					<br>
+					<br>
+						  <h1 class="wow bounceIn" data-wow-delay="1.6s">
+					<span class="h3z">UAPSA</span>
+					<span class="textSize">Fam</span></h1>
+				
+			</div>
+			<div class="demo">
+			<div class="wow fadeInUp col-md-6 demo" data-wow-delay="1.6s">
+				
+				<carousel
+				[objectFit]="'cover'"
+				class="testi"
+				[height]="400"
+				[autoplay]="true"
+				[loop]="true"
+				[cellsToShow]="1"
+				[cellsToScroll]="1"
+				[arrows]="false"
+				>
+				<div class=" carousel-cell" *ngFor="let event of events ">
+						<img [src]="imageURL+event.PhotoFileName" alt="">
+					
+					</div>
+					</carousel>
+				</div>
+			</div>
+			
 		</div>
 	</div>
+
+
 </section>
 
 
@@ -70,32 +57,308 @@
 ============================== -->
 <section id="overview" class="parallax-section">
 	<div class="container">
+    <button *ngIf="events.length >0" class="btn success" (click)="openDialog8()">Calendar of Activities</button>
 		<div class="row">
 			<div class="wow fadeInUp col-md-6 col-sm-6" data-wow-delay="0.6s">
                 <carousel
+				class="teams"
 			[objectFit]="'cover'"
 			[height]="400"
 			[autoplay]="true"
-			[dots]="true"
 			[loop]="true"
 			[cellsToShow]="1"
 			[cellsToScroll]="1"
 			[arrowsOutside]="true"
 			arrowsTheme="dark">
-                <div class=" carousel-cell" *ngFor="let merch of merchs">
+                <div class=" carousel-cell" *ngFor="let merch of merchs index i">
+				<a [routerLink]="['/order', merch.id]">
 					<img class="card-image" [src]="imageURL+merch.PhotoFileName" alt="">
                         <h2 class="card-title carousel-cell">{{merch.mname}}</h2>
                         <p class="card-price carousel-cell">{{merch.desc}}</p>
-                  
                         <button class="card-action carousel-cell">Order Now</button>
+					</a>
                 </div>
                 </carousel>
 			</div>
+			<div class="wow fadeInUp col-md-6" data-wow-delay="1.6s">
+				<div class="responsive">
+					<img class="tester"src="../../../assets/img/roadmap.png" alt="" />
 
-		</div>
-	</div>
+          <!-- Pin 1-->
+					<div *ngIf = "event1 != undefined || event1 != null">
+            <button id="pin-1" class="box" (click)="openDialog()"
+            *ngIf = "(((todaysDate|date:'MM/dd/yy' )>=( event1.StartDate | date: 'MM/dd/yy' )
+            && (todaysDate|date:'MM/dd/yy')<=(event1.EndDate | date: 'MM/dd/yy')))">
+            </button>
+            <button class='pin-1z' (click)="openConstruct()" class="boxz" 
+                          *ngIf = "(((todaysDate|date:'MM/dd/yy' )>( event1.EndDate | date: 'MM/dd/yy' )&&
+              (todaysDate|date:'MM/dd/yy')>( event1.StartDate | date: 'MM/dd/yy' ))||
+              ((todaysDate|date:'MM/dd/yy' )<( event1.EndDate | date: 'MM/dd/yy' )&&
+              (todaysDate|date:'MM/dd/yy')<( event1.StartDate | date: 'MM/dd/yy' )))
+                          ">
+                          </button>
+          </div>
+
+             <!-- Pin 2-->
+					<div *ngIf = "event2 != undefined || event2 != null">
+            <button id="pin-1" class="box2" (click)="openDialog2()"
+            *ngIf = "(((todaysDate|date:'MM/dd/yy' )>=( event2.StartDate | date: 'MM/dd/yy' )
+            && (todaysDate|date:'MM/dd/yy')<=(event2.EndDate | date: 'MM/dd/yy')))">
+            </button>
+            <button class='pin-1z' (click)="openConstruct()" class="box2z" 
+                          *ngIf = "(((todaysDate|date:'MM/dd/yy' )>( event2.EndDate | date: 'MM/dd/yy' )&&
+              (todaysDate|date:'MM/dd/yy')>( event2.StartDate | date: 'MM/dd/yy' ))||
+              ((todaysDate|date:'MM/dd/yy' )<( event2.EndDate | date: 'MM/dd/yy' )&&
+              (todaysDate|date:'MM/dd/yy')<( event2.StartDate | date: 'MM/dd/yy' )))
+                          ">
+                          </button>
+          </div>
+
+               <!-- Pin 3-->
+					<div *ngIf = "event3 != undefined || event3 != null">
+            <button id="pin-1" class="box3" (click)="openDialog3()"
+            *ngIf = "(((todaysDate|date:'MM/dd/yy' )>=( event3.StartDate | date: 'MM/dd/yy' )
+            && (todaysDate|date:'MM/dd/yy')<=(event3.EndDate | date: 'MM/dd/yy')))">
+            </button>
+            <button class='pin-1z' (click)="openConstruct()" class="box3z" 
+                          *ngIf = "(((todaysDate|date:'MM/dd/yy' )>( event3.EndDate | date: 'MM/dd/yy' )&&
+              (todaysDate|date:'MM/dd/yy')>( event3.StartDate | date: 'MM/dd/yy' ))||
+              ((todaysDate|date:'MM/dd/yy' )<( event3.EndDate | date: 'MM/dd/yy' )&&
+              (todaysDate|date:'MM/dd/yy')<( event3.StartDate | date: 'MM/dd/yy' )))
+                          ">
+                          </button>
+          </div>
+
+              <!-- Pin 4-->
+					<div *ngIf = "event4 != undefined || event4 != null">
+            <button id="pin-1" class="box4" (click)="openDialog4()"
+            *ngIf = "(((todaysDate|date:'MM/dd/yy' )>=( event4.StartDate | date: 'MM/dd/yy' )
+            && (todaysDate|date:'MM/dd/yy')<=(event4.EndDate | date: 'MM/dd/yy')))">
+            </button>
+            <button class='pin-1z' (click)="openConstruct()" class="box4z" 
+                          *ngIf = "(((todaysDate|date:'MM/dd/yy' )>( event4.EndDate | date: 'MM/dd/yy' )&&
+              (todaysDate|date:'MM/dd/yy')>( event4.StartDate | date: 'MM/dd/yy' ))||
+              ((todaysDate|date:'MM/dd/yy' )<( event4.EndDate | date: 'MM/dd/yy' )&&
+              (todaysDate|date:'MM/dd/yy')<( event4.StartDate | date: 'MM/dd/yy' )))
+                          ">
+                          </button>
+          </div>
+
+                <!-- Pin 5-->
+					<div *ngIf = "event5 != undefined || event5 != null">
+            <button id="pin-1" class="box5" (click)="openDialog5()"
+            *ngIf = "(((todaysDate|date:'MM/dd/yy' )>=( event5.StartDate | date: 'MM/dd/yy' )
+            && (todaysDate|date:'MM/dd/yy')<=(event5.EndDate | date: 'MM/dd/yy')))">
+            </button>
+            <button class='pin-1z' (click)="openConstruct()" class="box5z" 
+                          *ngIf = "(((todaysDate|date:'MM/dd/yy' )>( event5.EndDate | date: 'MM/dd/yy' )&&
+              (todaysDate|date:'MM/dd/yy')>( event5.StartDate | date: 'MM/dd/yy' ))||
+              ((todaysDate|date:'MM/dd/yy' )<( event5.EndDate | date: 'MM/dd/yy' )&&
+              (todaysDate|date:'MM/dd/yy')<( event5.StartDate | date: 'MM/dd/yy' )))
+                          ">
+              </button>
+          </div>
+
+                <!-- Pin 6-->
+					<div *ngIf = "event6 != undefined || event6 != null">
+            <button id="pin-1" class="box6" (click)="openDialog6()"
+            *ngIf = "(((todaysDate|date:'MM/dd/yy' )>=( event6.StartDate | date: 'MM/dd/yy' )
+            && (todaysDate|date:'MM/dd/yy')<=(event6.EndDate | date: 'MM/dd/yy')))">
+            </button>
+            <button class='pin-1z' (click)="openConstruct()" class="box6z" 
+                          *ngIf = "(((todaysDate|date:'MM/dd/yy' )>( event6.EndDate | date: 'MM/dd/yy' )&&
+              (todaysDate|date:'MM/dd/yy')>( event6.StartDate | date: 'MM/dd/yy' ))||
+              ((todaysDate|date:'MM/dd/yy' )<( event6.EndDate | date: 'MM/dd/yy' )&&
+              (todaysDate|date:'MM/dd/yy')<( event6.StartDate | date: 'MM/dd/yy' )))
+                          ">
+                          </button>
+          </div>
+
+                <!-- Pin 7-->
+					<div *ngIf = "event7 != undefined || event7 != null">
+            <button id="pin-1" class="box7" (click)="openDialog7()"
+            *ngIf = "(((todaysDate|date:'MM/dd/yy' )>=( event7.StartDate | date: 'MM/dd/yy' )
+            && (todaysDate|date:'MM/dd/yy')<=(event7.EndDate | date: 'MM/dd/yy')))">
+            </button>
+            <button class='pin-1z' (click)="openConstruct()" class="box7z" 
+                          *ngIf = "(((todaysDate|date:'MM/dd/yy' )>( event7.EndDate | date: 'MM/dd/yy' )&&
+              (todaysDate|date:'MM/dd/yy')>( event7.StartDate | date: 'MM/dd/yy' ))||
+              ((todaysDate|date:'MM/dd/yy' )<( event7.EndDate | date: 'MM/dd/yy' )&&
+              (todaysDate|date:'MM/dd/yy')<( event7.StartDate | date: 'MM/dd/yy' )))
+                          ">
+                          </button>
+          </div>
+          <div *ngIf = "event1 == undefined || event1 == null">
+            <button class='pin-1' (click)="openConstruct()" class="boxz">
+            </button>
+         </div>
+                     <div *ngIf = "event2 == undefined || event2 == null">
+                        <button class='pin-1' (click)="openConstruct()" class="box2z">
+                        </button>
+                     </div>
+                     <div *ngIf = "event3 == undefined || event3 == null">
+                        <button class='pin-1' (click)="openConstruct()" class="box3z">
+                        </button>
+                     </div>
+                     <div>
+                        <button class='pin-1' (click)="openConstruct()" class="box4z" 
+                        *ngIf = "event4 == undefined || event4 == null">
+                        </button>
+                     </div>
+                     <div>
+                        <button class='pin-1' (click)="openConstruct()" class="box5z" 
+                        *ngIf = "event5 == undefined || event5 == null">
+                        </button>
+                     </div>
+                     <div>
+                        <button class='pin-1' (click)="openConstruct()" class="box6z" 
+                        *ngIf = "event6 == undefined || event6 == null">
+                        </button>
+                     </div>
+                     <div>
+                        <button class='pin-1' (click)="openConstruct()" class="box7z" 
+                        *ngIf = "event7 == undefined || event7 == null">
+                        </button>
+                     </div>
+					</div>
+				  </div>
+				</div>
+			</div>
+		
 </section>
 
+<ng-template #callAPIDialog>
+  <a href={{event1.eventLink}} target="_blank">
+  <img class="testzz" [src]="imageURLz+event1.PhotoFileName">
+  </a>
+  <br>
+  <br>
+  <label class="labela"> Click the Image To Join our Google Meet/Zoom!</label>
+</ng-template>
+<ng-template #callAPIDialog2>
+  <a href={{event2.eventLink}} target="_blank">
+  <img class="testzz" [src]="imageURLz+event2.PhotoFileName">
+  </a>
+  <br>
+  <br>
+  <label class="labelz"> Click the Image To Join our Google Meet/Zoom!</label>
+</ng-template>
+<ng-template #callAPIDialog3>
+  <a href={{event3.eventLink}} target="_blank">
+  <img class="testzz" [src]="imageURLz+event3.PhotoFileName">
+  </a>
+  <br>
+  <br>
+  <label class="labelz"> Click the Image To Join our Google Meet/Zoom!</label>
+</ng-template>
+<ng-template #callAPIDialog4>
+  <a href={{event4.eventLink}} target="_blank">
+  <img class="testzz" [src]="imageURLz+event4.PhotoFileName">
+  </a>
+  <br>
+  <br>
+  <label class="labelz"> Click the Image To Join our Google Meet/Zoom!</label>
+</ng-template>
+<ng-template #callAPIDialog5>
+  <a href={{event5.eventLink}} target="_blank">
+  <img class="testzz" [src]="imageURLz+event5.PhotoFileName">
+  </a>
+  <br>
+  <br>
+  <label class="labelz"> Click the Image To Join our Google Meet/Zoom!</label>
+</ng-template>
+<ng-template #callAPIDialog6>
+  <a href={{event6.eventLink}} target="_blank">
+  <img class="testzz" [src]="imageURLz+event6.PhotoFileName">
+  </a>
+  <br>
+  <br>
+  <label class="labelz"> Click the Image To Join our Google Meet/Zoom!</label>
+</ng-template>
+<ng-template #callAPIDialog7>
+  <a href={{event7.eventLink}} target="_blank">
+  <img class="testzz" [src]="imageURLz+event7.PhotoFileName">
+  </a>
+  <br>
+  <br>
+  <label class="labelz"> Click the Image To Join our Google Meet/Zoom!</label>
+</ng-template>
+
+<ng-template #construct>
+  <img class="testzz" src="../../../../assets/img/underconstruction.png">
+ 
+</ng-template>
+<ng-template #callAPIDialog8>
+  <mat-card class="demo-inline-calendar-card"
+  *ngIf = "event1 !== undefined || event1 !== null">
+      <div class="mid">
+      <label>{{event1.eventName}}</label><br>
+      <label>Start Date: {{event1.StartDate | date: 'MM/dd/yy'}}</label><br>
+      <label>End Date: {{event1.EndDate | date: 'MM/dd/yy'}}</label>
+      </div>
+      <mat-calendar [selected]="event1.StartDate"></mat-calendar>
+  </mat-card>
+  <br>
+  <mat-card class="demo-inline-calendar-card"
+  *ngIf = "event2 !== undefined || event2 !== null">
+      <div class="mid">
+          <label>{{event2.eventName}}</label><br>
+          <label>Start Date: {{event2.StartDate | date: 'MM/dd/yy'}}</label><br>
+          <label>End Date: {{event2.EndDate | date: 'MM/dd/yy'}}</label>
+          </div>
+      <mat-calendar [selected]="event2.StartDate"></mat-calendar>
+  </mat-card>
+  <br>
+  <mat-card class="demo-inline-calendar-card"
+  *ngIf = "event3 !== undefined || event3 !== null">
+      <div class="mid">
+          <label>{{event3.eventName}}</label><br>
+          <label>Start Date: {{event3.StartDate | date: 'MM/dd/yy'}}</label><br>
+          <label>End Date: {{event3.EndDate | date: 'MM/dd/yy'}}</label>
+          </div>
+      <mat-calendar [selected]="event3.StartDate"></mat-calendar>
+  </mat-card>
+  <br>
+  <mat-card class="demo-inline-calendar-card"
+  *ngIf = "event4 !== undefined || event4 !== null">
+      <div class="mid">
+          <label>{{event4.eventName}}</label><br>
+          <label>Start Date: {{event4.StartDate | date: 'MM/dd/yy'}}</label><br>
+          <label>End Date: {{event4.EndDate | date: 'MM/dd/yy'}}</label>
+          </div>
+      <mat-calendar [selected]="event4.StartDate"></mat-calendar>
+  </mat-card>
+  <br>
+  <mat-card class="demo-inline-calendar-card"
+  *ngIf = "event5 !== undefined || event5 !== null">
+      <div class="mid">
+          <label>{{event5.eventName}}</label><br>
+          <label>Start Date: {{event5.StartDate | date: 'MM/dd/yy'}}</label><br>
+          <label>End Date: {{event5.EndDate | date: 'MM/dd/yy'}}</label>
+          </div>
+      <mat-calendar [selected]="event5.StartDate"></mat-calendar>
+  </mat-card>
+  <br>
+  <mat-card class="demo-inline-calendar-card"
+  *ngIf = "event6 !== undefined || event6 !== null">
+      <div class="mid">
+          <label>{{event6.eventName}}</label><br>
+          <label>Start Date: {{event6.StartDate | date: 'MM/dd/yy'}}</label><br>
+          <label>End Date: {{event6.EndDate | date: 'MM/dd/yy'}}</label>
+          </div>
+      <mat-calendar [selected]="event6.StartDate"></mat-calendar>
+  </mat-card>
+  <br>
+  <mat-card class="demo-inline-calendar-card" 
+  *ngIf = "event7 !== undefined || event7 !== null">
+      <div class="mid">
+          <label>{{event7.eventName}}</label><br>
+          <label>Start Date: {{event7.StartDate | date: 'MM/dd/yy'}}</label><br>
+          <label>End Date: {{event7.EndDate | date: 'MM/dd/yy'}}</label>
+          </div>
+      <mat-calendar [selected]="event7.StartDate"></mat-calendar>
+  </mat-card>
+</ng-template>
 
 <!-- =========================
     Showroom SECTION   
@@ -103,9 +366,13 @@
 <section id="detail" class="parallax-section">
 	<div class="container">
 		<div class="row">
-            UAPSA's Showroom
+        <div class="showz">
+           <p> UAPSA's Showroom</p>
+           <button class="buttun" (click)="openDialogo()">UAPSA's Showroom!</button>
+          </div>
 			<div class="wow fadeInLeft col-md-4 col-sm-4" data-wow-delay="0.3s">
 				<carousel
+				class="teams"
 			[objectFit]="'cover'"
 			[height]="400"
 			[autoplay]="true"
@@ -126,46 +393,89 @@
 		</div>
 	</div>
 </section>
-
+<ng-template #callAPIDialogzz>
+    <form #regform="ngForm" (ngSubmit)="onReg(regform)" class="center">
+    <h2 matDialogTitle class="tonks">Exhibit Register</h2>
+    <label class="lbel">First Name</label><br>
+      <input 
+      type="text"
+      ngModel
+      name="firstname"><br>
+    <label class="lbel">Last Name</label><br>
+      <input 
+      type="text"
+      ngModel
+      name="lastname"><br>
+    <label class="lbel">Email</label><br>
+      <input 
+      type="email"
+      ngModel
+      name="email"><br>
+    <button type="submit">Submit</button>
+  </form>
+  </ng-template>
+  
+  <ng-template #callAPIDialogpo>
+    <form #userForm="ngForm" (ngSubmit)="onSend(userForm)" class="center">
+    <h2 matDialogTitle class="tonks">Exhibit Entrance</h2>
+    <label class="lbel">Email</label><br>
+      <input 
+      type="email"
+      ngModel
+      name="email"><br>
+    <label class="lbel">Ticket No.</label><br>
+      <input 
+      type="password"
+      ngModel
+      name="password"><br>
+    <button type="submit">Enter</button>
+  
+    
+  </form>
+  <label class="labelz lbel">Haven't Registered yet?</label>
+  <button id="reg"(click)="openReg()">Register</button>
+  </ng-template>
 
 <!-- =========================
     ARTICLE SECTION   
 ============================== -->
 <section id="video" class="parallax-section">
-	<div class="container">
-		<div class="row">
+    <div class="container">
+        <div class="row">
 
-			<div class="wow fadeInUp col-md-6 col-sm-10" data-wow-delay="1.3s" >
-				<h2>Our Latest Articles!</h2>
-				<h3>Quisque ut libero sapien. Integer tellus nisl, efficitur sed dolor at, vehicula finibus massa. Sed tincidunt metus sed eleifend suscipit.</h3>
-				<p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet. Dolore magna aliquam erat volutpat. Lorem ipsum dolor sit amet consectetuer diam nonummy.</p>
+            <div class="wow fadeInUp col-md-6 col-sm-10" data-wow-delay="1.3s" >
+                <h2 class="articleHead">Our Latest Articles!</h2>
+                <h3 class="articleDesc">Quisque ut libero sapien. Integer tellus nisl, efficitur sed dolor at, vehicula finibus massa. Sed tincidunt metus sed eleifend suscipit.</h3>
+				<div class = "buttones">
+					<br>
+				  <button class="button-two wow fadeInUp" data-wow-delay="1.3s" (click)="onMoreArticles() "><span>See More</span></button>
+				</div>
 			</div>
-			<div class="wow fadeInUp col-md-6 col-sm-10" data-wow-delay="1.6s">
-				<div class="embed-responsive embed-responsive-16by9" *ngFor="let article of articles let i = index">
-					<div class="padders">
+            <div class="wow fadeInUp col-md-6 col-sm-10" data-wow-delay="1.6s">
+                <div *ngFor="let article of articles let i = index">
+
                         <div class='module thumbnail' *ngIf = "i < 1">
                           <a [routerLink]="['/article', article.id, article.title]">
                           <img [src]="imageURL+article.PhotoFileName" alt="Avatar">
-                          <div class='date'>
+                          <div class='date articleDesc'>
                             <div>{{article.dateCreated | date: "dd"}}</div>
                             <div>{{article.dateCreated | date: "MMM"}}</div>
                           </div>
                         <div class='content'>
-                          <div class="category">Photos</div>
-                          <h2 class='title'>{{article.title}}</h2>
-                          <h3 class='sub-title'>created by: {{article.authorName}}</h3>
-                          <p class="description">{{article.desc}}</p>
+                          <div class="category">Article</div>
+                          <h2 class='title articleHead'>{{article.title}}</h2>
+                          <h3 class='sub-title articleDesc'>created by: {{article.authorName}}</h3>
+                          <p class="description articleHead">{{article.desc}}</p>
                          </div>
                         </a>
                       </div>
-                    </div>
-				</div>
-			</div>
 
-		</div>
-	</div>
+                </div>
+            </div>
+
+        </div>
+    </div>
 </section>
-
 
 <!-- =========================
     SPEAKERS SECTION   
@@ -176,432 +486,117 @@
 
 			<div class="col-md-12 col-sm-12 wow bounceIn">
 				<div class="section-title">
-					<h2>Meet The Team!</h2>
-					<carousel
-			[objectFit]="'cover'"
-			[height]="400"
-			[autoplay]="true"
-			[dots]="true"
-			[loop]="true"
-			[cellsToShow]="1"
-			[cellsToScroll]="1"
-			[arrowsOutside]="true"
-			arrowsTheme="dark">
-                <div class=" carousel-cell" *ngFor="let team of teams">
-					<img class="card-image" [src]="imageURL+team.PhotoFileName" alt="">
-                </div>
-                </carousel>
+					<h2 class="aboutus"> About Us</h2>
+            <mat-tab-group mat-align-tabs="center" animationDuration="2000ms">
+                <mat-tab label="What is UAPSA-UST?"> 
+                    <p class="descri">UAPSA stands for United Architects of The Philippines Student Auxiliary- University of Santo Tomas Chapter, one of the duly-recognized student organizations under the UAP. It is affiliated with other UAPSA Chapters and National, with thousands of members from up to 70 different schools all over the Philippines.</p> </mat-tab>
+                <mat-tab label="Mission"> 
+                    <p class="descri"> The United Architects of the Philippines Student Auxiliary – University of 
+                        Santo Tomas Chapter (UAPSA-UST), as a recognized student organization, 
+                        commits to provide the members the architectural knowledge and 
+                        opportunities essential to their professional and academic achievement 
+                        guided by the university’s core values – compassion, commitment, and 
+                        competence – and practice dedication to serving the church and the 
+                        community.
+                    </p> </mat-tab>
+                <mat-tab label="Vision"> 
+                    <p class="descri">
+                        As an accredited organization of the United Architects of the Philippines, 
+                        the United Architects of the Philippines Student Auxiliary – University of 
+                        Santo Tomas (UAPSA-UST) under this Catholic institution envisions to produce 
+                        globally competitive Thomasian architecture students who execute Thomasian 
+                        values and equipped with professional and moral formation dedication to 
+                        service for social transformation.
+                    </p>
+                </mat-tab>
+                <mat-tab label="History of UAPSA">
+                    <p class="descri">
+                        The organization was established in 2001 by Ar. Marian Eileen Florentino with the sounding goal of producing prime Filipino Architects through loyal camaraderie, honest competition, and a unifying drive to serve.
+                    </p>
+                </mat-tab>
+                <mat-tab label = "Join Us!">
+                    <br>
+                    <button class="button-two wow fadeInUp" data-wow-delay="1.3s"(click)="appForm()"><span>Application Form</span></button>
+                </mat-tab>
+                <mat-tab label="Get to Know the Team!" > 
+                    <br>
+                    
+                    <button mat-raised-button (click)="openDialogz()">Team Members</button>  
+                </mat-tab>
+              </mat-tab-group>
+        </div>
+    </div>
+
+<ng-template #callAPIDialogz>
+<div class="center">
+	<carousel
+	class="teams"
+[objectFit]="'cover'"
+[height]="400"
+[autoplay]="true"
+[dots]="true"
+[loop]="true"
+[cellsToShow]="1"
+[cellsToScroll]="1"
+[arrowsOutside]="true"
+arrowsTheme="dark">
+<div class=" carousel-cell" *ngFor="let team of teams">
+	<img class="card-image" [src]="imageURL+team.PhotoFileName" alt="">
+</div>
+</carousel>
+</div>
+</ng-template>
+					
 				</div>
 			</div>
-		</div>
-	</div>
+		
+	
 </section>
 
 
-<!-- =========================
-    PROGRAM SECTION   
-============================== -->
-<section id="program" class="parallax-section">
-	<div class="container">
-		<div class="row">
-
-			<div class="wow fadeInUp col-md-12 col-sm-12" data-wow-delay="0.6s">
-				<div class="section-title">
-					<h2>Our Programs</h2>
-					<p>Quisque ut libero sapien. Integer tellus nisl, efficitur sed dolor at, vehicula finibus massa. Sed tincidunt metus sed eleifend suscipit.</p>
-				</div>
-			</div>
-
-			<div class="wow fadeInUp col-md-10 col-sm-10" data-wow-delay="0.9s">
-				<!-- Nav tabs -->
-				<ul class="nav nav-tabs" role="tablist">
-					<li class="active"><a href="#fday" aria-controls="fday" role="tab" data-toggle="tab">FIRST DAY</a></li>
-					<li><a href="#sday" aria-controls="sday" role="tab" data-toggle="tab">SECOND DAY</a></li>
-					<li><a href="#tday" aria-controls="tday" role="tab" data-toggle="tab">THIRD DAY</a></li>
-				</ul>
-				<!-- tab panes -->
-				<div class="tab-content">
-
-					<div role="tabpanel" class="tab-pane active" id="fday">
-						<!-- program speaker here -->
-						<div class="col-md-2 col-sm-2">
-							<img src="images/program-img1.jpg" class="img-responsive" alt="program">
-						</div>
-						<div class="col-md-10 col-sm-10">
-							<h6>
-								<span><i class="fa fa-clock-o"></i> 09.00 AM</span> 
-								<span><i class="fa fa-map-marker"></i> Room 240</span>
-							</h6>
-							<h3>Introduction to Design</h3>
-							<h4>By Jenny Green</h4>
-							<p>Maecenas accumsan metus turpis, eu faucibus ligula interdum in. Mauris at tincidunt felis, vitae aliquam magna. Sed aliquam fringilla vestibulum.</p>
-						</div>
-
-						<!-- program divider -->
-						<div class="program-divider col-md-12 col-sm-12"></div>
-
-						<!-- program speaker here -->
-						<div class="col-md-2 col-sm-2">
-							<img src="images/program-img2.jpg" class="img-responsive" alt="program">
-						</div>
-						<div class="col-md-10 col-sm-10">
-							<h6>
-								<span><i class="fa fa-clock-o"></i> 10.00 AM</span> 
-								<span><i class="fa fa-map-marker"></i> Room 360</span>
-							</h6>
-							<h3>Front-End Development</h3>
-							<h4>By Johnathan Mark</h4>
-							<p>Mauris at tincidunt felis, vitae aliquam magna. Sed aliquam fringilla vestibulum. Praesent ullamcorper mauris fermentum turpis scelerisque rutrum eget eget turpis.</p>
-						</div>
-
-						<!-- program divider -->
-						<div class="program-divider col-md-12 col-sm-12"></div>
-
-						<!-- program speaker here -->
-						<div class="col-md-2 col-sm-2">
-							<img src="images/program-img3.jpg" class="img-responsive" alt="program">
-						</div>
-						<div class="col-md-10 col-sm-10">
-							<h6>
-								<span><i class="fa fa-clock-o"></i> 11.00 AM</span> 
-								<span><i class="fa fa-map-marker"></i> Room 450</span>
-							</h6>
-							<h3>Social Media Marketing</h3>
-							<h4>By Johnathan Doe</h4>
-							<p>Nam pulvinar, elit vitae rhoncus pretium, massa urna bibendum ex, aliquam efficitur lorem odio vitae erat. Integer rutrum viverra magna, nec ultrices risus rutrum nec.</p>
-						</div>
-					</div>
-
-					<div role="tabpanel" class="tab-pane" id="sday">
-						<!-- program speaker here -->
-						<div class="col-md-2 col-sm-2">
-							<img src="images/program-img4.jpg" class="img-responsive" alt="program">
-						</div>
-						<div class="col-md-10 col-sm-10">
-							<h6>
-								<span><i class="fa fa-clock-o"></i> 11.00 AM</span> 
-								<span><i class="fa fa-map-marker"></i> Room 240</span>
-							</h6>
-							<h3>Backend Development</h3>
-							<h4>By Matt Lee</h4>
-							<p>Integer rutrum viverra magna, nec ultrices risus rutrum nec. Pellentesque interdum vel nisi nec tincidunt. Quisque facilisis scelerisque venenatis. Nam vulputate ultricies luctus.</p>
-						</div>
-
-						<!-- program divider -->
-						<div class="program-divider col-md-12 col-sm-12"></div>
-
-						<!-- program speaker here -->
-						<div class="col-md-2 col-sm-2">
-							<img src="images/program-img5.jpg" class="img-responsive" alt="program">
-						</div>
-						<div class="col-md-10 col-sm-10">
-							<h6>
-								<span><i class="fa fa-clock-o"></i> 01.00 PM</span> 
-								<span><i class="fa fa-map-marker"></i> Room 450</span>
-							</h6>
-							<h3>Web Application Lite</h3>
-							<h4>By David Orlando</h4>
-							<p>Aliquam faucibus lobortis dolor, id pellentesque eros pretium in. Aenean in erat ut quam aliquet commodo. Vivamus aliquam pulvinar ipsum ut sollicitudin. Suspendisse quis sollicitudin mauris.</p>
-						</div>
-
-						<!-- program divider -->
-						<div class="program-divider col-md-12 col-sm-12"></div>
-
-						<!-- program speaker here -->
-						<div class="col-md-2 col-sm-2">
-							<img src="images/program-img6.jpg" class="img-responsive" alt="program">
-						</div>
-						<div class="col-md-10 col-sm-10">
-							<h6>
-								<span><i class="fa fa-clock-o"></i> 03.00 PM</span> 
-								<span><i class="fa fa-map-marker"></i> Room 650</span>
-							</h6>
-							<h3>Professional UX Design</h3>
-							<h4>By James Lee Mark</h4>
-							<p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet. Dolore magna aliquam erat volutpat.</p>
-						</div>
-					</div>
-
-					<div role="tabpanel" class="tab-pane" id="tday">
-						<!-- program speaker here -->
-						<div class="col-md-2 col-sm-2">
-							<img src="images/program-img7.jpg" class="img-responsive" alt="program">
-						</div>
-						<div class="col-md-10 col-sm-10">
-							<h6>
-								<span><i class="fa fa-clock-o"></i> 03.00 PM</span> 
-								<span><i class="fa fa-map-marker"></i> Room 750</span>
-							</h6>
-							<h3>Online Shopping Business</h3>
-							<h4>By Michael Walker</h4>
-							<p>Aliquam faucibus lobortis dolor, id pellentesque eros pretium in. Aenean in erat ut quam aliquet commodo. Vivamus aliquam pulvinar ipsum ut sollicitudin. Suspendisse quis sollicitudin mauris.</p>
-						</div>
-
-						<!-- program divider -->
-						<div class="program-divider col-md-12 col-sm-12"></div>
-
-						<!-- program speaker here -->
-						<div class="col-md-2 col-sm-2">
-							<img src="images/program-img8.jpg" class="img-responsive" alt="program">
-						</div>
-						<div class="col-md-10 col-sm-10">
-							<h6>
-								<span><i class="fa fa-clock-o"></i> 05.00 PM</span> 
-								<span><i class="fa fa-map-marker"></i> Room 850</span>
-							</h6>
-							<h3>Introduction to Mobile App</h3>
-							<h4>By Cherry Stella</h4>
-							<p>Nunc eu nibh vel augue mollis tincidunt id efficitur tortor. Sed pulvinar est sit amet tellus iaculis hendrerit. Mauris justo erat, rhoncus in arcu at, scelerisque tempor erat.</p>
-						</div>
-
-						<!-- program divider -->
-						<div class="program-divider col-md-12 col-sm-12"></div>
-
-						<!-- program speaker here -->
-						<div class="col-md-2 col-sm-2">
-							<img src="images/program-img9.jpg" class="img-responsive" alt="program">
-						</div>
-						<div class="col-md-10 col-sm-10">
-							<h6>
-								<span><i class="fa fa-clock-o"></i> 07.00 PM</span> 
-								<span><i class="fa fa-map-marker"></i> Room 750</span>
-							</h6>
-							<h3>Bootstrap UI Design</h3>
-							<h4>By John David</h4>
-							<p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet. Dolore magna aliquam erat volutpat.</p>
-						</div>
-					</div>
-
-				</div>
-            </div>
-		</div>
-	</div>
-</section>
-
-
-<!-- =========================
-   REGISTER SECTION   
-============================== -->
-<section id="register" class="parallax-section">
-	<div class="container">
-		<div class="row">
-
-			<div class="wow fadeInUp col-md-7 col-sm-7" data-wow-delay="0.6s">
-				<h2>Register Here</h2>
-				<h3>Nunc eu nibh vel augue mollis tincidunt id efficitur tortor. Sed pulvinar est sit amet tellus iaculis hendrerit.</h3>
-				<p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet. Dolore magna aliquam erat volutpat. Lorem ipsum dolor sit amet consectetuer diam nonummy.</p>
-			</div>
-
-			<div class="wow fadeInUp col-md-5 col-sm-5" data-wow-delay="1s">
-				<form action="#" method="post">
-					<input name="firstname" type="text" class="form-control" id="firstname" placeholder="First Name">
-					<input name="lastname" type="text" class="form-control" id="lastname" placeholder="Last Name">
-					<input name="phone" type="telephone" class="form-control" id="phone" placeholder="Phone Number">
-					<input name="email" type="email" class="form-control" id="email" placeholder="Email Address">
-					<div class="col-md-offset-6 col-md-6 col-sm-offset-1 col-sm-10">
-						<input name="submit" type="submit" class="form-control" id="submit" value="REGISTER">
-					</div>
-				</form>
-			</div>
-
-			<div class="col-md-1"></div>
-
-		</div>
-	</div>
-</section>
-
-
-<!-- =========================
-    FAQ SECTION   
-============================== -->
-<section id="faq" class="parallax-section">
-	<div class="container">
-		<div class="row">
-
-			<!-- Section title
-			================================================== -->
-			<div class="wow bounceIn col-md-offset-2 col-md-8 col-sm-offset-1 col-sm-10 text-center">
-				<div class="section-title">
-					<h2>Do you have Questions?</h2>
-					<p>Lorem ipsum dolor sit amet, maecenas eget vestibulum justo imperdiet.</p>
-				</div>
-			</div>
-
-			<div class="wow fadeInUp col-md-offset-1 col-md-10 col-sm-offset-1 col-sm-10" data-wow-delay="0.9s">
-				<div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
-
-  					<div class="panel panel-default">
-   						<div class="panel-heading" role="tab" id="headingOne">
-      						<h4 class="panel-title">
-        						<a class="collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapseOne" aria-expanded="false" aria-controls="collapseOne">
-          							 What is Responsive Design?
-        						</a>
-      						</h4>
-    					</div>
-   						<div id="collapseOne" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingOne">
-      						<div class="panel-body">
-        						<p>Lorem ipsum dolor sit amet, maecenas eget vestibulum justo imperdiet, wisi risus purus augue vulputate voluptate neque, curabitur dolor libero sodales vitae elit massa. Lorem ipsum dolor sit amet, maecenas eget vestibulum justo imperdiet.</p>
-								<p>Nunc eu nibh vel augue mollis tincidunt id efficitur tortor. Sed pulvinar est sit amet tellus iaculis hendrerit. Mauris justo erat, rhoncus in arcu at, scelerisque tempor erat.</p>
-      						</div>
-   						 </div>
- 					</div>
-
-    				<div class="panel panel-default">
-   						<div class="panel-heading" role="tab" id="headingTwo">
-      						<h4 class="panel-title">
-        						<a class="collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
-          							What are latest UX Developments?
-        						</a>
-      						</h4>
-    					</div>
-   						<div id="collapseTwo" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingTwo">
-      						<div class="panel-body">
-                            	<p>Nunc eu nibh vel augue mollis tincidunt id efficitur tortor. Sed pulvinar est sit amet tellus iaculis hendrerit. Mauris justo erat, rhoncus in arcu at, scelerisque tempor erat.</p>
-        						<p>Lorem ipsum dolor sit amet, maecenas eget vestibulum justo imperdiet, wisi risus purus augue vulputate voluptate neque, curabitur dolor libero sodales vitae elit massa. Lorem ipsum dolor sit amet, maecenas eget vestibulum justo imperdiet.</p>
-      						</div>
-   						 </div>
- 					</div>
-
- 					<div class="panel panel-default">
-   						<div class="panel-heading" role="tab" id="headingThree">
-      						<h4 class="panel-title">
-        						<a class="collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
-          							What things about Social Media will be discussed?
-        						</a>
-      						</h4>
-    					</div>
-   						<div id="collapseThree" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingThree">
-      						<div class="panel-body">
-                            	<p>Aenean vulputate finibus justo et feugiat. Ut turpis lacus, dapibus quis justo id, porttitor tempor justo. Quisque ut libero sapien. Integer tellus nisl, efficitur sed dolor at, vehicula finibus massa.</p>
-        						<p>Lorem ipsum dolor sit amet, maecenas eget vestibulum justo imperdiet, wisi risus purus augue vulputate voluptate neque, curabitur dolor libero sodales vitae elit massa. Lorem ipsum dolor sit amet, maecenas eget vestibulum justo imperdiet.</p>
-      						</div>
-   						 </div>
- 					 </div>
-
- 				 </div>
-			</div>
-
-		</div>
-	</div>
-</section>
-
-
-<!-- =========================
-    VENUE SECTION   
-============================== -->
-<section id="venue" class="parallax-section">
-	<div class="container">
-		<div class="row">
-
-			<div class="wow fadeInLeft col-md-offset-1 col-md-5 col-sm-8" data-wow-delay="0.9s">
-				<h2>Venue</h2>
-				<p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet. Dolore magna aliquam erat volutpat.</p>
-				<h4>New Event</h4>
-  				<h4>120 Market Street, Suite 110</h4>
-  				<h4>San Francisco, CA 10110</h4>
-				<h4>Tel: 010-020-0120</h4>		
-			</div>
-
-		</div>
-	</div>
-</section>
-
-
-<!-- =========================
-    SPONSORS SECTION   
-============================== -->
-<section id="sponsors" class="parallax-section">
-	<div class="container">
-		<div class="row">
-
-			<div class="wow bounceIn col-md-12 col-sm-12">
-				<div class="section-title">
-					<h2>Our Sponsors</h2>
-					<p>Lorem ipsum dolor sit amet, maecenas eget vestibulum justo imperdiet.</p>
-				</div>
-			</div>
-
-			<div class="wow fadeInUp col-md-3 col-sm-6 col-xs-6" data-wow-delay="0.3s">
-				<img src="images/sponsor-img1.jpg" class="img-responsive" alt="sponsors">	
-			</div>
-
-			<div class="wow fadeInUp col-md-3 col-sm-6 col-xs-6" data-wow-delay="0.6s">
-				<img src="images/sponsor-img2.jpg" class="img-responsive" alt="sponsors">	
-			</div>
-
-			<div class="wow fadeInUp col-md-3 col-sm-6 col-xs-6" data-wow-delay="0.9s">
-				<img src="images/sponsor-img3.jpg" class="img-responsive" alt="sponsors">	
-			</div>
-
-			<div class="wow fadeInUp col-md-3 col-sm-6 col-xs-6" data-wow-delay="1s">
-				<img src="images/sponsor-img4.jpg" class="img-responsive" alt="sponsors">	
-			</div>
-
-		</div>
-	</div>
-</section>
-
-
-<!-- =========================
-    CONTACT SECTION   
-============================== -->
-<section id="contact" class="parallax-section">
-	<div class="container">
-		<div class="row">
-
-			<div class="wow fadeInUp col-md-offset-1 col-md-5 col-sm-6" data-wow-delay="0.6s">
-				<div class="contact_des">
-					<h3>New Event</h3>
-					<p>Proin sodales convallis urna eu condimentum. Morbi tincidunt augue eros, vitae pretium mi condimentum eget. Suspendisse eu turpis sed elit pretium congue.</p>
-					<p>Mauris at tincidunt felis, vitae aliquam magna. Sed aliquam fringilla vestibulum. Praesent ullamcorper mauris fermentum turpis scelerisque rutrum eget eget turpis.</p>
-					<p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet. Dolore magna aliquam erat volutpat. Lorem ipsum dolor.</p>
-					<a href="#" class="btn btn-danger">DOWNLOAD NOW</a>
-				</div>
-			</div>
-
-			<div class="wow fadeInUp col-md-5 col-sm-6" data-wow-delay="0.9s">
-				<div class="contact_detail">
-					<div class="section-title">
-						<h2>Keep in touch</h2>
-					</div>
-					<form action="#" method="post">
-						<input name="name" type="text" class="form-control" id="name" placeholder="Name">
-					  	<input name="email" type="email" class="form-control" id="email" placeholder="Email">
-					  	<textarea name="message" rows="5" class="form-control" id="message" placeholder="Message"></textarea>
-						<div class="col-md-6 col-sm-10">
-							<input name="submit" type="submit" class="form-control" id="submit" value="SEND">
-						</div>
-					</form>
-				</div>
-			</div>
-
-		</div>
-	</div>
-</section>
 
 
 <!-- =========================
     FOOTER SECTION   
 ============================== -->
-<footer>
-	<div class="container">
-		<div class="row">
+<footer class="site-footer">
+    <div class="container">
+      <div class="row">
+        <div class="col-sm-12 col-md-6">
+          <h6 class="contactzz">Contact Us</h6>
+          <p class="text-justify">España Blvd, Sampaloc, Manila, 1008 Metro Manila</p>
+          <p class="text-justify">Email: uapsa.archi@ust.edu.ph</p>
+        </div>
 
-			<div class="col-md-12 col-sm-12">
-				<p class="wow fadeInUp" data-wow-delay="0.6s">Copyright &copy; 2016 Your Company 
-                    
-                    | Design: <a rel="nofollow" href="http://www.templatemo.com/page/1" target="_parent">Templatemo</a></p>
+        <div class="col-xs-6 col-md-3">
+          <h6>Quick Links</h6>
+          <ul class="footer-links">
+            <li><a href="https://www.united-architects.org" target="_blank">UAP</a></li>
+            <li><a href="https://www.facebook.com/uapsanational" target="_blank">UAPSA NATIONAL</a></li>
+          </ul>
+        </div>
 
-				<ul class="social-icon">
-					<li><a href="#" class="fa fa-facebook wow fadeInUp" data-wow-delay="1s"></a></li>
-					<li><a href="#" class="fa fa-twitter wow fadeInUp" data-wow-delay="1.3s"></a></li>
-					<li><a href="#" class="fa fa-dribbble wow fadeInUp" data-wow-delay="1.6s"></a></li>
-					<li><a href="#" class="fa fa-behance wow fadeInUp" data-wow-delay="1.9s"></a></li>
-					<li><a href="#" class="fa fa-google-plus wow fadeInUp" data-wow-delay="2s"></a></li>
-				</ul>
+        <div>
+            <a class="smoothScroll"><img src="assets/img/160X160 UAPSA LOGO.png" 
+                style ="width:100px; "class="img-fluid"></a>
+        </div>
+      </div>
+      <hr>
+    </div>
+    <div class="container">
+      <div class="row">
+        <div class="col-sm-12 col-md-6">
+          <p class="copyright-text">Copyright &copy; 2021 UAPSA University of Santo Tomas</p>
+        </div>
 
-			</div>
-			
-		</div>
-	</div>
+        <div class="col-md-4 col-sm-6 col-xs-12">
+            <ul class="social-icon">
+                <li><a href="https://www.facebook.com/officialuapsaust/" target="_blank" class="fa fa-facebook wow fadeInUp" data-wow-delay="1s"></a></li>
+                <li><a href="https://twitter.com/uapsaust" target="_blank" class="fa fa-twitter wow fadeInUp" data-wow-delay="1.3s"></a></li>
+                <li><a href="https://www.instagram.com/uapsa.ust/" target="_blank" class="fa fa-instagram wow fadeInUp" data-wow-delay="1.9s"></a></li>
+				<li><a href="https://www.tiktok.com/@uapsaust?lang=en" target="_blank" class="fab fa-tiktok wow fadeInUp" data-wow-delay="1.9s"></a></li>
+            </ul>
+        </div>
+      </div>
+    </div>
 </footer>

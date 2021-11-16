@@ -13,6 +13,14 @@ input.ng-invalid.ng-touched{
   transform: translate(-50%, -50%);
 }
 
+h4{
+  font-family: 'grossregular';
+}
+
+.lbel{
+  font-family: 'gravityregular';
+}
+
 .continer h4{
 
   text-align: center;
@@ -113,6 +121,7 @@ input.ng-invalid.ng-touched{
   cursor: pointer;
   background-color: #ee9b00;
   color: #fff;
+  outline: none;
 
 }
 

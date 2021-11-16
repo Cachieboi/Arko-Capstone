@@ -5,6 +5,10 @@ New Event
 http://www.templatemo.com/tm-486-new-event
 
 */
+header {
+  background: url('src/assets/img/HOME_BG.jpg') 50% 0 repeat-y fixed;
+  background-size: cover;
+}
 html, body {
   overflow-x: hidden;
 }
@@ -12,7 +16,7 @@ html, body {
 body {
   margin: 0px;
   height: 100%;
-  background:white;
+  background: url('src/assets/img/HOME_BG.jpg') 50% 0 repeat-y fixed;
   font-family: 'Poppins', sans-serif;
   font-style: normal;
       font-weight: 400;
@@ -54,7 +58,7 @@ body {
   
   p {
   color: #707070;
-  font-size: 14px;
+ 
   line-height: 24px;
   }
   

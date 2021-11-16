@@ -17,11 +17,8 @@ export class AdminShowroomAddComponent implements OnInit {
   }
 
   states = [
-    {name: 'Arizona' },
-    {name: 'California'},
-    {name: 'Colorado'},
-    {name: 'New York'},
-    {name: 'Pennsylvania'},
+    {name: 'Manual'},
+    {name: 'Digital'},
   ];
 
 

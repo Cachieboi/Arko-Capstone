@@ -59,7 +59,7 @@ viewCount: number = 0;
 
   main(){
    
-    this.shService.GET_showroom(this.id).subscribe((data)=>{
+    this.shService.GET_showroomReadOnly(this.id).subscribe((data)=>{
       this.thisShowroom = data
   
     const view = new Viewer({
@@ -70,7 +70,11 @@ viewCount: number = 0;
       defaultLat: 0.3,
       touchmoveTwoFingers: true,
       mousewheelCtrlKey: true,
-  
+      navbar:[
+        'autorotate',
+        'zoom',
+        'fullscreen'
+      ]
     });
     
   });

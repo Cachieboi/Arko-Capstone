@@ -13,10 +13,9 @@ export class AdminShowroomEditComponent implements OnInit {
 
   constructor(private shService: ShowroomService, private route: ActivatedRoute,private router: Router) { }
   states = [
-    {name: "Arizona" },
-    {name: "California"},
-    {name: "Colorado"},
-    {name: "New York"},
+    {name: "Manual" },
+    {name: "Digital"},
+    
   ];
 
 

@@ -1,9 +1,12 @@
 <body>
   
     <div class="container">
-    
+     
     <div class="jumbotron">
-      <h1 class="text-center"><strong>{{thisShowroom.Title}}</strong></h1>
+     
+      <a [routerLink]="['../../../Showroom-page']">
+        <i class="fas fa-chevron-circle-left fa-3x round"></i>
+    </a> <h1 class="text-center">{{thisShowroom.Title}}</h1>
       <br>
       
         
@@ -11,19 +14,19 @@
     
     <div class="image-section">
     <div id="viewer" class="img-responsive" alt="Jim Henson and Kermit the Frog"></div>
-    <p class="text-center" id="photo-description"><font size="3">{{thisShowroom.AuthorName}}, short description of the work here para cool</font></p>
+    <h2 class="text-center test" >{{thisShowroom.AuthorName}}</h2>
     </div>
     
     <br><br><br>
   
     <div class="information">
-    <p><font color="#908d8d" size="3">{{thisShowroom.Description}}</font></p>
+    <p>{{thisShowroom.Description}}</p>
     </div>  
      
     </div>  
     </div>
   
-    <p class="text-center">UAPSA UST</p>
+    
      
   </body>
   

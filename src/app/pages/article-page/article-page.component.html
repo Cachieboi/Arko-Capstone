@@ -1,54 +1,55 @@
-
-
-<html>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-  <body>
+<meta name="viewport" content="width=device-width,height=device-height initial-scale=1">
 
 
 
+<header class="center">
+  <a [routerLink]="['../']">
+    <i class="fas fa-chevron-circle-left fa-3x round"></i>
+</a>
+  <img src="assets/img/160X160 UAPSA LOGO.png" class="logo"><label class="fonters">UAPSA UST Articles</label>
+</header>
 
-    <div class="lefty">
-      <a [routerLink]="['../']">Back</a>
+
+
+
+<div *ngFor="let article of articles  | paginate: { itemsPerPage: 3, currentPage: p }">
+
+
+<div class="container mt-5">
+  <div class="row">
+    <div class="col-12">
+      <article class="blog-card">
+        <div class="blog-cardbackground">
+          <div class="cardbackground--wrapper">
+              <img class="cardbackground--main" [src]="imageURL+article.PhotoFileName" alt="" />
+              <div class="cardbackground--layer"></div>
+          </div>
+        </div>
+
+        <div class="blog-cardhead">
+          <span class="datebox">
+            <span class="dateday">{{article.dateCreated | date: 'dd'}}</span>
+            <span class="datemonth">{{article.dateCreated | date: 'MMMM'}}</span>
+          </span>
+        </div>
+
+        <div class="blog-cardinfo">
+          <h5 >{{article.title}}</h5>
+          <p>
+            <a href="#" class="icon-link mr-3"><i class="fa fa-pencil-square-o"></i> {{article.authorName}} </a>
+          </p>
+          <p>{{ article.desc }}</p>
+          <a [routerLink]="['/article', article.id, article.title]">
+          <a href="#" class="btn btn--with-icon wenks"><i class="btn-icon fa fa-long-arrow-right"></i>READ MORE</a>
+          </a>
+        </div>
+      </article>
     </div>
-      <div class="inner-header flex">
-        <img src="assets/img/160X160 UAPSA LOGO.png" class="logo">
-      <div class="fonters">UAPSA UST Articles</div>
-      </div>
-
- 
-
-
-
-<div class=" item mb-5" *ngFor="let article of articles  | paginate: { itemsPerPage: 3, currentPage: p }">
-
-  <a class="postheading" [routerLink]="['/article', article.id, article.title]">
-
-  <div class="card">
-
-    <div class="thumbnail"><img class="left" [src]="imageURL+article.PhotoFileName"/></div>
-
-    <div class="right">
-      <h1>{{article.title}}</h1>
-      <div class="author">
-        <h2>{{article.authorName}}</h2>
-      </div>
-      <div class="separator"></div>
-      <p>{{ article.desc }}</p>
-    </div>
-
-    <h5>{{article.dateCreated | date: 'dd'}}</h5>
-    <h6>{{article.dateCreated | date: 'MMMM'}}</h6>
-
-
-
-
   </div>
-  </a>
+</div>
+
+
+
 </div>
 
 <pagination-controls class="pagination" (pageChange)="p = $event"></pagination-controls>
-
-
-</body>
-</html>

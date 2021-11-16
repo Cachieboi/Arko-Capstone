@@ -13,16 +13,13 @@ html,body {
 }
 
 body {
+ 
   display: flex;
   flex-direction: column;
   justify-content: center;
   height: 100vh;
   padding: 0px 30px;
-  background: #f0e6e0; 
-  background: -moz-linear-gradient(top,  #f0e6e0 1%, #d8e5f2 100%); 
-  background: -webkit-linear-gradient(top,  #f0e6e0 1%,#d8e5f2 100%); 
-  background: linear-gradient(to bottom,  #f0e6e0 1%,#d8e5f2 100%); 
-  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#f0e6e0', endColorstr='#d8e5f2',GradientType=0 );
+  
   box-sizing: border-box;
 }
 
@@ -50,10 +47,11 @@ main {
   text-align: center;
   padding: 32px 0;
 }
-h1 {
+h2 {
+  font-family: 'grossregular';
   font-size: 36px;
   margin: 16px 0;
-  font-family: 'Roboto', sans-serif;
+  
   font-weight: 900;
 }
 .lpheader p {
@@ -97,11 +95,22 @@ h1 {
   color: #545454;
 }
 .lpgridItemText-md {
-  font-size: 14px;
+  font-size: 20px !important;
   font-weight: 300;
   line-height: 1.54;
-  font-family: 'Roboto', sans-serif;
-  font-size: 13px;
+  font-family: 'quarklight';
+ 
 }
+
+.test{
+  font-family: 'gravityregular';
+  font-size: 15px; 
+}
+
+.wenk{
+  float:left;
+}
+
+
 
 
