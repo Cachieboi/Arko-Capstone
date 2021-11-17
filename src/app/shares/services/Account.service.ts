@@ -23,8 +23,8 @@ export class AccountService{
     private cookieService: CookieService){
 
 }
-APIUrl = "https://arkoust-uapsa.xyz/api/";
-readonly PhotoUrl = "https://arkoust-uapsa.xyz/media/";
+APIUrl = "https://uapsaust.com/api/";
+readonly PhotoUrl = "https://uapsaust.com/media/";
 //APIUrl = "http://127.0.0.1:8000/api/";
 //readonly PhotoUrl = "http://127.0.0.1:8000/media/";
   token = this.cookieService.get('mr-token');
