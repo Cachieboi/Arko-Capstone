@@ -49,7 +49,7 @@ export class LandingComponentsComponent implements OnInit {
 
  
 
-  @ViewChild('callAPIDialog') callAPIDialogz: TemplateRef<any>; 
+  @ViewChild('callAPIDialogz') callAPIDialogz: TemplateRef<any>; 
   @ViewChild('callAPIDialog') callAPIDialog: TemplateRef<any>; 
   @ViewChild('callAPIDialog2') callAPIDialog2: TemplateRef<any>;
   @ViewChild('callAPIDialog3') callAPIDialog3: TemplateRef<any>;

@@ -1213,6 +1213,53 @@ h2 {
     font-size: 100%;
   }
 
+  img.testzzz{
+    width: 100%;
+    height: 50%;
+  }
+
+  label.labela{
+    display: block;
+    margin-right: auto;
+    margin-left: auto;
+  }
+  img.testzz{
+    width: 70%;
+    height: 50%;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  label.lbel{
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+  }
+
+  button#reg{
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+  }
+
+  button.btn{
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+  }
+
+  h1.merchtitle{
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+    font-size: xx-large;
+  }
+
 
 }
 
@@ -1226,6 +1273,16 @@ h2 {
   color: white;
 }
 
+.labelzz{
+  margin-left: 140vh;
+  font-size: 13px;
+  color: hsla(39, 100%, 50%, 0.8);
+ }
+
+ .labela{
+ margin-left: 200px;
+}
+
 .btn {
   border: 2px solid black;
   border-radius: 10%;
@@ -1235,13 +1292,14 @@ h2 {
   font-size: 16px;
   cursor: pointer;
   display: block;
-  margin-left: auto;
-  margin-right: auto;
+  margin-left: 140vh;
 }
 button{
   font-family: 'gravityregular';
 }
-
+.merchtitle{
+  margin-left: 13vh;
+}
 .desc{
   margin-top:90%;
 }
@@ -1823,6 +1881,16 @@ button{
   
   .labelz{
     margin-left: 100px;
+  }
+
+  .testzzz{
+    
+      width: 70%;
+      height: 100%;
+     display: block;
+     margin-left: auto;
+     margin-right: auto;
+    
   }
 
   .aboutus{

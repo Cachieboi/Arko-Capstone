@@ -58,8 +58,11 @@
 <section id="overview" class="parallax-section">
 	<div class="container">
     <button *ngIf="events.length >0" class="btn success" (click)="openDialog8()">Calendar of Activities</button>
-		<div class="row">
+    <br>
+    <h2 class="labelzz"><i>Click the Buildings!</i></h2>
+    <div class="row">
 			<div class="wow fadeInUp col-md-6 col-sm-6" data-wow-delay="0.6s">
+        <h1 class="merchtitle">Merchandise</h1>
                 <carousel
 				class="teams"
 			[objectFit]="'cover'"
@@ -229,7 +232,7 @@
 
 <ng-template #callAPIDialog>
   <a href={{event1.eventLink}} target="_blank">
-  <img class="testzz" [src]="imageURLz+event1.PhotoFileName">
+  <img class="testzzz" [src]="imageURLz+event1.PhotoFileName">
   </a>
   <br>
   <br>
@@ -237,7 +240,7 @@
 </ng-template>
 <ng-template #callAPIDialog2>
   <a href={{event2.eventLink}} target="_blank">
-  <img class="testzz" [src]="imageURLz+event2.PhotoFileName">
+  <img class="testzzz" [src]="imageURLz+event2.PhotoFileName">
   </a>
   <br>
   <br>
@@ -245,7 +248,7 @@
 </ng-template>
 <ng-template #callAPIDialog3>
   <a href={{event3.eventLink}} target="_blank">
-  <img class="testzz" [src]="imageURLz+event3.PhotoFileName">
+  <img class="testzzz" [src]="imageURLz+event3.PhotoFileName">
   </a>
   <br>
   <br>
@@ -253,7 +256,7 @@
 </ng-template>
 <ng-template #callAPIDialog4>
   <a href={{event4.eventLink}} target="_blank">
-  <img class="testzz" [src]="imageURLz+event4.PhotoFileName">
+  <img class="testzzz" [src]="imageURLz+event4.PhotoFileName">
   </a>
   <br>
   <br>
@@ -261,7 +264,7 @@
 </ng-template>
 <ng-template #callAPIDialog5>
   <a href={{event5.eventLink}} target="_blank">
-  <img class="testzz" [src]="imageURLz+event5.PhotoFileName">
+  <img class="testzzz" [src]="imageURLz+event5.PhotoFileName">
   </a>
   <br>
   <br>
@@ -269,7 +272,7 @@
 </ng-template>
 <ng-template #callAPIDialog6>
   <a href={{event6.eventLink}} target="_blank">
-  <img class="testzz" [src]="imageURLz+event6.PhotoFileName">
+  <img class="testzzz" [src]="imageURLz+event6.PhotoFileName">
   </a>
   <br>
   <br>
@@ -277,7 +280,7 @@
 </ng-template>
 <ng-template #callAPIDialog7>
   <a href={{event7.eventLink}} target="_blank">
-  <img class="testzz" [src]="imageURLz+event7.PhotoFileName">
+  <img class="testzzz" [src]="imageURLz+event7.PhotoFileName">
   </a>
   <br>
   <br>
@@ -367,8 +370,8 @@
 	<div class="container">
 		<div class="row">
         <div class="showz">
-           <p> UAPSA's Showroom</p>
-           <button class="buttun" (click)="openDialogo()">UAPSA's Showroom!</button>
+           <p> UAPSA's Exhibit</p>
+           <button class="buttun" (click)="openDialogo()">UAPSA's Exhibit!</button>
           </div>
 			<div class="wow fadeInLeft col-md-4 col-sm-4" data-wow-delay="0.3s">
 				<carousel
@@ -433,7 +436,7 @@
     
   </form>
   <label class="labelz lbel">Haven't Registered yet?</label>
-  <button id="reg"(click)="openReg()">Register</button>
+  <button class="regzz"id="reg"(click)="openReg()">Register</button>
   </ng-template>
 
 <!-- =========================
@@ -538,7 +541,6 @@
 [loop]="true"
 [cellsToShow]="1"
 [cellsToScroll]="1"
-[arrowsOutside]="true"
 arrowsTheme="dark">
 <div class=" carousel-cell" *ngFor="let team of teams">
 	<img class="card-image" [src]="imageURL+team.PhotoFileName" alt="">
