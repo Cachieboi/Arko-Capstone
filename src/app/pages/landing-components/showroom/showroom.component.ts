@@ -57,7 +57,7 @@ export class ShowroomComponent implements OnInit {
       this.Shservice.GET_showroomsReadOnly().subscribe(data=>{
         this.showrooms=data;
         this.showrooms.reverse();
-        console.log(data);
+      
       });
     
     }
@@ -71,9 +71,9 @@ export class ShowroomComponent implements OnInit {
         if (result !== undefined) {
             if (result !== 'no') {
               const enabled = "Y"
-                console.log(result);
+              
             } else if (result === 'no') {
-               console.log('User clicked no.');
+             
             }
         }
     })
@@ -90,9 +90,9 @@ openReg(){
         if (result !== undefined) {
             if (result !== 'no') {
               const enabled = "Y"
-                console.log(result);
+               
             } else if (result === 'no') {
-               console.log('User clicked no.');
+              
             }
         }
     })
@@ -118,8 +118,7 @@ onSend(form: NgForm){
   const regisAccount = new regis(val.email, val.password);
   this.Shservice.regLogin(regisAccount).subscribe((results: any)=>{
     this._token = this.cookieService.set('mr-token', results.token);
-    console.log(results);
-    console.log('*********'+this._token);
+  
    this.dialog.closeAll();
     this.router.navigate(['Showroom-page']);
   },
@@ -137,13 +136,10 @@ onReg(form: NgForm){
     const newRegistrant = new RegisterUser(value.id, value.firstname, value.lastname,value.email,this.getRandomString(10));
     this.Shservice.registerShowroom(newRegistrant).subscribe(
       data => {
-        console.log(value.id);
-        console.log(value.firstname);
-        console.log(value.lastname);
-        console.log(this.getRandomString(10));
+      
         alert("Successfully Registered")
         alert("An Email will be sent to you containing your ticket")
-        console.log(data);
+        
       },
       error => {
         alert("There was an Error with Registering")

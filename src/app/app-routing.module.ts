@@ -46,6 +46,8 @@ import { AdminTeamsComponent } from "./pages/admin/admin-teams/admin-teams.compo
 import { AdminTeamsListComponent } from "./pages/admin/admin-teams/admin-teams-list/admin-teams-list.component";
 import { AdminTeamsAddComponent } from "./pages/admin/admin-teams/admin-teams-add/admin-teams-add.component";
 import { AdminTeamsEditComponent } from "./pages/admin/admin-teams/admin-teams-edit/admin-teams-edit.component";
+
+
 const appRoutes: Routes = [
     { path: '', 
     component: LandingComponentsComponent},
@@ -54,7 +56,9 @@ const appRoutes: Routes = [
     component: LoginComponent},
   
     { path: 'dashboard', 
-    component: AdminComponent, children:[
+    component: AdminComponent, 
+    canActivate: [RouteGuardGuard],
+    children:[
       {
         path: '',
         component: AdminProfileComponent
@@ -75,6 +79,7 @@ const appRoutes: Routes = [
       {
       path: 'account',
       component: AdminAccountsComponent, 
+      canActivateChild: [RouteGuardGuard],
       children:[
         {
           path: '',
@@ -96,7 +101,9 @@ const appRoutes: Routes = [
 
       {
         path: 'teams',
-        component: AdminTeamsComponent, children:[
+        component: AdminTeamsComponent, 
+        canActivateChild: [RouteGuardGuard],
+        children:[
           {
           path: '',
           component: AdminTeamsListComponent
@@ -129,7 +136,7 @@ const appRoutes: Routes = [
     ]
      },
 
-     {path: 'exhibit',
+     {path: 'showroom',
       component: AdminShowroomComponent, children:[
         {
           path:'',
@@ -186,7 +193,8 @@ const appRoutes: Routes = [
     },
 
     {path: 'registered',
-     component: AdminRegisteredComponent
+     component: AdminRegisteredComponent,
+     canActivateChild: [RouteGuardGuard],
     }
     
     ]},

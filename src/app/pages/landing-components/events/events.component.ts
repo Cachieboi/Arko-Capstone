@@ -70,7 +70,7 @@ export class EventsComponent implements OnInit {
   ngOnInit(): void {
     this.showMerchs();
     this.showEvents();
-    console.log(this.imageURLz+this.event1.PhotoFileName);
+ 
     
   }
   startDate: Date;
@@ -136,9 +136,9 @@ export class EventsComponent implements OnInit {
         if (result !== undefined) {
             if (result !== 'no') {
               const enabled = "Y"
-                console.log(result);
+              
             } else if (result === 'no') {
-               console.log('User clicked no.');
+            
             }
         }
     })
@@ -154,9 +154,9 @@ export class EventsComponent implements OnInit {
         if (result !== undefined) {
             if (result !== 'no') {
               const enabled = "Y"
-                console.log(result);
+              
             } else if (result === 'no') {
-               console.log('User clicked no.');
+               
             }
         }
     })
@@ -171,9 +171,9 @@ export class EventsComponent implements OnInit {
         if (result !== undefined) {
             if (result !== 'no') {
               const enabled = "Y"
-                console.log(result);
+              
             } else if (result === 'no') {
-               console.log('User clicked no.');
+               
             }
         }
     })
@@ -189,9 +189,9 @@ export class EventsComponent implements OnInit {
         if (result !== undefined) {
             if (result !== 'no') {
               const enabled = "Y"
-                console.log(result);
+              
             } else if (result === 'no') {
-               console.log('User clicked no.');
+              
             }
         }
     })
@@ -207,9 +207,9 @@ export class EventsComponent implements OnInit {
         if (result !== undefined) {
             if (result !== 'no') {
               const enabled = "Y"
-                console.log(result);
+              
             } else if (result === 'no') {
-               console.log('User clicked no.');
+             
             }
         }
     })
@@ -225,9 +225,9 @@ export class EventsComponent implements OnInit {
         if (result !== undefined) {
             if (result !== 'no') {
               const enabled = "Y"
-                console.log(result);
+               
             } else if (result === 'no') {
-               console.log('User clicked no.');
+               
             }
         }
     })
@@ -243,9 +243,9 @@ export class EventsComponent implements OnInit {
         if (result !== undefined) {
             if (result !== 'no') {
               const enabled = "Y"
-                console.log(result);
+               
             } else if (result === 'no') {
-               console.log('User clicked no.');
+              
             }
         }
     })
@@ -260,9 +260,9 @@ export class EventsComponent implements OnInit {
         if (result !== undefined) {
             if (result !== 'no') {
               const enabled = "Y"
-                console.log(result);
+               
             } else if (result === 'no') {
-               console.log('User clicked no.');
+               
             }
         }
     })
@@ -278,9 +278,9 @@ export class EventsComponent implements OnInit {
         if (result !== undefined) {
             if (result !== 'no') {
               const enabled = "Y"
-                console.log(result);
+               
             } else if (result === 'no') {
-               console.log('User clicked no.');
+           
             }
         }
     })

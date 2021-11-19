@@ -36,7 +36,7 @@ export class AdminArticlesEditComponent implements OnInit {
       this.desc = data.desc;
       this.content = data.content;
       this.PhotoFileName = this.Arservice.PhotoUrl+data.PhotoFileName;
-      console.log(data);
+   
     });
   }
 

@@ -32,7 +32,7 @@ export class AdminShowroomListComponent implements OnInit {
     this.shService.GET_showrooms().subscribe(data=>{
       this.showrooms=data;
       this.showrooms.reverse();
-      console.log(data);
+     
     });
   }
   deleteClick(showroom){

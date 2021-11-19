@@ -39,12 +39,12 @@ export class ApplicationComponent implements OnInit {
         topicsIntrested: value.topicsIntrested
       }
       this.fService.registerMember(val).subscribe((data=>{
-        console.log(data)
+       
         alert("Successfully Submitted your Application!")
         this.router.navigate(['']);
       }))
      
-    console.log()
+ 
   }
   }
 

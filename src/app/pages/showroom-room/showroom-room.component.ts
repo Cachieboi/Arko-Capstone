@@ -38,7 +38,7 @@ viewCount: number = 0;
       id: this.id,viewCount: this.thisShowroom.viewCount
     }
       this.shService.EDIT_showroom(val).subscribe((data)=>{
-        console.log(data);
+     
       });
   });
   this.main();

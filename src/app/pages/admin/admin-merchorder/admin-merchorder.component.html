@@ -24,6 +24,10 @@
           <div>
             <button mat-raised-button (click)="openDialog(order.id)">Order Details</button>  
             <ng-template #callAPIDialog>
+              <img class="centerz"src="https://uapsaust.com/assets/img/HEADER%20LOGO.png"><br><br>
+              Name: {{name}}<br>
+              Merch Name: {{merchName}}<br>
+              Quantity: {{quantity}}<br>
               Year: {{year}}<br>
               Section: {{section}}<br>
               Contact No.: {{contactNo}}<br>
@@ -41,8 +45,69 @@
           
         </table>
         <pagination-controls (pageChange)="p = $event" ></pagination-controls>
-        <button (click)="exportElmToExcel(orders)">Archive Merch Orders</button>
+        <button  mat-raised-button (click)="exportElmToExcel(orders)">Archive Merch Orders</button>
+        <button mat-raised-button (click)="openDialogz()">Applicants Report</button> 
     </div>
    
   </div>
   </body>
+
+  <ng-template #callAPIDialogz>
+    <table #userTable>
+      <tr>
+        <th>Name</th>
+        <th>Merch Name</th>
+        <th>Quantity</th>
+        <th>Year</th>
+        <th>Student No.</th>
+        <th>Studen Email</th>
+        <th>Contact No.</th>
+        <th>Section</th>
+        <th>Address</th>
+        <th>Price</th>
+        <th>Mode Of Payment</th>
+        <th>What kind of merchandise do you want next?</th>
+      </tr>
+      <tr
+      *ngFor = "let order of orders ">
+     <td>
+      {{order.name}}
+    </td>
+    <td>
+      {{order.merchName}}
+    </td>
+    <td>
+      {{order.quantity}}
+    </td>
+    <td>
+     {{order.year}}
+    </td>
+    <td>
+      {{order.studentNo}}
+     </td>
+     <td>
+      {{order.ustEmail}}
+     </td>
+     <td>
+      {{order.contactNo}}
+     </td>
+     <td>
+      {{order.year}}
+     </td>
+     <td>
+      {{order.address}}
+     </td>
+     <td>
+      {{order.price}}
+     </td>
+     <td>
+      {{order.modeOfPayment}}
+     </td>
+     <td>
+      {{order.whatMerchNext}}
+     </td>
+      </tr>
+      
+    </table>
+     
+  </ng-template>

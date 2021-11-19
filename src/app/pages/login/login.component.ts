@@ -33,6 +33,7 @@ export class LoginComponent implements OnInit {
   _id:any;
   _email: any;
   _is_superuser: any;
+  _is_author: any;
   _token: any;
   _lastname: any;
   _firstname: any;
@@ -50,13 +51,8 @@ export class LoginComponent implements OnInit {
         this._is_superuser = this.cookieService.set('is_superuser', result.is_superuser);
         this._lastname = this.cookieService.set('lastname',result.lastname);
         this._firstname=this.cookieService.set('firstname',result.firstname);
-        
-        console.log("******** id " + this._id);
-        console.log("******** email " + this._email);
-        console.log("******** is_superuser " + this._is_superuser);
-        console.log("****token " + this._token); 
-        console.log("******lastname "+this._lastname);
-        console.log("******lastname "+this._firstname)
+        this._is_author=this.cookieService.set('is_author',result.is_author);
+       
 
         this.router.navigate(['dashboard']); 
        

@@ -12,6 +12,12 @@ http://www.templatemo.com/tm-486-new-event
   
 }
 
+.tenks{
+  border-radius: 20px;
+}
+.merchzz{
+  width: 200vh;
+}
 
 .teams{
   z-index: 0;
@@ -856,6 +862,7 @@ height: 100vh;
   border: none;
   border-radius: 5px;
   cursor: pointer;
+  font-family: 'gravityregular';
   background-color: #ee9b00;
   color: #fff;
   }
@@ -949,7 +956,7 @@ main {
   margin: 0;
   border-radius: 10px;
   width: 100%;
-  height: 400px;
+  height: auto;
   box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.15);
   transition: all 0.3s linear 0s;
   overflow: hidden;
@@ -967,6 +974,7 @@ main {
   margin: auto;
   position: relative;
   overflow: hidden;
+  height: auto;
 }
 .thumbnail img {
   width: 120%;
@@ -1008,24 +1016,15 @@ main {
   padding-left: 30px;
   padding-right: 30px;
   transition: all 0.3s cubic-bezier(0.37, 0.75, 0.61, 1.05) 0s;
+  
 }
 .module:hover .content {
   height: 175px;
 }
 
-.content .category {
-  position: absolute;
-  top: -34px;
-  left: 0;
-  color: #fff;
-  text-transform: uppercase;
-  background: #ee9b00;
-  padding: 10px 15px;
-  font-weight: bold;
-}
 
-.caetgory{
-  font-family: 'grossregular';
+.category{
+  font-family: 'gravityregular';
 }
 .title {
   margin: 0;
@@ -1260,6 +1259,11 @@ h2 {
     font-size: xx-large;
   }
 
+  div.merchzz{
+    width:100%;
+    margin-top: 100px;
+  }
+
 
 }
 
@@ -1274,7 +1278,8 @@ h2 {
 }
 
 .labelzz{
-  margin-left: 140vh;
+  float: right;
+  margin-top: 10px;
   font-size: 13px;
   color: hsla(39, 100%, 50%, 0.8);
  }
@@ -1284,22 +1289,39 @@ h2 {
 }
 
 .btn {
-  border: 2px solid black;
-  border-radius: 10%;
+  
+  position: relative;
+  outline: none;
+  text-decoration: none;
+  border-radius: 50px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  text-transform: uppercase;
+  height: 60px;
+  width: 210px;
+  opacity: 1;
   background-color: transparent;
   color: black;
-  padding: 14px 28px;
-  font-size: 16px;
-  cursor: pointer;
-  display: block;
-  margin-left: 140vh;
+  border: 1px solid black;
+  float: right;
 }
+.btn:hover {
+  animation: rotate 0.7s ease-in-out both;
+  }
+  .btn:hover span {
+  animation: storm 0.7s ease-in-out both;
+  animation-delay: 0.06s;
+  }
 button{
   font-family: 'gravityregular';
 }
 .merchtitle{
-  margin-left: 13vh;
+  margin-left: 10vh;
 }
+
+
 .desc{
   margin-top:90%;
 }
@@ -1708,11 +1730,8 @@ button{
 }
 
 .showz{
-  margin-top: 150px;
-  vertical-align: middle;
-  display: inline-block;
-  width: 100vh;
-  bottom: 50vh;
+  float: right;
+  margin-top: 100px;
   
 }
 
@@ -1722,6 +1741,10 @@ button{
 
 .mat-tab-label .mat-tab-label-content{
   font-family: 'gravityregular';
+}
+
+.tonkss{
+  width: 600px;
 }
 
 .tonks {
@@ -1881,7 +1904,15 @@ button{
   
   .labelz{
     margin-left: 100px;
+    font-family: 'gravityregular';
   }
+
+  ng-template{
+    z-index: 1;
+  }
+
+ 
+
 
   .testzzz{
     
@@ -1905,6 +1936,87 @@ button{
     font-family: 'grossregular';
   }
 
+  .cardzimg {
+    max-width: 100%;
+    height: auto;
+    transition: transform 1s ease-out;
+  }
+  
+  /* Article card */
+  .articlezcard {
+    max-width: 350px;
+    height: auto;
+    margin: 100px auto;
+    background: #fff;
+    box-shadow: 0 0 10px 1px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease-out;
+    border-radius: 1em 1em 0.5em 0.5em;
+  }
+  .articlezcard:hover {
+    transform: scale(1.08);
+    box-shadow: 0 10px 10px rgba(0, 0, 0, 0.1);
+  }
+  .articlezcard:hover .articlezcardexcerpt{
+    height: 116px;
+    visibility: visible;
+  }
+  .articlezcard:hover .articlezcardthumbnail {
+    height: 170px;
+  }
+  .articlezcard:hover .articlezcardthumbnail img {
+    transform: scale(1.4);
+  }
+  .articlezcardthumbnail {
+    overflow: hidden;
+    height: auto;
+    transition: all 0.5s ease;
+    border-radius: 0.5em 0.5em 0 0;
+  }
+  .articlezcardthumbnail img {
+    transition: all 0.5s ease;
+  }
+  .articlezcardcontent {
+    padding: 30px;
+  }
+  .articlezcardtitle {
+    margin: 0;
+    font-size: 1.5em;
+    line-height: 1.3em;
+    margin-bottom: 10px;
+    font-family: 'grossregular';
+  }
+  .articlezcardmeta {
+    color: #fff;
+    background-color: #ee9b00;
+  }
+  .articlezcardmeta i {
+    margin-right: 5px;
+    display: inline-block;
+    font-size: 15px;
+  }
+  .articlezcardtimestamp {
+    display: inline-block;
+    margin-right: 15px;
+    font-family: 'gravityregular';
 
-
+  }
+  .articlezcardcomments{
+    font-family: 'gravityregular';
+  }
+  .articlezcardexcerpt {
+    height: 1px;
+    visibility: hidden;
+    overflow: hidden;
+    transition: all 0.3s ease;
+    font-family: 'gravityregular';
+  }
+  
+  .category {
+    display: inline-block;
+    float: right;
+    padding: 0 15px;
+    color: #FFF;
+    text-transform: uppercase;
+    background-color: darkorange;
+  }
 

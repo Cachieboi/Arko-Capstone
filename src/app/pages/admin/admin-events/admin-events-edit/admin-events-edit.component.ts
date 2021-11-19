@@ -29,7 +29,7 @@ export class AdminEventsEditComponent implements OnInit {
      this.PhotoFileName = this.eService.PhotoUrl+data.PhotoFileName;
      this.StartDate = data.StartDate;
      this.EndDate = data.EndDate;
-      console.log(data);
+     
   })
 }
 

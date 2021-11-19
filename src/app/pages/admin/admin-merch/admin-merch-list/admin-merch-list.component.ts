@@ -23,7 +23,7 @@ export class AdminMerchListComponent implements OnInit {
     this.Mservice.GET_merchs().subscribe(data=>{
       this.merchs=data;
       this.merchs.reverse();
-      console.log(data);
+     
     });
   }
 

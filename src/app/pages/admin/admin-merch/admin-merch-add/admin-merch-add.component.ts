@@ -34,10 +34,10 @@ export class AdminMerchAddComponent implements OnInit {
       const newMerch = new Merch(value.id,value.mname, value.price, value.desc, PhotoFileName );
       this.Mservice.registerMerch(newMerch).subscribe(
         data => {
-          console.log(data);
+         
           alert("Successfully Added")
           this.router.navigate(['dashboard/merchandise']);
-          console.log(new Date())
+         
         },
         error => {
           alert("There was an Error with Adding an Merchandise")

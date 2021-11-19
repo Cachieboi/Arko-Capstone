@@ -21,7 +21,8 @@ export class AdminMerchorderComponent implements OnInit {
   ngOnInit(): void {
     this.showOrder();
   }
-  @ViewChild('callAPIDialog') callAPIDialog: TemplateRef<any>; 
+  @ViewChild('callAPIDialog') callAPIDialog: TemplateRef<any>;
+  @ViewChild('callAPIDialogz') callAPIDialogz: TemplateRef<any>;  
   p: number = 1;
   orders: order[] = [];
   id: number;
@@ -60,9 +61,15 @@ studentNo: String;
 modeOfPayment: String;
 whatMerchNext: String;
 price: number
+name: String;
+merchName: String;
+quantity: Number;
 
 openDialog(id: Number) {
   this.fService.GET_Order(id).subscribe((data=>{
+    this.name = data.name;
+    this.merchName = data.merchName;
+    this.quantity = data.quantity;
     this.year = data.year;
     this.section = data.section;
     this.contactNo = data.contactNo;
@@ -80,9 +87,30 @@ openDialog(id: Number) {
       if (result !== undefined) {
           if (result !== 'no') {
             const enabled = "Y"
-              console.log(result);
+             
           } else if (result === 'no') {
-             console.log('User clicked no.');
+            
+          }
+      }
+  })
+}
+
+openDialogz() {
+  this.fService.GET_Orders().subscribe((data=>{
+   this.orders = data.reverse();
+  }))
+  let dialogRef = this.dialog.open(this.callAPIDialogz,{
+    width: '1500px',
+    height: '500px'
+
+  });
+  dialogRef.afterClosed().subscribe(result => {
+      if (result !== undefined) {
+          if (result !== 'no') {
+            const enabled = "Y"
+             
+          } else if (result === 'no') {
+            
           }
       }
   })

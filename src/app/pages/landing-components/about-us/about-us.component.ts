@@ -52,9 +52,9 @@ export class AboutUsComponent implements OnInit {
         if (result !== undefined) {
             if (result !== 'no') {
               const enabled = "Y"
-                console.log(result);
+           
             } else if (result === 'no') {
-               console.log('User clicked no.');
+        
             }
         }
     })

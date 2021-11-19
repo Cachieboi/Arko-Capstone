@@ -30,7 +30,7 @@ showShowrooms(){
   this.shService.GET_showroomsReadOnly().subscribe(data=>{
     this.showrooms=data;
     this.showrooms.reverse();
-    console.log(data);
+
   });
 
 }
@@ -50,8 +50,7 @@ testFunc(e){
     this.showrooms=data.reverse().filter(data =>{
     return data.category == this.ari;  
     });
-    console.log(data);
-    console.log(this.ari);
+   
   });
 }
 
@@ -60,8 +59,7 @@ testFunc2(e){
     this.showrooms=data.reverse().filter(data =>{
     return data.category == this.cali;  
     });
-    console.log(data);
-    console.log(this.cali);
+
   });
 }
 
@@ -70,8 +68,7 @@ testFunc3(e){
     this.showrooms=data.reverse().filter(data =>{
     return data.category == this.nyc;  
     });
-    console.log(data);
-    console.log(this.nyc);
+   
   });
 }
 

@@ -29,7 +29,7 @@ export class ArticleComponent implements OnInit {
     this.title = this.route.snapshot.params['title'];
     this.Arservice.GET_articleReadOnly(this.id).subscribe((data)=>{
     this.thisArticle = data
-    console.log(data);
+
     this.thisArticle.viewCount++
   var val = {
     id: this.id,viewCount: this.thisArticle.viewCount

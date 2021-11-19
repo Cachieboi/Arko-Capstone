@@ -30,17 +30,17 @@ id: number;
       this.Arservice.GET_articlesReadOnly().subscribe(data=>{
         this.articles=data;
         this.articles.reverse();
-        console.log(this.articles)
+        
         for(var i = 0; i <= this.articles.length; ++i){
           if(this.articles[i].is_approved == false){
             this.articles.splice(i,1);
-            console.log(this.articles[i])
+            
             
           }
           for(var i = 0; i <= this.articles.length; ++i){
             if(this.articles[i].is_approved == false){
               this.articles.splice(i,1);
-              console.log(this.articles[i])
+             
               
             }
             

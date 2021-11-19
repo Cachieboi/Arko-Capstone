@@ -38,7 +38,7 @@ export class AdminAccountsListComponent implements OnInit {
           this.accountList.push(this.accounts[i]);
         }
       }
-       console.log(data);
+    
      });
    }
    

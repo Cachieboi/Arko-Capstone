@@ -1,4 +1,4 @@
-import { Component, OnInit, ViewChild, ElementRef } from '@angular/core';
+import { Component, OnInit, ViewChild, ElementRef, TemplateRef } from '@angular/core';
 import {ModalDismissReasons, NgbModal} from '@ng-bootstrap/ng-bootstrap';
 import { ShowroomService } from 'src/app/shares/services/Showroom.service';
 import { ArchivingService } from 'src/app/shares/services/Archiving.service';
@@ -6,7 +6,7 @@ import { DatePipe } from '@angular/common';
 import { analyzeAndValidateNgModules } from '@angular/compiler';
 import { registrantint } from 'src/app/shares/models/registrantint.mode';
 import { textChangeRangeIsUnchanged } from 'typescript';
-
+import {MatDialog} from '@angular/material/dialog';
 
 @Component({
   selector: 'app-admin-registered',
@@ -15,8 +15,8 @@ import { textChangeRangeIsUnchanged } from 'typescript';
 })
 export class AdminRegisteredComponent implements OnInit {
   @ViewChild('userTable') userTable: ElementRef;
-
-  constructor(private shService: ShowroomService, private archService: ArchivingService, public datepipe: DatePipe) {}
+  @ViewChild('callAPIDialogz') callAPIDialogz: TemplateRef<any>; 
+  constructor(private shService: ShowroomService, private archService: ArchivingService, public datepipe: DatePipe, public dialog: MatDialog) {}
   registrant: registrantint[] = []; 
   arrayTest: registrantint[] = [];
   p: number = 1;
@@ -41,14 +41,14 @@ export class AdminRegisteredComponent implements OnInit {
     this.registrant = data.reverse();
     for(var i = 0; i <= this.registrant.length; i++){
       if(this.registrant[i].is_author == false && this.registrant[i].is_superuser==false){
-        console.log(this.registrant[i]);
+        
         this.arrayTest.push(this.registrant[i]);
       }
     }
     });
   }
   exportElmToExcel(registrant): void {
-    console.log(this.registrantLength)
+   
     if(confirm('Are you sure??')){
     this.archService.exportAsExcelFile(this.arrayTest, this.finalTitle);
     this.archiveRegistrants(registrant);
@@ -66,6 +66,24 @@ archiveRegistrants(registrant){
     }
  
     });
+}
+
+openDialogz() {
+  let dialogRef = this.dialog.open(this.callAPIDialogz,{
+    width: '1500px',
+    height: '500px'
+
+  });
+  dialogRef.afterClosed().subscribe(result => {
+      if (result !== undefined) {
+          if (result !== 'no') {
+            const enabled = "Y"
+             
+          } else if (result === 'no') {
+             
+          }
+      }
+  })
 }
 
 }

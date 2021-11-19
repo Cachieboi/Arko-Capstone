@@ -29,7 +29,6 @@ export class AdminAccountsAddComponent implements OnInit {
     const newAccount = new Useraccount(value.id, value.lastname,value.firstname, value.email, pass, PhotoFileName );
     this.Aservice.registerUser(newAccount).subscribe(
       data => {
-        console.log(data);
         alert("Successfully Added")
         this.router.navigate(['dashboard/account']);
       },

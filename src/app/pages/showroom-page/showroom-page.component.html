@@ -13,12 +13,13 @@
 
 
 
-<div *ngFor="let showroom of showrooms | paginate: { itemsPerPage: 3, currentPage: p } let i = index " >
-  <a [routerLink]="['/Showroom', showroom.id, showroom.Title]">
+<div>
+
+ 
 
 
+<div class="content-wrapper" *ngFor="let showroom of showrooms | paginate: { itemsPerPage: 3, currentPage: p } let i = index ">
 
-<div class="content-wrapper">
   <div class="news-card">
     <a href="#" class="news-cardcard-link"></a>
     <img [src]="imageURL + showroom.PhotoFileName" alt="" class="news-cardimage">
@@ -26,20 +27,13 @@
       <h2 class="news-cardtitle">{{showroom.Title}}</h2>
       <p class="news-cardexcerpt">Made By: {{showroom.AuthorName}}</p>
       <div class="news-carddetails-wrapper">
-        <div class="news-cardpost-date">Jan 29, 2018</div>
+        <div class="news-cardpost-date">{{showroom.StartDate | date: 'MMMM dd YYYY'}}</div>
       </div>
     </div>
   </div>
 </div>
 
 
-
-
-
-
-
-
-</a>
 </div>
 
 <pagination-controls class="down" (pageChange)="p = $event"></pagination-controls>

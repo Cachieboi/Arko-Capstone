@@ -27,7 +27,7 @@ export class AdminMerchEditComponent implements OnInit {
       this.price = data.price;
       this.desc = data.desc
      this.PhotoFileName = this.Mservice.PhotoUrl+data.PhotoFileName;
-      console.log(data);
+     
   });
 
   }

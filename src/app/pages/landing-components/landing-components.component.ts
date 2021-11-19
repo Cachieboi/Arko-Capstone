@@ -17,6 +17,7 @@ import { NgForm } from '@angular/forms';
 import { RegisterUser } from 'src/app/shares/models/RegisterUser.model';
 import { regis } from 'src/app/shares/models/regis.model';
 import {CookieService} from 'ngx-cookie-service';
+import { AccountService } from 'src/app/shares/services/Account.service';
 
 
 @Component({
@@ -34,7 +35,8 @@ export class LandingComponentsComponent implements OnInit {
     private Arservice: ArticleService,
     private tService: TeamsService,
     public dialog: MatDialog,
-    private cookieService: CookieService) { }
+    private cookieService: CookieService,
+    private Aservice : AccountService) { }
     imageURLz = this.Eservice.PhotoUrl
     todaysDate: Date = new Date();
   events: eventint[] = [];
@@ -83,10 +85,10 @@ export class LandingComponentsComponent implements OnInit {
   test =[];
  
   onSwiper(swiper) {
-    console.log(swiper);
+  
   }
   onSlideChange() {
-    console.log('slide change');
+  
   }
 
 showEvents(){
@@ -114,7 +116,7 @@ showrooms: showroom[] = [];
       this.Shservice.GET_showroomsReadOnly().subscribe(data=>{
         this.showrooms=data;
         this.showrooms.reverse();
-        console.log(data);
+    
       });
     
     }
@@ -131,20 +133,20 @@ showrooms: showroom[] = [];
         for(var i = 0; i <= this.articles.length; ++i){
           if(this.articles[i].is_approved == false){
             this.articles.splice(i,1);
-            console.log(this.articles[i])
+          
             
           }
           for(var i = 0; i <= this.articles.length; ++i){
             if(this.articles[i].is_approved == false){
               this.articles.splice(i,1);
-              console.log(this.articles[i])
+              
               
             }
             
           }
         }
       });
-      console.log(this.articles.length);
+  
     }
 
   teams: Teams[] = [];
@@ -165,9 +167,9 @@ showrooms: showroom[] = [];
         if (result !== undefined) {
             if (result !== 'no') {
               const enabled = "Y"
-                console.log(result);
+       
             } else if (result === 'no') {
-               console.log('User clicked no.');
+             
             }
         }
     })
@@ -187,9 +189,9 @@ showrooms: showroom[] = [];
         if (result !== undefined) {
             if (result !== 'no') {
               const enabled = "Y"
-                console.log(result);
+           
             } else if (result === 'no') {
-               console.log('User clicked no.');
+       
             }
         }
     })
@@ -204,9 +206,9 @@ showrooms: showroom[] = [];
         if (result !== undefined) {
             if (result !== 'no') {
               const enabled = "Y"
-                console.log(result);
+           
             } else if (result === 'no') {
-               console.log('User clicked no.');
+             
             }
         }
     })
@@ -222,9 +224,9 @@ showrooms: showroom[] = [];
         if (result !== undefined) {
             if (result !== 'no') {
               const enabled = "Y"
-                console.log(result);
+         
             } else if (result === 'no') {
-               console.log('User clicked no.');
+            
             }
         }
     })
@@ -240,9 +242,9 @@ showrooms: showroom[] = [];
         if (result !== undefined) {
             if (result !== 'no') {
               const enabled = "Y"
-                console.log(result);
+ 
             } else if (result === 'no') {
-               console.log('User clicked no.');
+            
             }
         }
     })
@@ -258,9 +260,9 @@ showrooms: showroom[] = [];
         if (result !== undefined) {
             if (result !== 'no') {
               const enabled = "Y"
-                console.log(result);
+        
             } else if (result === 'no') {
-               console.log('User clicked no.');
+            
             }
         }
     })
@@ -276,9 +278,9 @@ showrooms: showroom[] = [];
         if (result !== undefined) {
             if (result !== 'no') {
               const enabled = "Y"
-                console.log(result);
+         
             } else if (result === 'no') {
-               console.log('User clicked no.');
+            
             }
         }
     })
@@ -293,9 +295,9 @@ showrooms: showroom[] = [];
         if (result !== undefined) {
             if (result !== 'no') {
               const enabled = "Y"
-                console.log(result);
+
             } else if (result === 'no') {
-               console.log('User clicked no.');
+               
             }
         }
     })
@@ -310,9 +312,9 @@ showrooms: showroom[] = [];
         if (result !== undefined) {
             if (result !== 'no') {
               const enabled = "Y"
-                console.log(result);
+         
             } else if (result === 'no') {
-               console.log('User clicked no.');
+           
             }
         }
     })
@@ -327,9 +329,9 @@ showrooms: showroom[] = [];
         if (result !== undefined) {
             if (result !== 'no') {
               const enabled = "Y"
-                console.log(result);
+          
             } else if (result === 'no') {
-               console.log('User clicked no.');
+              
             }
         }
     })
@@ -346,9 +348,9 @@ openReg(){
         if (result !== undefined) {
             if (result !== 'no') {
               const enabled = "Y"
-                console.log(result);
+        
             } else if (result === 'no') {
-               console.log('User clicked no.');
+            
             }
         }
     })
@@ -370,8 +372,7 @@ onSend(form: NgForm){
   const regisAccount = new regis(val.email, val.password);
   this.Shservice.regLogin(regisAccount).subscribe((results: any)=>{
     this._token = this.cookieService.set('mr-token', results.token);
-    console.log(results);
-    console.log('*********'+this._token);
+
    this.dialog.closeAll();
     this.router.navigate(['Showroom-page']);
   },
@@ -381,28 +382,23 @@ onSend(form: NgForm){
 
 }
 
-
+accounts: any[] = []; 
 onReg(form: NgForm){
-  
+  this.Aservice.GET_accounts().subscribe(data=>{
+    this.accounts=data.reverse();
+  });
   if(confirm("Are you Sure you with your Input?")){
     const value = form.value;
     const newRegistrant = new RegisterUser(value.id, value.firstname, value.lastname,value.email,this.getRandomString(10));
     this.Shservice.registerShowroom(newRegistrant).subscribe(
       data => {
-        console.log(value.id);
-        console.log(value.firstname);
-        console.log(value.lastname);
-        console.log(this.getRandomString(10));
-        alert("Successfully Registered")
-        alert("An Email will be sent to you containing your ticket")
-        console.log(data);
+       
+        alert(data.toString());
+    
       },
-      error => {
-        alert("There was an Error with Registering")
-      }
        
       );
-    }
+  }
 }
 
 openDialog8() {
@@ -415,9 +411,9 @@ openDialog8() {
       if (result !== undefined) {
           if (result !== 'no') {
             const enabled = "Y"
-              console.log(result);
+            
           } else if (result === 'no') {
-             console.log('User clicked no.');
+             
           }
       }
   })

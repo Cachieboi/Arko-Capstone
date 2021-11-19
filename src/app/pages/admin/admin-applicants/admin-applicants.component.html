@@ -24,7 +24,13 @@
         <td>
           <div>
             <button mat-raised-button (click)="openDialog(applicant.id)">Applicant Details</button>  
+            
             <ng-template #callAPIDialog>
+              <img class="centerz" src="https://uapsaust.com/assets/img/HEADER%20LOGO.png"><br><br>
+
+              Full Name: {{name}}<br>
+              Ust Email: {{email}}<br>
+              Student No.: {{studentNo}}<br>
               Year: {{year}}<br>
               Section: {{section}}<br>
               Sex: {{sex}}<br>
@@ -48,8 +54,77 @@
         </table>
         <pagination-controls (pageChange)="p = $event" ></pagination-controls>
         <button (click)="exportElmToExcel(applicants)">Archive Applicants</button>
-        
+        <button mat-raised-button (click)="openDialogz()">Applicants Report</button> 
     </div>
    
   </div>
 </body>
+
+
+<ng-template #callAPIDialogz>
+  <table #userTable>
+    <tr>
+      <th>Name</th>
+      <th>UST Email</th>
+      <th>UST Student No.</th>
+      <th>Year Level</th>
+      <th>Sex</th>
+      <th>Section</th>
+      <th>Birthday</th>
+      <th>Member Status</th>
+      <th>Contact No.</th>
+      <th>Address</th>
+      <th>Facebook Link</th>
+      <th>What are you looking forward to in UAPSA?</th>
+      <th>If given the chance, what type of events would you create for UAPSA - UST? Share us your innovative ideas!</th>
+      <th>What topics are you interested for us to cover in our online webinars and talks?</th>
+    </tr>
+    <tr
+    *ngFor = "let applicant of applicants">
+   <td>
+     {{applicant.name}}
+  </td>
+  <td>
+    {{applicant.ustEmail}}
+  </td>
+  <td>
+    {{applicant.studentNo}}
+  </td>
+  <td>
+    {{applicant.year}}
+  </td>
+  <td>
+    {{applicant.sex}}
+  </td>
+  <td>
+    {{applicant.section}}
+  </td>
+  <td>
+    {{applicant.birthDate}}
+  </td>
+  <td>
+    {{applicant.membershipStatus}}
+  </td>
+  <td>
+    {{applicant.contact}}
+  </td>
+  <td>
+    {{applicant.address}}
+  </td>
+  <td>
+    {{applicant.facebookLink}}
+  </td>
+  <td>
+    {{applicant.lookingForward}}
+  </td>
+  <td>
+    {{applicant.typeOfEvents}}
+  </td>
+  <td>
+    {{applicant.topicsIntrested}}
+  </td>
+    </tr>
+    
+  </table>
+   
+</ng-template>

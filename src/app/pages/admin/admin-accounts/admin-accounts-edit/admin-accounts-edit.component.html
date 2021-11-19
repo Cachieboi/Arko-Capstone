@@ -3,7 +3,7 @@
     <div class="main">
       <h3>Edit Account</h3>
       <div>
-        <label>First Name</label>
+        <label>First Name</label><br>
         <input 
         type = "text"
         id = "firstname"
@@ -12,7 +12,7 @@
         >           
       </div>
         <div>
-          <label>Last Name</label>
+          <label>Last Name</label><br>
           <input 
           type = "text"
           id = "lastname"
@@ -21,7 +21,7 @@
           >           
         </div>
         <div>
-          <label>Email</label>
+          <label>Email</label><br>
           <input 
           type = "text"
           id = "email"
@@ -46,7 +46,7 @@
           id = "PhotoFileName"
           class="PhotoFileName"
           (change)="uploadPhoto($event)">
-        </div>
+        </div><br>
         <button class="submit"(click)="editAccounts()">Submit</button>
       
     </div>

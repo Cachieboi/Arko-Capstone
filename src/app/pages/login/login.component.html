@@ -16,6 +16,7 @@
 		required
 		email
 		#email = "ngModel"
+		pattern=".+@ust.edu.ph"
 		>
 		<span class ="help-block" *ngIf="!email.valid && email.touched" >UST Email</span>
 	  </div>
@@ -36,7 +37,7 @@
 		  ><span class="lbel">Login</span></button>
 			</div>
 			<br>
-			<a href="https://arkoust-uapsa.xyz/api/Accounts/forget-password/" class="lbel"> Forgot Password?</a>
+			<a href="https://uapsaust.com/api/Accounts/forget-password/" class="lbel"> Forgot Password?</a>
 	  </form>
 	</div>
   </div>

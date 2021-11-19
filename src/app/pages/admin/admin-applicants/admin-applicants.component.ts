@@ -23,6 +23,8 @@ export class AdminApplicantsComponent implements OnInit {
 
   }
   @ViewChild('callAPIDialog') callAPIDialog: TemplateRef<any>; 
+  @ViewChild('callAPIDialogz') callAPIDialogz: TemplateRef<any>; 
+
   p: number = 1;
   applicants: applicant[] = [];
   id: number;
@@ -55,8 +57,11 @@ export class AdminApplicantsComponent implements OnInit {
   
   }
 }
-
+members: [];
 year:String;
+name: String;
+email: String;
+studentNo: String;
 section: String;
 sex: String;
 birthDate: Date;
@@ -70,6 +75,9 @@ typeOfEvents: String;
 topicsIntrested: String
 openDialog(id: Number) {
   this.fService.GET_member(id).subscribe((data=>{
+    this.name = data.name;
+    this.email = data.ustEmail;
+    this.studentNo = data.studentNo;
     this.year = data.year;
     this.section = data.section;
     this.sex = data.sex;
@@ -91,9 +99,30 @@ openDialog(id: Number) {
       if (result !== undefined) {
           if (result !== 'no') {
             const enabled = "Y"
-              console.log(result);
+            
           } else if (result === 'no') {
-             console.log('User clicked no.');
+            
+          }
+      }
+  })
+}
+
+openDialogz() {
+  this.fService.GET_members().subscribe((data=>{
+   this.applicants = data
+  }))
+  let dialogRef = this.dialog.open(this.callAPIDialogz,{
+    width: '1500px',
+    height: '500px'
+
+  });
+  dialogRef.afterClosed().subscribe(result => {
+      if (result !== undefined) {
+          if (result !== 'no') {
+            const enabled = "Y"
+             
+          } else if (result === 'no') {
+             
           }
       }
   })

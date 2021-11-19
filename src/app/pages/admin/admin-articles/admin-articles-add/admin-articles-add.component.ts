@@ -38,9 +38,7 @@ export class AdminArticlesAddComponent implements OnInit {
     const newArticle = new Article(value.id,value.title, value.desc, value.content, PhotoFileName,AuthorName,dateCreated, this.viewCount,AuthorName,is_approved);
     this.Arservice.registerArticle(newArticle).subscribe(
       data => {
-        console.log(data);
-        console.log(this.AuthorName);
-        console.log(this.dateCreated);
+      
         alert("Successfully Added")
         this.router.navigate(['dashboard/articles']);
       },

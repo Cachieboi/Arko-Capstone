@@ -40,13 +40,13 @@ export class AdminShowroomEditComponent implements OnInit {
       this.StartDate = data.StartDate;
       this.EndDate = data.EndDate;
       this.category = data.category;
-      console.log(this.category);
+   
     });
   }
   onChange(e){
     
     this.category = e;
-    console.log(this.category);
+    
 
   }
 

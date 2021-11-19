@@ -34,11 +34,13 @@ export class AdminArticlesListComponent implements OnInit {
    
   }
   @ViewChild('callAPIDialog') callAPIDialog: TemplateRef<any>; 
+  @ViewChild('callAPIDialogz') callAPIDialogz: TemplateRef<any>; 
+
   showArticles(){
     this.Arservice.GET_articles().subscribe(data=>{
       this.articles=data;
       this.articles.reverse();
-      console.log(data);
+      
     });
   }
 
@@ -59,13 +61,13 @@ export class AdminArticlesListComponent implements OnInit {
   onChange(ob: MatCheckboxChange, id: number){
     if(ob.checked){
       this.Arservice.GET_article(id).subscribe((data=>{
-        console.log('This is checked',id);
+      
         this.is_approved = true
         var val = {
           id:id, is_approved: this.is_approved
         }
         this.Arservice.EDIT_article(val).subscribe((data=>{
-          console.log(data)
+        
           if(this.is_approved=true){
             
           }
@@ -74,19 +76,19 @@ export class AdminArticlesListComponent implements OnInit {
       
     }else{
       this.Arservice.GET_article(id).subscribe((data=>{
-        console.log('This is unchecked',id);
+       
         this.is_approved = false
         var val = {
           id:id, is_approved: this.is_approved
         }
         this.Arservice.EDIT_article(val).subscribe((data=>{
-          console.log(data)
+         
           if(this.is_approved=false){
             
           }
         }))
       })) 
-      console.log('Not Checked')
+      
     }
   }
   content: String;
@@ -95,7 +97,7 @@ export class AdminArticlesListComponent implements OnInit {
     this.Arservice.GET_article(id).subscribe((data=>{
       this.content = data.content
     }))
-    let dialogRef = this.dialog.open(this.callAPIDialog,{
+    let dialogRef = this.dialog.open(this.callAPIDialogz,{
       width: '400px',
 
     });
@@ -103,9 +105,9 @@ export class AdminArticlesListComponent implements OnInit {
         if (result !== undefined) {
             if (result !== 'no') {
               const enabled = "Y"
-                console.log(result);
+               
             } else if (result === 'no') {
-               console.log('User clicked no.');
+               
             }
         }
     })

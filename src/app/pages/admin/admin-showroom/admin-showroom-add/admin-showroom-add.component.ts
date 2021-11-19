@@ -43,7 +43,7 @@ export class AdminShowroomAddComponent implements OnInit {
         value.states.name);
       this.shService.addShowroom(newShowroom).subscribe(
         data => {
-          console.log(data);
+          
           alert("Successfully Added")
           this.router.navigate(['dashboard/exhibit']);
         },
@@ -52,7 +52,7 @@ export class AdminShowroomAddComponent implements OnInit {
         }
          
         );
-        console.log(value.states);
+        
       }
     }
 

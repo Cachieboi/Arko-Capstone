@@ -50,7 +50,7 @@ export class MerchappComponent implements OnInit {
       this.price = data.price;
       this.desc = data.desc
      this.PhotoFileName = this.Mservice.PhotoUrl+data.PhotoFileName;
-      console.log(data);
+
   });
   }
   final: number;
@@ -67,7 +67,7 @@ export class MerchappComponent implements OnInit {
       this.fService.registerOrder(val).subscribe((data=>{
         alert("Successfully Submitted your Order!")
         this.route.navigate(['']);
-         console.log(data);
+      
       }))
      
     }

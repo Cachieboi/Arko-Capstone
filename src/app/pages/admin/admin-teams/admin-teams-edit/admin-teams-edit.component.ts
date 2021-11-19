@@ -21,7 +21,7 @@ export class AdminTeamsEditComponent implements OnInit {
       this.description=data.description;
       this.PhotoFileName = this.tService.PhotoUrl+data.PhotoFileName;
       this.position=data.position;
-      console.log(data)
+      
     })
   }
   yearLevel = [
@@ -42,7 +42,7 @@ export class AdminTeamsEditComponent implements OnInit {
   photoUpload = true;
 
   onChange(e){
-    console.log(e);
+   
     this.year = e;
   }
 
@@ -64,7 +64,7 @@ export class AdminTeamsEditComponent implements OnInit {
         this.tService.EDIT_Team(val).subscribe(res=>{
           alert("The Team Member has been Successfully Updated!");
           this.route.navigate(['dashboard/teams']);
-          console.log(val)
+          
         });
       }
   }

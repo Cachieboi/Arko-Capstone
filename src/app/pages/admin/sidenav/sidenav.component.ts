@@ -54,11 +54,11 @@ export class SidenavComponent implements OnInit {
       this.cookieService.delete('email');
       this.cookieService.delete('is_superuser');
       this.cookieService.delete('mr-token');
+      this.cookieService.delete('is_author');
+      this.cookieService.delete('firstname');
+      this.cookieService.delete('lastname');
       this.router.navigate([''])
-      console.log('id');
-      console.log('email');
-      console.log('is_superuser');
-      console.log('mr-token');
+     
       this.router.navigate(['login']);
   }
   

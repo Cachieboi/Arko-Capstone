@@ -33,7 +33,7 @@ export class AdminAccountsEditComponent implements OnInit {
       this.email = data.email;
       this.firstname = data.firstname;
       this.PhotoFileName = this.Aservice.PhotoUrl+data.PhotoFileName;
-      console.log(data);
+     
     });
     
   }

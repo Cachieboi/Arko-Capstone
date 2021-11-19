@@ -3,7 +3,7 @@
     <div class="main">
       <h3>Edit Showroom</h3>
         <div>
-          <label>Showroom Title</label>
+          <label>Showroom Title</label><br>
           <input 
           type = "text"
           id = "Title"
@@ -12,7 +12,7 @@
           >
         </div>
         <div>
-          <label>Author Name</label>
+          <label>Author Name</label><br>
           <input 
           type = "text"
           id = "AuthorName"
@@ -46,7 +46,8 @@
           class="PhotoFileName"
           (change)="uploadPhoto($event)">
         </div>
-        <div>
+        <div><br>
+          <label>Start Date -  End Date</label><br>
           <mat-form-field appearance="fill">
             <mat-label>Enter a date range</mat-label>
             <mat-date-range-input [rangePicker]="picker">
@@ -70,13 +71,15 @@
           [(ngModel)] = "category">
            
                 -->
+          <label>Category</label><br>
           <select [(ngModel)]="category" (ngModelChange)="onChange($event)">
+            <option value="" disabled>Choose a Category</option>
             <option *ngFor="let state of states" [ngValue]="state.name">
               {{ state.name }}
             </option>
           </select>
     
-        </div>
+        </div><br>
         <button class="submit"(click)="editShowroom()">Submit</button>
     </div>
     </div>

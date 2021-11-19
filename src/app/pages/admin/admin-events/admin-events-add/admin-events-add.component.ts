@@ -40,7 +40,7 @@ export class AdminEventsAddComponent implements OnInit {
       const newEvent = new Event(value.id,value.eventName,value.eventLink,PhotoFileName,value.StartDate,value.EndDate);
       this.eService.registerEvent(newEvent).subscribe(
         data => {
-          console.log(data);
+          
           alert("Successfully Added")
           this.router.navigate(['dashboard/events']);
         },

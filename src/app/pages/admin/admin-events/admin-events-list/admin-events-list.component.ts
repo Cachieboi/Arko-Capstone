@@ -23,7 +23,7 @@ export class AdminEventsListComponent implements OnInit {
     this.eService.GET_events().subscribe(data=>{
       this.Events=data;
       this.Events.reverse();
-      console.log(data);
+
     });
   }
 

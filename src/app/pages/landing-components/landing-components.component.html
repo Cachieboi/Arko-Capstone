@@ -38,7 +38,7 @@
 				[arrows]="false"
 				>
 				<div class=" carousel-cell" *ngFor="let event of events ">
-						<img [src]="imageURL+event.PhotoFileName" alt="">
+						<img [src]="imageURL+event.PhotoFileName" class="tenks" alt="">
 					
 					</div>
 					</carousel>
@@ -59,9 +59,9 @@
 	<div class="container">
     <button *ngIf="events.length >0" class="btn success" (click)="openDialog8()">Calendar of Activities</button>
     <br>
-    <h2 class="labelzz"><i>Click the Buildings!</i></h2>
-    <div class="row">
-			<div class="wow fadeInUp col-md-6 col-sm-6" data-wow-delay="0.6s">
+    
+   <div class="row">
+			<div class="wow fadeInUp col-md-6 " data-wow-delay="0.6s">
         <h1 class="merchtitle">Merchandise</h1>
                 <carousel
 				class="teams"
@@ -84,6 +84,7 @@
                 </carousel>
 			</div>
 			<div class="wow fadeInUp col-md-6" data-wow-delay="1.6s">
+        <h2 class="labelzz"><i>Click the Buildings!</i></h2>
 				<div class="responsive">
 					<img class="tester"src="../../../assets/img/roadmap.png" alt="" />
 
@@ -104,7 +105,7 @@
 
              <!-- Pin 2-->
 					<div *ngIf = "event2 != undefined || event2 != null">
-            <button id="pin-1" class="box2" (click)="openDialog2()"
+            <button id="pin-2" class="box2" (click)="openDialog2()"
             *ngIf = "(((todaysDate|date:'MM/dd/yy' )>=( event2.StartDate | date: 'MM/dd/yy' )
             && (todaysDate|date:'MM/dd/yy')<=(event2.EndDate | date: 'MM/dd/yy')))">
             </button>
@@ -119,7 +120,7 @@
 
                <!-- Pin 3-->
 					<div *ngIf = "event3 != undefined || event3 != null">
-            <button id="pin-1" class="box3" (click)="openDialog3()"
+            <button id="pin-3" class="box3" (click)="openDialog3()"
             *ngIf = "(((todaysDate|date:'MM/dd/yy' )>=( event3.StartDate | date: 'MM/dd/yy' )
             && (todaysDate|date:'MM/dd/yy')<=(event3.EndDate | date: 'MM/dd/yy')))">
             </button>
@@ -134,7 +135,7 @@
 
               <!-- Pin 4-->
 					<div *ngIf = "event4 != undefined || event4 != null">
-            <button id="pin-1" class="box4" (click)="openDialog4()"
+            <button id="pin-4" class="box4" (click)="openDialog4()"
             *ngIf = "(((todaysDate|date:'MM/dd/yy' )>=( event4.StartDate | date: 'MM/dd/yy' )
             && (todaysDate|date:'MM/dd/yy')<=(event4.EndDate | date: 'MM/dd/yy')))">
             </button>
@@ -149,7 +150,7 @@
 
                 <!-- Pin 5-->
 					<div *ngIf = "event5 != undefined || event5 != null">
-            <button id="pin-1" class="box5" (click)="openDialog5()"
+            <button id="pin-5" class="box5" (click)="openDialog5()"
             *ngIf = "(((todaysDate|date:'MM/dd/yy' )>=( event5.StartDate | date: 'MM/dd/yy' )
             && (todaysDate|date:'MM/dd/yy')<=(event5.EndDate | date: 'MM/dd/yy')))">
             </button>
@@ -164,7 +165,7 @@
 
                 <!-- Pin 6-->
 					<div *ngIf = "event6 != undefined || event6 != null">
-            <button id="pin-1" class="box6" (click)="openDialog6()"
+            <button id="pin-6" class="box6" (click)="openDialog6()"
             *ngIf = "(((todaysDate|date:'MM/dd/yy' )>=( event6.StartDate | date: 'MM/dd/yy' )
             && (todaysDate|date:'MM/dd/yy')<=(event6.EndDate | date: 'MM/dd/yy')))">
             </button>
@@ -179,7 +180,7 @@
 
                 <!-- Pin 7-->
 					<div *ngIf = "event7 != undefined || event7 != null">
-            <button id="pin-1" class="box7" (click)="openDialog7()"
+            <button id="pin-7" class="box7" (click)="openDialog7()"
             *ngIf = "(((todaysDate|date:'MM/dd/yy' )>=( event7.StartDate | date: 'MM/dd/yy' )
             && (todaysDate|date:'MM/dd/yy')<=(event7.EndDate | date: 'MM/dd/yy')))">
             </button>
@@ -236,7 +237,7 @@
   </a>
   <br>
   <br>
-  <label class="labela"> Click the Image To Join our Google Meet/Zoom!</label>
+  <label class="labelz"> Click the Image To Join our Google Meet/Zoom!</label>
 </ng-template>
 <ng-template #callAPIDialog2>
   <a href={{event2.eventLink}} target="_blank">
@@ -370,10 +371,11 @@
 	<div class="container">
 		<div class="row">
         <div class="showz">
-           <p> UAPSA's Exhibit</p>
-           <button class="buttun" (click)="openDialogo()">UAPSA's Exhibit!</button>
+           <p> UAPSA's Showroom</p>
+           <button class="buttun" (click)="openDialogo()">UAPSA's Showroom!</button>
           </div>
-			<div class="wow fadeInLeft col-md-4 col-sm-4" data-wow-delay="0.3s">
+          <div class="merchzz">
+			<div class="wow fadeInLeft col-md-4 col-sm-4 tonkss" data-wow-delay="0.3s">
 				<carousel
 				class="teams"
 			[objectFit]="'cover'"
@@ -390,7 +392,7 @@
                 </div>
                 </carousel>
 			</div>
-
+    </div>
 			
 
 		</div>
@@ -398,7 +400,7 @@
 </section>
 <ng-template #callAPIDialogzz>
     <form #regform="ngForm" (ngSubmit)="onReg(regform)" class="center">
-    <h2 matDialogTitle class="tonks">Exhibit Register</h2>
+    <h2 matDialogTitle class="tonks">Showroom Register</h2>
     <label class="lbel">First Name</label><br>
       <input 
       type="text"
@@ -448,7 +450,12 @@
 
             <div class="wow fadeInUp col-md-6 col-sm-10" data-wow-delay="1.3s" >
                 <h2 class="articleHead">Our Latest Articles!</h2>
-                <h3 class="articleDesc">Quisque ut libero sapien. Integer tellus nisl, efficitur sed dolor at, vehicula finibus massa. Sed tincidunt metus sed eleifend suscipit.</h3>
+                <h3 class="articleDesc">
+                  The latest Articles talking about the latest events and news 
+              surrounding the Organization. Also read topics regarding the 
+              timely news related to Architecture. These Articles are posted
+              by UAPSA-UST themselves.
+                </h3>
 				<div class = "buttones">
 					<br>
 				  <button class="button-two wow fadeInUp" data-wow-delay="1.3s" (click)="onMoreArticles() "><span>See More</span></button>
@@ -457,22 +464,31 @@
             <div class="wow fadeInUp col-md-6 col-sm-10" data-wow-delay="1.6s">
                 <div *ngFor="let article of articles let i = index">
 
-                        <div class='module thumbnail' *ngIf = "i < 1">
-                          <a [routerLink]="['/article', article.id, article.title]">
-                          <img [src]="imageURL+article.PhotoFileName" alt="Avatar">
-                          <div class='date articleDesc'>
-                            <div>{{article.dateCreated | date: "dd"}}</div>
-                            <div>{{article.dateCreated | date: "MMM"}}</div>
-                          </div>
-                        <div class='content'>
-                          <div class="category">Article</div>
-                          <h2 class='title articleHead'>{{article.title}}</h2>
-                          <h3 class='sub-title articleDesc'>created by: {{article.authorName}}</h3>
-                          <p class="description articleHead">{{article.desc}}</p>
-                         </div>
-                        </a>
+                  <div class="articlezcard" *ngIf = "i < 1">
+                    <a [routerLink]="['/article', article.id, article.title]">
+                    <div class="articlezcardthumbnail">
+                      <img class="cardzimg" [src]="imageURL+article.PhotoFileName" alt="Avatar"/>
+                    </div>
+                  
+                    <div class="articlezcardcontent">
+                      
+                      <h2 class="articlezcardtitle">{{article.title}} </h2>
+                  
+                      <div class="articlezcardexcerpt">
+                        <p>
+                        {{article.desc}}
+                        </p>
                       </div>
+                  
+                      <div class="articlezcardmeta">
+                        <span class="articlezcardtimestamp"><i class="ion-clock"></i>{{article.dateCreated | date: "dd"}}</span>
+                        <span class="articlezcardcomments"><i class="ion-chatbubbles"></i>{{article.dateCreated | date: "MMM"}}</span>
+                        <span><div class="category">Article</div></span>
+                      </div>
+                    </div>
+                  </a>
 
+                  </div>
                 </div>
             </div>
 
@@ -524,7 +540,7 @@
                 <mat-tab label="Get to Know the Team!" > 
                     <br>
                     
-                    <button mat-raised-button (click)="openDialogz()">Team Members</button>  
+                    <button class="button-two wow fadeInUp" data-wow-delay="1.3s"(click)="openDialogz()"><span>Get to know the Team</span></button>
                 </mat-tab>
               </mat-tab-group>
         </div>

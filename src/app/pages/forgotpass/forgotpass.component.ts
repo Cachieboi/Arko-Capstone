@@ -14,7 +14,7 @@ export class ForgotpassComponent implements OnInit {
   }
 
   forgotPass(form: NgForm){
-    console.log(form)
+   
     
   }
 

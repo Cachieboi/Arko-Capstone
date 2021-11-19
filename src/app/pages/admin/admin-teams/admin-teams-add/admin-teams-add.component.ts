@@ -35,7 +35,7 @@ export class AdminTeamsAddComponent implements OnInit {
   
   addTeam(form: NgForm){
     const value = form.value;
-    console.log(value.year);
+   
     if(confirm("Are you Sure you want to Add this Event?")){
     var val ={
       id: value.id, name: value.name, position:value.position, section: value.section, 
@@ -43,7 +43,7 @@ export class AdminTeamsAddComponent implements OnInit {
     }
     this.tService.registerTeam(val).subscribe(
       data => {
-        console.log(data);
+       
         alert("Successfully Added")
         this.router.navigate(['dashboard/teams']);
       },
