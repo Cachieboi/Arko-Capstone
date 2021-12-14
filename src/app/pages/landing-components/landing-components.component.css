@@ -14,6 +14,7 @@ http://www.templatemo.com/tm-486-new-event
 
 .tenks{
   border-radius: 20px;
+  z-index:0;
 }
 .merchzz{
   width: 200vh;
@@ -1263,9 +1264,32 @@ h2 {
     width:100%;
     margin-top: 100px;
   }
-
+div.tonkss{
+  width: 200px;
+  margin-left: auto;
+  margin-right: auto;
+  display: block;
+}
+div.teamsz{
+  width: 200px;
+  margin-left: auto;
+  margin-right: auto;
+  display: block;
+  z-index: -1;
+}
 
 }
+
+.teamsz{
+  width:400px;
+  z-index: -1;
+}
+
+#callAPIDialog8{
+  z-index: 0;
+}
+
+
 
 .success {
   border-color: black;
@@ -1282,6 +1306,10 @@ h2 {
   margin-top: 10px;
   font-size: 13px;
   color: hsla(39, 100%, 50%, 0.8);
+ }
+
+ .midz{
+   text-align: center;
  }
 
  .labela{
@@ -2020,3 +2048,11 @@ button{
     background-color: darkorange;
   }
 
+  .front{
+    z-index: 1;
+  }
+
+  .glow:hover{
+    background-color: darkorange;
+    color: white;
+  }

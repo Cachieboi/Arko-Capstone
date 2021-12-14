@@ -6,5 +6,8 @@ export class Registrant{
         public ticket: String,
         public is_showroomRegistrant: Boolean,
         public is_superuser: Boolean,
-        public is_author: Boolean){}
+        public is_author: Boolean,
+        public watcherType: String,
+        public orgName: String,
+        public dateJoined: Date){}
 }

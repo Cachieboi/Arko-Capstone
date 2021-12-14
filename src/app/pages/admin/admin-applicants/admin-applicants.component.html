@@ -8,6 +8,7 @@
             <th>Name</th>
             <th>UST Email</th>
             <th>Student No.</th>
+            <th>Date Applied</th>
             <th></th>
           </tr>
           <tr
@@ -22,30 +23,34 @@
           {{applicant.studentNo}}
         </td>
         <td>
+          {{applicant.dateApplied | date: 'MMMM/dd/YYYY'}}
+        </td>
+        <td>
           <div>
             <button mat-raised-button (click)="openDialog(applicant.id)">Applicant Details</button>  
             
             <ng-template #callAPIDialog>
               <img class="centerz" src="https://uapsaust.com/assets/img/HEADER%20LOGO.png"><br><br>
-
+              <mat-dialog-content>
               Full Name: {{name}}<br>
               Ust Email: {{email}}<br>
-              Student No.: {{studentNo}}<br>
+              Student Number: {{studentNo}}<br>
               Year: {{year}}<br>
               Section: {{section}}<br>
               Sex: {{sex}}<br>
-              BirthDate: {{birthDate}}<br>
+              Birthdate: {{birthDate}}<br>
               Age: {{age}}<br>
-              Membershitp Status: {{membershipStatus}}<br>
+              Membership Status: {{membershipStatus}}<br>
               Contact: {{contact}}<br>
               Address: {{address}}<br>
-              FacebookLink {{facebookLink}}<br><br>
+              Facebook Link: {{facebookLink}}<br><br>
               What are you looking forward to in UAPSA?:<br>
               {{lookingForward}}<br><br>
               If given the chance, what type of events would you create for UAPSA - UST? Share us your innovative ideas!:<br>
               {{typeOfEvents}}<br><br>
               What topics are you interested for us to cover in our online webinars and talks?:<br>
-              {{topicsIntrested}}    
+              {{topicsIntrested}}  
+            </mat-dialog-content>
            </ng-template>
           </div>
         </td>
@@ -53,7 +58,7 @@
           
         </table>
         <pagination-controls (pageChange)="p = $event" ></pagination-controls>
-        <button (click)="exportElmToExcel(applicants)">Archive Applicants</button>
+        <button mat-raised-button (click)="exportElmToExcel(applicants)">Archive Applicants</button>
         <button mat-raised-button (click)="openDialogz()">Applicants Report</button> 
     </div>
    
@@ -62,25 +67,46 @@
 
 
 <ng-template #callAPIDialogz>
+  <div class="middle">
+  <h1 class="fontz">Applicants Report</h1>
+  <p class="font">In this Table you will be able to see the Full Details of the Applicants</p>
+  </div>
+  <div>
+    <form (ngSubmit)="applyFilter(f)" #f="ngForm">
+    <mat-form-field appearance="fill">
+      <mat-label>Enter a date range</mat-label>
+      <mat-date-range-input [rangePicker]="picker">
+        <input matStartDate placeholder="Start date"
+        ngModel name ="startzDate">
+        <input matEndDate placeholder="End date"
+        ngModel name ="endzDate">
+      </mat-date-range-input>
+      <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+      <mat-date-range-picker #picker></mat-date-range-picker>
+    </mat-form-field>
+    <button type="submit" mat-raised-button>Filter</button>
+  </form>
+  </div>
   <table #userTable>
     <tr>
       <th>Name</th>
       <th>UST Email</th>
-      <th>UST Student No.</th>
+      <th>UST Student Number</th>
       <th>Year Level</th>
       <th>Sex</th>
       <th>Section</th>
-      <th>Birthday</th>
+      <th>Birthdate</th>
       <th>Member Status</th>
-      <th>Contact No.</th>
+      <th>Contact Number</th>
       <th>Address</th>
       <th>Facebook Link</th>
       <th>What are you looking forward to in UAPSA?</th>
       <th>If given the chance, what type of events would you create for UAPSA - UST? Share us your innovative ideas!</th>
       <th>What topics are you interested for us to cover in our online webinars and talks?</th>
+      <th>Date Applied</th>
     </tr>
     <tr
-    *ngFor = "let applicant of applicants">
+    *ngFor = "let applicant of applicantsz">
    <td>
      {{applicant.name}}
   </td>
@@ -123,8 +149,11 @@
   <td>
     {{applicant.topicsIntrested}}
   </td>
+  <td>
+    {{applicant.dateApplied | date: 'MMMM/dd/YYYY'}}
+  </td>
     </tr>
-    
+  
   </table>
    
 </ng-template>

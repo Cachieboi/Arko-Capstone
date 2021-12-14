@@ -15,4 +15,5 @@ export interface applicant {
     lookingForward: String;
     typeOfEvents: String;
     topicsIntrested: String;
+    dateApplied: Date;
 }

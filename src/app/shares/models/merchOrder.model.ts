@@ -12,4 +12,5 @@ export interface order {
     modeOfPayment: String;
     whatMerchNext: String;
     price: number;
+    dateOrdered: Date;
 }

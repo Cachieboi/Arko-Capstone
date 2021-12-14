@@ -37,3 +37,21 @@
     overflow: none;
     background: white !important;
   }
+
+  .flow{
+    overflow-y: auto;
+  }
+
+  .middle{
+    text-align: center;
+  }
+
+  .fontz{
+    font-family: 'grossregular';
+  }
+
+  .font{
+    font-family: 'gravityregular';
+  }
+
+  

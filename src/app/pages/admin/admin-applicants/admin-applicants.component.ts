@@ -5,6 +5,7 @@ import { DatePipe } from '@angular/common';
 import { applicant } from 'src/app/shares/models/applicant.mode';
 import {MatDialog} from '@angular/material/dialog';
 import { StringLiteralLike } from 'typescript';
+import { NgForm } from '@angular/forms';
 
 @Component({
   selector: 'app-admin-applicants',
@@ -20,10 +21,11 @@ export class AdminApplicantsComponent implements OnInit {
 @ViewChild('userTable') userTable: ElementRef;
   ngOnInit(): void {
     this.showApplicants();
-
+    this.showApplicantsz();
   }
   @ViewChild('callAPIDialog') callAPIDialog: TemplateRef<any>; 
   @ViewChild('callAPIDialogz') callAPIDialogz: TemplateRef<any>; 
+  pipe = new DatePipe('en-US');
 
   p: number = 1;
   applicants: applicant[] = [];
@@ -38,6 +40,13 @@ export class AdminApplicantsComponent implements OnInit {
     this.fService.GET_members().subscribe((data=>{
       this.applicants = data;
       this.applicants.reverse();
+    }))
+  }
+
+  showApplicantsz(){
+    this.fService.GET_members().subscribe((data=>{
+      this.applicantsz = data;
+      this.applicantsz.reverse();
     }))
   }
 
@@ -125,6 +134,24 @@ openDialogz() {
              
           }
       }
+  })
+}
+applicantsz: applicant[] = [];
+applyFilter(form : NgForm) {
+  console.log(form.value.startzDate);
+
+  const startuDate = this.pipe.transform(form.value.startzDate, 'MM/dd/YYYY')
+  const enduDate = this.pipe.transform(form.value.endzDate, 'MM/dd/YYYY')
+
+  this.fService.GET_members().subscribe(data=>{
+   
+    this.applicantsz = data.reverse().filter(data=>{
+      const dateJoinedz = this.pipe.transform(data.dateApplied, 'MM/dd/YYYY')
+      return dateJoinedz >= startuDate && dateJoinedz <= enduDate
+    
+      
+    }) 
+    
   })
 }
 

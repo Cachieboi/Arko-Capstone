@@ -28,7 +28,7 @@ export class RouteGuardGuard implements CanActivate{
 
   canActivateChild(route: ActivatedRouteSnapshot, state: RouterStateSnapshot) {
    
-    if (this.superuser == true) {
+    if (this.superuser == 'true') {
      
       return true;
     } else {

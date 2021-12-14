@@ -8,6 +8,7 @@
     color: var(--navbar-scroll-text);
     -webkit-box-shadow: var(--navbar-scroll-shadow);
     box-shadow: var(--navbar-scroll-shadow);
+    z-index: 1;
     }
   
     .custom-navbar .navbar-brand {

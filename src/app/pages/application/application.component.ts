@@ -26,8 +26,8 @@ export class ApplicationComponent implements OnInit {
   id: Number;
   onSubmit(form: NgForm){
     const value = form.value
-
-   
+    const dateApplied = new Date();
+    
     if(confirm("Are you Sure you want to Submit??")){
       var val = {
         id: this.id,
@@ -36,7 +36,7 @@ export class ApplicationComponent implements OnInit {
         birthDate: value.birthDate, age: value.age, membershipStatus: value.membershipStatus,
         contact: value.contact, address: value.address, facebookLink: value.facebookLink,
         lookingForward: value.lookingForward, typeOfEvents: value.typeOfEvents,
-        topicsIntrested: value.topicsIntrested
+        topicsIntrested: value.topicsIntrested, dateApplied: dateApplied
       }
       this.fService.registerMember(val).subscribe((data=>{
        

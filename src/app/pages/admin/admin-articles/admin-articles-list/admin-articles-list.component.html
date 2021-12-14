@@ -68,7 +68,9 @@
           <div>
             <button mat-raised-button (click)="openDialog(article.id)">Article Content</button>  
             <ng-template #callAPIDialog>
-           <p [innerHTML]="article.content"></p>
+              <mat-dialog-content>
+           <p [innerHTML]="article.content" class="flow"></p>
+           </mat-dialog-content>
            </ng-template>
           </div>
         </td>

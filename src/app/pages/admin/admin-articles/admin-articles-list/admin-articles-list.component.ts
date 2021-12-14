@@ -34,7 +34,7 @@ export class AdminArticlesListComponent implements OnInit {
    
   }
   @ViewChild('callAPIDialog') callAPIDialog: TemplateRef<any>; 
-  @ViewChild('callAPIDialogz') callAPIDialogz: TemplateRef<any>; 
+ 
 
   showArticles(){
     this.Arservice.GET_articles().subscribe(data=>{
@@ -97,7 +97,7 @@ export class AdminArticlesListComponent implements OnInit {
     this.Arservice.GET_article(id).subscribe((data=>{
       this.content = data.content
     }))
-    let dialogRef = this.dialog.open(this.callAPIDialogz,{
+    let dialogRef = this.dialog.open(this.callAPIDialog,{
       width: '400px',
 
     });

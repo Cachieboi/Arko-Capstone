@@ -56,13 +56,15 @@ export class MerchappComponent implements OnInit {
   final: number;
   onSubmit(form: NgForm){
     const value = form.value
+    const dateOrdered = new Date()
     if(confirm("Are you Sure you want to Submit??")){
       var val = {
         id: this.id,
         name: value.name, ustEmail: value.ustEmail, year: value.year.level,
         section: value.section, studentNo: value.studentNo, merchName: this.mname,
         quantity: value.quantity,  contactNo: value.contactNo, address: value.address,
-        modeOfPayment: value.modeOfPayment, whatMerchNext: value.whatMerchNext, price : this.price * value.quantity
+        modeOfPayment: value.modeOfPayment, whatMerchNext: value.whatMerchNext, price : this.price * value.quantity,
+        dateOrdered: dateOrdered
       }
       this.fService.registerOrder(val).subscribe((data=>{
         alert("Successfully Submitted your Order!")

@@ -59,30 +59,33 @@
 	<div class="container">
     <button *ngIf="events.length >0" class="btn success" (click)="openDialog8()">Calendar of Activities</button>
     <br>
-    
-   <div class="row">
-			<div class="wow fadeInUp col-md-6 " data-wow-delay="0.6s">
-        <h1 class="merchtitle">Merchandise</h1>
-                <carousel
-				class="teams"
-			[objectFit]="'cover'"
-			[height]="400"
-			[autoplay]="true"
-			[loop]="true"
-			[cellsToShow]="1"
-			[cellsToScroll]="1"
-			[arrowsOutside]="true"
-			arrowsTheme="dark">
-                <div class=" carousel-cell" *ngFor="let merch of merchs index i">
-				<a [routerLink]="['/order', merch.id]">
-					<img class="card-image" [src]="imageURL+merch.PhotoFileName" alt="">
-                        <h2 class="card-title carousel-cell">{{merch.mname}}</h2>
-                        <p class="card-price carousel-cell">{{merch.desc}}</p>
-                        <button class="card-action carousel-cell">Order Now</button>
-					</a>
-                </div>
-                </carousel>
-			</div>
+    <div class="row">
+      <div class="wow fadeInUp col-md-6 demo" data-wow-delay="0.6s">
+  <h1 class="merchtitle">Merchandise</h1>
+  <div class="teamsz">
+    <carousel
+    [objectFit]="'cover'"
+    class="testi"
+    [height]="400"
+    [autoplay]="true"
+    [loop]="true"
+    [cellsToShow]="1"
+    [cellsToScroll]="1"
+    [arrows]="true"
+    arrowsTheme="dark"
+    [arrowsOutside]="true"
+    >
+    <div class=" carousel-cell" *ngFor="let merch of merchs ">
+      <a [routerLink]="['/order', merch.id]">
+        <img class="card-image" [src]="imageURL+merch.PhotoFileName" alt="">
+
+        </a>
+
+      </div>
+      </carousel>
+        </div>
+      </div>
+
 			<div class="wow fadeInUp col-md-6" data-wow-delay="1.6s">
         <h2 class="labelzz"><i>Click the Buildings!</i></h2>
 				<div class="responsive">
@@ -227,7 +230,7 @@
 					</div>
 				  </div>
 				</div>
-			</div>
+		</div>
 		
 </section>
 
@@ -416,7 +419,23 @@
       type="email"
       ngModel
       name="email"><br>
-    <button type="submit">Submit</button>
+      <label for="college">Status:</label>
+      <select class="form-control" id="college" [(ngModel)]="selectedValue" name="watcherType" required>
+        <option value="Guest">Guest</option>
+        <option value="Alumni">Alumni</option>
+        <option value="UST Student">UST Student</option>
+      </select>
+      <br>
+      <br>
+      <div *ngIf = "selectedValue == 'Guest'">
+    <label class="lbel">Organization/Institute Name</label><br>
+      <input 
+      type="text"
+      ngModel
+      name="orgName">
+    </div>
+    <button type="submit" [mat-dialog-close]=true>Submit</button>
+  
   </form>
   </ng-template>
   
@@ -438,7 +457,37 @@
     
   </form>
   <label class="labelz lbel">Haven't Registered yet?</label>
-  <button class="regzz"id="reg"(click)="openReg()">Register</button>
+  <button class="regzz"id="reg"(click)="openReg()" >Register</button>
+  </ng-template>
+
+  <ng-template #agreeFormz>
+    <div class="front">
+    <h2>End-User License Agreement (&quot;Agreement&quot;)</h2>
+<p>Last updated: November 22, 2021</p>
+<p>Please read this End-User License Agreement carefully before clicking the &quot;I Agree&quot; button, downloading or using Arko.</p>
+<h2>Entire Agreement</h2>
+<p>The Agreement constitutes the entire agreement between You and the Organizaton regarding your use of the Application and supersedes all prior and contemporaneous written or oral agreements between You and the Company.</p>
+<p>All The Details that you will provide upon registering will be kept secured by the Organization.</p>
+<p>The Data that will be kept wll be used for future reference of registry</p>
+<h2>Contact Us</h2>
+<p>If you have any questions about this Agreement, You can contact Us:</p>
+<ul>
+<li>By email: uapsa.archi@ust.edu.ph</li>
+</ul>
+    <br>
+    
+  
+<div class="midz">
+    <mat-checkbox 
+    class="example-margin"
+    (change) ="onChange($event)"
+    > I agree to the Terms and Conditions
+    </mat-checkbox>
+    <br>
+  <button type="submit" 
+  [disabled]="checkAgree == false" class="glow"(click)="openRegz()" [mat-dialog-close]=true >Submit</button>
+</div>
+</div>
   </ng-template>
 
 <!-- =========================

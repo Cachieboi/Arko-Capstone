@@ -132,20 +132,8 @@ onSend(form: NgForm){
 onReg(form: NgForm){
   
   if(confirm("Are you Sure you with your Input?")){
-    const value = form.value;
-    const newRegistrant = new RegisterUser(value.id, value.firstname, value.lastname,value.email,this.getRandomString(10));
-    this.Shservice.registerShowroom(newRegistrant).subscribe(
-      data => {
-      
-        alert("Successfully Registered")
-        alert("An Email will be sent to you containing your ticket")
-        
-      },
-      error => {
-        alert("There was an Error with Registering")
-      }
-       
-      );
+   
+
     }
 }
 

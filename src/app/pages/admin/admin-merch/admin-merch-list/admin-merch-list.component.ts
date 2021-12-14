@@ -27,18 +27,18 @@ export class AdminMerchListComponent implements OnInit {
     });
   }
 
-  deleteClick(merch){
-    if(confirm('Are you sure??')){
-      this.Mservice.DELETE_merch(merch.id).subscribe(data=>{
-        alert("Successfully Deleted The Merchandise");
-        window.location.reload();
-      },
-      error =>{
-        alert("There was an Error with Deleting the Merchandise")
-      })
-      
+    deleteClick(merch){
+      if(confirm('Are you sure??')){
+        this.Mservice.DELETE_merch(merch.id).subscribe(data=>{
+          alert("Successfully Deleted The Merchandise");
+          window.location.reload();
+        },
+        error =>{
+          alert("There was an Error with Deleting the Merchandise")
+        })
+        
 
-    } 
+      } 
+    }
+
   }
-
-}

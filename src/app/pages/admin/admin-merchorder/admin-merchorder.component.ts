@@ -5,6 +5,8 @@ import { ArchivingService } from 'src/app/shares/services/Archiving.service';
 import { DatePipe } from '@angular/common';
 import {MatDialog} from '@angular/material/dialog';
 import { toJSDate } from '@ng-bootstrap/ng-bootstrap/datepicker/ngb-calendar';
+import { StringLiteralLike } from 'typescript';
+import { NgForm } from '@angular/forms';
 
 @Component({
   selector: 'app-admin-merchorder',
@@ -20,7 +22,9 @@ export class AdminMerchorderComponent implements OnInit {
 
   ngOnInit(): void {
     this.showOrder();
+    this.showOrders();
   }
+  pipe = new DatePipe('en-US');
   @ViewChild('callAPIDialog') callAPIDialog: TemplateRef<any>;
   @ViewChild('callAPIDialogz') callAPIDialogz: TemplateRef<any>;  
   p: number = 1;
@@ -35,6 +39,12 @@ export class AdminMerchorderComponent implements OnInit {
     this.fService.GET_Orders().subscribe((data=>{
       this.orders = data;
       this.orders.reverse();
+    }))
+  }
+  showOrders(){
+    this.fService.GET_Orders().subscribe((data=>{
+      this.merchOrders = data;
+      this.merchOrders.reverse();
     }))
   }
   exportElmToExcel(order):void {
@@ -63,11 +73,13 @@ whatMerchNext: String;
 price: number
 name: String;
 merchName: String;
+email: String;
 quantity: Number;
 
 openDialog(id: Number) {
   this.fService.GET_Order(id).subscribe((data=>{
     this.name = data.name;
+    this.email = data.ustEmail
     this.merchName = data.merchName;
     this.quantity = data.quantity;
     this.year = data.year;
@@ -78,6 +90,7 @@ openDialog(id: Number) {
     this.whatMerchNext = data.whatMerchNext;
     this.studentNo = data.studentNo;
     this.price = data.price;
+   
   }))
   let dialogRef = this.dialog.open(this.callAPIDialog,{
     width: '400px',
@@ -113,6 +126,24 @@ openDialogz() {
             
           }
       }
+  })
+}
+merchOrders: order[] = [];
+applyFilter(form : NgForm) {
+  console.log(form.value.startzDate);
+
+  const startuDate = this.pipe.transform(form.value.startzDate, 'MM/dd/YYYY')
+  const enduDate = this.pipe.transform(form.value.endzDate, 'MM/dd/YYYY')
+
+  this.fService.GET_Orders().subscribe(data=>{
+   
+    this.merchOrders = data.reverse().filter(data=>{
+      const dateJoinedz = this.pipe.transform(data.dateOrdered, 'MM/dd/YYYY')
+      return dateJoinedz >= startuDate && dateJoinedz <= enduDate
+    
+      
+    }) 
+    
   })
 }
 }

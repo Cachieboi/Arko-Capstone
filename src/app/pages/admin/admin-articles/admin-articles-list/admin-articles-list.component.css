@@ -26,3 +26,12 @@
   .right{
     float: right;
   }
+
+  p{
+    font-family: 'quarklight';
+    font-style: justify;
+  }
+
+  .flow{
+    overflow-y: auto;
+  }

@@ -7,5 +7,8 @@ export interface registrantint {
     ticket: String,
     is_superuser:Boolean,
     is_author: Boolean,
-    is_showroomRegistrant: Boolean
+    is_showroomRegistrant: Boolean,
+    watcherType: String,
+    orgName: String,
+    dateJoined: Date
 }

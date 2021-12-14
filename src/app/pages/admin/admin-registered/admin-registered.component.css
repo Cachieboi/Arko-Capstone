@@ -32,3 +32,15 @@ body{
   overflow: none;
   background: white !important;
 }
+
+.middle{
+  text-align: center;
+}
+
+.fontz{
+  font-family: 'grossregular';
+}
+
+.font{
+  font-family: 'gravityregular';
+}

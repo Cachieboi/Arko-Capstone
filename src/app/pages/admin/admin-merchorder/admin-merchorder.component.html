@@ -8,6 +8,7 @@
             <th>Name</th>
             <th>Merch Name</th>
             <th>Quantity</th>
+            <th>Date Ordered</th>
           </tr>
           <tr
           *ngFor = "let order of orders | paginate: { itemsPerPage: 5, currentPage: p }">
@@ -21,23 +22,28 @@
           {{order.quantity}}
         </td>
         <td>
+          {{order.dateOrdered | date: 'MMMM/dd/YYYY'}}
+        </td>
+        <td>
           <div>
             <button mat-raised-button (click)="openDialog(order.id)">Order Details</button>  
             <ng-template #callAPIDialog>
+              <mat-dialog-content>
               <img class="centerz"src="https://uapsaust.com/assets/img/HEADER%20LOGO.png"><br><br>
               Name: {{name}}<br>
-              Merch Name: {{merchName}}<br>
+              Merchandise Name: {{merchName}}<br>
               Quantity: {{quantity}}<br>
+              Student Number: {{studentNo}}<br>
+              UST Email: {{email}}<br>
               Year: {{year}}<br>
               Section: {{section}}<br>
-              Contact No.: {{contactNo}}<br>
+              Contact Number: {{contactNo}}<br>
               Address: {{address}}<br>
               Price: {{price}}<br>
               Mode Of Payment: {{modeOfPayment}}<br>
-              Student No.: {{studentNo}}<br>
               What kind of merchandise do you want next?<br>
              {{whatMerchNext}}<br><br>
-    
+          </mat-dialog-content>
            </ng-template>
           </div>
         </td>
@@ -46,13 +52,33 @@
         </table>
         <pagination-controls (pageChange)="p = $event" ></pagination-controls>
         <button  mat-raised-button (click)="exportElmToExcel(orders)">Archive Merch Orders</button>
-        <button mat-raised-button (click)="openDialogz()">Applicants Report</button> 
+        <button mat-raised-button (click)="openDialogz()">Merch Order Report</button> 
     </div>
    
   </div>
   </body>
 
   <ng-template #callAPIDialogz>
+    <div class="middle">
+      <h1 class="fontz">Merchandise Orders Report</h1>
+      <p class="font">In this Table you will be able to see the Full Details of the Merchandise Ordered</p>
+      </div>
+    <div>
+      <form (ngSubmit)="applyFilter(f)" #f="ngForm">
+      <mat-form-field appearance="fill">
+        <mat-label>Enter a date range</mat-label>
+        <mat-date-range-input [rangePicker]="picker">
+          <input matStartDate placeholder="Start date"
+          ngModel name ="startzDate">
+          <input matEndDate placeholder="End date"
+          ngModel name ="endzDate">
+        </mat-date-range-input>
+        <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+        <mat-date-range-picker #picker></mat-date-range-picker>
+      </mat-form-field>
+      <button type="submit" mat-raised-button>Filter</button>
+    </form>
+    </div>
     <table #userTable>
       <tr>
         <th>Name</th>
@@ -60,16 +86,17 @@
         <th>Quantity</th>
         <th>Year</th>
         <th>Student No.</th>
-        <th>Studen Email</th>
+        <th>Student Email</th>
         <th>Contact No.</th>
         <th>Section</th>
         <th>Address</th>
         <th>Price</th>
         <th>Mode Of Payment</th>
         <th>What kind of merchandise do you want next?</th>
+        <th>Date Ordered</th>
       </tr>
       <tr
-      *ngFor = "let order of orders ">
+      *ngFor = "let order of merchOrders ">
      <td>
       {{order.name}}
     </td>
@@ -106,6 +133,9 @@
      <td>
       {{order.whatMerchNext}}
      </td>
+     <td>
+      {{order.dateOrdered | date: 'MMMM/dd/YYYY'}}
+    </td>
       </tr>
       
     </table>

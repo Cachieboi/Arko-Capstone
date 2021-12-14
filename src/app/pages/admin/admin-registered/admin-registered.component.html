@@ -1,12 +1,16 @@
 <body>
 <div class="container">
     <div class="main">
+      
         <h2>Registrants List</h2>
         <table #userTable>
           <tr>
             <th>First Name</th>
             <th>Last Name</th>
             <th>Email</th>
+            <th>Watcher Type</th>
+            <th>Organization/Institute Name</th>
+            <th>Date Registered</th>
           </tr>
           <tr
           *ngFor = "let registrant of arrayTest | paginate: { itemsPerPage: 5, currentPage: p }">
@@ -19,26 +23,59 @@
         <td>
           {{registrant.email}}
         </td>
+        <td>
+          {{registrant.watcherType}}
+        </td>
+        <td>
+          {{registrant.orgName}}
+        </td>
+        <td>
+          {{registrant.dateJoined | date: 'dd/MMMM/YYYY'}}
+        </td>
           </tr>
           
         </table>
         <pagination-controls (pageChange)="p = $event" ></pagination-controls>
-        <button (click)="exportElmToExcel(registrant)">Archive Registrants</button>
-        <button mat-raised-button (click)="openDialogz()">Applicants Report</button> 
+        <button mat-raised-button (click)="exportElmToExcel(registrant)">Archive Registrants</button>
+        <button mat-raised-button (click)="openDialogz()">Registrants Report</button> 
     </div>
    
   </div>
   </body>
 
   <ng-template #callAPIDialogz>
+    <div class="middle">
+      <h1 class="fontz">Registrants Report</h1>
+      <p class="font">In this Table you will be able to see the Full Details of the Registrants</p>
+      </div>
+    <div>
+      <form (ngSubmit)="applyFilter(f)" #f="ngForm">
+      <mat-form-field appearance="fill">
+        <mat-label>Enter a date range</mat-label>
+        <mat-date-range-input [rangePicker]="picker">
+          <input matStartDate placeholder="Start date"
+          ngModel name ="startzDate">
+          <input matEndDate placeholder="End date"
+          ngModel name ="endzDate">
+        </mat-date-range-input>
+        <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+        <mat-date-range-picker #picker></mat-date-range-picker>
+      </mat-form-field>
+      <button type="submit" mat-raised-button>Filter</button>
+    </form>
+    </div>
+    
     <table #userTable>
       <tr>
         <th>First Name</th>
         <th>Last Name</th>
         <th>Email</th>
+        <th>Watcher Type</th>
+        <th>Organization/Institute Name</th>
+        <th>Date Registered</th>
       </tr>
       <tr
-      *ngFor = "let registrant of arrayTest">
+      *ngFor = "let registrant of arrayzTest">
       <td>
         {{registrant.firstname}}
      </td>
@@ -48,6 +85,15 @@
      <td>
        {{registrant.email}}
      </td>
+     <td>
+      {{registrant.watcherType}}
+    </td>
+    <td>
+      {{registrant.orgName}}
+    </td>
+    <td>
+      {{registrant.dateJoined | date: 'dd/MMMM/YYYY'}}
+    </td>
       </tr>
       
     </table>

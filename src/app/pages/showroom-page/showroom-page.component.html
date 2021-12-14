@@ -21,7 +21,7 @@
 <div class="content-wrapper" *ngFor="let showroom of showrooms | paginate: { itemsPerPage: 3, currentPage: p } let i = index ">
 
   <div class="news-card">
-    <a href="#" class="news-cardcard-link"></a>
+    <a [routerLink]="['/Showroom', showroom.id, showroom.Title]">
     <img [src]="imageURL + showroom.PhotoFileName" alt="" class="news-cardimage">
     <div class="news-cardtext-wrapper">
       <h2 class="news-cardtitle">{{showroom.Title}}</h2>
@@ -30,6 +30,7 @@
         <div class="news-cardpost-date">{{showroom.StartDate | date: 'MMMM dd YYYY'}}</div>
       </div>
     </div>
+    </a>
   </div>
 </div>
 

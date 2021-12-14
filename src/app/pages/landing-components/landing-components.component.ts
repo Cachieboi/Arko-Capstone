@@ -18,6 +18,7 @@ import { RegisterUser } from 'src/app/shares/models/RegisterUser.model';
 import { regis } from 'src/app/shares/models/regis.model';
 import {CookieService} from 'ngx-cookie-service';
 import { AccountService } from 'src/app/shares/services/Account.service';
+import { MatCheckboxChange } from '@angular/material/checkbox';
 
 
 @Component({
@@ -46,7 +47,7 @@ export class LandingComponentsComponent implements OnInit {
     this.showShowrooms();
     this.showArticles();
     this.showTeams();
-    
+
   }
 
  
@@ -64,6 +65,7 @@ export class LandingComponentsComponent implements OnInit {
   @ViewChild('callAPIDialogpo') callAPIDialogpo: TemplateRef<any>; 
   @ViewChild('callAPIDialogzz') callAPIDialogzz: TemplateRef<any>; 
   @ViewChild('callAPIDialog8') callAPIDialog8: TemplateRef<any>;
+  @ViewChild('agreeFormz') agreeFormz: TemplateRef<any>;
 
   event1: eventint;
   event2: eventint;
@@ -73,6 +75,7 @@ export class LandingComponentsComponent implements OnInit {
   event6: eventint;
   event7: eventint;
 
+  selectedValue: string = '';
 
   merchs: merch[] = [];
   imageURL = this.Eservice.PhotoUrl;
@@ -339,22 +342,24 @@ showrooms: showroom[] = [];
 }
 
 openReg(){
-  let dialogRef = this.dialog.open(this.callAPIDialogzz,{
-    width: '300px',
-    height: '300px',
 
+  let dialogRefz = this.dialog.open(this.agreeFormz,{
+    width: '700px',
+    height: '600px'
+    
   });
-    dialogRef.afterClosed().subscribe(result => {
-        if (result !== undefined) {
-            if (result !== 'no') {
-              const enabled = "Y"
-        
-            } else if (result === 'no') {
-            
-            }
-        }
-    })
 }
+
+openRegz(){
+
+  let dialogRef = this.dialog.open(this.callAPIDialogzz,{
+    width: '500px',
+    height: '500px',
+  
+  });
+}
+  
+
 
 ticket:String ="";
 getRandomString(length) {
@@ -384,21 +389,40 @@ onSend(form: NgForm){
 
 accounts: any[] = []; 
 onReg(form: NgForm){
-  this.Aservice.GET_accounts().subscribe(data=>{
-    this.accounts=data.reverse();
-  });
+  const value = form.value;
+  const dateJoined = new Date();
   if(confirm("Are you Sure you with your Input?")){
-    const value = form.value;
-    const newRegistrant = new RegisterUser(value.id, value.firstname, value.lastname,value.email,this.getRandomString(10));
+    if(value.watcherType == "Guest"){
+    const newRegistrant = new RegisterUser(value.id, value.firstname, value.lastname,value.email,this.getRandomString(10),value.watcherType,value.orgName, dateJoined);
     this.Shservice.registerShowroom(newRegistrant).subscribe(
       data => {
-       
+
         alert(data.toString());
-    
       },
-       
       );
   }
+  if(value.watcherType == "UST Student" ||value.watcherType == "Alumni"){
+    const orgName = "N/A";
+    const newRegistrant = new RegisterUser(value.id, value.firstname, value.lastname,value.email,this.getRandomString(10),value.watcherType,orgName, dateJoined);
+    this.Shservice.registerShowroom(newRegistrant).subscribe(
+      data => {
+
+        alert(data.toString());
+      },
+      );
+  }
+}
+}
+
+checkAgree: boolean = false;
+
+onChange(ob: MatCheckboxChange){
+      if (ob.checked){
+        this.checkAgree = true;    
+      }else{
+        this.checkAgree = false;
+       
+      }
 }
 
 openDialog8() {
@@ -419,4 +443,14 @@ openDialog8() {
   })
 }
 
+
+yearLevel = [
+  {level: 'Guest'},
+  {level: 'Alumni'},
+  {level: 'Student(UST)'},
+  {level: 'Student(Other School)'},
+];
+
 }
+
+
